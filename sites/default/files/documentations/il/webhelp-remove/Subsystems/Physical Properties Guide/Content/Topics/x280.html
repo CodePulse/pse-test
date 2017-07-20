@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties Guide|Using Physical Properties for Simple Materials">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The set of physical properties supported by gPROMS</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Libraries/gPROMS Model Library/Content/Resources/TableStyles/Nomenclature_dropdown.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/x280.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Physical Properties Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c257.html">Using Physical Properties for Simple Materials</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The set of physical properties supported by gPROMS</span>
+            </div>
+        </div>
+        <h1><a name="physicalpropertiessupportedbygPROMS"></a>The set of physical properties supported by gPROMS</h1>
+        <p>External physical property packages are interfaced to gPROMS via the latter's Physical Property Interface (PPI). The PPI recommends that a
+    <i class="emphasis">minimal</i> set of physical property calculations are supported by any such external package. These are listed in the tables below and
+ include most of the common thermophysical and transport property calculations used in the chemical industry.</p>
+        <div class="caution" data-mc-autonum="&lt;b&gt;Caution &lt;/b&gt;"><span class="autonumber"><span><b>Caution </b></span></span>
+            <p>Always consult the documentation provided with the physical property interface that you intend to use.</p>
+        </div>
+        <p>The physical properties listed in the tables below represent a minimal set of properties that physical property packages, interfaced to gPROMS, are
+ recommended to support.</p>
+        <p>There is no guarantee that all (or any) of these properties are actually supported by a particular interface. Also, some interfaces may
+ provide access to properties other than those listed in the tables below.</p>
+        <p>The units of measurement of the physical properties and the various quantities needed for their calculation may also vary from package to
+ package.</p>
+        <p>There are a few points to note about the methods and their arguments listed in <a href="#Constants_and_pure_component_properties" class="MCXref xref selected">"Constants and pure component properties"</a> and <a href="#Phase_properties" class="MCXref xref selected">"Phase properties"</a> :</p>
+        <ul>
+            <li value="1">
+                <p><i class="emphasis">Scalar</i> methods (e.g. LiquidEnthalpy) return a single value, typically corresponding to a property of the mixture.</p>
+            </li>
+            <li value="2">
+                <p><i class="emphasis">Vector</i> methods (e.g. MolecularWeight) return an array of results, each element of which corresponds to a different
+ component in the mixture.</p>
+            </li>
+            <li value="3">
+                <p>Most methods receive three arguments, namely <i class="emphasis">T</i>, <i class="emphasis">P</i> and <i class="emphasis">n</i>.</p>
+                <ul>
+                    <li value="1">
+                        <p><i class="emphasis">T</i> is a scalar quantity that corresponds to the temperature and should be in Kelvin.</p>
+                    </li>
+                    <li value="2">
+                        <p><i class="emphasis">P</i> is a scalar quantity that corresponds to the pressure and should be in Pascal.</p>
+                    </li>
+                    <li value="3">
+                        <p><i class="emphasis">n</i> is an array-valued expression that corresponds to the number of moles of the components in the mixture.</p>
+                    </li>
+                </ul>
+            </li>
+            <li value="4">
+                <p>The enthalpy, entropy, internal energy and volume calculations return <i class="emphasis">total</i> quantities. However, the corresponding
+        <i class="emphasis">specific</i> quantities can be obtained by normalising the mole numbers <em>n</em>,so that molar fractions are passed as arguments to the
+ various methods.</p>
+            </li>
+            <li value="5">
+                <p>SurfaceTension is a special case: n<sub>L</sub> and n<sub>V</sub> are the number of moles of, respectively, the
+ liquid and vapour phases in contact with each other.</p>
+            </li>
+            <li value="6">
+                <p>For the vapour phase properties, the spelling Vapor<i class="emphasis">XX</i> is also recognised as an alternative to
+ Vapour<i class="emphasis">XX</i>.</p>
+            </li>
+        </ul>
+        <div>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption><a name="Constants_and_pure_component_properties"></a>Constants and pure component properties</caption>
+                <col class="TableStyle-GeneralTable-Column-Column1" />
+                <col class="TableStyle-GeneralTable-Column-Column1" />
+                <col class="TableStyle-GeneralTable-Column-Column1" />
+                <col class="TableStyle-GeneralTable-Column-Column1" />
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Property Name</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Inputs</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">BoilingPoint</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Boiling point</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Components</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">The names of all components</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">CriticalPressure</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Critical pressure</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">CriticalTemperature</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Critical temperature</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">CriticalVolume</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Critical volume</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">EnthalpyOfFormation</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Enthalpy of formation</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">IdealGasEnthalpyOfFormationAt25C</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Ideal gas enthalpy of formation at 25 °C</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">IdealGasGibbsFreeEnergyOFFormationAt25C</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Ideal gas gibbs free energy of formation at 25 °C</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">IdealGasStandardEntropyAt25C</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Ideal gas standard entropy at 25 °C</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">MeltingPoint</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Melting point</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">MolecularWeight</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Molecular weight</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">NumberOfComponents</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">&#160;</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Number of components</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">VapourPressure</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1"><i class="emphasis">T</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Pure component vapour pressures</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Vector</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption><a name="Physical_properties"></a>Phase properties</caption>
+                <col class="TableStyle-GeneralTable-Column-Column1" />
+                <col class="TableStyle-GeneralTable-Column-Column1" />
+                <col class="TableStyle-GeneralTable-Column-Column1" />
+                <col class="TableStyle-GeneralTable-Column-Column1" />
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Property Name</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Inputs</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">LiquidActivityCoefficient</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Liquid activity coefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">LiquidActivityCoefficientSym</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Liquid activity coefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ActivityCoefficientsAsymConc
+</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n1, n2</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Asymmetric concentration-based liquid activity coefficients at infinite dilution</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ActivityCoefficientsAsymConcLn
+</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n1, n2</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Asymmetric concentration-based liquid activity coefficients at infinite dilution</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ActivityCoefficientsAsymMolal
+</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n1, n2</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Asymmetric molality-based liquid activity coefficients at infinite dilution</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ActivityCoefficientsAsymMolalLn
+</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n1, n2</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Asymmetric molality-based liquid activity coefficients at infinite dilution</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ActivityCoefficientsAsymMolar
+</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n1, n2</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Asymmetric composition-based liquid activity coefficients at infinite dilution</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ActivityCoefficientsAsymMolarLn
+</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n1, n2</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Asymmetric composition-based liquid activity coefficients at infinite dilution</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">LiquidCompressibilityFactor </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Compressibility factor of the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">LiquidCpCv</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Ratio of <i class="emphasis">C<sub>P</sub></i> to <i class="emphasis">C<sub>V</sub></i> in the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">LiquidDensity</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Density of the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">LiquidDiffusionCoefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Binary liquid diffusion coefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                            <p>LiquidEnergy</p>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Total internal energy of the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">LiquidEnthalpy</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Total enthalpy of the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">LiquidEntropy</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Total entropy of the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">LiquidExcessGibbsEnergy</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Excess Gibbs energy of the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">LiquidExcessEnthalpy </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Excess enthalpy of the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">LiquidFugacityCoefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Liquid fugacity coefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">LiquidFugacityCoefficientsLn</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Logarithmic liquid fugacity coefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">LiquidGibbsFreeEnergy</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Total Gibbs energy of the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">LiquidHeatCapacity</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Liquid heat capacity at constant pressure</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">LiquidPartialEnthalpy</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Partial enthalpy of the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">LiquidSpeedOfSound</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Speed of sound in the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">LiquidThermalConductivity</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Thermal conductivity of the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">LiquidViscosity</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Viscosity of the liquid phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">LiquidVolume</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Total liquid volume</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">SurfaceTension</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n<sub>L</sub>,n<sub>V</sub></i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Surface tension of the mixture</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">VapourCompressibilityFactor </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Compressibility factor of the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">VapourCpCv</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Ratio of <i class="emphasis">C<sub>P</sub></i> to <i class="emphasis">C<sub>V</sub></i> in the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">VapourDensity</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Density of the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">VapourDiffusionCoefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Binary vapour diffusion coefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                            <p>VapourEnergy</p>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Total internal energy of the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">VapourEnthalpy</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Total enthalpy of the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">VapourEntropy</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Total entropy of the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">VapourExcessGibbsEnergy</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Excess Gibbs energy of the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">VapourExcessEnthalpy </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Excess enthalpy of the vapour</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">VapourFugacityCoefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Vapour fugacity coefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">VapourFugacityCoefficientsLn</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Logarithmic vapour fugacity coefficients</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">VapourGibbsFreeEnergy</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Total Gibbs energy of the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">VapourHeatCapacity</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Vapour heat capacity at constant pressure</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">VapourPartialEnthalpy</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Partial enthalpy of the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">VapourSpeedOfSound</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Speed of sound in the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">VapourThermalConductivity</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Thermal conductivity of the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">VapourViscosity</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Viscosity of the vapour phase</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">VapourVolume</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1"><i class="emphasis">T,P,n</i>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Total vapour volume</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Scalar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>The methods presented in <a href="#Equilibrium_flashes" class="MCXref xref selected">"Equilibrium flashes"</a> perform equilibrium flash calculations. The following points should be noted:</p>
+        <ul>
+            <li value="1">
+                <p>The number of moles <em>n</em> in the inputs list refers to the overall composition of the mixture.</p>
+            </li>
+            <li value="2">
+                <p>The content and size of the results array, returned by the vector methods, will depend on the particular physical property package that is
+ being used. It is highly recommended to  refer to the appropriate documentation (see also: the <a href="x866.html">Multiflash
+ physical property interface</a> for a particular example).</p>
+            </li>
+        </ul>
+        <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+            <caption><a name="Equilibrium_flashes"></a>Equilibrium flashes</caption>
+            <thead>
+                <tr class="TableStyle-GeneralTable-Head-Header1">
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Property Name</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Inputs</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">PHFlash</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">P,H,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Equilibrium pressure and enthalpy flash</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">PHFlashExtended</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">P,H,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Equilibrium pressure and enthalpy flash</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">PHTemperature</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">P,H,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Equilibrium temperature of a pressure and enthalpy flash</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">PHVolume</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">P,H,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Equilibrium volume of a pressure and enthalpy flash</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">PSFlash</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">P,S,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Equilibrium pressure and entropy flash</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">PVFlash</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">P,V,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Equilibrium pressure and volume flash</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p class="p_2">PVFFlash</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p><i>P,Vapour fraction,n</i>
+                        </p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>Equilibrium flash given pressure and vapour fraction. This flash is an alias for PVFMassFlash or PVFMolarFlash depending if mass or moles are the basis of the calculation.</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                        <p class="p_4">Vector</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">PVFMassFlash </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">P,Vapour mass fraction,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Equilibrium flash given pressure and vapour mass fraction</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">PVFMolFlash </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">P,Vapour molar fraction,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Equilibrium flash given pressure and vapour molar fraction</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">PVFVolFlash </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">P,Vapour volume fraction,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Equilibrium flash given pressure and vapour volume fraction</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">TPFlash</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Equilibrium temperature and pressure flash</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">TVFlash</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Equilibrium temperature and volume flash</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p class="p_2">TVFFlash</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p style="font-style: italic;">T,Vapour fraction,n</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>Equilibrium flash given temperature and vapour fraction. This flash is an alias for TVFMassFlash or TVFMolarFlash depending if mass or moles are the basis of the calculation.</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                        <p class="p_4">Vector</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">TVFMassFlash </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,Vapour mass fraction,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Equilibrium flash given temperature and vapour mass fraction</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">TVFMolFlash </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,Vapour molar fraction,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Equilibrium flash given temperature and vapour molar fraction</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">TVFVolFlash </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,Vapour volume fraction,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Equilibrium flash given temperature and vapour volume fraction</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">UVFlash</td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1"><i class="emphasis">U,V,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Equilibrium internal energy and volume flash</td>
+                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Vector</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The methods presented in <a href="#Mixture_properties" class="MCXref xref selected">"Mixture properties"</a> internally perform T,P equilibrium flash calculations. The following points should be noted:</p>
+        <ul>
+            <li value="1">
+                <p>The number of moles <em>n</em> in the inputs list refers to the overall composition of the mixture.</p>
+            </li>
+            <li value="2">
+                <p>The property methods, such as Enthalpy and Density, return the values for the whole system (and not for a specific phase as is the case for the
+ methods listed in the table on <a href="#Physical_properties" class="MCXref xref selected">"Phase properties"</a>). </p>
+                <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />The total property values over all phases is are calculated according to the following formulae.</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <dl>
+                            <dt>For Energy, Enthalpy, Entropy, GibbsFreeEnergy, HeatCapacity and Volume:</dt>
+                        </dl>
+                        <dd>
+                            <p>
+                                <img src="../GeneratedImages/Equations/Equation1.png" style="width: 145px;height: 56px;" alt="" class="MCEquation_0 mcReset" />
+                            </p>
+                            <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_" data-mc-targets="Eqn_mass_balance"><img class="MCToggler_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+                            </p>
+                            <table style="mc-table-style: url('../../../../Libraries/gPROMS Model Library/Content/Resources/TableStyles/Nomenclature_dropdown.css');" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Entropy_and_friends">
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column3" style="width: 204px;" />
+                                <tbody>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">X<sub>T</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Total property</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">X<sub>mi</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Molar property in phase <span class="InlineEquation">i</span></td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">N</span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Total number of moles</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">n<sub>p</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Number of phases</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1"><span class="InlineEquation">θ<sub>i</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyA-Column3-Body1">Molar  fraction of phase <span class="InlineEquation">i</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </dd>
+                        <dl>
+                            <dt>For Density:</dt>
+                        </dl>
+                        <dd>
+                            <p>
+                                <img src="../GeneratedImages/Equations/Equation2.png" style="width: 119px;height: 60px;" alt="" class="MCEquation_0 mcReset" />
+                            </p>
+                            <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_" data-mc-targets="Density"><img class="MCToggler_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+                            </p>
+                            <table style="mc-table-style: url('../../../../Libraries/gPROMS Model Library/Content/Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Density">
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column3" style="width: 204px;" />
+                                <tbody>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">ρ<sub>T</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Total density</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">M<sub>w,i</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Molecular weight of component  <span class="InlineEquation">i</span></td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">V</span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Total volume</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">n<sub>c</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Number of components</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1"><span class="InlineEquation">z<sub>i</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyA-Column3-Body1">Total molar amount of component <span class="InlineEquation">i</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </dd>
+                        <dl>
+                            <dt>For CompressibilityFactor:</dt>
+                        </dl>
+                        <dd>
+                            <p>
+                                <img src="../GeneratedImages/Equations/Equation3.png" style="width: 88px;height: 34px;" alt="" class="MCEquation_0 mcReset" />
+                            </p>
+                            <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_" data-mc-targets="CompressibilityFactor"><img class="MCToggler_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+                            </p>
+                            <table style="mc-table-style: url('../../../../Libraries/gPROMS Model Library/Content/Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="CompressibilityFactor">
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column3" style="width: 204px;" />
+                                <tbody>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">P</span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Pressure</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">V</span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Total volume</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">N</span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Total number of moles</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">R</span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Universal gas constant</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1"><span class="InlineEquation">T</span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyA-Column3-Body1">Temperature</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </dd>
+                        <dl>
+                            <dt>For SpeedOfSound:</dt>
+                        </dl>
+                        <dd>
+                            <p>
+                                <img src="../GeneratedImages/Equations/Equation4.png" style="width: 147px;height: 60px;" alt="" class="MCEquation_0 mcReset" />
+                            </p>
+                            <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_" data-mc-targets="SpeedOfSound"><img class="MCToggler_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+                            </p>
+                            <table style="mc-table-style: url('../../../../Libraries/gPROMS Model Library/Content/Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="SpeedOfSound">
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+                                <col class="TableStyle-Nomenclature_dropdown-Column-Column3" style="width: 204px;" />
+                                <tbody>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                                            <img src="../GeneratedImages/Equations/Equation5.png" style="width: 35px;height: 27px;" alt="" class="MCEquation_0 mcReset" />
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Total speed of sound</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                                            <img src="../GeneratedImages/Equations/Equation6.png" style="width: 26px;height: 27px;" alt="" class="MCEquation_0 mcReset" />
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Speed of sound in phase <span class="InlineEquation">i</span></td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">ρ<sub>T</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Total density</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">ρ<sub>i</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Density of phase i</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">n<sub>p</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Number of phases</td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">α<sub>i</sub></span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Volume fraction of phase <span class="InlineEquation">i</span></td>
+                                    </tr>
+                                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1"><span class="InlineEquation">N</span>
+                                        </td>
+                                        <td class="TableStyle-Nomenclature_dropdown-BodyA-Column3-Body1">Total number of moles</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </dd>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+            <caption><a name="Mixture_properties"></a>Mixture properties</caption>
+            <thead>
+                <tr class="TableStyle-GeneralTable-Head-Header1">
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Property Name</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Inputs</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">CompressibilityFactor</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Compressibility factor </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">CpCv</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Ratio of <i class="emphasis">C<sub>P</sub></i> to <i class="emphasis">C<sub>V</sub></i></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Density</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Density</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Energy</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Internal energy</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Enthalpy</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Enthalpy</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Entropy</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Entropy</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">GibbsEnergy </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Gibbs energy</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">HeatCapacity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Heat capacity</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">SpeedOfSound</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Speed of sound</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">VapourPhaseFraction</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Vapour phase fraction of the mixture</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Volume</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Total volume of the mixture</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">VolumeFractionTemperature</td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2"><i class="emphasis">P, Vapour volume fraction, n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Temperature of the mixture</td>
+                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">Scalar</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The methods in <a href="#Phase_boundary_calculations" class="MCXref xref selected">"Phase boundary calculations "</a> allow the calculation of phase boundary properties for a given temperature or pressure and an overall mixture composition.</p>
+        <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+            <caption><a name="Phase_boundary_calculations"></a>Phase boundary calculations </caption>
+            <thead>
+                <tr class="TableStyle-GeneralTable-Head-Header1">
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Property Name</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Inputs</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">BubbleTemperature</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Bubble point temperature of the mixture</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">BubbleTemperatureCompositions</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Composition of the vapour phase</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">BubblePressure</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Bubble point pressure of the mixture</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">BubblePressureCompositions</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Composition of the vapour phase</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">DewTemperature</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Dew point temperature of the mixture</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">DewTemperatureCompositions</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Composition of the liquid phase</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Vector</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">DewPressure</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Dew point pressure of the mixture</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">DewPressureCompositions</td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2"><i class="emphasis">T,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Composition of the liquid phase</td>
+                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">Vector</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>In the table on <a href="#Phase_properties" class="MCXref xref selected">"Phase properties"</a>, </p>
+        <ul>
+            <li value="1">
+                <p>the method IsLiquidStable returns a Boolean result which is "true" if the phase is liquid and stable, otherwise the result is "false" and</p>
+            </li>
+            <li value="2">
+                <p>the method IsVapourStable returns a Boolean result which is "true" if the phase is vapour and stable, otherwise the result is "false".</p>
+            </li>
+        </ul>
+        <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+            <caption><a name="Phase_properties"></a>Phase properties</caption>
+            <thead>
+                <tr class="TableStyle-GeneralTable-Head-Header1">
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Property Name</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Inputs</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                    <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">IsLiquidStable</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Stability indicator for the liquid phase</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">IsVapourStable</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Stability indicator for the vapour phase</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Scalar</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">NumberOfPhases</td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1"><i class="emphasis">T,P,n</i>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Number of phases of the mixture</td>
+                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Scalar</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

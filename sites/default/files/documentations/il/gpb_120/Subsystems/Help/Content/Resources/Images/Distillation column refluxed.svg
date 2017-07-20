@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="12cm" height="15cm" viewBox="142 146 239 291" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <polygon style="fill: #ffffff" points="200,231.429 260,231.429 260,388.571 200,388.571 "/>
+    <path style="fill: #ffffff" d="M 200 231.429 C 230,200 260,231.429 260,231.429 L 200,231.429z"/>
+    <path style="fill: #ffffff" d="M 200 388.571 C 230,420 260,388.571 260,388.571 L 200,388.571z"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="200" y1="231.429" x2="200" y2="388.571"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="260" y1="231.429" x2="260" y2="388.571"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 200 231.429 C 230,200 260,231.429 260,231.429"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 200 388.571 C 230,420 260,388.571 260,388.571"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 5.6; stroke: #000000" x1="200" y1="247.143" x2="260" y2="247.143"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 5.6; stroke: #000000" x1="200" y1="255" x2="260" y2="255"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 5.6; stroke: #000000" x1="200" y1="262.857" x2="260" y2="262.857"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 5.6; stroke: #000000" x1="200" y1="357.143" x2="260" y2="357.143"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 5.6; stroke: #000000" x1="200" y1="365" x2="260" y2="365"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 5.6; stroke: #000000" x1="200" y1="372.857" x2="260" y2="372.857"/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="273.333" cy="173.333" rx="13.3333" ry="13.3333"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="273.333" cy="173.333" rx="13.3333" ry="13.3333"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="266.667,193.333 266.667,166.667 273.333,180 280,166.667 280,196.667 "/>
+    <polygon style="fill: #ffffff" points="278.333,196.667 280,200 281.667,196.667 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="278.333,196.667 280,200 281.667,196.667 "/>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="230,217.286 230,173.247 260,173.247 260,173.333 "/>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="286.667,173.333 307.667,173.333 307.667,231.429 269.736,231.429 "/>
+    <polygon style="fill: #000000" points="262.236,231.429 272.236,226.429 269.736,231.429 272.236,236.429 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="262.236,231.429 272.236,226.429 269.736,231.429 272.236,236.429 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="308" y1="231.426" x2="350.264" y2="231.426"/>
+    <polygon style="fill: #000000" points="357.764,231.426 347.764,236.426 350.264,231.426 347.764,226.426 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="357.764,231.426 347.764,236.426 350.264,231.426 347.764,226.426 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="286.667" y1="173.333" x2="351.293" y2="173.298"/>
+    <polygon style="fill: #000000" points="358.793,173.293 348.795,178.299 351.293,173.298 348.79,168.299 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="358.793,173.293 348.795,178.299 351.293,173.298 348.79,168.299 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:Segoe UI Light;font-style:normal;font-weight:300" x="360" y="160">
+    <tspan x="360" y="160">V(1)</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:Segoe UI Light;font-style:normal;font-weight:300" x="360" y="220">
+    <tspan x="360" y="220">D</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:Segoe UI Light;font-style:normal;font-weight:300" x="280" y="220">
+    <tspan x="280" y="220">R</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="144" y1="294" x2="190.264" y2="294.236"/>
+    <polygon style="fill: #000000" points="197.764,294.274 187.739,299.223 190.264,294.236 187.79,289.223 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="197.764,294.274 187.739,299.223 190.264,294.236 187.79,289.223 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:Segoe UI Light;font-style:normal;font-weight:300" x="160" y="280">
+    <tspan x="160" y="280">F</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="251.432" y1="425.742" x2="251.432" y2="395.478"/>
+    <polygon style="fill: #000000" points="251.432,433.242 246.432,423.242 251.432,425.742 256.432,423.242 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="251.432,433.242 246.432,423.242 251.432,425.742 256.432,423.242 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="208.19" y1="434.77" x2="208.19" y2="404.506"/>
+    <polygon style="fill: #000000" points="208.19,397.006 213.19,407.006 208.19,404.506 203.19,407.006 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="208.19,397.006 213.19,407.006 208.19,404.506 203.19,407.006 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:Segoe UI Light;font-style:normal;font-weight:300" x="265.726" y="429.124">
+    <tspan x="265.726" y="429.124">B</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:Segoe UI Light;font-style:normal;font-weight:300" x="162.728" y="430.806">
+    <tspan x="162.728" y="430.806">V(N+1)</tspan>
+  </text>
+</svg>

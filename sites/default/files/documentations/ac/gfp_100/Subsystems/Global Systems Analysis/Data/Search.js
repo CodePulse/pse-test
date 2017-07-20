@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Global Systems Analysis/2D scatter plot.htm'],s:['+','list'],p:[['+',44],['based',48],['differences',48],['for',53],['larger',12],['or',42],['scenario',17],['the',43],['workers',27]]});

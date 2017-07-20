@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gFP.xml" data-mc-path-to-help-system="../../../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Library|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Regulation</title>
+        <link href="../../../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../../../Resources/TableStyles/Equation.css" rel="stylesheet" />
+        <link href="../../../../../../Resources/TableStyles/Nomenclature_dropdown.css" rel="stylesheet" />
+        <link href="../../../../../../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../../../gFP.htm#Topics/Model Documentation/Product performance/In Vivo/Human stomach and duodenum/Key equations/Regulation.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../../../../gPROMS  FormulatedProducts Library.htm">Model Library</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../../../Product performance.htm">Product performance</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../../In Vivo.htm">In Vivo</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Human stomach and duodenum.htm">Human stomach and duodenum</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Key equations.htm">Key equations</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Regulation</span>
+            </div>
+        </div>
+        <h2>Regulation</h2>
+        <p>Regulation of the gastro-intestinal environment is primarily achieved via secretions into the gastrointestinal tract composed of four primary components: ions, digestive enzymes, mucus, and bile. The ions secreted primarily consist of H+, K+, Cl−, HCO3− and Na+. Water follows the movement of these ions. The GI tract accomplishes this ion pumping using a system of proteins that are capable of active transport, facilitated diffusion and open channel ion movement. The arrangement of these proteins on the apical and basolateral sides of the epithelium determines the net movement of ions and water in the tract. H+ and Cl− are secreted by the parietal cells into the lumen of the stomach creating acidic conditions with a low pH of 1. H+ is pumped into the stomach by exchanging it with K+. This process also requires ATP as a source of energy; however, Cl− then follows the positive charge in the H+ through an open apical channel protein. HCO3− secretion occurs to neutralize the acid secretions that make their way into the duodenum of the small intestine. Most of the HCO3− comes from pancreatic acinar cells in the form of NaHCO3 in an aqueous solution.</p>
+        <p>Gastro intestinal regulation is implemented in the model as a series of proportional controllers, which will add or remove ions of H+, Cl-,&#160;Na+, HCO3- and bile if their concentrations move away from the initial concentrations as follows (please note: they are not coupled to preserve the charge balance):</p>
+        <table style="width: 100%;mc-table-style: url('../../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../../../GeneratedImages/Equations/Equation4255.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(1)"><span class="autonumber"><span>(1)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Notation_1"><img class="MCToggler_Image_Icon" src="../../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="margin-left: 0;margin-right: auto;mc-table-style: url('../../../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Notation_1">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col style="width: 392px;" class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col style="width: 152px;" class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../../GeneratedImages/Equations/Equation4256.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Gain</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">s<sup>-1</sup></td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../../GeneratedImages/Equations/Equation4257.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Bias</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">mmol L<sup>-1</sup> s<sup>-1</sup></td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../../GeneratedImages/Equations/Equation4258.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Species concentration set point</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>mmol/L</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../../GeneratedImages/Equations/Equation4259.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Measured variable – species bulk concentration</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>mmol/L</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <img src="../../../../../../GeneratedImages/Equations/Equation4260.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">Manipulated variable – species volume specific molar flow</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">mmol L<sup>-1</sup> s<sup>-1</sup></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <p>The associated control gain for each species is tabulated below, the control bias is set to 0 for all species by default:</p>
+        <p>&#160;</p>
+        <table style="margin-left: 0;margin-right: auto;mc-table-style: url('../../../../../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-GeneralTable-Head-Header1">
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Gastrointestinal segment</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1" style="text-align: center;">
+                        <p>H+ gain</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1" style="text-align: center;">
+                        <p>Cl- gain</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1" style="text-align: center;">
+                        <p>Na+ gain</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1" style="text-align: center;">
+                        <p>HCO3- gain</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1" style="text-align: center;">
+                        <p>Bile gain</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>Stomach</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.0008</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1" style="text-align: center;">
+                        <p>1000</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>Duodenum</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>0.1</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2" style="text-align: center;">
+                        <p>1000</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>Proximal jejunum</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>10</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1" style="text-align: center;">
+                        <p>1000</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>Distal jejunum</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>10</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2" style="text-align: center;">
+                        <p>1000</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>Proximal ileum</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>10</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1" style="text-align: center;">
+                        <p>1000</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>Central ileum</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>10</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2" style="text-align: center;">
+                        <p>1000</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>Distal ileum</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>10</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1" style="text-align: center;">
+                        <p>1000</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                        <p>Ascending colon</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2" style="text-align: center;">
+                        <p>10</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2" style="text-align: center;">
+                        <p>0.00004</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body2" style="text-align: center;">
+                        <p>1000</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <p>Please note that the high bile gains are to ensure that the bile concentrations do not deviate from the default values. </p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

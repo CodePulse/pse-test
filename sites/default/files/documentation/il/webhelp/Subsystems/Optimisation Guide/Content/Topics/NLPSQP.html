@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Optimisation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Optimisation Guide|Standard solvers for optimisation">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The NLPSQP solver</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Optimisation Guide.htm#Topics/NLPSQP.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="x257.html">Optimisation Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1533.html">Standard solvers for optimisation</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The NLPSQP solver</span>
+            </div>
+        </div>
+        <h1><a name="NLPSQP"></a>The NLPSQP solver</h1>
+        <p>The NLPSQP solver employs a sequential quadratic programming (SQP) method for the solution of a nonlinear programming (NLP) problem. NLPSQP is a new SQP&#160;solver that was introduced with gPROMS&#160;v4.0 and that supersedes the since deprecated solver <a href="x1817.html">SRQPD</a>.</p>
+        <p>The
+			algorithmic parameters used by NLPSQP along with their default values are shown below. This is followed by a detailed description of each
+		parameter.</p><pre class="programlisting" xml:space="preserve">"NLPSQP" [
+"ComplementarityTolerance" := 0,
+"FeasibilityTolerance" := 0,
+"InitialLineSearchStepLength" := 1,
+"MaxFun" := 10000,
+"MaximumLineSearchSteps" := 50,
+"MaxLineSearchStepLength" := 1,
+"NoImprovementTolerance" := 1e-012,
+"OptimisationTolerance" := 0.001,
+"OutputLevel" := 0,
+"ReuseHessian" := FALSE,
+"Scaling" := 1,
+"TaylorTolerance" := 0
+]</pre>
+        <p>The NLPSQP solver uses four tolerances to decide whether or not a local optimal solution has been
+		reached and all tolerances need to be satisfied. </p>
+        <p>Each of the tolerances can be specified separately which provides much flexibility to control the solution process and the outcome of the optimisation. The default value for the first three is zero, only OptimisationTolerance is specified by default to 10<sup>-3</sup>. The value of zero takes on a special role for the tolerances 1-3: if they are set to zero, the value of OptimisationTolerance is applied instead (and properly reported).</p>
+        <ol>
+            <li value="1">
+                <p>FeasibilityTolerance - A real number in the range [10<sup>-20</sup>, 1.0]; default 0. </p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation1.png" style="width: 600px;height: 59px;" alt="" class="MCEquation_0 mcReset" />
+                </p>
+                <p>This denotes the magnitude of the sum over all constraint and bound violations.<br /></p>
+            </li>
+            <li value="2">
+                <p>ComplementarityTolerance - A real number in the range [10<sup>-20</sup>, 1.0]; default 0.</p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation2.png" style="width: 578px;height: 59px;" alt="" class="MCEquation_0 mcReset" />
+                </p>
+                <p>The complementarity tolerance represents the sum over all violation of constraints and bounds, weighted by their influence on the gradient of the objective function.</p>
+            </li>
+            <li value="3">
+                <p>TaylorTolerance - A real number in the range [10<sup>-20</sup>, 1.0]; default 0.</p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation3.png" style="width: 154px;height: 92px;" alt="" class="MCEquation_0 mcReset" />
+                </p>
+                <p>This tolerance is based on Taylor’s theorem and represents the rate of change in the objective function between two iterations.</p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation4.png" style="width: 692px;height: 43px;" alt="" class="MCEquation_0 mcReset" />
+                </p>
+                <p>where <!--l. 233--><span class="InlineEquation">α</span> is the step length.
+					</p>
+            </li>
+            <li value="4">
+                <p>OptimisationTolerance - A real number in the range [10<sup>-20</sup>, 1.0]; default 0.001.</p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation5.png" style="width: 329px;height: 91px;" alt="" class="MCEquation_0 mcReset" /> </p>
+                <p>where</p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation6.png" style="width: 188px;height: 69px;" alt="" class="MCEquation_0 mcReset" />
+                </p>
+                <p>The stationarity condition is a measure for the proximity to a local optimum. It is an approximation of </p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation7.png" style="width: 72px;height: 21px;" alt="" class="MCEquation_0 mcReset" />
+                </p>
+            </li>
+        </ol>
+        <p><span class="InlineEquation">f</span> is the objective function;</p>
+        <p><span class="InlineEquation">c</span> is the constraint vector (right-hand side);</p>
+        <p><span class="InlineEquation">m<sub>eq</sub></span> is the number of equality constraints;</p>
+        <p><span class="InlineEquation">m</span> is the total number of constraints;</p>
+        <p><span class="InlineEquation">n</span> is the size of the variable vector <span class="InlineEquation">x</span> (i.e. the number of variables);</p>
+        <p><span class="InlineEquation">x<sup>L</sup></span> and<span class="InlineEquation">x<sup>U</sup></span> are the vectors of the lower and upper bounds of variable <span class="InlineEquation">x</span>;</p>
+        <p><span class="InlineEquation">d</span> is the vector of corrections to <span class="InlineEquation">x</span> (i.e. the change in <span class="InlineEquation">x</span> during the current
+		step);</p>
+        <p><span class="InlineEquation">λ</span> is the Lagrange multiplier vector that corresponds to the equality constraint imposed on variable
+		<span class="InlineEquation">x</span>;</p>
+        <p><span class="InlineEquation">μ</span> is the Lagrange multiplier vector that corresponds to the inequality constraints imposed on variable
+		<span class="InlineEquation">x</span>;</p>
+        <p><span class="InlineEquation">ν</span> is the Lagrange multiplier vector that corresponds to the bound constraints imposed on variable
+		<span class="InlineEquation">x</span>;</p>
+        <p><span class="InlineEquation">L</span> is the Lagrange function</p>
+        <p>
+            <img src="../GeneratedImages/Equations/Equation8.png" style="width: 550px;height: 29px;" alt="" class="MCEquation_0 mcReset" />
+        </p>
+        <dl>
+            <dt>Successful termination</dt>
+            <dd>
+                <ol style="list-style-type: lower-alpha;" data-mc-continue="false">
+                    <li value="1">If the tolerances 1-4 are satisfied the algorithm terminates due to optimality.</li>
+                    <li value="2">
+                        <p>Otherwise, it is checked if there is no progress in the values of the objective function and the decision
+						variables, as well as no constraint violation. In order to check this, the NoImprovementTolerance ( <span class="InlineEquation">ε<sub>5</sub></span>) is is used in the following tests:</p>
+                        <p>
+                            <img src="../GeneratedImages/Equations/Equation9.png" style="width: 251px;height: 130px;" alt="" class="MCEquation_0 mcReset" />
+                        </p>
+                        <p>where <span class="InlineEquation">dx<sub>j</sub></span> is the step calculated for
+            <span class="InlineEquation">x<sub>j</sub></span> in the latest line-search step.</p>
+                        <p>If this test is successful, the optimisation terminates and reports the respective reason for the termination.</p>
+                    </li>
+                    <li value="3">After each line-search step, tests a. and b. are performed as well and can terminate the algorithm.</li>
+                </ol>
+            </dd>
+            <dt>An optimisation is terminated unsuccessfully if </dt>
+            <dd>
+                <ol>
+                    <li value="1">a  function evaluation&#160;failure in a line search step occurs</li>
+                    <li value="2">after 10 steps without progress the final step is infeasible</li>
+                    <li value="3">the number of line search steps in a major iteration exceeds MaximumLineSearchSteps</li>
+                    <li value="4">the total number of function evaluations exceeds MaxFun</li>
+                </ol>
+            </dd>
+        </dl>
+        <p>The other solution parameters are:</p>
+        <dl>
+            <dt>InitialLineSearchStepLength - A real number in the range [10<sup>-10</sup>, 1.0]; default 1.0.</dt>
+            <dd>
+                <p>The length of the line search step for the first optimisation iteration. An initial line search step length less than 1 is recommended when
+					the initial approximation of the Hessian  is very different to the actual values in the Hessian. This could result in a
+				very large initial step and therefore several line search trials before the optimiser finds a better point.</p>
+            </dd>
+            <dt>MaxFun - An integer in the range [0, 100000]; default 10000.</dt>
+            <dd>
+                The maximum number of function evaluations (i.e. solutions of the underlying steady-state or dynamic model)
+				to perform before halting the solution process (if no optimum has been found by that point).
+            </dd>
+            <dt>MaximumLineSearchSteps - An integer in the range [1, 100]; default 20.</dt>
+            <dd>
+                <p>The maximum number of line search steps in one optimisation iteration.</p>
+            </dd>
+            <dt>MaxLineSearchStepLength - A real number in the range [10<sup>-10</sup>, 1.0]; default 1.</dt>
+            <dd>
+                <p>The maximum length of a line search step.</p>
+            </dd>
+            <dt>NoImprovementTolerance - A real number in the range [10<sup>-20</sup>, 1.0]; default 10<sup>-12</sup>.</dt>
+            <dd>
+                <p>The solution tolerance for non-improving objective function or decision variables. </p>
+            </dd>
+            <dt>OutputLevel - An integer in the range [-1, 3]; default 0.</dt>
+            <dd>
+                <p>The amount of information generated by the solver. The following table indicates the lowest level at which different types of information
+				are produced:</p>
+                <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-1</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">(None)</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">0</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Failed integrations and initialisations, optimisation failure,<p>summary information from the NLPSQP nonlinear programming
+									code,</p><p>final solution point and constraint values,</p><p>best available point after failure</p></td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">1</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Values of optimisation decision variables, objective function and constraints in each major optimisation iteration</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">2</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Start and end times of each interval of integration,<p>optimisation decision variables and objective function at each line
+									search trial</p></td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">3</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Derivatives of objective function and constraints at the initial and each accepted step</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">9999</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">Provides very low-level information on the QP&#160;sub-problem, in particular the Hessian of the objective function</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+            <dt>ReuseHessian - A logical value, <span class="gPROMSLanguage">TRUE</span>&#160;or <span class="gPROMSLanguage">FALSE</span>; default <span class="gPROMSLanguage">FALSE</span>.</dt>
+            <dd>
+                <p>When this solution parameter <span class="gPROMSLanguage">ReuseHessian</span> is set to <span class="gPROMSLanguage">TRUE</span>, a file is created in the results section which contains the Hessian in a human-readable XML&#160;format. The name of the file follows the pattern <span class="fileName">&lt;activity name&gt;.hessian</span>, for instance <span class="fileName">OPTIMIZE_REACTOR.hessian</span>. In order to re-use it for future activity executions, the file has to be copied from the result case into the designated project file and the solution parameter has set to be to <span class="gPROMSLanguage">TRUE</span>.</p>
+                <p>Upon activity execution and if this flag is set to <span class="gPROMSLanguage">TRUE</span>, gPROMS&#160;will try to load the file <span class="fileName">&lt;activity name&gt;.hessian</span> and send proper diagnostic information in order to identify if the Hessian has been fully, partially or not at all restored and which numerical values are used.</p>
+            </dd>
+            <dt>Scaling - An integer in the range [0, 3]; default 1.</dt>
+            <dd>
+                <p>The form of scaling to be applied to the optimisation decision variables, including control variables, time-invariant parameters, the
+					length of the time horizon and the lengths of individual control intervals. These decision variables may vary significantly in magnitude, which
+					may adversely affect the performance of the optimisation algorithms. Consequently, appropriate scaling of the optimisation decision variables is
+					strongly recommended<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>A useful indication as to whether scaling is necessary is the condition number estimate that is printed out at each iteration of the
+						optimisation calculation. It is recommended that scaling be undertaken for problems with condition numbers exceeding
+					1010.</span></a></p>
+                <p> <![CDATA[ ]]></p>
+                <ul>
+                    <li class="enumerate" id="x1-19002x1" value="1"><span class="ptmri7t-">Scaling </span>= 0 : no scaling;
+					</li>
+                    <li class="enumerate" id="x1-19004x2" value="2"><span class="ptmri7t-">Scaling </span>= 1 : scaling according to the range of the decision variables (default);
+					</li>
+                    <li class="enumerate" id="x1-19006x3" value="3"><span class="ptmri7t-">Scaling </span>= 2 : scaling according to the initial values of the decision variables;
+					</li>
+                    <li class="enumerate" id="x1-19008x4" value="4"><span class="ptmri7t-">Scaling </span>= 3 : scaling according to the initial value and gradient of the objective function.</li>
+                </ul>
+                <p>
+                    <!--l. 405-->
+                </p>
+                <p xmlns="http://www.w3.org/1999/xhtml" class="noindent">In all four cases, the following transformation is applied to the vector of decision variables
+					<!--l. 405--><span xmlns="" class="InlineEquation">x</span>: </p>
+                <p xmlns="http://www.w3.org/1999/xhtml" class="noindent">
+                    <img src="../GeneratedImages/Equations/Equation10.png" style="width: 103px;height: 24px;" alt="" class="MCEquation_0 mcReset" xmlns="" />
+                </p>
+                <p>
+                    <!--l. 409-->
+                </p>
+                <p xmlns="http://www.w3.org/1999/xhtml" class="noindent">where <img src="../GeneratedImages/Equations/Equation11.png" style="width: 15px;height: 16px;" alt="" class="MCEquation_Inline_0 mcReset" xmlns="" /> is the
+					scaled value of <span xmlns="" class="InlineEquation">x</span>. The
+					vectors <!--l. 409--><span class="InlineEquation" xmlns="http://www.w3.org/1999/xhtml">a</span>
+					(factor) and <!--l. 409--><span class="InlineEquation" xmlns="http://www.w3.org/1999/xhtml">b</span> (offset) are
+					calculated differently based on what scaling is chosen as described below.
+				</p>
+                <p>
+                    <!--l. 411-->
+                </p>
+                <dl>
+                    <dt xmlns="http://www.w3.org/1999/xhtml"><span xmlns="http://www.w3.org/1999/xhtml" class="ptmri7t-">Scaling </span>= 0 : No scaling</dt>
+                    <dd xmlns="http://www.w3.org/1999/xhtml">
+                        <p xmlns="http://www.w3.org/1999/xhtml" class="noindent">This option is fairly straight forward, namely no scaling is applied and the original (<a href="#x1-2002r0" class="selected">NLP<!--tex4ht:ref: eq:NLP --></a>) is solved without any
+							modification, that is:						</p>
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="math-display">
+                            <!--l. 413-->
+                            <img src="../GeneratedImages/Equations/Equation12.png" style="width: 76px;height: 57px;" alt="" class="MCEquation_0 mcReset" xmlns="" />
+                        </div>
+                    </dd>
+                    <dt xmlns="http://www.w3.org/1999/xhtml">
+                        <p><span xmlns="http://www.w3.org/1999/xhtml" class="ptmri7t-">Scaling </span>= 1 : Scaling according to the range of the decision variables (default)</p>
+                    </dt>
+                    <dd>
+                        <p xmlns="http://www.w3.org/1999/xhtml" class="noindent">For this scaling strategy to be applicable, we need to make sure that all decision variables are bounded and have
+							finite lower and upper bounds. Then, the purpose of this scaling strategy is to transform all variables such that they belong
+							to the interval <span class="InlineEquation" xmlns="http://www.w3.org/1999/xhtml">[-1,1]</span><!--l. 421-->. Then factor and offset are calculated as follows:
+						</p>
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="par-math-display">
+                            <!--l. 423-->
+                            <img src="../GeneratedImages/Equations/Equation13.png" style="width: 371px;height: 97px;" alt="" class="MCEquation_0 mcReset" xmlns="" />
+                        </div>
+                        <p>Note: if <span class="InlineEquation">x<sub>i</sub><sup>L</sup> ≤ -10<sup>30</sup></span> or <span class="InlineEquation">x<sub>i</sub><sup>U</sup> ≥ 10<sup>30</sup></span> or if <span class="InlineEquation">x<sub>i</sub><sup>L</sup>=x<sub>i</sub><sup>U</sup></span>, no scaling is applied to <span class="InlineEquation">x<sub>i</sub></span>.</p>
+                    </dd>
+                    <dt>
+                        <p xmlns=""><span xmlns="http://www.w3.org/1999/xhtml" class="ptmri7t-">Scaling </span>= 2 : Scaling according to the initial values of the decision variables</p>
+                    </dt>
+                    <dd>
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="par-math-display">
+                            <!--l. 432-->
+                            <img src="../GeneratedImages/Equations/Equation14.png" style="width: 395px;height: 129px;" alt="" class="MCEquation_0 mcReset" xmlns="" />
+                        </div>
+                        <p xmlns="http://www.w3.org/1999/xhtml" class="nopar"> where <span xmlns="http://www.w3.org/1999/xhtml" class="InlineEquation">φ</span><!--l. 444--> a small positive number,
+							currently <span xmlns="http://www.w3.org/1999/xhtml" class="InlineEquation">φ=1.49*10<sup>-8</sup></span><!--l. 444--><!--l. 444-->.</p>
+                    </dd>
+                    <dt>
+                        <p xmlns=""><span xmlns="http://www.w3.org/1999/xhtml" class="ptmri7t-">Scaling </span>= 3 : Scaling according to the initial value and gradient of the objective function
+							</p>
+                    </dt>
+                    <dd>
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="par-math-display">
+                            <!--l. 447-->
+                            <img src="../GeneratedImages/Equations/Equation15.png" style="width: 545px;height: 147px;" alt="" class="MCEquation_0 mcReset" xmlns="" />
+                        </div>
+                        <p xmlns="http://www.w3.org/1999/xhtml" class="nopar"> where <span xmlns="http://www.w3.org/1999/xhtml" class="InlineEquation">x<sup>0</sup></span> is the
+							initial guess for <span xmlns="http://www.w3.org/1999/xhtml" class="InlineEquation">x</span> and
+							<span xmlns="http://www.w3.org/1999/xhtml" class="InlineEquation">φ</span> a small positive number, currently <span xmlns="http://www.w3.org/1999/xhtml" class="InlineEquation">φ=1.49*10<sup>-8</sup></span>.
+						</p>
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

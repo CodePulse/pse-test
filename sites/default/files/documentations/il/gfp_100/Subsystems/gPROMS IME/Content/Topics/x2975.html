@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Software Environment|Modelling Support Tools|Export to CAPE-OPEN|The Simple Process Modelling Environment">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Performing a calculation on a CAPE-OPEN unit operation</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x2975.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Software Environment</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2548.html">Modelling Support Tools</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2701.html">Export to CAPE-OPEN</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2937.html">The Simple Process Modelling Environment</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Performing a calculation on a CAPE-OPEN unit operation</span>
+            </div>
+        </div>
+        <h1><a name="coperformingcalculation"></a>Performing a calculation on a CAPE-OPEN unit operation</h1>
+        <p>To perform a calculation on a registered CAPE-OPEN unit operation execute <b class="command">SimplePME.exe</b><code class="option">-in</code> <tt class="replaceable"><i>MyCalcFile.txt</i></tt> at a command prompt, where <tt class="replaceable"><i>MyCalcFile.txt</i></tt> is a formatted text file
+ describing the input values to use for the calculation and the output values to include in the results output, e.g.</p>
+        <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span><a name="AEN2982"></a>
+            <p><b>Example 1. Example 'calculation' input file for SimplePME</b>
+            </p><pre class="programlisting"># Perform a calculation
+CALCULATE <a name="co.coperformingcalculation.1"></a><b>(1)</b>
+
+# PROGID of the unit operation to perform a calculation on
+PROGID "PSEUnitLibrary.MixSplit.1" <a name="co.coperformingcalculation.2"></a><b>(2)</b>
+
+# Inputs and outputs should be on mole basis
+MOLE <a name="co.coperformingcalculation.3"></a><b>(3)</b>
+
+# Set a value for the "SPLIT_FRACTION" input parameter
+INPUT "SPLIT_FRACTION" <a name="co.coperformingcalculation.4"></a><b>(4)</b>
+0.3
+
+# Set a value for the "HEAT_INPUT" input parameter
+INPUT "HEAT_INPUT"
+0.0
+
+# Include "TOTAL_FLOW" output parameter in the results
+OUTPUT "TOTAL_FLOW" <a name="co.coperformingcalculation.5"></a><b>(5)</b>
+
+# Attach a material object/stream to the "FEED_1" inlet port
+INLET "FEED_1" <a name="co.coperformingcalculation.6"></a><b>(6)</b>
+MATERIAL "MFCOThermoSys.MFCOSys&lt;METHANOLWATER.MFL&gt;"
+PRESSURE 100005
+TEMPERATURE 360
+FLOW 50
+FRACTION [0.3,0.7]
+
+# Attach a material object/stream to the "PRODUCT_1" outlet port
+OUTLET "PRODUCT_1" <a name="co.coperformingcalculation.7"></a><b>(7)</b>
+MATERIAL "MFCOThermoSys.MFCOSys&lt;METHANOLWATER.MFL&gt;"
+
+# Attach a material object/stream to the "PRODUCT_2" outlet port
+OUTLET "PRODUCT_2"
+MATERIAL "MFCOThermoSys.MFCOSys&lt;METHANOLWATER.MFL&gt;"</pre>
+        </div>
+        <div class="calloutlist">
+            <dl compact="COMPACT">
+                <dt><a href="#"><b>(1)</b></a>
+                </dt>
+                <dd>The first line of the file (other than comments and whitespace) is used to indicate the operation to perform on the unit
+ operation:</dd>
+                <ul>
+                    <li value="1">
+                        <p><span class="gPROMSLanguage">INITIALIZE</span> to perform an initialisation, in which case only the <span class="gPROMSLanguage">PROGID</span> specification is
+ relevant</p>
+                    </li>
+                    <li value="2">
+                        <p><span class="gPROMSLanguage">VALIDATE</span> to perform a validation, in which case <span class="gPROMSLanguage">OUTPUT</span> parameter specifications have no effect</p>
+                    </li>
+                    <li value="3">
+                        <p><span class="gPROMSLanguage">CALCULATE</span> to perform a calculation</p>
+                    </li>
+                </ul>
+                <dt><a href="#"><b>(2)</b></a>
+                </dt>
+                <dd>The <span class="gPROMSLanguage">PROGID</span> specification is used to indicate which unit operation to perform a calculation on. This is optional; if not
+ present then you will be prompted to specify a unit operation</dd>
+                <dt><a href="#"><b>(3)</b></a>
+                </dt>
+                <dd>The <span class="gPROMSLanguage">MASS</span> or <span class="gPROMSLanguage">MOLE</span> specification is used to indicate the basis on which the properties for material streams
+ are provided/displayed</dd>
+                <dt><a href="#"><b>(4)</b></a>
+                </dt>
+                <dd>An <span class="gPROMSLanguage">INPUT</span> specification is used to provide a value for an INPUT parameter, any parameters which are not specified will
+ take their default value. The format of the specification depends on the type of the parameter:</dd>
+                <ul>
+                    <li value="1">
+                        <p>for scalar REAL parameters:</p><pre class="programlisting">INPUT "MyRealParameter"
+3.14</pre>
+                    </li>
+                    <li value="2">
+                        <p>for scalar INTEGER parameters:</p><pre class="programlisting">INPUT "MyIntegerParameter"
+5</pre>
+                    </li>
+                    <li value="3">
+                        <p>for scalar BOOLEAN parameters: </p><pre class="programlisting">INPUT "MyBooleanParameter" TRUE</pre>or: <pre class="programlisting">INPUT "MyBooleanParameter" FALSE</pre></li>
+                    <li value="4">
+                        <p>for scalar OPTION parameters:</p><pre class="programlisting">INPUT "MyOptionParameter"
+"Blue"</pre>
+                    </li>
+                    <li value="5">
+                        <p>for 1D ARRAY<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>The SimplePME does not support multi-dimensional array parameters, or arrays of heterogeneous elements.</span></a> of REAL parameters:</p><pre class="programlisting">INPUT "MyRealArrayParameter"
+REAL [0.1, 0.2, 0.3, 0.4, 0.5]</pre>
+                    </li>
+                    <li value="6">
+                        <p>for 1D ARRAY of INTEGER parameters:</p><pre class="programlisting">INPUT "MyIntegerArrayParameter"
+INTEGER [1, 2, 3, 4, 5]</pre>
+                    </li>
+                    <li value="7">
+                        <p>for 1D ARRAY of BOOLEAN parameters:</p><pre class="programlisting">INPUT "MyBooleanArrayParameter"
+BOOLEAN [TRUE, TRUE, FALSE, TRUE, FALSE]</pre>
+                    </li>
+                    <li value="8">
+                        <p>for 1D ARRAY of OPTION parameters:</p><pre class="programlisting">INPUT "MyOptionArrayParameter"
+OPTION ["Red", "Yellow", "Blue", "Green", "Orange"]</pre>
+                    </li>
+                </ul>
+                <dt><a href="#"><b>(5)</b></a>
+                </dt>
+                <dd>An <span class="gPROMSLanguage">OUTPUT</span> specification identifies an Output parameter which should be included in the results output</dd>
+                <dt><a href="#"><b>(6)</b></a>
+                </dt>
+                <dd>An <span class="gPROMSLanguage">INLET</span> specification identifies a material object/stream connected to an Inlet port. Inlet ports without a
+ corresponding specification are considered to be unconnected, which depending on the unit operation may not be valid;</dd>
+                <dd>
+                    <p>A <span class="gPROMSLanguage">MATERIAL</span> specification is used to indicate the thermodynamic property package/system to be used for the connected
+ material object/stream. The specification can be made in 2 different ways:</p>
+                </dd>
+                <ul>
+                    <li value="1">
+                        <p>for a named package within a ThermoSystem: </p><pre class="programlisting">MATERIAL "ThermoSystemProgId&lt;ThermoPackageName&gt;"</pre>
+                    </li>
+                    <li value="2">
+                        <p>for a standalone ThermoPackage: </p><pre class="programlisting">MATERIAL "ThermoPackageProgId"</pre>
+                    </li>
+                </ul>
+                <dd>
+                    <p>The properties of an <span class="gPROMSLanguage">INLET</span> stream can be specified in 5 different ways:</p>
+                </dd>
+                <ul>
+                    <li value="1">
+                        <p>T, P, total flow, composition:</p><pre class="programlisting">TEMPERATURE 360 # K
+PRESSURE 100005 # Pa
+FLOW 50 # mol/s
+FRACTION [0.3, 0.7] # mol/mol</pre>
+                    </li>
+                    <li value="2">
+                        <p>T, vapor phase fraction, total flow, composition:</p><pre class="programlisting">TEMPERATURE 360 # K
+VAPORFRACTION 0.585 # mol/mol
+FLOW 50 # mol/s
+FRACTION [0.3, 0.7] # mol/mol</pre>
+                    </li>
+                    <li value="3">
+                        <p>P, H, total flow, composition:</p><pre class="programlisting">PRESSURE 100005 # K
+ENTHALPY -15672.1 # J/mol
+FLOW 50 # mol/s
+FRACTION [0.3, 0.7] # mol/mol</pre>
+                    </li>
+                    <li value="4">
+                        <p>P, T, total flow, composition:</p><pre class="programlisting">PRESSURE 100005 # Pa
+TEMPERATURE 360 # K
+FLOW 50 # mol/s
+FRACTION [0.3, 0.7] # mol/mol</pre>
+                    </li>
+                    <li value="5">
+                        <p>P, vapor phase fraction, total flow, composition:</p><pre class="programlisting">PRESSURE 100005 # Pa
+VAPORFRACTION 0.585 # mol/mol
+FLOW 50 # mol/s
+FRACTION [0.3, 0.7] # mol/mol</pre>
+                    </li>
+                </ul>
+                <dt><a href="#"><b>(7)</b></a>
+                </dt>
+                <dd>An <span class="gPROMSLanguage">OUTLET</span> specification identifies a material object/stream connected to an Outlet port. Outlet ports without a
+ corresponding specification are considered to be unconnected, which depending on the unit operation may not be valid. Each
+            <span class="gPROMSLanguage">OUTLET</span> specification must be accompanied by a <span class="gPROMSLanguage">MATERIAL</span> specification, but obviously there is no need to specify
+ P, T, H, flow, fraction for an Outlet</dd>
+            </dl>
+        </div>
+        <p>The output from performing a calculation obviously depends on the unit operation and the values provided for the Inputs and Inlets, but
+ should look something like:</p>
+        <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span><a name="AEN3084"></a>
+            <p><b>Example 2. Example 'calculation' output from SimplePME</b>
+            </p><pre class="screen">CALCULATE_RESPONSE
+
+MOLE
+
+OUTPUT "TOTAL_FLOW"
+50
+
+OUTLET "PRODUCT_1"
+MATERIAL "MFCOThermoSys.MFCOSys&lt;METHANOLWATER.MFL&gt;"
+PRESSURE 100005
+ENTHALPY -14510.2
+TEMPERATURE 360
+VAPORFRACTION 0.585425
+FLOW 15
+FRACTION [0.3, 0.7]
+
+OUTLET "PRODUCT_2"
+MATERIAL "MFCOThermoSys.MFCOSys&lt;METHANOLWATER.MFL&gt;"
+PRESSURE 100005
+ENTHALPY -14510.2
+TEMPERATURE 360
+VAPORFRACTION 0.585425
+FLOW 35
+FRACTION [0.3, 0.7]
+
+#
+# Reports:
+# summary
+# debug log
+#</pre>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

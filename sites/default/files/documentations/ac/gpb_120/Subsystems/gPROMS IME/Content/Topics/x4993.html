@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=Product.Name%] Guide|gRMS Output Channel|Templates|Plot templates">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Plot template example</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x4993.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="AEN4993"></a>Plot template example</h1>
+        <p>Plot templates can be used to simplify viewing of the results for similar sub-models within the same gPROMS process or for viewing the
+ results of the same model for different simulation runs (Processes). The example shown creates and uses a template for models with
+        <code class="varname">pressure</code> and <code class="varname">temperature</code> variables.</p>
+        <div class="figure"><a name="AEN4998"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_CreatePlotPTFromOneModel.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Create a plot of P and T from one model.</p>
+        </div>
+        <div class="figure"><a name="AEN5005"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_SavePlotTemplate.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Save the plot as a template.</p>
+        </div>
+        <p>Use the Save File dialog to select a location and file name for the template.</p>
+        <div class="figure"><a name="AEN5013"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_OpenTemplate.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Open the template.</p>
+        </div>
+        <p>Use the Open File dialog to select the template file to open.</p>
+        <div class="figure"><a name="AEN5021"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_InstantiateTemplateDifferentModelPT.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Instantiate the template from a different model with P and T.</p>
+        </div>
+        <p>(Notice the date stamp of the Process name: it is a more recent Simulation of the same Model. The dialog shows all Models, within any
+ Process, that can be used with the template, so one can easily apply the template to different Models within any Process.)</p>
+        <div class="figure"><a name="AEN5029"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_ViewResultingPlot.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> View the resulting plot.</p>
+        </div>
+        <p>This method is useful if you want to save the template and reuse it on another occasion (i.e., after the plot window has been closed,
+ when all of the plot formatting will be lost). If you already have a plot window open and want to use it as a template for a more recent
+ simulation (or a different model with the same set of Variables), then a quicker approach is to use the <b class="guimenuitem">Use As
+ Template...</b> option in the <b class="guimenu">File</b> menu. This bypasses the saving and loading steps in the procedure described
+ above. Of course, this doesn't save the template permanently: to do so, use the <b class="guimenuitem">Save As Template...</b> option.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=Product.Name%] Guide|Executing simulations|Specifying Solution Parameters">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Filtering the Display of Solution Parameters and Resetting Default Values</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x2300.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="MBG_SolPar_Filtering"></a>Filtering the Display of Solution Parameters and Resetting Default Values</h1>
+        <p>The Solution Parameters tab contains five controls in the bottom left-hand corner. These are for filtering out some of the Solution Parameters
+ shown in the tree view and for resetting Solution Parameters to their default values.</p>
+        <p>The three checkboxes allow you to:</p>
+        <ul>
+            <li value="1">
+                <p><tt class="guilabel"><b>Show only activity solvers at the top level</b></tt>
+                </p>
+                <p>In addition to specifying solver parameters for each type of activity, it is also possible to specify solver parameters that will apply to
+ all activities. It is not recommended to do so, but if you want to specify solver parameters <i class="emphasis">globally</i> in this way, then
+ uncheck the <tt class="guilabel"><b>Show only activity solvers at the top level</b></tt> checkbox. The solver parameters will then appear under the Numerical
+ solvers group along side the four activity Solution Parameters. These issues are discussed in detail in the section on global specification and
+ inheritance of Solution Parameters.</p>
+            </li>
+            <li value="2">
+                <p><tt class="guilabel"><b>Show only explicit specifications</b></tt>
+                </p>
+                <p>Because of the way that some specifications are propagated down to other Solution Parameters (see <a href="x2215.html">Global Specification and Inheritance of Solution Parameters</a>), it can sometimes be difficult to identify
+ where a particular specification was made. Checking the <tt class="guilabel"><b>Show only explicit specifications</b></tt> box will remove all default and
+ inherited Solution Parameters from the tree view, leaving only the Solution Parameters that were specified explicitly, simplifying the tree view
+ considerably.</p>
+            </li>
+            <li value="3">
+                <p><tt class="guilabel"><b>Hide deprecated settings</b></tt>
+                </p>
+                <p>Some projects developed using an old version of gPROMS may contain Solution Parameters that are no longer used or that are in a different
+ format to the current version. When these projects are opened and the Solution Parameters tab is first opened, the Solution Parameters section
+ will be converted to the new format. Any Solution Parameters that are no longer used will be deleted; those that are still used but are now
+ listed under a different name or within a different section of the Solution Parameters will be shown separately under the Deprecated Settings
+ heading. By default, this section is hidden, so if you have imported an older project, then uncheck the <tt class="guilabel"><b>Hide deprecated
+ settings</b></tt> box and browse the Deprecated Settings part of the tree to identify any Solution Parameters that can be kept. You will have
+ to locate the new Solution Parameter and specify its value manually (see The SOLUTION
+ PARAMETERS Section for a description of all of the Solution Parameters).</p>
+            </li>
+        </ul>
+        <p>The two command buttons at the bottom left of the tab allow you to reset Solution Parameters to their default values. The two buttons
+ are:</p>
+        <ul>
+            <li value="1">
+                <p><b class="guibutton">Reset to default</b>
+                </p>
+                <p>This button will reset the currently selected Solution Parameter to its default value. When applying this to a Solutions Parameter that
+ has inherited its value from a higher-level specification, then only this value will be reset and a "red" arrow icon will indicate that it is
+ overriding the higher-level specification.</p>
+            </li>
+            <li value="2">
+                <p><b class="guibutton">Reset all to default</b>
+                </p>
+                <p>This button simply resets <i class="emphasis">every</i> Solution Parameter to its default value. Be sure that you really want to do this, as
+ gPROMS will not ask for confirmation.</p>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

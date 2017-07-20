@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Software Environment|Constructing flowsheet Models|Constructing the flowsheet|Making a Unit into an Array">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Connecting Elements in the Same Array</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x1224.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Software Environment</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c755.html">Constructing flowsheet Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x797.html">Constructing the flowsheet</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1065.html">Making a Unit into an Array</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Connecting Elements in the Same Array</span>
+            </div>
+        </div>
+        <h1><a name="AEN1224"></a>Connecting Elements in the Same Array</h1>
+        <p>The procedure for connecting elements in the same Array is identical to the one outlined previously for connecting different Arrays. Simply
+ use the Connection tool to connect the outlet port of the Array to the inlet port of the same Array and then use the <tt class="guilabel"><b>Connection
+ details</b></tt> dialog to specify how the elements in the Array are to be connected.</p>
+        <p>Note that this is only possible with certain Models because some Models can only be connected via a <i class="emphasis">Flow Transportation</i>
+        Model, cf. the CSTR example above, where the outlet of a <code class="varname">Reactor_stirred_tank_kinetic</code> Model cannot be connected directly to the
+ inlet of another <code class="varname">Reactor_stirred_tank_kinetic</code> Model: they can only be connected using Models such as a Pipe, Pump or
+ Valve.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

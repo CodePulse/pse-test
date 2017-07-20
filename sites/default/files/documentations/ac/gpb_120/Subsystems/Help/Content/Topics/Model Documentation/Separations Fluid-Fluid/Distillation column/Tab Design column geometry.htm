@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Design (Column geometry)</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Separations Fluid-Fluid/Distillation column/Tab Design column geometry.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Design (Column geometry)</h1>
+        <p>The Design (Column geometry) tab is used to define the calculation mode with respect to hydraulics and tray design, including geometry specifications. This tab can be turned off and on.</p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Design</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dl>
+                            <dt>Off</dt>
+                            <dd>In this mode the geometrical characteristics of the column and trays are not taken in consideration.</dd>
+                            <dt>On</dt>
+                            <dd>In this mode the geometrical specifications are either calculated from flooding correlations or provided by the user.</dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Internals</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Trays</dt>
+                        <dd>Selects a range of available correlations applicable to trayed column.</dd>
+                        <dt>Packing</dt>
+                        <dd>Selects a range of available correlations applicable to packed column.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Packing type</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Structured</dt>
+                        <dd>For crimped layers of wire mesh or corrugated sheets stacked in the column.</dd>
+                        <dt>Random</dt>
+                        <dd>For discrete pieces of packing of a specific geometrical shape randomly packed into the column shell.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">
+                        <p>Column diameter</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dl>
+                            <dt>Calculated from flooding factor</dt>
+                            <dd>Calculates the minimum column diameter necessary to avoid flooding.</dd>
+                            <dt>Specified</dt>
+                            <dd>The column diameter is specified directly by the user.</dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">
+                        <p>Calculate flooding</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dl>
+                            <dt>Off</dt>
+                            <dd>Turns off the flooding calculation.</dd>
+                            <dt>On</dt>
+                            <dd>Turns on the flooding calculation.</dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">
+                        <p>Column height</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dl>
+                            <dt>Calculated from plate geometry</dt>
+                            <dd>The column height is calculated using the assigned plate spacing and the number of column trays.</dd>
+                            <dt>Specified</dt>
+                            <dd>The column height, used to determine the required plate spacing, is specified.</dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">
+                        <p>Correlation used for column diameter</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dl>
+                            <dt>Fair (Perry, 1999, p. 14-26)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Perry, R.H. &amp; Green, D.W., 1999. Chemical Engineers’ Handbook, 7th Ed., McGraw-Hill.</span></a></dt>
+                            <dt>Kister and Haas (Perry, 1999, p. 14-27)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Perry, R.H. &amp; Green, D.W., 1999. Chemical Engineers’ Handbook, 7th Ed., McGraw-Hill.</span></a></dt>
+                            <dt>Lowenstein (Coulson, 2005, p. 11.80)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">3<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Coulson, J.M., Sinnott, R.K. &amp; Richardson, J., 2005. Coulson &amp; Richardson’s Chemical Engineering Volume 6: Chemical Engineering Design, Elsevier</span></a></dt>
+                            <dt>Billet and Schultes (1999) (Billet and Schultes, 1999)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">4<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Billet, R. &amp; Schultes, M., 1999. Prediction of Mass Transfer Columns with Dumped and Arranged Packings: Updated Summary of the Calculation Method of Billet and Schultes, Trans IChemE, 77, 498-504.</span></a></dt>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Column diameter</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">m</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Column diameter specification if the column diameter selector is set to Specified.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Allowed flooding factor</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Maximum allowed flooding factor specification if the column diameter selector is set to "Calculated" and the flooding calculation is turned on.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Plate efficiency</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">%</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Plate efficiency used for the calculation of the total column height.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Plate spacing</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">m</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Interval between two consecutive trays.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Column height</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">m</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Total height of the column.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Diameter of packing element</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">mm</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">The packing diameter is specified and used to determine the HETP of random packings. Larger packing diameters lead to an increase in the HETP values and reduced efficiency.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2">Surface area of packing element</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2">m<sup>2</sup>/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body2">The surface area of the structured packing element is used to determine the column height of packed columns. Larger surface areas lead to lower HETP values and consequently to reduced column heights.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

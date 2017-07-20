@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML&#160;Olefins|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Operation</title>
+        <link href="../../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../../Help.htm#Topics/Model Documentation/Olefins/Furnaces/Furnace/Tab Operation.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Operation</h1>
+        <p>The Operation tab is used to select and assign values to the main operation variables in the furnace.</p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">
+                        <p>Use input data file</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Off</dt>
+                        <dd>All the operating variables are specified in the dialog box of the furnace.</dd>
+                        <dt>On</dt>
+                        <dd>Allows for some or all of the operating variables of the furnace to be specified via a data file.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">CIT</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Specified here</dt>
+                        <dd>The coil inlet temperature (CIT) is specified directly in the furnace dialog box.</dd>
+                        <dt>From data file</dt>
+                        <dd>The CIT is specified in a data file.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Pressure specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>CIP</dt>
+                        <dd>The coil inlet pressure (CIP) is specified in the model dialog box. The coil outlet pressure is then calculated using the pressure drop correlation and parameters (<a href="Tab Pressure.htm" class="MCXref xref">'Pressure'</a>).</dd>
+                        <dt>COP</dt>
+                        <dd>The coil outlet pressure (COP) is specified in the model dialog box. The coil inlet pressure is then calculated using the pressure drop correlation and parameters (<a href="Tab Pressure.htm" class="MCXref xref">'Pressure'</a>).</dd>
+                        <dt>From data file</dt>
+                        <dd>The pressure specification is obtained from a data file (<a href="Tab Input data file.htm" class="MCXref xref">'Input data file'</a>).</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Severity specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>COT</dt>
+                        <dd>The coil outlet temperature (COT) is specified  in the model specification dialog box and used as a measure of severity of cracking.</dd>
+                        <dt>Conversion</dt>
+                        <dd>The outlet conversion of a given component in the feed is specified in the model specification dialog box and used as a measure of severity of cracking.  </dd>
+                        <dt>From data file</dt>
+                        <dd>The severity specification is obtained from a data file (<a href="Tab Input data file.htm" class="MCXref xref">'Input data file'</a>).</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">CIT</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1"> °C</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Coil inlet temperature.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">CIP</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">barg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Coil inlet pressure.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">COP</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">barg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Coil outlet pressure.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">COT</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">°C</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Coil outlet temperature.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Component</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Defines the component for conversion specification.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2">Conversion</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2">%</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body2">Conversion at furnace outlet.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

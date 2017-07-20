@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="System Programmer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="System Programmer Guide|Developing New Foreign Processes">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The FPI communication protocol</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../System Programmer Guide.htm#Topics/x1261.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="TheFPICommunicationProtocol"></a>The FPI communication protocol</h1>
+        <p>By placing the FPI elementary communication tasks within simulation
+ Schedules, the user can specify the timing and nature of the information exchanges that are to take place between the executing gPROMS Process and the
+ foreign process.</p>
+        <p>The actual communication takes place by gPROMS issuing calls to a set of procedures (or "subroutines''). The FPI communication protocol is
+ concerned with defining the form of the interaction of these procedures, through their argument lists, with the program that invokes them. The precise
+ content of the procedures is <i class="emphasis">not</i> specified - it will vary from implementation to implementation, being determined by the
+ requirements of each particular application.</p>
+        <p>Any implementation of the FPI must provide five procedures, gFPPAUSE, gFPGET, gFPSEND, gFPSENDM and gFPLINEARISE corresponding to the five
+ elementary communication tasks PAUSE, GET, SEND, SENDMATHINFO and LINEARISE respectively. In addition to these, it must also provide two other
+ procedures, gFPI and gFPT, used by the gPROMS Process respectively to initiate and terminate its interaction with the foreign process.</p>
+        <p>The rest of this section provides a detailed specification of these seven procedures. This is done using FORTRAN subroutine terminology; however,
+ the equivalent C code could also be used.</p>
+        <p>In describing the type of the arguments of the various procedures, we will use the notation I, R and C for integer, real and character. Where
+ necessary, the number of bytes allocated to each type will also be specified; for instance, C*256 will denote a character variable of 256 byte length.
+ Note that some of the arguments will be arrays. This will be apparent from the procedure declaration.</p>
+        <p>A complete example of an FPI implementation is provided as source code in the gPROMS installation directory, see the section on <a href="x2014.html">Implementation of Foreign Processes</a>. This corresponds to the standard FPI provided within the gPROMS executable.</p>
+        <div class="note" data-mc-autonum="&lt;b&gt;Note&lt;/b&gt;"><span class="autonumber"><span><b>Note</b></span></span>
+            <p>Wherever an argument is described as "Unchanged'' in the "On Exit'' column, it is the responsibility of the FPI implementation developer to
+ ensure that the FPI does not alter this argument in any way.</p>
+            <p>gPROMS does <i class="emphasis">not</i> check for any changes in arguments of this type on return from the FPI procedures.</p>
+            <p>gPROMS is built to use the long integer type available on a particular system. To make sure that your FPI implementation works with gPROMS, do
+ not make use of any explicit declarations of integer variable length (e.g. Integer*4) in your FORTRAN code. It is recommended that you always use the
+ default declaration for Integer type arguments to the FPI services and use compiler options to make the default integer equivalent to the long
+ type.</p>
+            <p>If the FPI procedures are implemented in FORTRAN, then they should be compiled with appropriate compiler options so that the resulting symbols
+ for them are in lowercase and have an underscore appended to them (e.g. gfplinearise_).</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

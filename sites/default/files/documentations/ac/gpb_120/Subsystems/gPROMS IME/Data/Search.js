@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0,74,160],u:['../Content/Topics/Controlling the automatic routing.htm'],s:['+','differ','may','small'],p:[['+',108],['an',20],['be',52],['checks',60],['default',71],['entities',12],['fourth',126],['in',77],['legend',107],['name',36],['operation',92],['print',75],['save',161],['specify',69],['the',62],['to',49],['variable',73]]});

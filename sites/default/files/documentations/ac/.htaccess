@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond %{HTTP_COOKIE} !org_type=academic-user [NC]
+RewriteCond %{REQUEST_URI} /documentations/ac(.*)$ [NC]
+RewriteRule ^(.*) /admin [R=302,L,NC]

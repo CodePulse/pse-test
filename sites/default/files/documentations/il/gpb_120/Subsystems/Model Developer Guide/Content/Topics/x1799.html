@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Conditional Equations">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using State-Transition Networks to model discontinuities</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x1799.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <div class="sect1">
+            <h1 class="sect1"><a name="STN"></a>Using State-Transition Networks to model discontinuities</h1>
+            <p>Discontinuities in the description of the physical behaviour of process systems may arise in different ways such as:</p>
+            <ul>
+                <li value="1">
+                    <p>transitions from laminar to turbulent flow;</p>
+                </li>
+                <li value="2">
+                    <p>reversal of the direction of flow;</p>
+                </li>
+                <li value="3">
+                    <p>appearance and disappearance of thermodynamic phases;</p>
+                </li>
+                <li value="4">
+                    <p>equipment failure;</p>
+                </li>
+            </ul>
+            <p>and many others.</p>
+            <p><i class="emphasis">State-Transition Networks</i> (STNs) provide a general way of describing discontinuous systems. This concept is best
+ introduced via an example. Consider the vessel depicted in the figure below. When the level of liquid in the vessel, <i class="emphasis">h</i>, is
+ below the height of the weir, <span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_belowweir.png" data-mc-conditions="Default.ScreenOnly" /></span>, no outflow is observed. When, on the other hand, the liquid level exceeds the weir height, the rate of outflow is assumed to
+ be proportional to <span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_hminhrmw.png" data-mc-conditions="Default.ScreenOnly" /></span>.</p>
+            <div class="figure"><a name="AEN1827"></a>
+                <div class="mediaobject">
+                    <p>
+                        <img src="../Resources/Images/MDG_Weir.png" />
+                    </p>
+                </div>
+                <p class="FigureCaption"> Vessel with overflow weir</p>
+            </div>
+            <p>The mathematical model of the transient behaviour of this system can be written as follows:</p>
+            <p><i class="emphasis">Mass balance</i>
+            </p>
+            <p><span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_weirmassbal.png" data-mc-conditions="Default.ScreenOnly" /></span>
+            </p>
+            <p><i class="emphasis">Calculation of liquid level in the tank</i>
+            </p>
+            <p><span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_weirliqlevel.png" data-mc-conditions="Default.ScreenOnly" /></span>
+            </p>
+            <p><i class="emphasis">Characterisation of the output flowrate</i>
+            </p>
+            <p><span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_weiroutflow.png" data-mc-conditions="Default.ScreenOnly" /></span>
+            </p>
+            <p>We note that two different sets of equations are needed to describe the behaviour of this system depending on whether the level of the
+ liquid is above or below the weir. Thus, the system may exist in two distinct <i class="emphasis">states</i>, <i class="emphasis">Flow</i>
+    and <i class="emphasis">NoFlow</i>, that correspond respectively to whether or not liquid flows over the weir. At any particular time,
+ the system is in exactly one of these states. However, <i class="emphasis">transitions</i> from one state to the other will occur instantaneously if
+ certain conditions are met. For example, if, while the system in state <i class="emphasis">NoFlow</i>, the height of the liquid exceeds
+ that of the weir, the system will instantaneously jump to state <i class="emphasis">Flow</i>. Conversely, if, while the system in state
+    <i class="emphasis">Flow</i>, the height of the liquid drops below that of the weir, the system will instantaneously jump to state
+    <i class="emphasis">NoFlow</i>.</p>
+            <p>The above situation can be represented graphically in terms of an STN as shown in the figure below. The two circles (or ellipses) denote the
+ two possible system states; for convenience, the form of the discontinuous equation (involving the characterisation of the output flowrate) in
+ each of these states is also shown within these circles.</p>
+            <p>On the other hand, the mass balance and liquid level equations do not appear in this figure as their form is independent of the state the
+ system is in. The transitions between the two states are also shown in figure as arrows connecting the corresponding circles. Again for
+ convenience, each arrow is labelled with the logical condition that triggers the corresponding transition.</p>
+            <div class="figure"><a name="AEN1871"></a>
+                <div class="mediaobject">
+                    <p>
+                        <img src="../Resources/Images/MDG_STNWeir_eqns.png" />
+                    </p>
+                </div>
+                <p class="FigureCaption"> STN representation of vessel with overflow weir</p>
+            </div>
+            <p>The STN represents a <i class="emphasis">reversible, symmetric discontinuity</i> because:</p>
+            <ul>
+                <li value="1">
+                    <p>the system may jump from either of the two states to the other and,</p>
+                </li>
+                <li value="2">
+                    <p>the logical condition for one the two transitions is the exact negation of that for the other.</p>
+                </li>
+            </ul>
+            <p>An example of a different type of discontinuity is shown in the figure below. Here, a vessel is fitted with a bursting disc. The disc can
+ either be intact (with no gas flow from the vessel) or burst (with gas venting from the disc to the flare stack). This gives rise to two distinct
+ system states (<i class="emphasis">Intact</i> and <i class="emphasis">Burst</i>). As in the previous example, some of the
+ equations that describe the system take a different form in each of these states while some others remain unchanged. A transition from <i class="emphasis">Intact</i> to <i class="emphasis">Burst</i> occurs when the pressure in the vessel rises above the set pressure and
+ the disc shatters. The resulting outflow of gas will then cause an reduction of the pressure which, eventually, may drop below its set value.
+ However, the system cannot return to its <i class="emphasis">Intact</i> state once the disc has shattered - unless it is repaired as a
+ result of an external action. Consequently, this is an example of an <i class="emphasis">irreversible discontinuity</i>.</p>
+            <div class="figure"><a name="AEN1890"></a>
+                <div class="mediaobject">
+                    <p>
+                        <img src="../Resources/Images/MDG_STN_burst.png" />
+                    </p>
+                </div>
+                <p class="FigureCaption"> Vessel with bursting disc</p>
+            </div>
+            <p>A final example is that of a vessel fitted with a safety relief valve (see figure below). The valve can be either open or closed, which
+ again gives rise to two system states (<i class="emphasis">Open</i> and <i class="emphasis">Closed</i>). A transition from the
+    <i class="emphasis">Closed</i> to the <i class="emphasis">Open</i> state occurs when the pressure in the vessel rises above the
+ set pressure, while a transition from the <i class="emphasis">Open</i> to the <i class="emphasis">Closed</i> state occurs when
+ the pressure falls below a (lower) reset pressure. This is a <i class="emphasis">reversible, asymmetric discontinuity</i> because, although there are
+ possible transitions in both directions, the two transition conditions are not the exact negation of each other.</p>
+            <div class="figure"><a name="AEN1903"></a>
+                <div class="mediaobject">
+                    <p>
+                        <img src="../Resources/Images/MDG_STN_safety.png" />
+                    </p>
+                </div>
+                <p class="FigureCaption"> Vessel with safety relief valve</p>
+            </div>
+            <p>We note that, in all three examples, only a subset of the model equations are directly related to the discontinuity and change from one
+ state to another. The rest of the equations remain unchanged regardless of the state the system is in. Summarising, a discontinuity in the
+ physical behaviour of a system gives rise to a number of possible system states. Naturally, at any given time, the system can be in exactly one of
+ these states. Some of the equations that determine the behaviour of the system hold irrespective of the system state. However, some others take a
+ different form in each state. Transitions between the different states take place when certain logical conditions are satisfied. A system may
+ exhibit more than one physical discontinuity described by multiple STNs and/or more than two states within the same STN. For instance, a more
+ detailed model of the weir vessel would seek to characterise the nature of the fluid flow in the outlet pipe. This would give rise to three system
+ states, i.e. <i class="emphasis">Laminar</i>, <i class="emphasis">Turbulent</i> and <i class="emphasis">Choked</i>. A
+ complex STN for a hypothetical system is depicted in the figure below. Here, the system exhibits two separate physical discontinuities involving
+ three and two possible states respectively.</p>
+            <ul>
+                <li value="1">
+                    <p>Equations 1, 2 and 3 remain unaffected by the discontinuities and are valid throughout.</p>
+                </li>
+                <li value="2">
+                    <p>Equation 4 is affected by the first discontinuity and is written as 4a, 4b or 4c, depending on the state of the system.</p>
+                </li>
+                <li value="3">
+                    <p>Equations 5 and 6 are affected by the second discontinuity and are written as 5a, 5b and 6a, 6b in each of the two states
+ respectively.</p>
+                </li>
+            </ul>
+            <div class="figure"><a name="AEN1919"></a>
+                <div class="mediaobject">
+                    <p>
+                        <img src="../Resources/Images/MDG_STN_generic.png" />
+                    </p>
+                </div>
+                <p class="FigureCaption"> Hypothetical system model.</p>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

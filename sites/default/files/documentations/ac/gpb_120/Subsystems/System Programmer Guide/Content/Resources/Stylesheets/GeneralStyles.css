@@ -1,0 +1,1200 @@
+@namespace MadCap url(http://www.madcapsoftware.com/Schemas/MadCap.xsd);
+/*<meta />*/
+
+body
+{
+	font-family: 'Segoe UI', 'news-gothic-std', 'NewsGothic', 'News Cycle', 'Calibri', 'Arial Narrow', 'Geneva', 'Helvetica', 'Arial', sans-serif;
+	font-size: 100%;
+	line-height: normal;
+	max-width: 100%;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+td > ul
+{
+	margin-top: 0em;
+	margin-left: 0em;
+	padding-top: 0em;
+}
+
+td > ol
+{
+	margin-left: 0em;
+	margin-top: 0em;
+	padding-top: 0em;
+}
+
+td > dl
+{
+	margin-left: 0em;
+	margin-top: 0em;
+	padding-top: 0em;
+}
+
+table p
+{
+	margin: 0;
+	padding: 0;
+}
+
+li p
+{
+	margin-top: 0em;
+	padding-top: 0em;
+}
+
+dd p
+{
+	margin-top: 0em;
+	padding-top: 0em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+	font-weight: bold;
+	color: #749AB6;
+}
+
+a
+{
+	color: #5B8EC1;
+}
+
+p.example
+{
+	color: #546C7F;
+	border: solid 1px #BECFDC;
+	background-color: #DEE8F0;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	padding: 14px 20px;
+}
+
+p.note
+{
+	color: #616E14;
+	border: solid 1px #BFD62F;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	padding: 14px 20px;
+	padding-left: 20px;
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-image: url('../Images/Global/greencheck.png');
+	mc-auto-number-format: '{b}Note: {/b}';
+	mc-auto-number-position: inside-head;
+}
+
+div.warning
+{
+	background-color: Gainsboro;
+	border: solid 1px red;
+	border-radius: 6px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	mc-auto-number-format: '{b}Warning {/b}';
+	mc-auto-number-position: inside-head;
+}
+
+div.caution
+{
+	color: red;
+	border-radius: 6px;
+	border: solid 1px red;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	mc-auto-number-format: '{b}Caution {/b}';
+	mc-auto-number-position: inside-head;
+	text-align: center;
+	margin-left: 4em;
+	margin-right: 4em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+div.tip
+{
+	background-color: Gainsboro;
+	border: solid 1px LightGray;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	mc-auto-number-format: '{b}Hint{/b}';
+	mc-auto-number-position: inside-head;
+}
+
+div.note
+{
+	background-color: Gainsboro;
+	border: solid 1px LightGray;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	mc-auto-number-format: '{b}Note{/b}';
+	mc-auto-number-position: inside-head;
+}
+
+div.noteToAuthor
+{
+	background-color: Gainsboro;
+	border: solid 1px LightGray;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	mc-auto-number-format: '{b}Note to author{/b}';
+	mc-auto-number-position: inside-head;
+}
+
+div.example
+{
+	background-color: Gainsboro;
+	border: solid 1px LightGray;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	mc-auto-number-format: '{b}Example{/b}';
+	mc-auto-number-position: inside-head;
+}
+
+div.noteWithImage
+{
+	color: #616E14;
+	border: solid 1px #BFD62F;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	padding: 14px 20px;
+	padding-left: 20px;
+	background-repeat: no-repeat;
+	background-position: left;
+	background-image: url('../Images/Global/greencheck.png');
+	width: 60%;
+	text-align: center;
+	margin-left: 4em;
+	margin-right: 4em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+div.noteInColor
+{
+	color: #616E14;
+	border: solid 1px #BFD62F;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	padding: 14px 20px;
+	padding-left: 20px;
+	text-align: center;
+	margin-left: 4em;
+	margin-right: 4em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+div.restrict
+{
+	border: solid 2px #000000;
+	text-align: center;
+	page-break-after: always;
+	margin-top: 10em;
+	padding: 16pt;
+}
+
+p.Header
+{
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	text-align: justify;
+	color: #808080;
+	font-size: 70%;
+	margin: 1.12em;
+}
+
+p.Footer
+{
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	text-align: justify;
+	color: #808080;
+	font-size: 70%;
+}
+
+p.TOC1
+{
+	margin-top: 6pt;
+	font-size: 9pt;
+	margin-bottom: 6pt;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+p.TOC2
+{
+	font-size: 9pt;
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	margin-left: 9pt;
+	font-variant: small-caps;
+}
+
+p.TOC3
+{
+	font-size: 9pt;
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	margin-left: 18pt;
+	font-style: italic;
+}
+
+MadCap|xref.ParaTextOnly
+{
+	mc-format: '{paratext}';
+	color: #5B8EC1;
+}
+
+MadCap|footnote.footnote
+{
+	mc-footnote-comment-format: '{n}';
+	mc-footnote-format: '{n}';
+}
+
+span.FootnoteText
+{
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	text-align: justify;
+	font-size: 70%;
+}
+
+p.FootnoteText
+{
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	text-align: justify;
+	font-size: 70%;
+}
+
+tr
+{
+	page-break-inside: avoid;
+}
+
+h1
+{
+	page-break-before: avoid;
+}
+
+hr.TOC
+{
+	border: solid 3px #000000;
+}
+
+p.TOCsub
+{
+	margin-top: 6pt;
+	margin-bottom: 2pt;
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+MadCap|xref.LinkOnly
+{
+	mc-format: '{paranumonly}';
+}
+
+MadCap|xref.EquationWithNumber
+{
+	mc-format: 'equation number {paranumonly}';
+}
+
+p.FigureCaption
+{
+	margin-left: 0em;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	font-size: 90%;
+	text-align: center;
+	font-weight: normal;
+	font-style: italic;
+}
+
+p.programlistingCaption
+{
+	margin-left: 0em;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	font-size: 90%;
+	text-align: center;
+	font-weight: normal;
+	font-style: italic;
+}
+
+caption
+{
+	caption-side: top;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	text-align: center;
+	font-size: 90%;
+	font-style: italic;
+}
+
+h4
+{
+	font-size: 1.0em;
+}
+
+h5
+{
+	font-style: italic;
+	font-size: 1.0em;
+}
+
+object
+{
+	font-size: 2em;
+}
+
+MadCap|expanding
+{
+	mc-open-image: url('resources:Images/WebHelp/minus.png');
+	mc-closed-image: url('resources:Images/WebHelp/plus.png');
+	mc-image-position: left;
+}
+
+MadCap|dropDown
+{
+	mc-open-image: url('resources:Images/WebHelp/minus.png');
+	mc-closed-image: url('resources:Images/WebHelp/plus.png');
+}
+
+MadCap|toggler
+{
+	mc-open-image: url('resources:Images/WebHelp/minus.png');
+	mc-closed-image: url('resources:Images/WebHelp/plus.png');
+	color: inherit;
+}
+
+MadCap|popupHead
+{
+	color: #5B8EC1;
+}
+
+MadCap|popupBody
+{
+	color: #EBEBEB;
+	border: none;
+	background-color: rgba(0, 0, 0, .85);
+	padding: 11px 15px;
+}
+
+MadCap|glossaryTerm
+{
+	
+}
+
+MadCap|glossaryTerm.Expanding
+{
+	color: inherit;
+	font-weight: inherit;
+}
+
+MadCap|glossaryTerm.Hyperlink
+{
+	color: #5B8EC1;
+	font-weight: inherit;
+}
+
+MadCap|glossaryTerm.Popup
+{
+	color: #5B8EC1;
+	font-weight: normal;
+}
+
+MadCap|conceptLink
+{
+	color: #000000;
+}
+
+MadCap|keywordLink
+{
+	color: #000000;
+}
+
+MadCap|relatedTopics
+{
+	color: #000000;
+}
+
+MadCap|helpControlMenu
+{
+	color: #707070;
+	background-color: #FFFFFF;
+	border: none;
+}
+
+MadCap|helpControlMenuItem
+{
+	color: inherit;
+	font-size: inherit;
+	font-family: inherit;
+}
+
+MadCap|helpControlMenuItem.Highlighted
+{
+	color: #000000;
+	background-color: #E5EFF7;
+}
+
+img.MaxWidth75Percent
+{
+	mc-thumbnail: popup;
+	mc-thumbnail-max-height: 15vh;
+}
+
+img.PopUp
+{
+	mc-thumbnail: popup;
+	mc-thumbnail-max-height: 15vh;
+}
+
+span.InlineEquation
+{
+	font-style: italic;
+	font-family: Euclid;
+}
+
+MadCap|xref.FigurePrintNonPrint
+{
+	mc-format: '{paratext}';
+}
+
+MadCap|xref.TablePrintNonPrint
+{
+	mc-format: '{paratext}';
+}
+
+MadCap|xref.EquationPrintNonPrint
+{
+	mc-format: '{paranum}';
+}
+
+MadCap|xref.Assumption
+{
+	mc-format: '{paranum}';
+}
+
+MadCap|xref.SectionPrintNonPrint
+{
+	mc-format: '{paratext}';
+}
+
+p.EquationNumber
+{
+	mc-auto-number-format: 'E:({n+})';
+}
+
+p.AssumptionNumber
+{
+	mc-auto-number-format: 'A:A{n+}';
+}
+
+MadCap|bodyProxy
+{
+	width: 100%;
+}
+
+MadCap|breadcrumbsProxy
+{
+	width: 100%;
+	mc-breadcrumbs-count: 5;
+	font-size: 80%;
+}
+
+div.figure
+{
+	page-break-inside: avoid;
+	text-align: center;
+	margin: 1em;
+}
+
+div.programlisting
+{
+	page-break-inside: avoid;
+	text-align: left;
+	margin: 1em;
+}
+
+span.gPROMS_entity
+{
+	font-weight: bold;
+	font-style: italic;
+}
+
+span.gPROMSLanguage
+{
+	font-family: monospace;
+}
+
+span.productName
+{
+	font-weight: normal;
+	font-style: normal;
+}
+
+span.productFeature
+{
+	font-weight: normal;
+	font-style: italic;
+}
+
+span.guimenuitem
+{
+	font-weight: normal;
+	font-style: italic;
+}
+
+span.fileName
+{
+	font-family: monospace;
+	font-size: 80%;
+}
+
+span.guimenu
+{
+	font-weight: normal;
+	font-style: italic;
+}
+
+span.softwareComponent
+{
+	font-family: monospace;
+	font-style: italic;
+}
+
+span.guibuttonImage
+{
+	margin: 0em;
+	padding: 0em;
+}
+
+img.LogoHeaderFrame
+{
+	height: 1cm;
+}
+
+MadCap|equation
+{
+	font-family: Euclid;
+}
+
+MadCap|equation.Inline
+{
+	margin: 0em;
+	padding: 0em;
+	font-family: Euclid;
+}
+
+td MadCap|equation.inline
+{
+	font-family: Euclid;
+	display: block;
+}
+
+address
+{
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	white-space: pre-line;
+}
+
+p.DisclaimerTitle
+{
+	font-weight: bold;
+}
+
+p.MiniTOC1
+{
+	font-weight: normal;
+	color: #5B8EC1;
+}
+
+p.MiniTOC2
+{
+	font-weight: normal;
+	color: #5B8EC1;
+}
+
+img.ModelIconPrintIntro
+{
+	
+}
+
+p.ModelIconPrintIntro
+{
+	margin-top: 6pt;
+	margin-bottom: 2pt;
+}
+
+MadCap|miniTocProxy.LibrarySection
+{
+	
+}
+
+div.productVersion
+{
+	
+}
+
+p.CopyrightCopyrightPage
+{
+	margin-top: 6pt;
+	margin-bottom: 2pt;
+}
+
+p.DisclaimerTitle
+{
+	font-size: 80%;
+}
+
+body.CopyrightPage
+{
+	font-size: 100%;
+	line-height: normal;
+	margin: 1.5em;
+	max-width: 100%;
+	font-size: 100%;
+}
+
+p.TitleTitlepage
+{
+	margin-top: 6pt;
+	margin-bottom: 2pt;
+	font-size: 24pt;
+	font-weight: bold;
+	border-bottom: solid 4px;
+	border-bottom-color: #000000;
+	mc-hyphenate: never;
+	text-align: left;
+}
+
+p.SubtitleTitlepage
+{
+	margin-top: 6pt;
+	margin-bottom: 2pt;
+	font-weight: bold;
+	font-size: 14pt;
+	mc-hyphenate: never;
+	text-align: left;
+}
+
+div.titleFooter
+{
+	border: solid 4px;
+	border-color: #000000;
+	border-style: solid;
+	text-align: center;
+	padding: 2em;
+	font-size: 12pt;
+}
+
+pre.programlisting
+{
+	font-size: 80%;
+	font-family: 'Courier New', monospaced;
+	padding: 1.12em;
+	background-color: #e0e0e0;
+}
+
+pre.executionOutput
+{
+	font-size: 80%;
+	font-family: 'Courier New', monospaced;
+	padding: 1.12em;
+	background-color: #e0e0e0;
+}
+
+pre.screen
+{
+	font-size: 80%;
+	font-family: 'Courier New', monospaced;
+	padding: 1.12em;
+	background-color: #e0e0e0;
+}
+
+MadCap|xref
+{
+	text-decoration: none;
+	mc-format: '\'{paratext}\'';
+	color: #5B8EC1;
+}
+
+MadCap|xref.ParagraphNumberOnlySup
+{
+	mc-format: '{paranumonly}{sup}{paranum}{/sup}';
+}
+
+MadCap|xref.PageRef
+{
+	mc-format: '{pageref}';
+}
+
+li.NoPageBreak
+{
+	page-break-inside: avoid;
+}
+
+p.DisclaimerBody
+{
+	font-size: 80%;
+}
+
+dt
+{
+	page-break-after: avoid;
+	margin-top: 1ex;
+}
+
+dd
+{
+	margin-top: 1ex;
+}
+
+a:link
+{
+	text-decoration: none;
+}
+
+span.gPROMSEntityName
+{
+	
+}
+
+span.guibutton
+{
+	font-weight: normal;
+	font-style: normal;
+}
+
+div.test
+{
+	border: solid 1px #000000;
+}
+
+span.red_border
+{
+	border: solid 1px red;
+}
+
+table
+{
+	caption-side: top;
+}
+
+img
+{
+	text-align: center;
+}
+
+p
+{
+	
+}
+
+li
+{
+	margin-bottom: 0.56em;
+	margin-top: 0.56em;
+}
+
+pre
+{
+	font-size: 80%;
+}
+
+@media print
+{
+	body
+	{
+		line-height: normal;
+		margin: 0em;
+		max-width: 100%;
+		font-family: Calibri;
+		font-size: 10pt;
+	}
+
+	p
+	{
+		text-align: justify;
+	}
+
+	div.figure > p
+	{
+		text-align: center;
+	}
+
+	MadCap|equation
+	{
+		font-family: Euclid;
+		font-size: 10pt;
+		display: block;
+		margin-bottom: 0em;
+		margin-left: 1em;
+		margin-right: 1em;
+		margin-top: 0em;
+	}
+
+	MadCap|equation.Inline
+	{
+		font-family: Euclid;
+		font-size: 10pt;
+		margin: 0em;
+		padding: 0em;
+		display: block;
+	}
+
+	p.FigureCaption
+	{
+		font-family: Calibri;
+		mc-auto-number-format: 'CF:{b}Figure {chapnum}-{n+}{/b}:  ';
+		margin-bottom: 1em;
+		margin-top: 1em;
+	}
+
+	p.programlistingCaption
+	{
+		font-family: Calibri;
+		mc-auto-number-format: 'CF:{b}Code {chapnum}-{n+}{/b}:  ';
+		margin-bottom: 1em;
+		margin-top: 1em;
+	}
+
+	caption
+	{
+		font-family: Calibri;
+		mc-auto-number-format: 'CT:{b}Table {chapnum}-{n+}: {/b}';
+		caption-side: bottom;
+		margin-bottom: 1em;
+		margin-top: 1em;
+		padding-top: 1em;
+	}
+
+	MadCap|xref
+	{
+		mc-format: '{quote}{paratext}{quote} {pageref}';
+	}
+
+	MadCap|xref.FigurePrintNonPrint
+	{
+		mc-format: '{paranumonly} {pageref}';
+	}
+
+	MadCap|xref.TablePrintNonPrint
+	{
+		mc-format: '{paranum} {pageref}';
+	}
+
+	MadCap|xref.EquationPrintNonPrint
+	{
+		mc-format: '{paranum} {pageref}';
+	}
+
+	MadCap|xref.SectionPrintNonPrint
+	{
+		mc-format: 'section {paranum} {pageref}';
+	}
+
+	MadCap|xref.PageRef
+	{
+		mc-format: '{pageref}';
+	}
+
+	p.EquationNumber
+	{
+		mc-auto-number-format: 'E:({chapnum}-{n+})';
+	}
+
+	p.AssumptionNumber
+	{
+		mc-auto-number-format: 'A:A{chapnum}-{n+}';
+	}
+
+	img
+	{
+		max-width: 70%;
+	}
+
+	h1
+	{
+		font-size: 130%;
+		font-weight: bold;
+		color: black;
+		mc-auto-number-format: 'H:{chapnum} ';
+		font-family: Calibri;
+	}
+
+	p.TOCHeading
+	{
+		font-size: 130%;
+		font-weight: bold;
+		color: black;
+		font-family: Calibri;
+	}
+
+	h2
+	{
+		font-family: Calibri;
+		font-size: 120%;
+		font-weight: bold;
+		color: black;
+		mc-auto-number-format: 'CH:{chapnum}.{n+} ';
+	}
+
+	h3
+	{
+		font-family: Calibri;
+		font-size: 110%;
+		font-weight: bold;
+		color: black;
+		mc-auto-number-format: 'CH:{chapnum}.{n}.{n+} ';
+	}
+
+	h4
+	{
+		font-family: Calibri;
+		font-size: 100%;
+		font-weight: bold;
+		color: black;
+		mc-auto-number-format: 'CH:{chapnum}.{n}.{n}.{n+} ';
+	}
+
+	h5
+	{
+		font-family: Calibri;
+		font-size: 100%;
+		font-weight: bold;
+		color: black;
+		mc-auto-number-format: 'CH:{chapnum}.{n}.{n}.{n}.{n+} ';
+	}
+
+	h6
+	{
+		font-family: Calibri;
+		font-size: 100%;
+		font-weight: bold;
+		color: black;
+		mc-auto-number-format: 'CH:{chapnum}.{n}.{n}.{n}.{n}.{n+} ';
+	}
+
+	img.LogoHeaderFrame
+	{
+		width: auto;
+		height: 1cm;
+	}
+
+	p.ModelIconPrintIntro
+	{
+		text-align: center;
+	}
+
+	MadCap|miniTocProxy
+	{
+		border-bottom-color: #000000;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-top-width: 1px;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+	}
+
+	MadCap|miniTocProxy.ModelIntro
+	{
+		margin-bottom: 10px;
+		border-bottom-width: 1px;
+		padding-bottom: 10px;
+	}
+
+	MadCap|miniTocProxy.LibrarySection
+	{
+		mc-toc-depth: 2;
+		border-bottom-width: 0px;
+		margin-bottom: 10px;
+		page-break-after: always;
+		border-top-width: 0px;
+	}
+
+	h1.Titlepage
+	{
+		font-family: Calibri;
+		font-size: 200%;
+		font-weight: bold;
+		color: #749AB6;
+		mc-auto-number-format: '';
+		text-align: center;
+		vertical-align: middle;
+		mc-heading-level: 0;
+	}
+
+	div.productVersion
+	{
+		line-height: 100%;
+		margin-bottom: 2em;
+		page-break-before: always;
+	}
+
+	p.CopyrightCopyrightPage
+	{
+		margin-bottom: 2em;
+		margin-top: 2em;
+	}
+
+	p.DisclaimerTitle
+	{
+		font-weight: bold;
+		font-style: normal;
+	}
+
+	address.CopyrightPage
+	{
+		margin-top: 2em;
+		margin-bottom: 2em;
+	}
+
+	body.CopyrightPage
+	{
+		font-size: 80%;
+	}
+
+	p.MiniTOC1,
+	p.MiniTOC2,
+	p.MiniTOC3,
+	p.MiniTOC4,
+	p.MiniTOC5,
+	p.MiniTOC6
+	{
+		font-size: 10pt;
+		font-weight: normal;
+		color: black;
+	}
+
+	p.TOC1
+	{
+		font-size: 10pt;
+	}
+
+	p.TOC2
+	{
+		margin-bottom: 3pt;
+		margin-top: 3pt;
+		font-size: 10pt;
+	}
+
+	p.TOC3
+	{
+		font-style: normal;
+		font-size: 10pt;
+	}
+
+	p.TOC4
+	{
+		margin-bottom: 0pt;
+		margin-top: 0pt;
+		font-style: normal;
+		font-size: 10pt;
+	}
+
+	p.TOC5
+	{
+		margin-bottom: 0pt;
+		margin-top: 0pt;
+		font-style: normal;
+		font-size: 10pt;
+	}
+
+	p.TOC6
+	{
+		margin-bottom: 0pt;
+		margin-top: 0pt;
+		font-style: normal;
+		font-size: 10pt;
+	}
+}
+
+span.keyCap
+{
+	
+}
+
+span.concept
+{
+	font-style: italic;
+}
+
+span.guilabel
+{
+	font-style: italic;
+}
+
+span.guibutton
+{
+	font-style: italic;
+}
+
+span.entity
+{
+	
+}
+
+span.entityName
+{
+	
+}
+
+span.reviewComment
+{
+	border-color: #ff0000;
+	color: #ff0000;
+	border-width: 1px;
+}
+
+span.keyName
+{
+	text-transform: capitalize;
+	font-variant: small-caps;
+}
+
+span.highlightOrange
+{
+	color: #ffa500;
+}
+

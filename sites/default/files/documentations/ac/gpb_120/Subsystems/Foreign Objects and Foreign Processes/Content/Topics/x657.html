@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Foreign Objects and Foreign Processes.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Foreign Objects and Foreign Processes|Using Foreign Processes">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The elementary communication tasks</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Foreign Objects and Foreign Processes.htm#Topics/x657.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="elementarycommunicationtasks"></a>The elementary communication tasks</h1>
+        <p>Dynamic simulations in gPROMS are defined in Process entities which
+ can be executed to carry out the simulation. In general, each Process
+ involves a Schedule of actions (defined by Task entities) organised in
+ Sequence or in Parallel. There is also the possibility of conditional (If)
+ and iterative (While) task execution.</p>
+        <p>A Task entity may be defined in terms of lower level tasks which, in
+ turn, may involve even lower level tasks, and so on. We therefore have a
+ hierarchy of tasks of arbitrary depth. At the bottom level of this
+ hierarchy, we have a number of <i class="emphasis">elementary</i> tasks, such
+ as Reset, Replace and Continue (see the chapters entitled Simple
+ Operating Procedures and Complex Operating Procedures in the gPROMS
+ Model Developer Guide).</p>
+        <p>The FPI introduces five new elementary tasks. Just like the other
+ elementary tasks, these can be inserted anywhere in a Schedule. Their
+ function is to exchange information between the executing gPROMS Process
+ and some external software. The latter, as far as gPROMS is concerned, is
+ just a "foreign'' Process (i.e. one that is <i class="emphasis">not</i>
+    written in the gPROMS language). From now on, we will use this term to
+ refer to the external software.</p>
+        <p>The five elementary communication tasks are summarised below:</p>
+        <div class="informaltable"><a name="AEN667"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">PAUSE</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Hold the gPROMS simulation until receiving a signal from
+ the Foreign Process.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">GET</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Receive the values of a subset of the gPROMS variables from
+ the Foreign Process.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">SEND</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Transmit the values of a subset of the gPROMS variables to
+ the Foreign Process.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">SENDMATHINFO</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Transmit information on the mathematical model used for the
+ simulation, and its current state, to the Foreign Process.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">LINEARISE</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Create the minimal state-space representation of a
+ non-linear, dynamic model</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>All elementary communication tasks are executed in a
+    <i class="emphasis">synchronous</i> fashion. That is, the simulation is
+ suspended completely (i.e. the simulation clock is stopped) while gPROMS
+ is waiting for the response of the foreign process.</p>
+        <p>In the rest of this section, we consider each of these elementary
+ tasks in more detail.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

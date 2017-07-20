@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Optimisation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Optimisation Guide|Standard solvers for optimisation">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The CVP_SS solver</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Optimisation Guide.htm#Topics/x1569.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="x257.html">Optimisation Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1533.html">Standard solvers for optimisation</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The CVP_SS solver</span>
+            </div>
+        </div>
+        <h1><a name="cvpsssolver"></a>The CVP_SS solver</h1>
+        <p>CVP_SS can solve steady-state and dynamic optimisation problems with both continuous and discrete optimisation decision variables. The
+ algorithmic parameters used by CVP_SS along with their default values are shown below. This is followed by a detailed description of each
+ parameter.</p><pre class="programlisting">"CVP_SS" [ "DASolver" := "DASOLV";
+ "MINLPSolver" := "OAERAP"];</pre>
+        <p>DASolver - A quoted string specifying a differential-algebraic equation solver.</p>
+        <ul>
+            <li value="1">
+                <p>The solver to be used for integrations of the model equations and their sensitivity equations at each iteration of the optimisation. This
+ can be either the standard DASOLV solver or a third-party differential-algebraic equation
+ solver (see the gPROMS System Programmer Guide). The default is DASOLV.</p>
+                <p>This parameter can be followed by further specifications aimed at configuring the particular solver by setting values to its own
+ algorithmic parameters (see also: specifying solver-type
+ algorithmic parameters in the Model Developer Guide).</p>
+            </li>
+        </ul>
+        <p>MINLPSolver - A quoted string specifying a mixed integer optimisation solver.</p>
+        <ul>
+            <li value="1">
+                <p>The solver to be used for mixed integer optimisation problems. This can be either the standard <a href="x1588.html">OAERAP</a> solver
+ or a third-party mixed integer optimisation solver (see the gPROMS System Programmer Guide). For optimisation problems that do not involve any
+ discrete decision variables, this can be any solver that is capable of solving NLPs but not MINLPs, e.g. the standard NLP solver <a href="x1817.html"><a href="NLPSQP.html">NLPSQP</a></a>. The default is <a href="NLPSQP.html">NLPSQP</a>.</p>
+            </li>
+        </ul>
+        <p>This parameter can be followed by further specifications aimed at configuring the particular solver by setting values to its own algorithmic
+ parameters (see also: specifying solver-type algorithmic
+ parameters in the Model Developer Guide).</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

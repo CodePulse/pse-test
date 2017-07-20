@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Model Analysis and Diagnosis|High-index DAEs, initialisation and integration|High-index DAEs in process-engineering applications|Systems of high-index DAEs in chemical equilibrium">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Example of index reduction in chemical equilibrium</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x12089.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c8364.html">Model Analysis and Diagnosis</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x8614.html">High-index DAEs, initialisation and integration</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x10114.html">High-index DAEs in process-engineering applications</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x11356.html">Systems of high-index DAEs in chemical equilibrium</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Example of index reduction in chemical equilibrium</span>
+            </div>
+        </div>
+        <h1><a name="MDG_Diag_HighIndex_Details_EQM_reduction"></a>Example of index reduction in chemical equilibrium</h1>
+        <p>The handling of the high-index complications in the <a href="x11356.html">previous example</a> was
+ relatively straightforward. However, in general, things may be much more conplicated, for instance, if we had non-ideal behaviour (with
+ chemical equilibrium expressed in terms of fugacities rather than partial pressures, as in <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_eqm.png" data-mc-conditions="Default.ScreenOnly" /></span>); or if we had multiple reversible reactions at equilibrium. We also note that much of the effort in reformulating the
+            <a href="x11356.html">prior system</a> was expended in deriving a complex relation <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_rate_eqm.png" data-mc-conditions="Default.ScreenOnly" /></span> for <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_r.png" data-mc-conditions="Default.ScreenOnly" /></span> – a quantity we need not know in the first place!</p>
+        <p>One approach to overcoming these difficulties is to try to elimiate <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_r.png" data-mc-conditions="Default.ScreenOnly" /></span> from the model. In particular, since <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_r.png" data-mc-conditions="Default.ScreenOnly" /></span> occurs only in <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_matA.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_matB.png" data-mc-conditions="Default.ScreenOnly" /></span>, we can eliminate is by combining these two equations. In this case, we have to multiply <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_matB.png" data-mc-conditions="Default.ScreenOnly" /></span> by 2 and add it to <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_matA.png" data-mc-conditions="Default.ScreenOnly" /></span>, which yields:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_51.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>If we now define a new variable:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_52.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_combo2.png" data-mc-conditions="Default.ScreenOnly" /></span> can be written as:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_53.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>Now consider the DAE system formed by <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_tot_holdup.png" data-mc-conditions="Default.ScreenOnly" /></span> to <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_fout.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_eqm.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_rxn_invar.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_combo2p.png" data-mc-conditions="Default.ScreenOnly" /></span>. This comprises 8 equations in the 8 unknowns <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_Mtilde.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_M_A.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_M_B.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_M_T.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_A.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_B.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_P.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_F_out.png" data-mc-conditions="Default.ScreenOnly" /></span>. There is only one differential variable: <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_Mtilde.png" data-mc-conditions="Default.ScreenOnly" /></span>. If we specify <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_Mtilde0.png" data-mc-conditions="Default.ScreenOnly" /></span>, we can:</p>
+        <ul>
+            <li value="1">
+                <p>Calculate <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_M_A0.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_M_B0.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_M_T0.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_A0.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_B0.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_P0.png" data-mc-conditions="Default.ScreenOnly" /></span> by solving <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_rxn_invar.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_tot_holdup.png" data-mc-conditions="Default.ScreenOnly" /></span> to <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_PGeos.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_eqm.png" data-mc-conditions="Default.ScreenOnly" /></span> simultaneously. To understand this, remember that <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_mol_fracs.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_PGeos.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_eqm.png" data-mc-conditions="Default.ScreenOnly" /></span> can be combined to yield <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_combo1.png" data-mc-conditions="Default.ScreenOnly" /></span> which, together with <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_rxn_invar.png" data-mc-conditions="Default.ScreenOnly" /></span> form a set of two simple equations in <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_M_A0.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_M_B0.png" data-mc-conditions="Default.ScreenOnly" /></span>. Once we get these two values, we can calculate <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_M_T0.png" data-mc-conditions="Default.ScreenOnly" /></span> from <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_tot_holdup.png" data-mc-conditions="Default.ScreenOnly" /></span>; <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_A0.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_B0.png" data-mc-conditions="Default.ScreenOnly" /></span> from <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_mol_fracs.png" data-mc-conditions="Default.ScreenOnly" /></span>; and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_P0.png" data-mc-conditions="Default.ScreenOnly" /></span> from <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_PGeos.png" data-mc-conditions="Default.ScreenOnly" /></span>.</p>
+            </li>
+            <li value="2">
+                <p>Calculate <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_F_out.png" data-mc-conditions="Default.ScreenOnly" /></span> from <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_fout.png" data-mc-conditions="Default.ScreenOnly" /></span>.</p>
+            </li>
+            <li value="3">
+                <p>Calculate <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_Mtildedot0.png" data-mc-conditions="Default.ScreenOnly" /></span> from <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_combo2p.png" data-mc-conditions="Default.ScreenOnly" /></span>.</p>
+            </li>
+        </ul>
+        <p>This, then, is an index-1 system which again can be solved with standard algorithms. It is interesting to note that this has been
+ obtained from the original index-2 problem without any differentiations. This would appear to contradict the definition of index
+ (<i class="emphasis">cf.</i><a href="x9436.html">index classification of DAEs</a>). However, the
+ reduction has been possible only because we did not insist on determining <i class="emphasis">all</i> the variables in the original system;
+ in particular, we decided that <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_r.png" data-mc-conditions="Default.ScreenOnly" /></span> was of no interest and we eliminated it using purely algebraic manipulations (<i class="emphasis">i.e.</i> no
+ differentiations).</p>
+        <p>In doing so, we have introduced the new variable <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_Mtilde.png" data-mc-conditions="Default.ScreenOnly" /></span> defined by equation <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_rxn_invar.png" data-mc-conditions="Default.ScreenOnly" /></span>. <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_Mtilde.png" data-mc-conditions="Default.ScreenOnly" /></span> has an interesting physical interpretation: it is a quantity that remains unchanged by the reaction <span class="inlinemediaobject"><img src="../Resources/Images/inline_reaction_2A_goesto_B.png" data-mc-conditions="Default.ScreenOnly" /></span>, a so called "reaction invariant". Equation <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_combo2p.png" data-mc-conditions="Default.ScreenOnly" /></span> can be interpreted as a balance on this quantity; as might be expected this balance does not involve a reaction
+ term.</p>
+        <p>The procedure described here can be generalised to systems that include multiple reversible reactions at equilibrium, inlcuding
+ additional reversible reactions where the rates of the forward and reverse reactions are known, and additional irreversible reactions.
+ However, this general treatment is beyond the scope of this document.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

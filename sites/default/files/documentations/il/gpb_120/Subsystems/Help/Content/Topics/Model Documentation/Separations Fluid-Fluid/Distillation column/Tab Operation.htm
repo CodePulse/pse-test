@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Operation</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Separations Fluid-Fluid/Distillation column/Tab Operation.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Operation</h1>
+        <p>The Operation tab is used to specify the operating conditions of the column.</p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" style="width: 243px;" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" style="width: 3.15cm;" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" style="width: 577px;" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reboiler temperature</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>No superheating</dt>
+                        <dd>The vapour leaving the reboiler is at the equilibrium temperature.</dd>
+                        <dt>Superheating (specify Degree of superheating)</dt>
+                        <dd>Vapour leaving the reboiler is superheated. The value of the temperature difference is set in the dialog to specify the degree of superheating.</dd>
+                        <dt>Superheating (specify reboiler temperature)</dt>
+                        <dd>Vapour leaving the reboiler is superheated. This option uses the reboiler temperature specified in the dialog.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">
+                        <p>Condenser temperature</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">
+                        <p>Selector</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>No subcooling</dt>
+                        <dd>Liquid leaving the condenser is at the equilibrium temperature.</dd>
+                        <dt>Subcooling (specify Degree of subcooling)</dt>
+                        <dd>Liquid leaving the condenser is subcooled. The value of the temperature difference is set in the dialog to specify the degree of subcooling.</dd>
+                        <dt>Subcooling (specify condenser temperature)</dt>
+                        <dd>Liquid leaving the condenser is subcooled. This option uses the condenser temperature specified in the dialog.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Specification 1, 2 and 3</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Boilup ratio ( V/B )</dt>
+                        <dt>Boilup ratio normalized ( V/(V+B) )</dt>
+                        <dt>Reflux ratio ( R/(D+VT) )</dt>
+                        <dt>Reflux ratio normalized ( R/(R+D+VT) )</dt>
+                        <dt>Top vapour product flowrate ( VT )</dt>
+                        <dt>Top liquid product flowrate ( D )</dt>
+                        <dt>Bottom product flowrate ( B )</dt>
+                        <dt>Top vapour product to feed flowrate ratio ( VT/F )</dt>
+                        <dt>Top liquid product to feed flowrate ratio ( D/F )</dt>
+                        <dt>Bottom product to feed flowrate ratio ( B/F )</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Top vapour product purity</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Top liquid product purity</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Bottom product purity</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Top vapour product recovery</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Top liquid product recovery</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Bottom product recovery</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Reboiler duty</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Reboiler temperature</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Condenser duty</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Condenser temperature</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Reflux valve flow coefficient</dt>
+                        <dt data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Reflux flowrate</dt>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">
+                        <MadCap:conditionalText data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">Specification 1, 2 and 3 basis</MadCap:conditionalText>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Molar</dt>
+                        <dd>Specifications are on a molar basis.</dd>
+                        <dt>Mass</dt>
+                        <dd>Specifications are on a mass basis.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Boilup ratio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">mol/mol or kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Ratio of flowrate of liquid that is re-boiled as vapour (V) to the amount of liquid leaving the reboiler (B).</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Boilup ratio normalized</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">mol/mol or kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Ratio of flowrate of liquid that is re-boiled as vapour (V) to the total amount leaving the reboiler (V+B).</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reflux ratio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">mol/mol or kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Ratio of flowrate of liquid that is refluxed back  (R) to liquid distillate flowrate (D) plus vapour distillate flowrate (VT).</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Reflux ratio normalized</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">mol/mol or kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Ratio of flowrate of liquid that is refluxed back  (R) to the total vapour flow entering the condenser.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Top vapour product flowrate</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kmol/h or kg/s</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Flowrate of the vapour leaving the condenser as distillate.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Top liquid product flowrate</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">kmol/h or kg/s</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Flowrate of the liquid leaving the condenser as distillate.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Bottom product flowrate</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kmol/h or kg/s</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Flowrate of the liquid product at the bottom of the column.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Top vapour product flowrate to feed flowrate ratio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">mol/mol or kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Ratio of the flowrates of the vapour distillate to the feed.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Top liquid product flowrate to feed flowrate ratio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">mol/mol or kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Ratio of the flowrates of the liquid distillate to the feed.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Bottom product flowrate to feed flowrate ratio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">mol/mol or kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Ratio of the flowrates of the bottom to the feed.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Component for top vapour purity specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Component for which the purity is specified.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Top vapour product purity</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">mol/mol or kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Purity of the top vapour product.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Component for top liquid purity specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Component for which the purity is specified.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Top liquid product purity</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">mol/mol or kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Purity of the top liquid product.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Component for bottom purity specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Component for which the purity is specified.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Bottom product purity</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">mol/mol or kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Purity of the bottom product.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Component for top vapour recovery specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Component for which the recovery is specified.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Top vapour product recovery</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Ratio of the flowrate of the specified component into the vapour product to that in the feed.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Component for top liquid recovery specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Selects the component for which the recovery is specified.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Top liquid product recovery</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Ratio of the flowrate of the specified component into the top liquid product to that in the feed.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Component for bottom recovery specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Selects the component for which the recovery is specified.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Bottom product recovery</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Ratio of the flowrate of the specified component into the bottom product to that in the feed.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reboiler duty</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kJ/s</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Heat duty of the reboiler (this should be positive).</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Reboiler temperature</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Reboiler temperature.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Condenser duty</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kJ/s</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Heat duty of the condenser (this should be negative).</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Condenser temperature</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Condenser temperature.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reflux valve flow coefficient</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kg s<sup>-1</sup> Pa<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Flow coefficient of the reflux valve located on the liquid line going from the condenser to the top tray, just after the split for the top liquid product.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Reflux molar flowrate</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">kmol/h</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Molar flowrate of the liquid coming from the condenser and being fed back to the column on the top tray.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Operation/Snippet Column Operation.Operation">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1">Reflux mass flowrate</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1">kg/s</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1">Mass flowrate of the liquid coming from the condenser and being fed back to the column on the top tray.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

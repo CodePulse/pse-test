@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Arrays|Declaring arrays in Models">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Declaring arrays of Parameters in Models</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x1265.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c1185.html">Arrays</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1225.html">Declaring arrays in Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Declaring arrays of Parameters in Models</span>
+            </div>
+        </div>
+        <h1><a name="AEN1265"></a>Declaring arrays of Parameters in Models</h1>
+        <p>Model Parameters are declared in the Parameter section of gPROMS Models to belong to the basic types <code class="methodname">INTEGER</code> or
+      <code class="methodname">REAL</code>. Such Parameters may be scalars or arrays of one, two or more dimensions. Consider, for instance, the Parameter
+ section in a model of a liquid-phase continuous stirred tank reactor (CSTR). This is shown in the gPROMS code below.</p>
+        <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span><a name="AEN1270"></a>
+            <p><b>Example 1. Parameter section of a liquid-phase CSTR Model</b>
+            </p><pre class="programlisting"># MODEL LiquidPhaseCSTR
+
+ PARAMETER
+ 
+ # Number of components
+ NoComp AS INTEGER
+ 
+ # Number of reactions
+ NoReact AS INTEGER
+ 
+ # Component molar densities
+ Rho AS ARRAY(NoComp) OF REAL
+ 
+ # Stoichiometric coefficient of component i in reaction j
+ Nu AS ARRAY(NoComp,NoReact) OF REAL DEFAULT 0 
+ 
+ # Order of component i in reaction j
+ Order AS ARRAY(NoComp,NoReact) OF REAL DEFAULT 0</pre>
+        </div>
+        <p>Here, <code class="methodname">NoComp</code> and <code class="methodname">NoReact</code> denote the numbers of chemical components and chemical
+ reactions occurring in this system. Each of these is a simple (scalar) <code class="methodname">INTEGER</code> Parameter. On the other hand, the
+ densities of the pure components form a vector of real quantities declared as an array of length <code class="methodname">NoComp</code>:</p><pre class="programlisting">Rho AS ARRAY(NoComp) OF REAL</pre>
+        <p>For the purposes of this example, the pure component densities are assumed to be constant but different to each other.</p>
+        <p>Similarly, <code class="methodname">Nu</code> and <code class="methodname">Order</code> are two-dimensional arrays of <code class="methodname">REAL</code>
+      Parameters. The number of elements in the first dimension is <code class="methodname">NoComp</code>; the number of elements in the second dimension is
+      <code class="methodname">NoReact</code>. We note that, if a <code class="methodname">DEFAULT</code> value is specified for an array Parameter, this is taken
+ to refer to <i class="emphasis">all</i> elements of that array.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

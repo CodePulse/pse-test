@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Ordered Sets">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Ordered Sets in Model Specification Dialogs</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x3543.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c3318.html">Ordered Sets</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Ordered Sets in Model Specification Dialogs</span>
+            </div>
+        </div>
+        <h1><a name="AEN3543"></a>Ordered Sets in Model Specification Dialogs</h1>
+        <p>Ordered Sets can be specified in Model <a href="x3832.html">specification dialogs</a> just as any other Parameter. The elements
+ of the Ordered Set can be entered by the user and these will then affect the input tables of any Parameters or Variables that depend on the Ordered
+ Set. In the example below, we have model of a reactor with an Ordered Set of reactions and stoichiometric parameters that are indexed over the set of
+ reactions and components.</p>
+        <div class="figure"><a name="AEN3547"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_OrderedSetSpecificationDialog.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Reaction Data Tables Labelled with Elements from Ordered Sets</p>
+        </div>
+        <p>The elements of the Ordered Set of reactions (labelled Reaction names) can be specified using gPROMS language, as shown above, or by editing each
+ element individually in a matrix. In order to do this, left click on the <img src="../Resources/Images/MDG_SpecificationDialogExpandButton.png" />
+    button next to the text box. In the image below, another reaction has been entered in this fashion. Notice that the tables for the stoichiometric
+ parameters are automatically updated once the new reaction has been entered (or an existing one deleted – simply by editing the entry and deleting
+ it).</p>
+        <div class="figure"><a name="AEN3556"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_OrderedSetSpecificationDialogNewRxn.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Entering a New Reaction: the Data Tables are Automatically Updated</p>
+        </div>
+        <p>It is also apparent from the above figures, that the components are also represented by an Ordered Set. This can be specified in exactly the same
+ way, but in this example, it is given by a physical property Foreign Object. Just as when changing, adding or removing an element of the reactions
+ Ordered Set, the data-entry tables for any Parameters or Variables that are indexed over the set of components will automatically change. The figure
+ below shows the format for entering component data using the Ideal Physical Property Foreign Object (see the Physical Properies Guide): the Ordered Set of components is
+ automatically updated by the physical-propery Foreign Object whenever the specification is changed, and this then updates the table of mass fractions
+ below and the reaction-data tables in the figure above.</p>
+        <div class="figure"><a name="AEN3565"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_OrderedSetComponentSpecificationDialog.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Ordered Set being defined by a Physical Property Foreign Object</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

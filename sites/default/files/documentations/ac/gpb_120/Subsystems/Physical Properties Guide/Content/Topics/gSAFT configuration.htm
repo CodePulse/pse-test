@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties Guide|Using Physical Properties for Simple Materials|The gSAFT physical properties interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>gSAFT Configuration</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/gSAFT configuration.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>gSAFT Configuration</h1>
+        <p>The configuration of the gSAFT FO requires the specification of the equation of state to be used and the components in the system.</p>
+        <p>The gSAFT FO provides the implementation of two equations of state, namely the SAFT-VR SW and SAFT-γ Mie EOS. The EOS is selected by specifying the corresponding parameter databank, as described below:</p>
+        <ul style="list-style-type: disc;margin-left: 36pt;">
+            <li style="list-style-type: disc;" value="1"><span class="fileName">VR_SW_databank.dtb</span> for SAFT-VR SW and</li>
+        </ul>
+        <ul style="list-style-type: disc;margin-left: 36pt;">
+            <li style="list-style-type: disc;" value="1"><span class="fileName">GC_Mie_databank.dtb</span> for SAFT-γ Mie.</li>
+        </ul>
+        <p>The gSAFT foreign object can be configured by providing the name of the databank to be used together with the list of components in the FO initialisation string in a MODEL or PROCESS entity as in the general form shown below: </p><pre class="programlisting" xml:space="preserve">gSAFT::databank.dtb&lt;component1,component2,component3,...&gt;</pre>
+        <p>Note that the components must be specified in a comma-separated list within angle brackets (and without spaces) as shown in the example below, where the SAFT-VR SW EOS is used and the material system is a binary
+			mixture of hydrogen fluoride + water.</p><pre class="programlisting">gSAFT::VR_SW_databank.dtb&lt;hydrogen_fluoride,water&gt;</pre>
+        <p>Alternatively, the name of the databank and the list of components can be specified in the gSAFT configuration file. In this case, the FO initialisation string features simply 
+			the configuration file name, as shown below:</p><pre class="programlisting">
+gSAFT::ConfigurationFileName.xml</pre>
+        <p>The gSAFT configuration file is an XML file,
+		   where the databank name and list of components for the example of using SAFT-VR SW for the binary mixture of hydrogen fluoride + water are specified as shown below.</p><pre class="programlisting">
+&lt;gsaft&gt;
+  &lt;databank name = "VR_SW_databank.dtb"/&gt;
+    &lt;compound name = "hydrogen_fluoride"/&gt;
+    &lt;compound name = "water"/&gt;
+&lt;/gsaft&gt;</pre>
+        <p>Note that:</p>
+        <ul>
+            <li value="1">The contents of the configuration file must be inside a <span class="fileName">&lt;gsaft&gt;</span> element.</li>
+            <li value="2">The databank is specified as the <span class="fileName">name</span> attribute of the <span class="fileName">&lt;databank&gt;</span> element.</li>
+            <li value="3">A <span class="fileName">&lt;compound&gt;</span> element is used to specify a compound in the system, where the name of the compound is provided as the <span class="fileName">name</span> attribute
+						of the element.</li>
+        </ul>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Defining components in terms of functional groups</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>When SAFT-<span style="font-family: Symbol;">g</span> Mie is used, it is possible to define a component in terms of functional groups. This component does not need to exist in the gSAFT databank. The example (below) is a binary mixture of water with polyethylene glycol (PEG). In this example, the user can define a component of arbitrary name (here “PEG”), and the group decomposition of the component is given inside parentheses as follows:</p><pre class="programlisting">gSAFT::GC_Mie_databank.dtb&lt;water,PEG(CH2:=360;cO:=179;OH:=2)&gt;</pre>
+                <p>Note that the group multiplicity is declared with the assignment operator “:=”, and each group type is separated by a semicolon. All the available group types are reported in <a href="gSAFT Gamma Mie group list.htm">the SAFT-<span style="font-family: Symbol;">g</span> Mie group list</a>.</p>
+                <p>The definition of a compound in terms of the functional groups it comprises can be done in the gSAFT configuration file by specifying each group as a <span class="fileName">&lt;group&gt;</span> child element
+				   to the corresponding <span class="fileName">&lt;compound&gt;</span> element. The group multiplicity is then specified by the <span class="fileName">multiplicity</span> attribute of the <span class="fileName">&lt;group&gt;</span> element. The
+				   definition of the example of water + PEG would be as follows in the gSAFT configuration file:</p><pre class="programlisting">
+&lt;gsaft&gt;
+  &lt;databank name = "GC_Mie_databank.dtb"&gt;
+    &lt;compound name = "water"/&gt;
+    &lt;compound name = "PEG"&gt;
+      &lt;group name = "CH2" multiplicity = "360"/&gt;
+      &lt;group name = "cO"  multiplicity = "179"/&gt;
+      &lt;group name = "OH"  multiplicity = "2"/&gt;
+    &lt;/compound&gt;
+&lt;/gsaft&gt;</pre>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Variable molecular structure components (VMSC)</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>The gSAFT physical property package offers the possibility of defining a component with a variable molecular structure. This means that the number of functional group units in this component (or group multiplicity) does not need to be known in advance, but can be considered as a variable of the gPROMS model. This is a particularly useful feature in the context of solvent design but also for more routine use, for example, in polymerization reactor modelling.</p>
+                <p>In order to define a VMSC, the idea is to simply remove the group multiplicity specification of a given group in a molecule as follows:</p><pre class="programlisting">gSAFT::GC_Mie_databank.dtb&lt;ethylene,alkane(CH2;CH3:=2)&gt;</pre>
+                <p>The same can be done when initialising the FO with a configuration file, by omitting the <span class="fileName">multiplicity</span> attribute of a <span class="fileName">&lt;group&gt;</span> element.</p><pre class="programlisting">
+&lt;gsaft&gt;
+  &lt;databank name = "GC_Mie_databank.dtb"/&gt;
+    &lt;compound name = "ethylene"/&gt;
+    &lt;compound name = "alkane"&gt;
+      &lt;group name = "CH3" multiplicity = "2"/&gt;
+      &lt;group name = "CH2"/&gt;							
+    &lt;/compound&gt;							
+&lt;/gsaft&gt;</pre>
+                <p>In this example, the molecule “alkane” is automatically recognized to be a VMSC, and the CH2 group multiplicity will have to be evaluated at “runtime” by a gPROMS model. Note that there is no restriction to the number of group types with unspecified multiplicity in the same component.</p>
+                <p>If at least one VMSC is present in a mixture, then the group multiplicities of all VMSCs need to be passed by argument to the physical property methods. This extra argument is an array specifying the multiplicity (of type real) of all group types (in each component) that were left unspecified in the gSAFT configuration.</p>
+                <p>An example of a simple gPROMS Model making use of the VMSC feature is shown below:</p><pre class="programlisting" xml:space="preserve">
+ 1 PARAMETER
+ 2 PhysProp           AS FOREIGN_OBJECT
+ 3 Components         AS ORDERED_SET
+ 4 GroupsInMolecule   AS ORDERED_SET 
+ 
+ 5 VARIABLE
+ 6 T                  AS Temperature
+ 7 P                  AS Pressure
+ 8 z                  AS ARRAY(Components) OF Composition
+ 9 NumberOfCH3        AS NoType
+10 NumberOfCH2        AS NoType
+11 NumberOfCH         AS NoType
+12 MolecularStructure AS ARRAY(GroupsInMolecule) OF&#160;NoType 
+13 LiquidDensity      AS Density
+14 LiquidEnthalpy     AS Enthalpy
+15 TotalEnthalpy      AS Enthalpy
+ 
+16 SET
+17 PhysProp          := "gSAFT::GC_Mie_Databank.dtb&lt;water,alkane(CH3:=2;CH2),branchedAlkane(CH3;CH2;CH)&gt;" ;
+18 Components        := PhysProp.Components ;
+19 GroupsInMolecule  := PhysProp.MolecularStructure ; 
+
+20 EQUATION
+21 MolecularStructure("branchedAlkane:CH3") = NumberOfCH3 ;
+22 MolecularStructure("branchedAlkane:CH2") = NumberOfCH2 ; 
+23 MolecularStructure("branchedAlkane:CH ") = NumberOfCH  ; 
+
+24 MolecularStructure("alkane:CH2") = NumberOfCH2 ; 
+
+25 LiquidDensity  = PhysProp.LiquidDensity(T, P, z, <span style="color: #ff0000;">MolecularStructure</span>) ;
+26 LiquidEnthalpy = PhysProp.LiquidEnthalpy(T, P, z, <span style="color: #ff0000;">MolecularStructure</span>) ;			
+27 TotalEnthalpy  = PhysProp.Enthalpy(T, P, z, <span style="color: #ff0000;">MolecularStructure</span>) ;																																			
+28 ...</pre>
+                <p>In this example, the components “alkane” and “branchedAlkane” are both VMSCs. The important lines of the Model that are specific to the variable molecular structure feature are explained below: </p>
+                <ul>
+                    <li value="1">At line 19, the list of relevant group types for each VMSC in the mixture is returned in the form of an ordered set by the method “MolecularStructure”. This ordered set is stored in the parameter “GroupsInMolecule”. In this particular example, the CH3, CH2 and CH groups in “branchedAlkane” as well as the CH2 group in “alkane” have been left unspecified in the gSAFT configuration (see line 17). Therefore the method “MolecularStructure” will return the ordered set [“branchedAlkane:CH3”, “branchedAlkane:CH2”, “branchedAlkane:CH”, “alkane:CH2”]. Note that each entry of the ordered set is composed of the name of a VMSC together with a group type that is part of the VMSC.</li>
+                    <li value="2">At line 12, the variable “MolecularStructure” is defined, and is used to store the group multiplicities (real values) of all the groups specified in the ordered set “GroupsInMolecule”.</li>
+                    <li value="3">At lines 21, 22, 23 and 24, the array elements of “MolecularStructure” are given real values by means of simple equations involving some intermediate variables, “NumberOfCH3, “NumberOfCH2” and “NumberOfCH”. Since these variables are free to vary during the simulation, it can be seen that the molecular structure of “alkane” and “branchedAlkane” will change at runtime.</li>
+                    <li value="4">At lines 25-27, the physical property calls require the use of an extra argument (here named “MolecularStructure”) that contains all of the group multiplicities of all group types in the VMSC that were not specified in the gSAFT configuration string (see gSAFT configuration string at line 17). Note that as soon as at least one VMSC in the gSAFT configuration is defined, all of the physical property methods<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>The only methods for which the extra argument does not apply are the Components and NumberOfComponents methods, the output of which does not depend on the molecular structure of the components.</span></a> should be invoked with this extra argument.</li>
+                </ul>
+                <p>This simple example above shows how to setup a gPROMS Model that makes use of the VMSC feature of gSAFT. Only two components were declared as a VMSC in this specific example. There is however no limitation on the number of VMSCs that can be configured in the gSAFT initialization string.</p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Using multiple parameter databanks</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>The gSAFT FO can also be initialised with multiple parameter databanks. In the gSAFT initialization string, the databank names are provided separated by a colon ":" as shown below:</p><pre class="programlisting" xml:space="preserve">gSAFT::databank_1.dtb:databank_2.dtb:databank_3.dtb&lt;hydrogen_fluoride,water&gt;</pre>
+                <p>An equivalent declaration, when using a configuration file, is specified by using multiple  <span class="fileName">&lt;databank&gt;</span> elements, one for each databank, as follows:</p><pre class="programlisting" xml:space="preserve">
+&lt;gsaft&gt;
+  &lt;databank name = "databank_1.dtb"/&gt;
+  &lt;databank name = "databank_2.dtb"/&gt;
+  &lt;databank name = "databank_3.dtb"/&gt;
+    &lt;compound name = "hydrogen_fluoride"/&gt;
+    &lt;compound name = "water"/&gt;
+&lt;/gsaft&gt;</pre>
+                <p>More information on using the gSAFT FO with multiple parameter databanks can be found in the <a href="Using gSAFT with multiple databanks.htm">"Using gSAFT with multiple databanks"</a> section.</p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Switching from molar to mass basis calculations</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>By default gSAFT works on a molar basis. Switching the calculations to mass basis is as simple as adding an additional parameter at the end of the initialisation string as shown below:</p><pre class="programlisting">gSAFT::VR_SW_databank.dtb&lt;hydrogen_fluoride,water&gt; -mass</pre>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Selecting the enthalpy and entropy reference datum</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>The enthalpy and entropy can be calculated with respect to two different reference values, namely the compound and element references. </p>
+                <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Compound reference</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>This compound reference is the default option in gSAFT. This means that the ideal gas enthalpy and entropy of each pure component in the mixture is set to zero at T=298.15 K. The total enthalpy and entropy are then computed by thermodynamic integration from the ideal gas state.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Element reference</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>The element reference can be selected by the addition of a parameter at the end of the gSAFT initialization string as shown below:</p><pre class="programlisting">gSAFT::VR_SW_databank.dtb&lt;hydrogen_fluoride,water&gt; -datum element</pre>
+                        <p>The datum for the system of interest is then considered to be the chemical elements in their thermodynamic reference state at T= 298.15 K and P = 1 bar. This means that the ideal gas enthalpy and entropy of each pure component in the system is equal to their respective enthalpy and entropy of formation in the ideal gas state at T=298.15 K (instead of being equal to zero with the compound reference).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Disabling the exponential transformation</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>The exponential transformation (default behaviour) prevents the sending of negative values to the gSAFT foreign object as inputs for calculations and performs a smooth transformation which modifies very small and/or negative values to positive values. </p>
+                <p>This transformation of the inputs can be disabled with the following flag:</p><pre class="programlisting">gSAFT::VR_SW_databank.dtb&lt;hydrogen_fluoride,water&gt; -noexptransform </pre>
+                <p>Disabling this transformation is recommended if the composition of a compound needs to be set to (exactly) zero. If the exponential transformation is not disabled, the composition of the compound would become a small positive number, and hence create possible adverse effects, such as the appearance of a new phase.</p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Disabling the analytical derivatives of the physical property methods</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>It is possible to disable all of the analytical derivatives that the gSAFT foreign object computes. This is done by adding an extra flag as follows:</p><pre class="programlisting"> gSAFT::VR_SW_databank.dtb&lt;hydrogen_fluoride,water&gt; -noderiv </pre>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Configuring gSAFT from a unit specification dialog</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>The specification string can be entered either directly into the gPROMS language of a gPROMS model as shown below:</p><pre class="programlisting">SET
+...
+ physProps := "gSAFT::VR_SW_databank.dtb&lt;hydrogen_fluoride,water&gt;";
+...</pre>
+                <p>or in a unit specification dialog on a topology as shown below: </p>
+                <div class="figure">
+                    <p>
+                        <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Configuration_1.png" style="visibility: visible;mso-wrap-style: square;width: 417px;height: 377px;" />
+                    </p>
+                    <p class="FigureCaption">Physical property specification </p>
+                </div>
+                <p>Once the specification string has been entered, the names of the components will immediately be accessible as labels to other specification fields<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>This behaviour is not specific to gSAFT but applies to physical property packages in general.</span></a>.</p>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

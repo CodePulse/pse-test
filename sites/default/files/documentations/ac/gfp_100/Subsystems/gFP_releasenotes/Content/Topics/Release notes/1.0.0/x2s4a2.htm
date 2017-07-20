@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gFP_releasenotes.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Upgrading legacy flowsheets to use gPROMS FormulatedProducts</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../gFP_releasenotes.htm#Topics/Release notes/1.0.0/x2s4a2.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="gFP intro.htm">Release notes</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2.htm">Updating flowsheets from gCRYSTAL, gSOLIDS and gCOAS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2s4.htm">How to open and use legacy flowsheets</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Upgrading legacy flowsheets to use gPROMS FormulatedProducts</span>
+            </div>
+        </div>
+        <h1>Upgrading legacy flowsheets to use <span class="ProductName">gPROMS FormulatedProducts</span></h1>
+        <p>For flowsheets containing models that have been migrated to gFP, it is possible to upgrade the flowsheet to use the new libraries. Currently, due to limited backwards compatibility, this is a manual task and can be completed following the steps below:</p>
+        <ol>
+            <li value="1">Open the gFP libraries and the required legacy libraries</li>
+            <li value="2">Open the target flowsheet and save a copy as "&lt;flowsheet name&gt; - gFP"<ol style="list-style-type: lower-roman;"><li value="1">Keep both copies open</li><li value="2">Only edit the newly saved project</li></ol></li>
+            <li value="3">In the newly saved project add the required cross-references by either:<ol style="list-style-type: lower-roman;"><li value="1">Dragging on and then deleting the unit operations required from the gFP&#160;libraries</li><li value="2">Editing the cross-references of the project directly (right-click the project -&gt;&#160;Cross-references); add the gFP libraries required</li></ol></li>
+            <li value="4">Right-click each model (other than global specifications) in turn and in the context menu select "Change model..."</li>
+            <li value="5">In the pop-up dialog, select "ALL MODELs" radio button and find the required model in the drop-down and press OK</li>
+            <li value="6">All models should now be converted to gFP models<ol style="list-style-type: lower-roman;"><li value="1">Remove legacy cross-references from the project (right-click the project -&gt;&#160;Cross-references)</li><li value="2">Ensure the corresponding legacy library gFP version fundamentals library is cross-referenced; this will maintain your global specifications e.g. if using gSOLIDS, "3 gSOLIDS&#160;Fundamentals" should be in the cross-references</li></ol></li>
+            <li value="7"><b>Optional:</b> Upgrade to gFORMULATE&#160;global specifications to use the new physical properties database. This requires using the Data Import and Properties Manager interface to import the required species into the database as well as configuring a material systems file.</li>
+            <li value="8">Open the original project and upgraded version side by side; compare dialog specifications for each model and transfer any that are missing or changed values</li>
+            <li value="9">Close the original project and the legacy libraries.</li>
+            <li value="10">Use the new project as usual.</li>
+        </ol>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

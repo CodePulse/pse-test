@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Ordered Sets">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Declaring Ordered Sets</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x3354.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="md_define_orderedsets"></a>Declaring Ordered Sets</h1>
+        <p>The Ordered Set is a type of Parameter and is therefore declared in the PARAMETER section of your gPROMS Model.</p>
+        <p>They are declared as follows:</p><pre class="programlisting">PARAMETER 
+ Gases, Liquids, Species AS ORDERED_SET
+ </pre>
+        <p>As with other Parameters, the values are defined in the set section. In the case of Ordered Sets, it is the set elements that must be
+ defined.</p><pre class="programlisting">SET
+ Gases := ['H2', 'CH4', 'Ethane'] ; 
+ Liquids := ['Octane', 'Decane'] ; 
+ Species := Gases + Liquids ;
+ </pre>
+        <p>Note that the <tt class="function">+</tt> operator is the set union operator in this case. More information on operators may be found <a href="x3391.html">here</a>.</p>
+        <p>Each element of the Ordered Set is a user-defined string. Strings are delimeted by single quotes (as shown above) or by double quotes (") and can
+ contain any character apart from the same character used to delimit the string. Also, each element of the Ordered Set must be unique: if any duplicate
+ elements are defined, these are ignored by gPROMS. The following example specification produces an Ordered Set containing just three elements: "1", "2"
+ and "3", in that order.</p><pre class="programlisting">SET
+ Numbers := [ '1', '2', '3', '2' ] ;
+</pre>
+        <p>Some examples of legal and illegal element specifications are shown below:</p><pre class="programlisting">SET
+ Legal := [ "1", '2"', "3'" ] ; # all legal
+ Illegal := [ '1'', "2"" ] ; # all illegal 
+# \ \_____ this element is delimeted by " so the string
+# \ may include any character apart from "
+# \_________ this one is delimited by ' so it cannot contain '
+</pre>
+        <p>Ordered Sets are also compatible with physical-property
+ interfaces. In this next example, the elements of the Ordered Set are specified by a physical-property Foreign Object.</p><pre class="programlisting">PARAMETER
+ Species AS ORDERED_SET
+ PhysProp AS FOREIGN_OBJECT "PhysProp"
+ NoComp AS INTEGER
+
+SET
+ NoComp := PhysProp.NumberOfComponents ;
+ Species := PhysProp.Components ;</pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

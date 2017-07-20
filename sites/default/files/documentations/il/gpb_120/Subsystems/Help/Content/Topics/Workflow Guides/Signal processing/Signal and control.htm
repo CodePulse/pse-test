@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Workflow guides|Process">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Signals and control</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Help.htm#Topics/Workflow Guides/Signal processing/Signal and control.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Signals and control</h1>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Using signals on process flowsheets</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>In <span class="ProductName">gPROMS ProcessBuilder</span> flowsheets can be constructed which contain not only unit operation models and process streams but also signalling and control logic.  By making connections on the flowsheet, the signalling and control logic can be linked to the unit operation models and process streams.</p>
+                <p>For this purpose <span class="ProductName">gPROMS ProcessBuilder</span> contains a library of basic building blocks that implement elementary mathematical calculations and logic operations on signals (see <a href="../../Model Documentation/Signal/Signal.htm" class="MCXref xref" xrefformat="'{paratext}'">'Signal'</a> for a list of all currently supported operations). These blocks can be selected from the <span class="concept">palette</span> like any other unit model. </p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Signals and control/signal_models_palette.png" />
+                    </p>
+                    <p class="FigureCaption">Signal models on the palette</p>
+                </div>
+                <p>Adding signalling and control logic to the flowsheet can be useful for the following purposes:</p>
+                <ul>
+                    <li value="1">Implementing process operation logic and process control</li>
+                    <li value="2">Performing basic calculations using the variables in process streams and unit operation models</li>
+                    <li value="3">Determining specifications for unit operation models and process streams based on results from basic calculations</li>
+                    <li value="4">Performing sensitivity studies</li>
+                    <li value="5">Reading and writing data streams to and from the flowsheet</li>
+                    <li value="6">Constructing simple custom models using a flowsheeting approach</li>
+                    <li value="7">Developing process flowsheets using a hybrid modelling approach with some unit operations modelled using linear or data-based models.</li>
+                </ul>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>Many of the tasks that can be accomplished by using flowsheets, with signal blocks, can alternatively also be accomplished using the gPROMS&#160;Custom Modelling language (see <a href="../Custom modeling/Custom modeling.htm" class="MCXref xref" xrefformat="'{paratext}'">'Custom modelling in gPROMS ProcessBuilder'</a> for an overview on how to use this language). Which approach to use is a matter of personal preference.</p>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Signal models</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <h3>Types of signal models</h3>
+                <p>Signal models operate on signals. A signal is an array of one or more "abstract" variables or parameters. </p>
+                <p>The following types of signal models are available in <span class="ProductName">gPROMS ProcessBuilder</span>:</p>
+                <ul>
+                    <li value="1">Sources: These models create a specific signal and have only an output port, for example, a sinusoidal signal with a defined amplitude and period.</li>
+                    <li value="2">Sinks: These models have only an input port. The signal on the input port is either plotted, displayed or checked against certain conditions.</li>
+                    <li value="3">Routing: These models route one or more of their input signals to their outputs in a specific way.</li>
+                    <li value="4">Operations: These models apply a mathematical or logic operation to the input signal(s) to determine the output signal(s).</li>
+                    <li value="5">Interface: These models can be used to link signal models to unit operation models, sources, sinks and stream analysers.</li>
+                </ul>
+                <p>These different types of signal models can be linked together to create flowsheets that implement basic or more complex mathematical or logic operations. Using the interface models these flowsheets can be linked to any process flowsheet model.</p>
+                <p>The icons for the signal models are coloured according to the following convention:</p>
+                <ul>
+                    <li value="1">Green: operates on variable signals</li>
+                    <li value="2">Red: operates on parameter signals</li>
+                    <li value="3">Blue: operates on variable signals that can be considered logical (0 for false, 1 for true)</li>
+                </ul>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>To construct a basic flowsheet that adds two numbers together, drag the following models from the "gML Signal" library, on the palette, onto the flowsheet:</p>
+                    <ul>
+                        <li value="1">Source_constant_variable_gML (2 instances)</li>
+                        <li value="2">Add_gML (1 instance)</li>
+                        <li value="3">Display_gML&#160;(1 instance)</li>
+                    </ul>
+                    <p>Then connect these models to obtain the flowsheet shown below:</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Signals and control/signal_models_adding.png" />
+                        </p>
+                        <p class="FigureCaption">Flowsheet model showing how to add two numbers together using signal blocks.</p>
+                    </div>
+                    <p>Configure each of the source models to output a constant value of "1". Execute the simulation of the flowsheet and click on the instance of the "Display_gML" model to see the result of the mathematical operation.</p>
+                </div>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>The output signal from a block can be duplicated by connecting the output port to multiple input ports of other blocks. However, only one connection can be made to each individual element of an input port of a block.</p>
+                </div>
+                <h3>Signal width</h3>
+                <p>A signal is an array of variables or parameters. This array can have any number of values. The number of values it contains is the "width" of the signal. In most instances the width of the created signal can be specified. That signal will then contain the given number of identical values. There are two types of operation that can be performed on signal(s) with a specified width:</p>
+                <ul>
+                    <li value="1">Scalar operations: In these types of operation, the operation is performed on each element of the input signal array, individually (element-wise), to yield an output signal of the same width. For example, the 'Sin_gML'&#160;block applies the sinus function to each of the elements of its input signal to yield an output with the same width.</li>
+                    <li value="2">Aggregate operations: In these types of operation, a single operation is performed involving all the elements of the input signal to yield an output signal of width "1". For example, the 'Sigma_gML' block sums all elements of its input signal to yield an output signal of width "1", which contains the sum of all the elements.</li>
+                </ul>
+                <h3>Reverse calculations and recycle breakers</h3>
+                <p>In simple flowsheet models, involving signal blocks, specifications are made in source blocks, pass through a series of sequential operations and the results are obtained in sink blocks. However, there may be instances where the results from certain blocks affect the input values to those blocks. These are referred to as "implicit calculations" or "algebraic loops" and can introduce a particular difficulty during the convergence of the flosheet. </p>
+                <p>To aid the solution algorithm in these instances, recycle breaker blocks can be used. These blocks are placed in any "loop"&#160;where outputs of one or more blocks are fed back to the inputs of those blocks, whether directly or indirectly, via other blocks. They allow the specification of an initial guess for their output value which will then be used instead of their input, in a first pass of converging the flowsheet. This is referred to as the recycle breaker being "open". This has the effect of decoupling the algebraic loops during this first pass, and the solution of the flowsheet model, with the recycle breakers being "open", can therefore easily be obtained. In a subsequent pass the recycle breaker is "closed", meaning that its input value is directly passed to its output and the real solution of the flowsheet is obtained. When the solution obtained in the first pass with the recycle breaker in the "open" state is sufficiently close to the real solution, obtained with the recycle breaker in the "closed" state, the solution algorithm is typically able to find the real solution with little difficulty.</p>
+                <p>This problem of implicit calculations and the approach to resolve them, when converging flowsheets with signal blocks passing signals, is analogous to that encountered in process flowsheet models with physical recycles of material (see <a href="../Flowsheeting/Flowsheets with recycles.htm" class="MCXref xref" xrefformat="'{paratext}'">'Flowsheets with recycles'</a>). </p>
+                <p>For flowsheets with signal blocks the recycle breaker block is called 'Recycle_breaker_signal_gML'. Identifying which connections need recycle breakers, to avoid algebraic loops, is best done by visual inspecting the topology of the flowsheet.</p>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>In this example the previously constructed flowsheet, where two values are added, is extended by considering that a fraction of the resulting sum output is then subtracted from the inputs to the sum. This leads to an algebraic loop being present.</p>
+                    <p>To construct this flowsheet, start from the previously constructed flowsheet that adds two numbers. Create an instance of the 'Gain_gML' model and name it "k1". Connect its input to the output port of the 'Add_gML' block. Now create an instance of the 'Recycle_breaker_signal_gML' model, name it "rb1". Connect the output port of the gain block to the input port of "rb1". Connect the output of "rb2" to the input port of the 'Add_gML' block to create an additional input. </p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Signals and control/adding_signals_with_recycle.png" />
+                        </p>
+                        <p class="FigureCaption">Flowsheet to add two numbers minus 0.1 times the result [(x+y)-(0.1*(x+y))]. This is an implicit calculation.</p>
+                    </div>
+                    <p>Configure the gain of the block "k1" to be "-0.1". Configure the initial guess of the recycle breaker "rb1" to be "1".</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Signals and control/recycle_breaker_signal_dialog.png" />
+                        </p>
+                        <p class="FigureCaption">Configuring the initial guess of the recycle breaker to be "1".</p>
+                    </div>
+                    <p>Execute the simulation of the resultant flowsheet and click on "d1", in the execution output window, to see the result.</p>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Linking signal models with unit operation models</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <h3>Converting between quantities in unit models and signals</h3>
+                <p>To link signal models to unit operation models, sources, sinks and process streams, a desired quantity within the unit model needs to be selected and the value of this quantity needs to be set equal to a signal. This signal can then be used as an input to mathematical functions and logical operations. Alternatively, a signal that is a result of mathematical functions and logical operations can be used as a specification for a quantity in a unit model.</p>
+                <ul>
+                    <li value="1">Quantity: variable in a unit (operation) model that has physical meaning. The quantity consists of a label which refers to the variable that is represented in the physical model, as well as the value of the variable itself. Quantities are carried by 'gML&#160;Bus'&#160;connections.</li>
+                    <li value="2">Signal: variable that can represent anything. The signal just contains a value and no information on what it represents. Signals are carried by 'gML&#160;Signal'&#160;connections.</li>
+                </ul>
+                <p>As an example, consider the situation where a flowrate of a stream needs to be set equal to the ratio of the flowrates of two other streams. Each of the flowrates is a quantity in a material source or stream analyser model. To be able to determine the ratio, each of the mass flowrates in the two streams needs to be converted to a signal. Using a mathematical function block, the ratio of these two signals is then calculated. That ratio, being a signal, is then set equal to the mass flowrate quantity of the third stream.</p>
+                <p>To convert quantities, within unit models, to signals that can be used as input or outputs to signal flowsheets, use the following two interface models from the 'gML&#160;Control'&#160;library:</p>
+                <ul>
+                    <li value="1">'Get_signal_from_bus_gML' : this model obtains a quantity from a unit model in the process flowsheet and converts it to a signal that can be used as an input to signal blocks.</li>
+                    <li value="2">'Set_signal_to_bus_gML': this model converts a signal, that is the output of flowsheet involving signal blocks, to a quantity in a unit model in the process flowsheet. From the perspective of the unit model in the process flowsheet, the incoming signal is equivalent to a specification for that variable.</li>
+                </ul>
+                <p>Each of these interface models has a port where signals can be connected and a port where a bus connection can made to a unit model. </p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Signals and control/signal_models_get_and_set.png" />
+                    </p>
+                    <p class="FigureCaption">Connecting a 'Get_signal_from_bus_gML' model to a separator in order to retrieve a quantity from the separator as a signal. </p>
+                </div>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Signals and control/signal_models_get_and_set2.png" />
+                    </p>
+                    <p class="FigureCaption">Connecting a 'Set_signal_to_bus_gML' model to a splitter in order to set the split fraction to be equal to the output of a calculation, involving signal blocks.</p>
+                </div>
+                <div class="warning" data-mc-autonum="&lt;b&gt;Warning &lt;/b&gt;"><span class="autonumber"><span><b>Warning </b></span></span>
+                    <p>When a 'Set_signal_from_bus_gML' model is used to specify a particular variable in a unit model, make sure that, in the dialog of that unit model, the right selections are made such that this variable can be specified. For example, when specifying the operating temperature of a separator through the bus connection, ensure that the separator is not configured to perform an adiabatic separation.</p>
+                </div>
+                <h3>Configuring interface models</h3>
+                <p>The dialog of each interface model allows the selection of a single quantity from the quantities of the unit model it is connected to. To select this quantity, first assess whether the variable required is a single quantity, an element in a set or an element of an array:</p>
+                <ul>
+                    <li value="1">Scalar quantity: a quantity that has a single value, for example the temperature in a Continuous Stirred Tank Reactor</li>
+                    <li value="2">Array quantity: a quantity that is an element of an array that is indexed by numbers. For example, the split fraction for one of the output streams of a splitter model. In this case the array contains all the split fraction for the outputs of the splitter model and is indexed by the output number of each output.</li>
+                    <li value="3">Set quantity: a quantity that is an element of a set of multiple values indexed by multiple strings. For example, the mass fraction of a single chemical component in a source model. In this case the set contains all the mass fractions and is indexed by the components present in the stream.</li>
+                </ul>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Signals and control/signal_models_get_scalar_quantity.png" />
+                    </p>
+                    <p class="FigureCaption">Obtaining a scalar quantity from a unit model. In this case, the separator temperature is obtained as a signal.</p>
+                </div>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Signals and control/signal_models_set_array_quantity.png" />
+                    </p>
+                    <p class="FigureCaption">Set an element of an array quantity in a unit model. In this case, the split fraction of the first stream out of a splitter model is set to be equal to the signal.</p>
+                </div>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>In this example the mass flowrate of a source is to be specified to be equal to the sum of the mass flowrates of two other sources in a process flowsheet. </p>
+                    <p>Create a new project file with a new flowsheet model. Create three instances of the 'Source_material_gML'&#160;model, name them "s1", "s2" and "s3". Configure them to supply streams of water at 20 degrees celsius (see <a href="../Flowsheeting/Constructing flowsheets.htm" class="MCXref xref" xrefformat="'{paratext}'">'Constructing flowsheets'</a> and <a href="../Specifying process materials/Specifying process materials.htm" class="MCXref xref" xrefformat="'{paratext}'">'Specifying process materials'</a> on how to construct flowsheet models with material sources). Set the mass flowrate of the first source to be 1 kg/s, the mass flowrate of the second source 2 kg/s and unspecify the mass flowrate of the third source. </p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Signals and control/signal_models_summing_mass_flowrates_start.png" />
+                        </p>
+                        <p class="FigureCaption">Three sources supplying water.</p>
+                    </div>
+                    <p>Now create two instances of the 'Get_signal_from_bus_gML' bus model by dragging it from the 'gML&#160;Control' library, on the palette, onto the flowsheet. Connect one instance to source "s1" and one instance to source&#160;"s2". Configure both of the interface models to obtain the mass flowrate quantities from the sources they are connected to. Create an instance of the 'Set_signal_to_bus_gML' model and name it "set1". Connect it to source "s3" and configure it to select the mass flowrate quantity from source "s3". </p>
+                    <p>Next, drag an 'Add_gML' block from the 'gML Signal' library, on the palette, onto the flowsheet, and connect the signal outputs of "get1" and "get2" to the inputs of 'Add_gML'. Connect the output of 'Add_gML' to the signal input of 'set1'.</p>
+                    <p>The resultant flowsheet should look as follows:</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Signals and control/signal_models_set_flowrate_with_add.png" />
+                        </p>
+                        <p class="FigureCaption">Flowsheet model showing how the mass flowrate of a source is set equal to the sum of the flowrates of two other sources.</p>
+                    </div>
+                    <p>Execute the simulation of the resulting flowsheet and click on source "s3" in the execution output window, to view its flowrate.</p>
+                </div>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>In this example, a source for a mixture of water, methanol and ethanol is considered. The component mass flowrate for both water and ethanol, from the source, is 1 kg/s. The component mass flowrate of ethanol, from the source, is to be set to be three times that of ethanol.</p>
+                    <p>Create a new project with a new flowsheet model. Create an instance of the 'Source_material_gML'&#160;model, and name it "s1". Create a physical properties package that predicts the physical properties for a stream that is a mixture of water, methanol and ethanol (see <a href="../Specifying process materials/Specifying process materials.htm" class="MCXref xref" xrefformat="'{paratext}'">'Specifying process materials'</a>).</p>
+                    <p>Configure the source by selecting 'Component flowrates' from the 'Component specification' dropdown list. Set the 'Component mass flowrate' of water to be equal to 1 kg/s and that of ethanol to be equal to 2 kg/s. For the methanol component, leave the 'Component flowrate specification' field empty, since it will be specified by the interface models connected to the source. Leave the pressure and temperature to be at their default values.</p>
+                    <p>Now create an instance of the 'Get_signal_from_bus_gML' bus model by dragging it from the 'gML&#160;Control' library, on the palette, onto the flowsheet and name is "get1". Then create an instance of the 'Set_signal_to_bus_gML' model and name it "set1". Connect both models to the source "s1", each one using a different connection. </p>
+                    <p>Configure the "get1" model by selecting the 'Component mass flowrate' of ethanol as a quantity. As the component mass flowrates are an array indexed by the component names, select 'Set' in the 'Variable dimension' dropdown list. </p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Signals and control/calculating_component_mass_flowrates1.png" />
+                        </p>
+                        <p class="FigureCaption">Configuring an interface model to select an element of a set quantity, in this case the component mass flowrates.</p>
+                    </div>
+                    <p>Do the same for the "set1" model but now select the component mass flowrate for methanol.</p>
+                    <p>Create an instance of the 'Gain_gML' model by dragging it from the 'gML Signal' library, on the palette, and name it "k1". Connect its input to the signal port of the "get1" model, and its output to the signal port of the "set1" model. Configure the gain to be equal to "3".</p>
+                    <p>The resulting flowsheet should look as follows:</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Signals and control/calculating_component_mass_flowrates_flowsheet.png" />
+                        </p>
+                        <p class="FigureCaption">Flowsheet with a source model of which the component mass flowrate of methanol is three times that of ethanol.</p>
+                    </div>
+                    <p>Execute the simulation of the flowsheet and click on the "s1" model, in the execution output, to see the component mass flowrates for the different components.</p>
+                </div>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>To apply a linear transformation, with a given offset, to a quantity in a unit model and apply the output as a specification in another unit model, use the 'Calc_gML' block from the 'gML Control' library. This block uses bus ports directly, and does not require the conversion to signals.</p>
+                </div>
+                <h3>Trading off specifications obtained from signal models</h3>
+                <p>The 'Get_signal_from_bus_gML' and 'Set_signal_from_bus_gML' models can be used to select a particular quantity in a unit model and obtain its value as a signal. However, some models, like the 'Adjust_gML' model, require that a quantity is selected in that model (see <a href="../Trading off degrees of freedom/Trading off degrees of freedom.htm" class="MCXref xref" xrefformat="'{paratext}'">'Trading off degrees of freedom'</a> for an overview of how to employ adjust models). If an 'Adjust_gML'&#160;model is connected directly to a unit operation model, a quantity can be selected from that unit operation model, to be adjusted or set equal to a target value. There might be occasions when the 'Adjust_gML' model does not require a quantity in a unit operation model directly, but instead requires a quantity of which the value is the result of a calculation involving signal blocks. For this purpose, there are two additional interface models. These models take a signal and convert it to any desired quantity. This quantity is defined in the interface model itself.</p>
+                <ul>
+                    <li value="1">'Get_signal_from_created_bus_gML' : obtains a quantity from a unit model in the process flowsheet and converts it to a signal that can be used as an input to signal blocks.</li>
+                    <li value="2">'Set_signal_to_created_bus_gML': converts a signal that is the output of flowsheet involving signal blocks to a desired quantity that is defined directly.</li>
+                </ul>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>First, create a flowsheet model that mixes two streams of pure water, each of 1 kg/s and at 20 degrees Celsius. Use two 'Source_material_gML' models, a 'Mixer_gML' model and a 'Sink_gML' model. Name the first source "s1" and the second one "s2". For further information, see <a href="../Flowsheeting/Constructing flowsheets.htm" class="MCXref xref" xrefformat="'{paratext}'">'Constructing flowsheets'</a>.</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Signals and control/signal_models_mixing_flowsheet.png" />
+                        </p>
+                        <p class="FigureCaption">Flowsheet model, demonstrating how to mix two streams of water.</p>
+                    </div>
+                    <p>Consider the situation where the flowrate of source "s2" is to be adjusted such that the ratio between the flowrate in the sink and the flowrate in source "s1" is equal to four. </p>
+                    <p>To accomplish this, connect two 'Get_signal_from_bus_gML' models, one to the source "s1" and one to the sink. Select the 'Mass flowrate' in both. Create an instance of the 'Divide_gML' block by dragging it from the 'gML Signal' library, on the palette, onto the flowsheet. Connect the signal obtained from source "s1" to the divide port of the divide model and the signal obtained from the sink to the multiply port of the divide model. The value of the signal on the output port of the divide block will now be equal to the mass flowrate of the sink divided by the mass flowrate of source "s1". </p>
+                    <p>Create an instance of the 'Set_signal_to_created_bus_gML' model, name it "set1" and connect its signal input to the output of the divide block. Configure this model by setting 'Scalar variable type' to 'Ratio of mass flowrates'.</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Signals and control/signal_models_set_signal_to_created_bus.png" />
+                        </p>
+                        <p class="FigureCaption">Defining the input signal to be the quantity 'Ratio of mass flowrates'.</p>
+                    </div>
+                    <p>Next, create an instance of the 'Adjust_gML' model, name it "adj1" and connect its target port to the output port of the "set1" model. Connect its adjust port to the source "s2". In the configuration dialog of source "s2", uncheck the 'Mass flowrate' specification . Configure the adjust model "adj1" to adjust the mass flowrate of source "s2" to set the 'Ratio of mass flowrates' to be equal to "4" (if required, see <a href="../Trading off degrees of freedom/Trading off degrees of freedom.htm" class="MCXref xref" xrefformat="'{paratext}'">'Trading off degrees of freedom'</a> for more information on how to use adjust models).</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Signals and control/signal_models_set_signal_to_created_bus1.png" />
+                        </p>
+                        <p class="FigureCaption">Flowsheet model showing the mixture of two water streams and the mass flowrate adjustment of one stream such that the ratio of the mass flowrate of the mixed stream to the mass flowrate of the other input stream is equal to 4.</p>
+                    </div>
+                    <p>Execute the simulation of the resultant flowsheet and click on source "s1" and the sink in the execution output window to check that the ratio of the flowrates corresponds to the desired ratio of 4.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

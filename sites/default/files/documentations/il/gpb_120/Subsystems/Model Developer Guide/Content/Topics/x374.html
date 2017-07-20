@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|gPROMS Fundamentals|Models">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>gPROMS Language declaration for Models</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x374.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="md_modellanguage"></a>gPROMS Language declaration for Models</h1>
+        <p>The gPROMS Language Tab in the Model entity comprises a number of sections, each containing a different type of information regarding the
+ system being Modelled. The minimal information that needs to be specified in any Model is the following:</p>
+        <ul>
+            <li value="1">
+                <p>A set of constant <i class="emphasis">Parameters</i> that characterise the system. These correspond to quantities that will
+          <i class="emphasis">never</i> be calculated by any simulation or other type of calculation making use of this Model. Therefore, their values
+ must always be specified before the simulation begins and remain unchanged thereafter. They are declared in the PARAMETER section.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>A set of <i class="emphasis">Variables</i> that describe the time-dependent behaviour of the system. These may be specified in later
+ sections or left to be calculated by the simulation. They are declared in the VARIABLE section.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>A set of <i class="emphasis">Equations</i> involving the declared Variables and Parameters. These are used to determine the
+ time-dependent behaviour of the system. They are declared in the EQUATION section.</p>
+            </li>
+        </ul>
+        <p>The structure of a simple Model declaration in the gPROMS language is the following:</p><pre class="programlisting">PARAMETER
+
+ ... <a href="x914.html"><i class="emphasis">Parameter declarations</i></a> ....
+
+VARIABLE
+
+ ... <i class="emphasis"><a href="x940.html">Variable declarations</a></i> ...
+
+EQUATION
+
+ ... <a href="x963.html"><i class="emphasis">Equation declarations</i></a> ...</pre>
+        <p>The general structure that a Model entity may have is shown below.</p>
+        <p><i class="emphasis">Please note</i> that the SET, ASSIGN, INITIAL and INITIALSELECTOR sections are also part of a Process and that there are
+ both advantages and disadvantages in using these sections in a Model. This is discussed at the example of <a href="x3144.html">Parameter settings for composite Models</a>.</p><pre class="programlisting">PARAMETER
+
+ ... <i class="emphasis"><a href="x914.html">Parameter declarations</a></i> ...
+
+DISTRIBUTION_DOMAIN # For distributed Models
+
+ ... <i class="emphasis"><a href="x2054.html">Distribution domain</a> declarations</i> ...
+
+UNIT
+
+ ... <a href="x2850.html"><i class="emphasis">Sub-Model declarations</i></a> ...
+
+PORT
+
+ ... <a href="x3634.html"><i class="emphasis">PORT declarations</i></a> ...
+
+PORTSET
+
+ ... <a href="x3634.html"><i class="emphasis">PORTSET declarations</i></a> ...
+
+Variable
+
+ ... <a href="x940.html"><i class="emphasis">Variable declarations</i></a> ...
+
+SET
+
+ ... <i class="emphasis"><a href="x1062.html">PARAMETER value settings</a></i>...
+
+BOUNDARY # For distributed Models
+
+ ... <i class="emphasis"><a href="x2549.html">Boundary conditions for partial differential equations</a></i> ...
+
+TOPOLOGY
+
+ ... <i class="emphasis"><a href="x2883.html">Equations defining the connection of sub-Models</a></i>...
+
+EQUATION
+
+ ... <i class="emphasis"><a href="x963.html">Equation declarations</a></i> ...
+
+ASSIGN
+
+ ... <i class="emphasis"><a href="x1105.html">Degrees of freedom assignment</a></i>...
+
+PRESET
+
+ ... <a href="x7141.html">PRESET specifications</a> ...
+
+INITIALSELECTOR
+
+ ... <a href="x1924.html"><i class="emphasis">Initial SELECTOR specifications</i></a> ...
+
+INITIAL
+
+ ... <a href="x1135.html"><i class="emphasis">Initial conditions specifications</i></a> ...</pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

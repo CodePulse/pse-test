@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Distributed Models|Introducing Partial Differential Equations">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>First order partial derivatives</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x2288.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2003.html">Distributed Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2268.html">Introducing Partial Differential Equations</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">First order partial derivatives</span>
+            </div>
+        </div>
+        <h1><a name="AEN2288"></a>First order partial derivatives</h1>
+        <p>Considering the example presented in <a href="x2121.html">Distributed Equations</a>, the following are examples of
+ valid first order partial derivative expressions:</p>
+        <div class="informaltable"><a name="AEN2292"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_ptpzz0Lr0L.png" data-mc-conditions="Default.ScreenOnly" /></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="methodname">PARTIAL(T,Axial)</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_ptVzTprz0LrR.png" data-mc-conditions="Default.ScreenOnly" /></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><code class="methodname">PARTIAL(Vz(0|+:L, ReactorRadius) * T(0|+:L,ReactorRadius),Radial)</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1"><span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_pprkrpTpr.png" data-mc-conditions="Default.ScreenOnly" /></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1"><code class="methodname">PARTIAL(Kr(0,0|+:ReactorRadius|-) * PARTIAL(T(0,0|+:ReactorRadius|-),Radial),Radial)</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Note that the partial differentiation operator with respect to time is denoted by symbol <code class="methodname">$</code> rather than the
+ operator <code class="methodname">PARTIAL</code>. Thus:</p>
+        <div class="informaltable"><a name="AEN2328"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1"><span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_pTpt.png" data-mc-conditions="Default.ScreenOnly" /></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1"><code class="methodname">$T</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>There are two reasons for this:</p>
+        <ul>
+            <li value="1">
+                <p>The use of <code class="methodname">$</code> is consistent with the time derivative operator in lumped systems.</p>
+            </li>
+            <li value="2">
+                <p>The numerical solution methods in gPROMS treat the time domain quite differently to the explicitly declared <a href="x2505.html">distribution domains.</a></p>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

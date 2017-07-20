@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Process Model Library.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Process Model Library|PML Model specifications">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Specification options</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Process Model Library.htm#Topics/x655.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Process Model Library</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c641.html">PML Model specifications</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Specification options</span>
+            </div>
+        </div>
+        <h1><a name="AEN655"></a>Specification options</h1>
+        <p>With the exception of trivial models (e.g. Dead End), all PML models have a Specification dialog that conforms to the following basic
+ requirements:</p>
+        <ul>
+            <li value="1">
+                <p>All relevant Parameters and Selectors in the model are compulsory specifications.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Variables for ASSIGNment or as INITIAL conditions are optional specifications.</p>
+            </li>
+        </ul>
+        <p>In order to allow for efficient specification of the most commonly used sets of specifications there are standard and advanced configuration
+ modes. As an example of this functionality, the figure below shows the standard and advanced modes of specification for the Pipe PML Model. The
+ advanced mode is typically used to trade specifications (e.g. between different units) and it is recommended that this mode only be used by users
+ that are familiar with the PML models.</p>
+        <div class="figure"><a name="AEN666"></a>
+            <img src="../Resources/Images/pml_StandardSpecificationModePipe.png" />
+            <p class="FigureCaption"> Standard specification mode in the Pipe PML Model.</p>
+        </div>
+        <div class="figure"><a name="AEN672"></a>
+            <img src="../Resources/Images/pml_AdvancedSpecificationModePipe.png" />
+            <p class="FigureCaption"> Advanced specification mode in the Pipe PML Model.</p>
+        </div>
+        <p><i class="emphasis"><i class="emphasis">The Standard mode is characterised by the following properties:</i></i>
+        </p>
+        <ul>
+            <li value="1">
+                <p>There may be multiple sub-groups to support different specifications. For example, in the PID controller model there are sub-groups for
+ controller class (P, PI, PID, PD, I, D) and the controller mode (automatic, manual &amp; cascade).</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Irrespective of which sub-groups are selected the number of Variables specified by the Specification dialog for ASSIGNment are equal to the
+ number of Variables minus the Equations for that Model (assuming that the necessary stream and control port connectivity is in place).</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>All Variables specifications are of type "Optional On". This means that you still have the opportunity to turn off a variable specification
+ if an equivalent specification is made elsewhere in the flowsheet.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>For dynamic models there are always at least two options for initial conditions – steady-state and dynamic. Multiple dynamic options are
+ allowed, and these are given appropriate names. For example, the Flash_drum model has the following options for initial conditions:</p>
+                <ul>
+                    <li value="1">
+                        <p>a steady-state option</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li value="1">
+                        <p>a dynamic option where liquid level, Pressure and all but one of the molar fractions of the mixture are specified</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li value="1">
+                        <p>a dynamic option where Temperature, Pressure and all but one of the molar fractions of the mixture are specified</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p><i class="emphasis"><i class="emphasis">The Advanced specification mode is characterised by the following:</i></i>
+        </p>
+        <ul>
+            <li value="1">
+                <p>All Variables that can be accessed from the Standard mode are also accessible from the Advanced specification mode. In addition to these
+ there are less commonly used variable specifications and advanced parameters whose values can be changed.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>The Variables shown as the default specifications in the Standard specification mode appear as the default specification choices in the
+ Advanced mode, but these may be overridden.</p>
+            </li>
+        </ul>
+        <p>Complex models may have multiple Specification dialog tabs to facilitate ease of use, particularly if there are too many specifications to
+ conveniently fit onto one tab. In such cases the information is divided into logical groups and the different tabs are given appropriate names. An
+ example is a reactor model where the kinetic reaction data is found on its own tab, with the remaining data found on a Configuration tab.</p>
+        <p>Dynamic models always have an additional "Initial conditions" tab where all the specifications that determine the initial conditions of the
+ model appear. This tab may include SELECTORs and PARAMETERs as well as VARIABLEs, if these are appropriate for the different combinations of
+ allowable initial conditions.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

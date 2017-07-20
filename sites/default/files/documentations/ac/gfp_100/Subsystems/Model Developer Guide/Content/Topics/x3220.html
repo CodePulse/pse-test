@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Composite Models|Setting Parameter values in Composite Models">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Setting Connection Type Parameters</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x3220.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2799.html">Composite Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3199.html">Setting Parameter values in Composite Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Setting Connection Type Parameters</span>
+            </div>
+        </div>
+        <h1><a name="AEN3220"></a>Setting Connection Type Parameters</h1>
+        <p>The Parameters included in Connection Types can be set explicitly like regular Model Parameters. However, their values are usually
+ obtained from topology connections and <a href="x3634.html">Port Sets</a>:</p>
+        <ul>
+            <li value="1">
+                <p><i class="emphasis">Topology connections:</i> when a connection between two Ports is made the equivalent Parameters in these
+ Ports are equated.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p><i class="emphasis">Port sets</i>: These are configured when the Ports for any component Model entity are configured (also
+ see: <a href="x3634.html">Defining Model Ports</a>). For all Ports belonging to the same <i class="emphasis">set</i> (i.e. those in the
+ same Port set): the equivalent Connection Type Parameters are equated. This mechanism is often used by component Model developers to equate
+ the Parameters in an <i class="emphasis">Outlet</i> Port to those in an <i class="emphasis">Inlet</i> Port.</p>
+            </li>
+        </ul>
+        <p>These two mechanisms (if Port sets are implemented) mean that information corresponding to the properties carried by the Connection are
+ automatically propagated along the stream path. In the gPROMS Process Model Library this is used so that the Parameter corresponding to physical
+ properties only needs to be set in the Source Model.</p>
+        <p>It is of course possible within the component Model to access the Port Parameters and use them directly in Model Equations declarations,
+ or indeed, to Set Model Parameters equal to the Parameters declared by the Port definition.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Distributed Models|Specifying Discretisation Methods|Non-uniform grids">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Specifying a grid transformation</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x2708.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2003.html">Distributed Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2564.html">Specifying Discretisation Methods</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2679.html">Non-uniform grids</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Specifying a grid transformation</span>
+            </div>
+        </div>
+        <h1><a name="MDG_NonUniform_Tranformation"></a>Specifying a grid transformation</h1>
+        <p>An easier (but less general) way to specify the grid nodes is by use of a tranformation. If the problem is expected to exhibit large
+ gradients at the start of the domain, which reduce towards the end of the domain, a logarithmic transformation can be used to place more nodes
+ near the lower bound of the domain. This can be represented by the following equation, the effect of which is illustrated in the figure
+ below.</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_log_transform_small.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>where <span class="inlinemediaobject"><img src="../Resources/Images/eqn_zhat_small.png" data-mc-conditions="Default.ScreenOnly" /></span> is the transformed coordinate and <span class="inlinemediaobject"><img src="../Resources/Images/eqn_z_small.png" data-mc-conditions="Default.ScreenOnly" /></span> the original coordinate. Below it can be seen that a uniform grid in the transformed domain leads to the desired
+ non-uniform grid in the original domain.</p>
+        <div class="figure"><a name="AEN2731"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_LogTransform.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> A logarithmic transformation</p>
+        </div>
+        <p>Conversely, should one desire more grid points at the end of the domain, an exponential transformation may be used. The form of the
+ transformation is:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_exp_transform_small.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>To specify a transformed domain, enter the type of transformation with its parameter (<span class="inlinemediaobject"><img src="../Resources/Images/eqn_alpha_small.png" data-mc-conditions="Default.ScreenOnly" /></span>) in parentheses to the specification of the Distribution Domain. For the logarithmic transformation, with <span class="inlinemediaobject"><img src="../Resources/Images/eqn_alpha_small.png" data-mc-conditions="Default.ScreenOnly" /></span> = 4, this would be specified as follows.</p><pre class="programlisting">DISTRIBUTION_DOMAIN
+ Axial AS [0 : ReactorLength]
+
+SET
+ Axial := [CFDM, 2, 10, TRANSFORM(LOG, 4.0)] ;</pre>
+        <p>Other numerical methods are specified in exactly the same way. A list of the available transformations, their keywords and arguments is
+ given below.</p>
+        <div class="table"><a name="AEN2761"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Domain transformations available in gPROMS</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Domain transformation</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Keyword</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Parameter(s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Logarithmic</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">TRANSFORM( LOG,<span class="inlinemediaobject"><img src="../Resources/Images/eqn_alpha_small.png" data-mc-conditions="Default.ScreenOnly" /></span> )</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><span class="inlinemediaobject"><img src="../Resources/Images/eqn_alpha_small.png" data-mc-conditions="Default.ScreenOnly" /></span>larger than or equal to zero</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Exponential</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">TRANSFORM( EXP, <span class="inlinemediaobject"><img src="../Resources/Images/eqn_alpha_small.png" data-mc-conditions="Default.ScreenOnly" /></span> )</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2"><span class="inlinemediaobject"><img src="../Resources/Images/eqn_alpha_small.png" data-mc-conditions="Default.ScreenOnly" /></span>can take any real value</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Please note that for the exponential transormation a negative value will be the inverse transformation of the corresponding positive
+ value.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

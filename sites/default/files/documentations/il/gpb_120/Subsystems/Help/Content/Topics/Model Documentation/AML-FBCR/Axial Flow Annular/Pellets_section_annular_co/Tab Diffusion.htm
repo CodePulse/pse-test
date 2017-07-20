@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|AML:FBCR|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Diffusion</title>
+        <link href="../../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../../Help.htm#Topics/Model Documentation/AML-FBCR/Axial Flow Annular/Pellets_section_annular_co/Tab Diffusion.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Diffusion</h1>
+        <p>The diffusion model and the diffusion parameters are specified in the Diffusion tab.</p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Phase</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Gas</dt>
+                        <dd>Select this option if the fluid is a gas.</dd>
+                        <dt>Liquid</dt>
+                        <dd>Select this option if the fluid is a liquid.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Diffusivity calculation</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>From physical property package</dt>
+                        <dd>Binary diffusion coefficients are determined by the physical property package.</dd>
+                        <dt>From Fuller method [Gas]</dt>
+                        <dd>Binary diffusion coefficients are calculated using the Fuller method.</dd>
+                        <dt>Reference value [Liquid]</dt>
+                        <dd>Binary diffusion coefficients are predicted from a single reference overall diffusion coefficient. The overall coefficient is specified by the user, at reference conditions.</dd>
+                        <dt>Explicit specification</dt>
+                        <dd>Binary diffusion coefficients are explicitly specified by the user, at reference conditions.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">
+                        <p>Intra-particle diffusion model</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">
+                        <p>Selector</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Maxwell-Stefan </dt>
+                        <dt>Dusty-Gas model</dt>
+                        <dt>Fick</dt>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Liquid reference viscosity</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>From physical property package</dt>
+                        <dd>The liquid reference viscosity is determined by the physical property package.</dd>
+                        <dt>Explicit specification</dt>
+                        <dd>The liquid reference viscosity is user defined.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" colspan="3">Gas phase</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Bulk component</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Most abundant component in the system. Used to get a single Schmidt (Sc) number, in mass balances and in diffusion equations.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reference pressure</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Reference pressure used in diffusion coefficient dependency.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Reference temperature</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Reference temperature used in diffusion coefficient dependency.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reference mass fraction</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <p>Representative composition for calculation of the mean diffusion coefficient to obtain a single Schmidt number, i.e., a single particle-fluid boundary layer thickness.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Diffusion volumes</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Input for the Fuller method for gas phase diffusivity calculation.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Binary diffusion coefficient</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">m<sup>2</sup>/s</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Binary diffusion coefficient at reference conditions.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" colspan="3">Liquid phase</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Bulk component</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Most abundant component in the system. Used to get a single Schmidt (Sc) number, in mass balances and in diffusion equations.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Reference pressure</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Reference pressure for diffusivity calculations.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reference temperature</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Reference temperature  for diffusivity calculations.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Reference mass fraction</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <p>Reference mass fraction used in the diffusion coefficient call and to define the mixture binary diffusion coefficient.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reference viscosity</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Pa s</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Reference liquid viscosity for diffusivity calculations.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Temperature power dependence</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Exponent of temperature term for diffusivity calculations.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Viscosity power dependence</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Exponent of viscosity term for diffusivity calculations.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2">Binary diffusion coefficient</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2">m<sup>2</sup>/s</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body2">Binary diffusion coefficient at reference conditions.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Global Systems Analysis.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head data-mc-changes="46">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="url '../Resources/TableStyles/Equation.css'" rel="stylesheet" data-mc-changes="46" data-mc-stylesheet-type="table" />
+        <link href="../Resources/TableStyles/Nomenclature_dropdown.css" rel="stylesheet" data-mc-changes="46" data-mc-stylesheet-type="table" /><title data-mc-changes="46">Case 3: Parameter uncertainty effect on KPIs</title>
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" data-mc-changes="46" />
+        <script src="../../Resources/Scripts/custom.modernizr.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Global Systems Analysis.htm#Global Systems Analysis/Case 3 Parameter uncertainty.htm">Open topic with navigation</a>
+        </p>
+        <h1>Case 3: Parameter uncertainty effect on KPIs</h1>
+        <p>Parameter values used in models are usually sourced from literature, expert knowledge, historical data and/or parameter estimation using experimental data. Therefore, uncertainties are inevitable. GSA can be used to assess the effect of parameter uncertainty on KPIs and determine whether they are relevant. If the effect cannot be ignored, a more accurate parameter estimation may be required. </p>
+        <p>Create a GSA entity named 'Case3_ParaUncertainty'. The settings for the General tab are shown in the figure below. In this example, uncertainty analysis is performed with the quasi-random Sobol sample generation method.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="737" data-mc-height="514" src="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 3: General tab</p>
+        </div>
+        <p>Specify the parameters of interest as factors in the Factors tab. Either use the 'Select...' button or enter the full variable path into the 'Variable in model' column, pressing Control+Space to use autocompletion.</p>
+        <p>Select each factor and click on the 'Edit...' button to specify all other factor settings. Note that, since only variables are eligible as factors, all parameters of interest must be moved from the <span style="font-family: monospace;">PARAMETER</span> section to the <span style="font-family: monospace;">VARIABLE</span> section of the model before the GSA entity is set up. </p>
+        <p>In this example, since reaction 1 is the dominant reaction, according to the results of Case 2, a parameter estimation can be performed to estimate the activation energy and pre-exponential coefficient of reaction 1 (refer to parameter estimation entity 'Par_est_1' in the GSA example Project for details). </p>
+        <p>According to the parameter estimation results, both parameters follow a normal distribution. Use this information to specify the 'Probability distribution' column for reaction 1. </p>
+        <p>Currently the covariance matrices of correlated factors do not return the correct factor space ellipsoid. This is a known issue which will be resolved in a future release. Therefore, assume that there is no covariance, only variance. According to the results of Case 2, reaction 2 is not relevant and will be ignored. </p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_1.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="587" data-mc-height="456" src="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_1_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 3: Selecting factors</p>
+        </div>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_2.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="543" data-mc-height="755" src="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_2_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 3: Editing factors</p>
+        </div>
+        <p>As there are no sampling restrictions in this example, leave section 'Sampling restrictions' blank.</p>
+        <p>Specify the number of uncertainty scenarios in the 'Number of samples' section. For uncertainty analysis, the total number of realisations of the base activity to be calculated is given by: </p>
+        <table style="width: 100%;mc-table-style: url'../Resources/TableStyles/Equation.css';" class="TableStyle-Equation" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="../GeneratedImages/Equations/Equation60.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td />
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Equation_1"><img class="MCToggler_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Equation_1">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../GeneratedImages/Equations/Equation61.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Number of deterministic cases </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <p>
+                            <img src="../GeneratedImages/Equations/Equation62.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column3-Body1">Number of uncertainty scenarios (user defined)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p> The finished Factors tab should resemble the one shown in the figure below.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_3.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="1006" data-mc-height="507" src="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_3_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 3: Factors tab</p>
+        </div>
+        <p>Specify the responses in the Responses tab. Similar to factors,  either use the 'Select...' button or enter the full variable path directly into the 'Variable in model' column, pressing Control+Space to use autocompletion.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_4.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="826" data-mc-height="264" src="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_4_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 3: Responsestab</p>
+        </div>
+        <p>The 'GSA language' tab is automatically updated once tabs General, Factors and Responses are set up. Launch the execution  by right-clicking on the GSA entity and selecting 'Analyse system' or pressing icon <a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_5.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="36" data-mc-height="22" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_5_thumb_0_264.png" tabindex="" /></a> in the toolbar.&#160; </p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_5.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="1005" data-mc-height="300" src="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_5_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 3: Executing GSA</p>
+        </div>
+        <p>The 'Analyse system' dialog will be displayed. Change the Case name and select the desired number of workers for parallel computation. Note that this number should not exceed the total number of logical cores on the machine. </p>
+        <p>Once execution completes successfully, right-click on the 'System Analysis Group'&#160;folder and select 'New result element...' to create result elements. Alternatively, copy and paste result elements from other Cases. Note that the 'Factor Sensitivity Table' is not applicable in the context of uncertainty analysis and will not be populated with results.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 2 Determining parameter_6.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="320" data-mc-height="197" src="../Resources/Images/Global Systems Analysis/Case 2 Determining parameter_6_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 3: Creating a result element</p>
+        </div>
+        <p>The 'Scatter 2d' result element can be used to illustrate the relation between any two factors, responses or a factor and a response. Select which variables to be shown on the X and Y axes via the Attributes, shown in the figure below.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_6.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="1007" data-mc-height="510" src="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_6_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 3: 'Scatter 2d' plot of yield against pre-exponential coefficient 1</p>
+        </div>
+        <p>If the Attributes panel is not automatically displayed, expand the View  menu and select Attributes to enable it.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_10.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="202" data-mc-height="245" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_10_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 3: Enabling the Attributes panel</p>
+        </div>
+        <p>The Histogram can be used to display the distribution of a factor or response. It is possible to customise the type, number of bins and bar colour. The figure below shows a cumulative histogram for yield.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_7.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="691" data-mc-height="430" src="../Resources/Images/Global Systems Analysis/Case 3 Parameter uncertainty_7_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 3: Cumulative histogram for yield</p>
+        </div>
+    </body>
+</html>

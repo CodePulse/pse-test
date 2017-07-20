@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation Guide|Parameter Estimation in gPROMS|Analysing the Parameter Estimation results|Statistical analysis in Excel">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Graphical analysis</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x2008.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Model Validation Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c570.html">Parameter Estimation in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1593.html">Analysing the Parameter Estimation results</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1758.html">Statistical analysis in Excel</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Graphical analysis</span>
+            </div>
+        </div>
+        <h1><a name="pe_excelplotting"></a>Graphical analysis</h1>
+        <p>In addition to the spreadsheets, the user can also create three types of statistical plots by choosing the Plot option from the
+        <b class="guimenu">Parameter Estimation</b> menu on the MS Excel tool bar. Each of these is described below:</p>
+        <ul>
+            <li value="1">
+                <p><i class="emphasis">Overlay chart.</i> This overlays the measured and predicted values for whichever variable is chosen from a
+ specified experiment. The user has the option of showing error bars by checking the <b class="guibutton">Show standard deviations</b> dialog box
+ (see appropriate figure in the next chapter). These error bars correspond to <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_102.png" data-mc-conditions="Default.ScreenOnly" /> </span>. The user selects one or more variables (choose <b class="guibutton">Flat list</b>, if you want to select more than one
+ variable). The charts can be plotted on the respective variable data worksheets, on a new sheet for each chart or all charts on one new sheet.
+ A figure showing a plot of the batch reactor variable <code class="methodname">R101.C(1)</code> in experiment C13T1 can be found in the following
+ chapter. It can be seen that the agreement between the predicted values using the estimated parameters and the measured values is very
+ close.</p>
+            </li>
+            <li value="2">
+                <p><i class="emphasis">Residual chart</i>. This allows the user to plot the absolute deviation, relative deviation and/or weighted
+ (scaled) residual for each measured variable in each experiment. As for the "Overlay chart", the user may select one or more variables and plot
+ the charts on the respective data worksheets, on a new sheet for each chart or all the charts on one new sheet. Figures in the following
+ chapter show the dialog window and weighted residual plot, respectively, for the batch reactor variable <code class="methodname">R101.C(1)</code> in
+ experiment C13T1.</p>
+            </li>
+            <li value="3">
+                <p><i class="emphasis">Confidence ellipsoids.</i>
+                </p>
+                <p>This option gives the confidence ellipsoids in two-dimensional space for any pair of parameters <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_103.png" data-mc-conditions="Default.ScreenOnly" /> </span> according to the joint confidence region:</p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_peiproms_104.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                </p>
+                <p>The parameters can be plotted against each other using different confidence levels (<i class="emphasis">90%, 95% or 99%</i>). The user may
+ select any pair of parameters or plot the confidence ellipsoids for all pairs. An example of a confidence ellipsoid is shown in the next
+ chapter.</p>
+            </li>
+        </ul>
+        <p><i class="emphasis">Note: </i>Although the variance model parameters have uncertainties, the user may wish to exclude these
+ uncertainties from the calculations. In this case the vector <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_105.png" data-mc-conditions="Default.ScreenOnly" /> </span> does not contain the parameters <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_106.png" data-mc-conditions="Default.ScreenOnly" /> </span> and is defined as <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_107.png" data-mc-conditions="Default.ScreenOnly" /> </span>.</p>
+        <div class="figure"><a name="AEN2068"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_OverlayPlotDialogWindow.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Overlay Plot Dialog Window</p>
+        </div>
+        <div class="figure"><a name="AEN2073"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_SampleOverlayPlot.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Sample Overlay Plot</p>
+        </div>
+        <div class="figure"><a name="AEN2078"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_ResidualPlotDialogWindow.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Residual Plot Dialog Window</p>
+        </div>
+        <div class="figure"><a name="AEN2083"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_SampleWeightedResidualPlot.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Sample Weighted Residual Plot</p>
+        </div>
+        <div class="figure"><a name="AEN2088"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_ConfidenceEllipsoidDialogWindow.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Confidence Ellipsoid Dialog Window</p>
+        </div>
+        <div class="figure"><a name="AEN2093"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_SampleConfidenceEllipsoidPlot.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Sample Confidence Ellipsoid Plotty.</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

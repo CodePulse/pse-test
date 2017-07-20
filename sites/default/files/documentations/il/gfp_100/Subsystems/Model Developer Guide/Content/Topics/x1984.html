@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Conditional Equations">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The If conditional construct</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x1984.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c1777.html">Conditional Equations</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The If conditional construct</span>
+            </div>
+        </div>
+        <div class="sect1">
+            <h1 class="sect1"><a name="IF"></a>The If conditional construct</h1>
+            <p>Case constructs provide a general way in which <a href="x1799.html">STN</a>s of arbitrary complexity can be described in the gPROMS
+ language. However, reversible and symmetric discontinuities are by the far the most commonly encountered discontinuities in industrial processing
+ systems. Although such discontinuities can be declared using Case constructs, gPROMS provides the alternative <code class="methodname">IF</code>
+    conditional construct specifically as a convenient shorthand for the declaration of this common type of discontinuity.</p>
+            <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span><a name="AEN1989"></a>
+                <p><b>Example 2. Model entity for a vessel equipped with an overflow weir</b>
+                </p><pre class="programlisting"># MODEL VesselWithWeir
+
+ PARAMETER
+ Rho AS REAL
+ MolecularWeight AS REAL
+ CrossSectionalArea AS REAL
+ WeirHeight AS REAL
+ WeirLength AS REAL
+
+ VARIABLE
+ HoldUp AS Mass
+ FlowIn, FlowOut AS MassFlowrate
+ Height AS Length
+
+ EQUATION
+
+ # Mass balance
+ $HoldUp = FlowIn - FlowOut ;
+
+ # Calculation of liquid level from holdup
+ Holdup = CrossSectionalArea * Height * Rho ;
+
+ IF Height &gt; WeirHeight THEN
+ # Francis formula for flow over a weir
+ FlowOut = 1.84 * (Rho/MolecularWeight)
+ * WeirLength * ABS(Height-WeirHeight)^1.5 ;
+ ELSE
+ FlowOut = 0 ;
+ END # If</pre>
+            </div>
+            <p>The gPROMS example above demonstrates the use of an <code class="methodname">IF</code> equation in the declaration of a Model for a vessel fitted
+ with an overflow weir.</p><pre class="programlisting">IF Height &gt; WeirHeight THEN
+ # Francis formula for flow over a weir
+ FlowOut = 1.84 * (Rho/MolecularWeight)
+ * WeirLength * ABS(Height-WeirHeight)^1.5 ;
+ ELSE
+ FlowOut = 0 ;
+ END # If</pre>
+            <p>A logical condition (in this case, <code class="methodname">Liquid_Level &gt; Weir_Height</code>) is used to choose between two clauses, each
+ comprising a list of equations. If the logical condition is satisfied, the equations declared in the first clause are included in the system
+ model, otherwise the equations of the second clause are included. As with Case equations, the number of equations in each clause must be the same.
+ As If equations are a special case of Case equations, there is always a Case equation that achieves the same result. For instance, the
+    <code class="methodname">IF</code> equation for the overflow weir is equivalent to the following <code class="methodname">CASE</code> equation:</p><pre class="programlisting">SELECTOR
+ WeirFlag AS (Above, Below)
+ ...
+ EQUATION
+ ...
+ CASE WeirFlag OF
+ WHEN Above : FlowOut = 1.84 * (Rho/MolecularWeight)
+ * WeirLength * ABS(Height-WeirHeight)^1.5 ;
+ SWITCH TO Below IF Height &lt; WeirHeight ;
+ WHEN Below : FlowOut = 0 ;
+ SWITCH TO Above IF Height &gt; WeirHeight ;
+ END # Case
+ ...</pre>
+            <p>A subtle difference between If and Case equations is that, in If equations, the initially active state of the system cannot be specified
+ explicitly by the user. Instead, it is determined automatically by the initialisation calculation, which ensures that the consistent initial
+ values obtained satisfy both the logical condition <i class="emphasis">and</i> the equations in this state. However, the solution of non-linear
+ systems involving such conditional equations is far from trivial. Moreover, it is possible that a valid solutions exists in either clause of an If
+ equation; in such cases, the solution found will depend on the initial guesses and the numerical method employed during the initialisation
+ procedure. In view of these factors, it may sometimes be preferable to use a Case equation instead, especially if the initial state of the system
+ is known <i class="emphasis">a priori</i>.</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

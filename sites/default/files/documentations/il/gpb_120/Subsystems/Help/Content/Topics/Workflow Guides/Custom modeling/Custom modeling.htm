@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Workflow guides|Process">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Custom modelling in gPROMS ProcessBuilder</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Help.htm#Topics/Workflow Guides/Custom modeling/Custom modeling.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Custom modelling in <span class="ProductName">gPROMS ProcessBuilder</span></h1>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Custom modelling</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>An integral feature of <span class="ProductName">gPROMS ProcessBuilder</span> is the ability to develop new unit models or customize existing unit models and flowsheet models using the gPROMS&#160;language. This is a high-level language to model physical systems as a set of Partial Differential Equations (PDE's). Its advantages are that its well suited to describing physical systems in a compact and intuitive manner and that its integrated with the powerful solution algorithms used to simulate models in <span class="ProductName">gPROMS ProcessBuilder</span>.</p>
+                <p>The ability to customize models may be of use when a flowsheet model, constructed using only standard unit operation models included in the gPROMS&#160;Model Library (gML), is not an adequate representation of the physical process. This may be the case, e.g. when the process involves non-standard unit operations, when the process chemistry involves complex kinetics or solid phases, or when non-standard correlations are needed to predict heat and mass transfer inside unit operation models.</p>
+                <p>This guide gives a short overview of how to customize parts of a flowsheet model while other parts are described using standard unit models from the gML. For particular cases, the process may be so different from processes involving standard unit operation models that the entire process and all its unit operations need to be modelled using the gPROMS&#160;language. In this case the gML is not used at all and following this guide is not required.</p>
+                <p>Familiarity with the gPROMS&#160;language syntax and capabilities will be assumed as well as some familiarity with defining interfaces (dialogs, ports) for custom models. </p>
+                <p>Use of the gPROMS&#160;language within <span class="ProductName">gPROMS ProcessBuilder</span> requires a license feature to enable custom modelling. This feature can be turned on from the <span class="guimenu">Edit</span>-&gt;<span class="guimenuitem">User preferences...</span> menu when a license is available. If this feature is not enabled then the 'gPROMS&#160;language' tab will not be visible in various windows and custom modelling is not possible.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Custom modelling/custom_modelling_license.png" />
+                    </p>
+                    <p class="FigureCaption">ProcessBuilder 'User preferences'</p>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Integrating custom modelling with the gPROMS&#160;Model Library</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>There are two ways to integrate custom modelling with unit models that are available in the gML:</p>
+                <ol>
+                    <li value="1">Customizing existing gML&#160;unit operation models, with custom relations for kinetics and heat and mass transfer</li>
+                    <li value="2">Developing new custom unit operations models and integrating these, on a flowsheet, with standard gML unit models</li>
+                </ol>
+                <p>The best approach may be different for different problems. In general, when only minor modifications to standard gML&#160;unit operations models are required, the simplest solution might be to only customize those models. To use this option, it is essential that the relations in the unit model are customizable. In this guide, an overview is given of the parts of gML models that are customizable. </p>
+                <p>When there are non-standard unit operations that are substantially different from the unit operations models available in the gML,&#160;or require a substantially higher fidelity of modelling than is avaliable in the gML, then the best approach is to develop these unit operation models using, solely, the gPROMS&#160;language. When a feature is required which is not available in the gML and affects the behaviour of all unit operations (e.g. the handling of solid phases or weight distributions of polymers) the best approach is, usually, to develop the entire process and all unit operations involved using the gPROMS&#160;language.</p>
+                <p> In addition to being used to represent the physical process, custom modelling may be required to define relationships that calculate costs, KPI's and additional outputs for a flowsheet model. </p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Developing gML-compliant unit operation models</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <h3>Rules for developing gML-compliant models</h3>
+                <p>For unit operations that are non-standard, custom models can be developed using the gPROMS&#160;language. If a custom model, of a unit operation, is to be used in conjunction with standard gPROMS Model Library models in a flowsheet model, care must be taken to ensure that the developed unit operation model is gML-compliant. This means that the inputs of the custom model can be provided by other gML&#160;unit models, on the flowsheet, and that the outputs of the custom model can serve as inputs to other gML&#160;unit models.</p>
+                <p>To ensure this is the case, for any developed custom models, the following rules apply:</p>
+                <ol>
+                    <li value="1">Use appropriate gML connection types</li>
+                    <li value="2">Use appropriate gML&#160;variable types, where possible</li>
+                    <li value="3">Avoid use of "_gML" suffix in custom models, for custom connection and variable type names</li>
+                    <li value="4">Ensure steady-state model is well specified when the variables on the input ports are known</li>
+                </ol>
+                <h3>Linking to the gML interface</h3>
+                <p>The first step when developing a custom unit operation model, that can be used in conjunction with gML library models, is to link to the gML model interface. This interface defines variable types and connection types used in gML&#160;models.</p>
+                <p>These elements are contained in the 'gML Basics Interface' project. This project is opened, by default, when the 'gML Basics' libraries are loaded in <span class="ProductName">gPROMS ProcessBuilder</span>. To access the variable types and connection types click on the <span class="guibuttonImage"><img src="../../../Resources/Images/Global/IME Toolbar/LibraryBookHidden.png" /></span> button, just above the project tree, to unhide the gML&#160;libraries in the project tree. A number of library projects prefaced by "gML" become visible. Click on the 'gML Basics Interface' and browse to the 'Variable Types' folder to access variable types. Browse to the 'Connection Types' folder to access connection types.</p>
+                <p>To use elements, defined in the gML interface in a custom unit operation model, first add the "gML Basics&#160;Interface" project to the references of the project in which the custom unit operation model is contained. To do this, right-click on the project that contains the custom unit operation model in the project tree and select 'Properties'. A dialog will appear, in the work area, with the project properties. Click on the 'Cross-references' tab at the bottom of the dialog. Select and add 'gML&#160;Basics Interface'&#160;to the projects that are referenced.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Custom modelling/custom_modelling_cross_refs.png" />
+                    </p>
+                    <p class="FigureCaption">Adding 'gML Basics Interface' to the projects being cross-referenced.</p>
+                </div>
+                <h4>Use the appropriate gML&#160;<i>Connection types</i></h4>
+                <p>To pass different types of information from one unit operation model to the next, a number of <span class="concept">Connection types</span> are defined in the gML&#160;library. These are shown in the table below. Each <i>Connection type</i> conveys specific parameters and variables. </p>
+                <table style="mc-table-style: url('../../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Port colour</th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Connection type</th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Blue</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">gMLMaterial</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">This connection is for <span class="concept">process material streams</span>. A process material stream is a fluid and/or gas flow with a given flowrate, composition, temperature and pressure.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Red</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">gMLEnergy</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">This connection can be used to represent pure energy flows.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Green</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">gMLBus</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">This connection can be used to select a specific variable, in a unit model, and pass its value to another unit model. See <a href="../Trading off degrees of freedom/Trading off degrees of freedom.htm" class="MCXref xref">'Trading off degrees of freedom'</a> for more information.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Grey</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">gMLSignal</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">This connection is used to carry signals.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Light blue</td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">gMLMaterial_reversible</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">This connection is also for <span class="concept">process&#160;material streams</span>. It carries the same type of information as the 'gMLMaterial' connection but permits flow reversal.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The parameters and variables conveyed also use specific units of measurement. The gMLMaterial <i>Connection type</i> conveys the parameters and variables required to define a flow of process material. The following parameters and variables are used in this connection type:</p>
+                <p>Parameters</p>
+                <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Parameter</th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">phys_prop</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Definition of the physical properties package for the material stream</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">components</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">List of components present in the stream</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Variables</p>
+                <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Variable</th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Units</th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">P</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">bar</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Pressure of the material stream</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">F</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">kg/s</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Mass flowrate of the material stream</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">w</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Mass fractions of each component in the material stream</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">h</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">kJ/kg</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Mass specific enthalpy of the material stream</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">T</td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">K</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Temperature of the material stream</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>To use a gML connection type, in defining the ports of a custom unit operation model, just configure ports in the interface of the custom unit operation model to be of type 'gMLMaterial'. If a link has been made to the 'gML Basics Interface' project, ports of type 'gMLMaterial' can be added to the custom unit operation model. </p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Custom modelling/custom_modelling_port_gMLMaterial.png" />
+                    </p>
+                    <p class="FigureCaption">Adding a port of type 'gMLMaterial'</p>
+                </div>
+                <h4>Use the appropriate gML&#160;variable types</h4>
+                <p>When a link has been made to the "gML Basics Interface" project, all variable types can be used to define variables and parameters in the custom unit operation model. When writing a variable definition, <span class="keyCap">CONTROL+SPACE</span> can be pressed after typing "AS" to access the list of possible variable types, which will include all the gML standard variable types too.</p>
+                <p>To select the right variable type for a particular variable, bear in mind that the gML variable type names are chosen as follows:</p>
+                <p>&lt;quantity&gt;_&lt;unit&gt;_&lt;optional:description for bounds&gt;_gML</p>
+                <p>Where &lt;unit&gt; is omitted, the variable is assumed to have SI-standard units.</p>
+                <p>Using standard gML&#160;variable types has the benefit of there being less information to maintain in the project with the custom unit operations model. It also ensures that, where variables for a certain quantity (e.g. pressure) are equated directly in the gPROMS language, they have consistent variable bounds if they are all of the same type.</p>
+                <p>However, gML variable types might not be defined for a particular quantity or in a particular unit of measurement. In this case, just define a custom variable type in the project.</p>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>Consider the order of magnitude of variables when considering which units of measurement to employ for each variable. Depending on the application, some variables may be either very large numbers or very small numbers, depending on the units of measurement that are used. This may affect numerical performance and robustness of a flowsheet model involving these variables. A good rule of thumb is to ensure variables are between 1E-3 and 1E3. Exceptions to this rule are component mass fractions or concentrations for components that are  present in very small quantities.</p>
+                </div>
+                <h4>Avoid use of "_gML" suffix in custom models, for custom connection and variable type names</h4>
+                <p>The "_gML" suffix is used to avoid name clashes between gML library and custom models and variable types. When defining new models and variable types, avoid adding the "_gML" suffix. This will prevent potential future name clashes.</p>
+                <h4>Ensure steady-state model is well specified when the variables in the input ports are known</h4>
+                <p>gML library unit operation models, included in steady-state flowsheets, are initialised in sequence. This sequence is determined by starting at source models and then solving models, one by one, in the direction of material (or information) flow. This direction is determined from the port direction on the unit models: the material or information flow is assumed to be from the output port of one model into the input port of the next.</p>
+                <p>When developing a custom unit operation model, for use in steady-state flowsheets, it is necessary that this model is well-specified when its inputs are known. This means that when the input ports of the unit model are connected and the specification dialog has been completed, the model should determine values for all the variables in its outlet ports. When this is not the case, initialisation of the custom unit operation model, in the flowsheet model, may fail.</p>
+                <p>Whether a port is an inlet or an outlet port is defined when the port is added to the unit model. It is also possible to define a port as being "bi-directional". This might be useful when the values for some variables in the connection to that ports are determined by the model on one end of the connection and others by the model on the other end.  In this case, these two unit models cannot be solved in sequence but must be solved together. This is generally a drawback since its more difficult to solve two models together.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Custom modelling/custom_modelling_port_gMLMaterial.png" />
+                    </p>
+                    <p class="FigureCaption">An inlet port for a custom unit operation model. When this model is solved, it is assumed that all variables of this inlet port are determined by other unit models.</p>
+                </div>
+                <h3>Additional guidelines for developing custom models</h3>
+                <p>In addition to the above rules there are a number of additional guidelines when developing custom unit models. Following these is optional and might not be required for all applications.</p>
+                <ol>
+                    <li value="1">Implement a unit initialisation procedure and make it accessible via the model dialog</li>
+                    <li value="2">Implement a bus connection to be able to trade-off specifications with other models on the flowsheet</li>
+                </ol>
+                <h4>Implementing a unit initialisation procedure and making it accessible via the model dialog</h4>
+                <p>Custom unit operation models that include only a limited number of simple relationships may converge directly and reliably when the variables, on their input ports, have been determined and the dialog has been specified correctly. However, for more complex models it may be necessary to develop a unit initialisation procedure. This initialisation procedure can be defined using the gPROMS&#160;language. To ensure that the initialisation procedure is activated, automatically, whenever the custom unit operation model is included, select the 'INITIALISATION_PROCEDURE' field in the first step of the Public Model Interface Builder dialog wizard, and also select it in the third step.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Custom modelling/custom_modelling_initialisation_procedure_dialog.png" />
+                    </p>
+                    <p class="FigureCaption">Public Model Interface Builder dialog wizard, used to activate an initialisation procedure, automatically.</p>
+                </div>
+                <h4>Implementing a bus connection to be able to trade off specifications with other models on the flowsheet</h4>
+                <p>In some cases it might be desirable to trade-off specifications between unit models on a flowsheet (see <a href="../Trading off degrees of freedom/Trading off degrees of freedom.htm" class="MCXref xref">'Trading off degrees of freedom'</a>) or make some specifications dependant on calculations performed using blocks that operate on signals (see <a href="../Signal processing/Signal and control.htm" class="MCXref xref">'Signals and control'</a>). In these instances, all gML unit models have a port of type 'gMLBus'. This port can be used to access quantities in the unit models and obtain the values of these quantities as signals.</p>
+                <p>The recommended procedure to add a port, of type 'gMLBus', to a custom unit operation model is as follows:</p>
+                <ol>
+                    <li value="1">Include the auxiliary model 'bus_variable_selector_gML' from the 'gML Auxiliary' library in the model and name it "BVS".</li>
+                    <li value="2">
+                        <p>Convert this unit model to an array, indexed by an integer parameter, named 'nset'.</p>
+                        <div class="figure">
+                            <p>
+                                <img src="../../../Resources/Images/Workflow guides/Custom modelling/array_of_bvs.png" />
+                            </p>
+                            <p class="FigureCaption">Converting the model named 'BVS' to an array of models indexed by the parameter 'nset'</p>
+                        </div>
+                    </li>
+                    <li value="3">
+                        <p>Add a dynamic port, indexed by the variable 'nset'.</p>
+                        <div class="figure">
+                            <p>
+                                <img src="../../../Resources/Images/Workflow guides/Custom modelling/adding_bus_port.png" />
+                            </p>
+                            <p class="FigureCaption">Adding a dynamic port, indexed by the variable 'nset'</p>
+                        </div>
+                    </li>
+                    <li value="4">
+                        <p>Create an array connection, from '1' to 'nset', between the array of  "bus_variable_selector_gML" units and the dynamic port.</p>
+                        <div class="figure">
+                            <p>
+                                <img src="../../../Resources/Images/Workflow guides/Custom modelling/adding_bus_port1.png" />
+                            </p>
+                            <p class="FigureCaption">Adding an array connection between the 'BVS' model and the dynamic port.</p>
+                        </div>
+                    </li>
+                    <li value="5">
+                        <p>Add a statement that sets the 'bus_types' variable to a ordered set of the desired labels of the quantities to be selectable on the 'gMLBus' port.</p>
+                        <div class="programlisting"><pre xml:space="preserve" class="programlisting"><span style="color: #ff0000;">SET</span>
+BVS(<span style="color: #ff0000;">1</span>:nset).bus_types       :=  [<span style="color: #ff0000;">'Temperature'</span>];
+</pre>
+                            <p class="programlistingCaption">Setting the 'bus_types' variable in the array of models to be equal to 'Temperature'</p>
+                        </div>
+                    </li>
+                    <li value="6">
+                        <p>Add an equation that equates the 'bus_variable' variable, indexed by the desired quantity label, to the correct internal variable in the unit model.</p>
+                        <div class="programlisting"><pre xml:space="preserve" class="programlisting"><span style="color: #ff0000;">EQUATION</span><span style="color: #696969;">
+&lt;write the equations that implement the custom correlation here&gt;</span><span style="color: #1e90ff;">
+FOR</span> i:=1 <span style="color: #1e90ff;">TO</span> nset <span style="color: #1e90ff;">DO</span>
+    BVS(i).bus_variable(<span style="color: #ff0000;">'Temperature'</span>) = T;<span style="color: #1e90ff;">
+END</span></pre>
+                            <p class="programlistingCaption">Adding a relation between the internal variable of a model and a variable in the 'BVS' array of models.</p>
+                        </div>
+                    </li>
+                </ol>
+                <p>After following these steps, tThe gPROMS&#160;language of a custom unit model with a 'gMLBus' port added and the internal variable "T" included as "Temperature" in that port looks as follows:</p>
+                <div class="programlisting"><pre xml:space="preserve" class="programlisting"><span style="color: #ff0000;">PARAMETER</span>
+nset  		 <span style="color: #008000;">AS</span>&#160;		      <span style="color: #b22222;">INTEGER</span>
+<span style="color: #ff0000;">
+PORT</span>
+setPort         <span style="color: #008000;">AS</span> <span style="color: #b22222;">ARRAY</span>(nset)  <span style="color: #008000;">OF</span> gMLBus
+<span style="color: #ff0000;">
+UNIT</span>
+BVS             <span style="color: #008000;">AS</span> <span style="color: #b22222;">ARRAY</span>(nset)  <span style="color: #008000;">OF</span> bus_variable_selector_gML
+<span style="color: #ff0000;">
+VARIABLE</span>
+T		 <span style="color: #008000;">AS</span> 		      temperature_gML
+<span style="color: #ff0000;">
+SET</span>
+BVS(<span style="color: #ff0000;">1</span>:nset).bus_types       :=  [<span style="color: #ff0000;">'Temperature'</span>];
+
+<span style="color: #ff0000;">
+TOPOLOGY</span>
+   setPort(<span style="color: #ff0000;">1</span>:nset) = BVS(<span style="color: #ff0000;">1</span>:nset).setPort;
+
+<span style="color: #ff0000;">
+EQUATION</span><span style="color: #696969;">
+&lt;write the equations that implement the custom correlation here&gt;</span><span style="color: #1e90ff;">
+FOR</span> i:=1 <span style="color: #1e90ff;">TO</span> nset <span style="color: #1e90ff;">DO</span>
+    BVS(i).bus_variable(<span style="color: #ff0000;">'Temperature'</span>) = T;<span style="color: #1e90ff;">
+END</span></pre>
+                    <p class="programlistingCaption">A minimalistic model that shows the statements required to add a gMLBus port to a custom unit operations model and use this to make a variable that represents the temperature accessible via this port.</p>
+                </div>
+                <h3>Examples and templates</h3>
+                <p>To serve as templates or examples, a number of basic unit operations have been implemented as custom unit models. These can be accessed by clicking the 'Examples' button on the toolbar <span class="guibuttonImage"><img src="../../../Resources/Images/Global/IME Toolbar/BrowseExamples.png" /></span>, to open the examples and templates. From the 'Templates Custom Modelling' folder open 'gML Templates - Units Custom Modelling'. A number of basic unit operation models can be found within this project. For each unit model, click on the 'gPROMS&#160;language' tab and the 'Interface language' tab to access their implementations.</p>
+                <p>Example flowsheets, involving these custom models, can also be accessed by clicking the 'Examples' button <span class="guibuttonImage"><img src="../../../Resources/Images/Global/IME Toolbar/BrowseExamples.png" /></span> on the toolbar, to open the examples and templates. Open any example in the 'Examples Custom Modelling' folder.</p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Customizing gML unit operation models with custom correlations</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <h3>Types of customisation</h3>
+                <p>It may be the case that a particular gML unit operation model would be a good representation of the physical unit operation of interest, except for the fact that it lacks an option to specify a particular, required, correlation or a particular kinetic mechanism to be used in the model. This correlation or kinetic mechanism may be proprietary. </p>
+                <p>In this instance, it may be advantageous to customize the gML unit operation model using a custom correlation or kinetic mechanism, implemented in the gPROMS&#160;language. The advantage of this approach is that only the correlation or the kinetic mechanism itself needs to be implemented in the gPROMS&#160;language.</p>
+                <p>The following types of customisation are either currently  available in <span class="ProductName">gPROMS ProcessBuilder</span> or are envisaged for future versions:</p>
+                <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Type of customisation</th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">gML models that offer this type of customisation</th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Template model name(s)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Kinetic mechanism</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">All gML models that can have reactions (reactors, reactive distillation columns)</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">kinetic_model_custom_gML</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Adsorption isotherm</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Adsorption bed model</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">isotherm_section_custom_gML</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Unit equipment capital and operating cost</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">All unit operation models</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">&lt;unit_operation_type&gt;_cost_custom_gML</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Heat transfer coefficient</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">All 1-D&#160;heat exchanger models</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">htc_channel_1d_custom_gML</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Mass transfer coefficient</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Adsorption bed model</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">mass_transfer_adsorption_custom_gML</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Dispersion coefficient</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Adsorption bed model</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">dispersion_calculation_custom_gML</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Momentum balance friction coefficient</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>All 1-D&#160;heat exchanger models</p>
+                                <p>Pipeline single phase model</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">pressure_drop_channel_1d_custom_gML</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Physical property correlations</td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Adsorption bed model</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">physical_properties_adsorption_bed_custom_gML</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Using templates for custom correlations</h3>
+                <p>To customize a gML model:</p>
+                <ol>
+                    <li value="1">
+                        <p>Open the 'gML Templates - Custom Modelling' project file, which contains template files for the customizable correlations.<br /></p>
+                        <p>To open this project, click on the 'Examples' button <span class="guibuttonImage"><img src="../../../Resources/Images/Global/IME Toolbar/BrowseExamples.png" /></span> on the toolbar  to open the examples and templates. From the 'Templates Custom Modelling' folder, open 'gML Templates - Custom Modelling'. The template project now appears on the project tree. <br /></p>
+                    </li>
+                    <li value="2">
+                        <p>Open the project and select the desired template model for the correlation that needs to be customized. Copy this template model into the project in which the customized flowsheet is developed.<br /></p>
+                    </li>
+                    <li value="3">
+                        <p>Click on the template model in the project in which the customized flowsheet model is developed, to open a gPROMS&#160;language editor for the unit model. Modify this to implement the desired correlation.<br /></p>
+                    </li>
+                </ol>
+                <h3>Modifying a template for a custom correlation</h3>
+                <p>A template, for a custom correlation or kinetics, will contain a number of pre-defined parameters and variables. These parameters and variables are inputs and outputs of the correlation and should not be modified. Apart from these, additional parameters, variables and equations can be added to the custom unit model in order to implement the desired functionality.</p>
+                <div class="programlisting"><pre xml:space="preserve" class="programlisting"><span style="color: #ff0000;">PARAMETER</span><span style="color: #696969;">
+# Input</span>
+n  		<span style="color: #008000;">AS</span>&#160;		 <span style="color: #b22222;">INTEGER</span>
+<span style="color: #696969;">
+# Calculated
+&lt;add any intermediate parameters required to implement the custom correlation here&gt;</span>
+<span style="color: #696969;">
+# Output</span>
+<span style="color: #ff0000;">
+VARIABLE</span><span style="color: #696969;">
+# Input</span>
+T		<span style="color: #008000;">AS</span>		temperature_gML
+P		<span style="color: #008000;">AS</span>		pressure_bar_gML
+<span style="color: #696969;">
+# Calculated
+&lt;add any intermediate variables required to implement the custom correlation here&gt;</span>
+<span style="color: #696969;">
+# Output</span>
+htc		<span style="color: #008000;">AS</span> 		heat_transfer_coefficient_gML
+<span style="color: #ff0000;">
+SET</span><span style="color: #696969;">
+&lt;set any parameters that have been added here&gt;</span>
+
+<span style="color: #ff0000;">
+EQUATION</span><span style="color: #696969;">
+&lt;write the equations that implement the custom correlation here&gt;</span>
+
+<span style="color: #ff0000;">
+ASSIGN</span><span style="color: #696969;">
+&lt;assign any variables that have been added here&gt;</span></pre>
+                    <p class="programlistingCaption">A simple outline of a template. The parameter and variable definitions, that are in the template model in/and outputs, should not be modified.</p>
+                </div>
+                <div class="warning" data-mc-autonum="&lt;b&gt;Warning &lt;/b&gt;"><span class="autonumber"><span><b>Warning </b></span></span>
+                    <p>When implementing custom correlations, make sure to note the units of measurement for the required input and output variables. These units are generally the internal units used in the gML library models and might not be the SI-standard units. To check the units of measurement, hover the mouse over any variable type in the gPROMS&#160;language.</p>
+                </div>
+                <h3>Current limitations</h3>
+                <p>A current limitation of the customization approach is that it is currently is not possible to customize the same part of a unit model in a different way for two or more instances of that unit model. For example, if there are two different reactors on a single flowsheet, then using a certain custom kinetic mechanism in one reactor and another mechanism, in another reactor, is not possible. </p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Adding Key Performance Indicators (KPI) to a flowsheet model</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>Apart from being used to customize flowsheet models of physical processes, custom modelling can also be used to define relationships in order to calculate Key Performance Indicators (KPI) and other derived quantities, based on the results of a flowsheet model. </p>
+                <p>To do this, click on the flowsheet model in the project tree, to open the window that displays the topology in the work area. Click the 'gPROMS&#160;language' tab at the bottom of this window. A gPROMS language representation of the flowsheet is shown, including definitions of units, definition of the topology and initialisation procedures. 'PARAMETER', 'VARIABLE' and 'EQUATION' sections can be added to this representation,  in order to calculate derived quantities. </p>
+                <div class="programlisting"><pre xml:space="preserve" class="programlisting"><span style="color: #ff0000;">
+PARAMETER</span><span style="color: #696969;">
+&lt;add any parameters required to implement KPI's and derived quantities here&gt;</span>
+
+<span style="color: #ff0000;">UNIT</span>
+    s1 AS Source_material_gML
+    s2 AS Source_material_gML
+    mix1 AS Mixer_gML
+    sink1 AS Sink_material_gML
+
+<span style="color: #ff0000;">VARIABLE</span><span style="color: #696969;">
+&lt;add any variables required to implement KPI's and derived quantities here&gt;</span>
+
+<span style="color: #ff0000;">
+SET</span>
+# Start Dynamic Connections
+mix1.no_inlets := 2;
+mix1.nset := 0;
+s1.nset := 0;
+s2.nset := 0;
+sink1.nset := 0;
+# End Dynamic Connections
+<span style="color: #ff0000;">
+TOPOLOGY</span>
+    s1.outlet = mix1.inlet(1);
+    s2.outlet = mix1.inlet(2);
+    mix1.outlet = sink1.inlet;
+
+<span style="color: #ff0000;">EQUATION</span><span style="color: #696969;">
+&lt;add any equations required to implement KPI's and derived quantities here&gt;</span>
+<span style="color: #ff0000;">
+INITIALISATION_PROCEDURE</span> default_initialisation_procedure DEFAULT
+# Start Initialisation Procedure Specifications
+    USE
+        mix1 : Warning_only;
+        s1 : Warning_only;
+        s2 : Warning_only;
+        sink1 : Warning_only;
+    END
+# End Initialisation Procedure Specifications</pre>
+                    <p class="programlistingCaption">A gPROMS language representation of a simple flowsheet, mixing two streams. </p>
+                </div>
+                <p>Calculation of KPI's and other derived quantities requires that variables in the unit models in the flowsheet model can be used. These variables can be accessed by referring to their full path names, in the EQUATION section. It is preferable to use variables defined in the reporting (REP) model, of a gML unit model, if possible (see <a href="../Flowsheeting/Constructing flowsheets.htm" class="MCXref xref">'Constructing flowsheets'</a>, section "Trajectory browser"). This makes it less likely that in future versions of <span class="ProductName">gPROMS ProcessBuilder</span> the variable path will change and needs to be updated in the equations that calculate the KPI]'s and other derived quantities.</p>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

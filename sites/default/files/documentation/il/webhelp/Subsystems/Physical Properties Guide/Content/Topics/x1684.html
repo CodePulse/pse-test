@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties Guide|Using Physical Properties for Simple Materials|The CAPE-OPEN physical property interface (COThermoFO)">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Introduction to property packages and systems</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/x1684.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Physical Properties Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c257.html">Using Physical Properties for Simple Materials</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1680.html">The CAPE-OPEN physical property interface (COThermoFO)</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Introduction to property packages and systems</span>
+            </div>
+        </div>
+        <h1><a name="CAPE-OPENpropertypackagesandpropertysystems"></a>Introduction to property packages and systems</h1>
+        <p>The CAPE-OPEN standard for thermodynamic and physical properties<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Full details are given in the document "CAPE-OPEN Open Interface Specification: Thermodynamic and Physical Properties Version 1.0"
+ available at http://www.colan.org/index-33.html.</span></a> is based on the concept of a <i class="emphasis">Property Package</i>. This is a software component that represents a particular mixture
+ of interest; it involves a combination of:</p>
+        <ul>
+            <li value="1">
+                <p>a specification of the species appearing in the mixture;</p>
+            </li>
+            <li value="2">
+                <p>a specification of the set of thermodynamic models that will be used for the computation of the physical properties of this mixture;</p>
+            </li>
+            <li value="3">
+                <p>a set of calculation routines for performing the above computations;</p>
+            </li>
+            <li value="4">
+                <p>all fundamental data required for the above computations (e.g. critical constants for pure components, binary interaction coefficients for
+ pairs of components, and so on).</p>
+            </li>
+        </ul>
+        <p>A collection of property packages is called a <i class="emphasis">Property System</i>.</p>
+        <p>Generally a property package will be created using a 3rd party CAPE-OPEN compatible physical properties software tool. Depending on the tool
+ used any created property package may exist independently, or form part of a property system.</p>
+        <p>Before a CAPE-OPEN property package/system can be used in gPROMS (or any other CAPE-OPEN compliant process modelling environment), it has to
+ have an appropriate entry in the Microsoft Windows registry of the computer on which it will be executing. How this is achieved will be specific to
+ the 3rd party tool used, but in most cases the tool will automatically register the property package/system on the computer it was created on. If you
+ need to register the property package/system on a different computer then you should consult the 3rd party documentation for the tool in
+ question.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

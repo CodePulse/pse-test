@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Workflow guides|Process">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Constructing flowsheets</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Help.htm#Topics/Workflow Guides/Flowsheeting/Constructing flowsheets.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Constructing flowsheets</h1>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Flowsheet models</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p><span class="ProductName">gPROMS ProcessBuilder</span> is a tool to construct, simulate and optimise models of processes in the chemical and petrochemical industries. A chemical process can be thought of as a number of unit operations with mass and energy flowing from one unit operation to another. This process can be modelled by connecting models of these unit operations, with each connection (or "stream") representing a mass or energy flow. This is referred to as a flowsheet model of the process.</p>
+                <p> To construct flowsheet models, a library of common unit operation models is available in <span class="ProductName">gPROMS ProcessBuilder</span>. These unit operation models can be selected from a palette and placed on a flowsheet. Connections can be made between the unit operation models on the flowsheet to model mass and energy flows from one unit operation to the next. The resulting flowsheet model can then be simulated or used in an optimisation problem.</p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" /><span class="ProductName">gPROMS ProcessBuilder</span> environment</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>The <span class="ProductName">gPROMS ProcessBuilder</span> environment consists of the work area, the toolbar and menu, the project tree and the library palette.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/processbuilder_UI_2.png" />
+                    </p>
+                    <p class="FigureCaption"><span class="ProductName">gPROMS ProcessBuilder</span> environment</p>
+                </div>
+                <ul>
+                    <li value="1">Toolbar and menu<br />The <span class="concept">toolbar</span> and <span class="concept">menu</span> are located at the top of the screen. These can be used to perform common operations in <span class="ProductName">gPROMS ProcessBuilder</span>.</li>
+                    <li value="2">Project tree<br />The <span class="concept">project tree</span> is located on the left side of the <span class="ProductName">gPROMS ProcessBuilder</span> interface. It shows the <span class="concept">projects</span> that are open in <span class="ProductName">gPROMS ProcessBuilder</span>. The projects and their contents are displayed in a tree view with lists of folders that can be opened and closed. Each project may contain one or more flowsheet models.</li>
+                    <li value="3">Work area<br />The <span class="concept">workspace</span> is the central area of the <span class="ProductName">gPROMS ProcessBuilder</span> interface. In this area, multiple windows can be opened in which the flowsheet models being worked on can be edited. Each window shows a topology, which is the area where flowsheet models are depicted and connected.</li>
+                    <li value="4">Palette<br />The <span class="concept">palette</span> is located on the right-hand side of the screen and displays all unit operation models in the supplied library. Each icon in the palette represents a single unit operation model and they are grouped in libraries. The scroll bar, on the right-hand side of the palette, can be used to scroll through all libraries. Clicking on an icon for a unit operation model will bring up a short description of that unit operation in the bottom of the palette panel. This section also contains a link to the model reference documentation, which explains the model in more detail.<br /></li>
+                </ul>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Opening and closing gPROMS Model Library libraries </a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>The <span class="concept">gPROMS Model Library (gML)</span> is a library with unit operation models for the chemical and petrochemical industry. When <span class="ProductName">gPROMS ProcessBuilder</span> is started, part of this library is already open. To open a certain part of the gML, click on the book <span class="guibuttonImage"><img src="../../../Resources/Images/Global/IME Toolbar/LibraryBook.png" /></span> icon on the menu toolbar and select the gML libraries that are required to construct a flowsheet model of a particular process. Note that some libraries may require additional feature licenses.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/processbuilder_UI_3.png" />
+                    </p>
+                    <p class="FigureCaption">Opening and closing libraries. Select the libraries to open. </p>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Creating a new flowsheet model</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>To create a new flowsheet model, first create a new <span class="ProductName">gPROMS ProcessBuilder</span> project. On the toolbar select <span class="guimenuitem">New project</span> <span class="guibuttonImage"><img src="../../../Resources/Images/Global/IME Toolbar/New.gif" /></span>. A new project will appear in the project tree. Open the context menu of the created project and select <span class="guimenuitem">New entity</span> and choose <span class="guimenuitem">New model entity</span>. A new model will appear in the <span class="guilabel">Models</span> folder of the project in the project tree, and a new window will open with a blank topology area. The resulting flowsheet model can be saved by clicking the <span class="guimenu">Save</span> <span class="guibuttonImage"><img src="../../../Resources/Images/Global/IME Toolbar/Save.gif" /></span> button or selecting <span class="guimenuitem">Save</span> from the <span class="guimenu">File</span> menu.</p>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>Create a new project. Within the project, create an new flowsheet model and name it "my_flowsheet". Save the project as "Splitting water stream.gPJ-PB".</p>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Constructing the flowsheet</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <h3>Types of models</h3>
+                <p>Before starting to construct a flowsheet, it is useful to know which categories of models are contained in the gML. These categories of unit models are shown in the table below. To construct basic flowsheets only "Unit operation models" and "Sources and sinks" are of importance.</p>
+                <table style="mc-table-style: url('../../../Resources/TableStyles/GeneralTable.css');border-left-style: solid;border-left-width: 1px;border-left-color: #000000;border-right-style: solid;border-right-width: 1px;border-right-color: #000000;border-top-style: solid;border-top-width: 1px;border-top-color: #000000;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #000000;" class="TableStyle-GeneralTable" cellspacing="0">
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Unit model category</th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Unit operation models</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>These models represent unit operations in a chemical process. They represent physical unit operations such as drums, reactors, heat exchangers and columns as well as equipment that is used to transport flows between these operations, such as valves, pumps, compressors and pipes.</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Sources and sinks</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>The system boundaries of a flowsheet model are defined using Source and Sink models, which represent, respectively, streams entering and leaving the flowsheet from the environment. For example for a model of a chemical plant the sources may represent the points at which raw materials enter the plant and the sinks the points at which product leaves the plant. </p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Stream analysers</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">These models can be used to obtain information from a stream such as certain physical properties. These models do not affect the solution of the flowsheet model.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Recycle breaker models</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">These models are used to aid in the solution of the flowsheet model when recycle streams are present. Recycle streams are streams that flow back from downstream operations to upstream operations and make the solution process, for the flowsheet, more complex. While the breaker models aid in solving flowsheet models, they do not influence the final solution of the flowsheet model.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Stream converter models</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">These models convert one stream type to into another. </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>The topology window</h3>
+                <p>Clicking on a model in the project explorer open a window with the topology for that model in the work area. This window has a toolbar at the top, the topology in the middle and a problem panel may appear at the bottom.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/topology_window.png" />
+                    </p>
+                    <p class="FigureCaption">The window showing the topology of a flowsheet model</p>
+                </div>
+                <ul>
+                    <li value="1">Toolbar <br />The <span class="concept">toolbar</span> has buttons for navigating the topology and for placement and orientation of unit models.</li>
+                    <li value="2">Topology<br />The <span class="concept">topology</span> is the area where flowsheet models are depicted. Unit models, shown as icons, can be placed here and connected to each other.</li>
+                    <li value="3">Problem panel<br />The <span class="concept">problem panel</span> may appear at the bottom to indicate problem with how unit models are connected or configured. </li>
+                </ul>
+                <h3>Placing unit operation models on the topology</h3>
+                <p>To start constructing the flowsheet, drag a unit model, from the palette, to the blank topology area. An instance of that unit model is now created on the topology. The position of the unit operation can be changed by selecting it and dragging it with the mouse. The orientation can be changed by using the layout buttons&#160;on the toolbar on top of the topology window to rotate of flip the unit. Repeat the drag and drop from the palette to the topology to create instances of different unit operation models.</p>
+                <p>To zoom in on the topology, use the toolbar zoom buttons, or hold down the <span class="keyName">Control</span> key and move the mousewheel. To pan, select the scrollbars at the edge of the window and drag.</p>
+                <p>Each instance of a unit model can be given a name. By default, when an instance of a unit model is created, the name is equal to the model type name and a number. The name can be changed by clicking on the name displayed below the unit operation icon and typing a new name. Each name must be unique.</p>
+                <p>A copy of a unit model can be created by selecting it and either using the <span class="keyName">Control-C</span>&#160;and <span class="keyName">Control-V</span> keyboard short-cuts or selecting <span class="guimenuitem">Copy</span> and <span class="guimenuitem">Paste</span> from the <span class="guimenu">Edit</span> menu. The copy will appear below the original unit model on the topology.</p>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>Drag a "Source_material_gML" unit model from the "gML&#160;Basics" library, on the palette, on to the topology to create an instance of the Source_material_gML. Click on the unit model name, "Source_material_gML001" below the source icon  to change the name to "s1".</p>
+                </div>
+                <p>&#160;</p>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>If a Process Flow Diagram (PFD) or Process and Instrumentation Diagram (P&amp;ID) of the process is available, it is good practise to choose the unit names to correspond to the names on the PFD&#160;or P&amp;ID.</p>
+                </div>
+                <h3>Connecting unit operation models</h3>
+                <p>Each unit model has a number of <span class="concept">Ports</span> that represent points where inlet or outlet streams can be connected. These are shown as arrows or small squares on the edge of the unit icon. </p>
+                <p>An inlet is represented by an incoming arrow and an outlet is represented by an outgoing arrow. A port that can act both as an inlet or as an outlet is represented by a small square. There are different types of ports in <span class="ProductName">gPROMS ProcessBuilder</span>, indicated by different colours of arrows or squares. Each type of port is used to convey a different type of information. This information is referred to as the <span class="concept">Connection Type</span>:</p>
+                <table style="mc-table-style: url('../../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Port colour</th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Connection type</th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Blue</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Material</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">This connection is for <span class="concept">process material streams</span>. A process material stream is a fluid and or gas flow with a given flowrate, composition, temperature and pressure.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Red</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Energy</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">This connection can be used to represent pure energy flows.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Green</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Specifications / Information</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">This connection can be used to select a specific variable in a unit model and passes its value to another unit model. See <a href="../Trading off degrees of freedom/Trading off degrees of freedom.htm" class="MCXref xref">'Trading off degrees of freedom'</a> for more information.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Grey</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Signals / Information </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">This connection is used to carry signals.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Light blue</td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Material (reversible flow possible)</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">This connection is also for <span class="concept">process&#160;material streams</span>. It carries the same type of information as the "Material" connection but it permits flow reversal.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Most connection types have an associated Source and Sink model. For the material and energy connection types, source and sink models can be found in the gML&#160;Basics library.</p>
+                <table style="mc-table-style: url('../../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Connection type</th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Source model</th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Sink model</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Material</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Source_material_gML</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Sink_material_gML</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Energy</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Source_energy_gML</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Sink_energy_gML</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Material (reversible flow possible)</td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Source_material_reversible_gML</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Sink_material_reversible_gML</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Only ports of the same connection type can be connected to each other. Furthermore, the outlet port of one unit can only be connected to the inlet port of another. To connect the outlet of one unit to the inlet of the next, move the mouse cursor to a outlet port of the unit. The cursor will change to a cross. Click on the outlet port, move the cursor to the inlet port of another unit, and click again. A connection will be made between the units. The new connection will appear as a line in the same colour as the ports to which it connects. The colour of the line conveys the type information (<span class="concept">Connection Type</span>) that is being passed through the connections.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/connecting_units.png" style="width: 401px;height: 271px;" /> <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/connection_made.png" style="width: 401px;height: 271px;" /></p>
+                    <p class="FigureCaption">Connecting an outlet port of a unit to the inlet port of another unit</p>
+                </div>
+                <p>Some ports only allow a single connection, however there are also ports that will accept any number of connections, including zero connections. These ports appear as a triangle (inlet and outlet ports) or small square (ports that can act as both inlets or outlets) with a white interior. After one connection has been made to the port, this connection will appear as a filled triangle or small square but  the triangle or small square with the white interior will remain. To make multiple connections to this type of port, just click on the triangle or small square with the white interior. This will add another connection to the port. A window will appear in which the number of the connection can be specified. In general, pressing "OK" is sufficient. </p>
+                <p>If two ports cannot be connected a red cross will appear when attempting to connect to the second port with a reason explaining why the connection is not allowed. It is also possible that after making a connection a warning will appear in the <span class="concept">Problem panel</span> describing why the connection is not possible.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/connection_error.png" />
+                    </p>
+                    <p class="FigureCaption">Trying to make a connection that is not allowed</p>
+                </div>
+                <p>Some ports can be left unconnected, whilst others (e.g. inlet <span class="entityName">Material</span> ports) must always be connected. A warning might be displayed in the Problem panel if a port, which is required to be connected, is not yet connected.</p>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>Drag a Source_material_gML unit model from the gML&#160;Basics library, on the palette, to the topology, and name it "s1". Drag a Splitter_gML unit model from the gML&#160;Basics library, on the palette, to the topology and name it "sp1".&#160;Drag a Sink_material_gML unit model from gML&#160;Basics library, on palette, to the topology twice to create two instances of the Sink_material_gML. Name them "sink1" and "sink2". Connect the Material outlet port of the source model to the splitter model.  Connect two Material outlets of the splitter model to each one of the sink models. The newly constructed flowsheet models the splitting of a single stream into two separate streams.</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/dialog_source_mixing_example2.png" />
+                        </p>
+                        <p class="FigureCaption">Flowsheet model to split a single stream into two streams</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Configuring the unit operation models</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <h3>Specification using dialog boxes</h3>
+                <p>Each instance of a unit model, as part of a flowsheet, needs to be individually configured. This means that the properties of that particular unit operation are specified in the model. For example, if a vessel is used in a process flowsheet, it may need to be of a specific size. The size of that particular vessel needs to be specified for the corresponding unit model on the flowsheet.</p>
+                <p>To configure an instance of a unit model that is part of a flowsheet model, double-click on the icon of the unit model on the topology. A dialog box will appear in which the specifications for that unit model can be made.</p>
+                <p>The specification dialog contains a number of tabs on the left. On each tab a number of variables can be specified by entering a value in a field and a number of options can be selected. If a tab appears as greyed-out, this means that on that tab no information needs to be entered. For basic usage of the models only the first (few) tabs (starting from the top), need to be completed. For more advanced use of the models, more information may be entered on other tabs. </p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/specification_dialog.png" />
+                    </p>
+                    <p class="FigureCaption">A specification dialog with tabs on the left. </p>
+                </div>
+                <p>The tabs are different for each unit operation model but commonly used tabs are:</p>
+                <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <col class="TableStyle-GeneralTable-Column-Column1" style="width: 176px;" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" style="width: 824px;" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Tab</th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Main</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Specifications required for basic usage of the unit operation or source/sink model. These specifications need to be completed to do a basic mass and energy balance simulation.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Design</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Specifications related to the design of a unit operation. When a design is chosen for a particular unit operation this allows the model to predict the model outputs when input conditions change. </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Operation</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Specifications related to how the unit operation is operated. For example, compressors may be operated at different speeds. </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Dynamics</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Specifications related to dynamic simulation. When a design has been chosen, a dynamic simulation can be performed where the unit operations dynamic behaviour is predicted by the model. </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Initial guesses</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Initial guesses for certain quantities in the model may be required to find solutions for more complicated flowsheets. Initial guesses do not affect the final solution but may influence whether a solution can be found using <span class="ProductName">gPROMS ProcessBuilder</span> and how quickly.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Numerics</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">Numerical parameters and options can be chosen here. For basic usage of the model no changes are generally required here, but more for complex simulations or certain dynamic simulation changes to options here might be required. These may affect the accuracy of solutions.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>On each tab, selections can be made using 'Dropdown lists' (also known as 'Combo boxes'). Clicking on a dropdown list will make it expand to display multiple options. Depending on the option selected from a dropdown list, other fields or dropdown lists may appear or disappear on the current tab or any subsequent tabs.</p>
+                <p>In fields (also known as text boxes), numerical values or text may be entered. To enter a number or text in a field, click on the field. Some fields can have a checkbox in front of them that can be unchecked. For normal use, always leave the checkbox checked. If the boundaries of the field are red, this indicates that the value entered in the field is illegal or that no number has been entered in a field that requires a number. When an instance of a unit model is dragged onto the topology, most fields are populated with "Default" values. If the value or text, in a field, is the "Default", then the font is blue. When the value or text, in a field, has been changed from its 'Default' then the font colour is changed to black.</p>
+                <p>In general, each field requires a numeric value or text to be entered. A warning will be given when no value is entered in a field. When a model is dragged onto the flowsheet to create an instance of that model, most fields will be populated automatically with default values. </p>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>It is possible to enter arithmetic expressions in fields that accept numbers, e.g. "30 - 5".</p>
+                </div>
+                <p>Click "OK" to accept the changes made to the specification and close the dialog or click on the "Cancel" button to close the dialog without accepting any changes that have been made. If values entered into the dialog are illegal or incomplete, a warning will appear in the Problem panel after closing the dialog.</p>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>Where multiple instances of the same unit model, with similar specifications, are required, the easiest way to accomplish this is to configure a single instance of the model and then make multiple copies of it using <span class="keyName">Control-C</span>&#160; and <span class="keyName">Control-V</span>&#160;. Each copy will contain the same specifications as the original unit model.</p>
+                </div>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>To configure a Splitter to split an incoming stream flow, according to a 75% / 25% ratio (to the 1st and 2nd outlet streams), double-click on the dialog of the Splitter "sp1", enter "0.75" in the 'Split fractions' field and click on the "OK" button, to close the dialog.</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/dialog_source_mixing_example3.png" />
+                        </p>
+                        <p class="FigureCaption">Configuring the splitter to split the flow according to a 75%/25% ratio.</p>
+                    </div>
+                </div>
+                <h3>Specifying physical properties</h3>
+                <p>A "Material" stream represents a fluid flow. To predict the physical properties of these fluid flows, a physical property package is required. For each Source model for the "Material"&#160;stream a physical property package needs to be specified. This is done in the "Material"&#160;field on the "Main"&#160;tab of the specification dialog. </p>
+                <p>When the "Source_material_gML" model is dragged onto the flowsheet this field will contain a text value of "Multiflash::mass:usehotstart:FILE_NAME.MFL". To choose a physical properties package the part "FILE_NAME.MFL" needs to be edited to refer to a physical properties file which is imported into the project. To define a physical properties package, see <a href="../Specifying process materials/Specifying process materials.htm" class="MCXref xref">'Specifying process materials'</a>. </p>
+                <p>When the "Material" field has been updated with a valid physical properties package definition, the names of the components in the property package will appear in the dialog for fields where values need to be entered for each component (e.g. the "Mass fraction" field for certain unit models like Source_material_gML).</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/source_model_dialog_default.png" />
+                    </p>
+                    <p class="FigureCaption">Source dialog before specifying a physical properties file</p>
+                </div>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/processbuilder_UI_4.png" />
+                    </p>
+                    <p class="FigureCaption">Source dialog after specifying a physical properties file. The file specified is "WATER_RKS.MFL", the component "WATER"&#160;appears in the Mass fraction field</p>
+                </div>
+                <p>
+                    <div class="example" style="text-align: left;" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                        <p>The flowsheet with the source, the splitter and the two sinks can be configured to split a stream of water at 20 degrees Celsius. First define a physical properties package in Multiflash that predicts the properties of water and import this in <span class="ProductName">gPROMS ProcessBuilder</span> (see <a href="../Specifying process materials/Specifying process materials.htm" class="MCXref xref">'Specifying process materials'</a>). Then, to configure the flowsheet, open the dialog of the source, "s1", and specify that the stream is pure water at 20 degrees Celsius and atmospheric pressure. The mass flowrate of the stream is 2 kg/s. </p>
+                        <div class="figure">
+                            <p>
+                                <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/dialog_source_mixing_example.png" />
+                            </p>
+                            <p class="FigureCaption">Source dialog of source "s1" after specifying a physical properties file and setting temperature and pressure</p>
+                        </div>
+                    </div>
+                </p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Completed flowsheet</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>After all models have been configured the flowsheet is ready to be simulated. Before starting the simulation ensure that there are no warnings or errors in the problem panel. To simulate a flowsheet model:</p>
+                <ul>
+                    <li value="1">Right-click on the flowsheet model  in the project tree, to show a context menu.<br /><br /></li>
+                </ul>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/process_context_menu.png" />
+                    </p>
+                    <p class="FigureCaption">Context menu displayed after right-clicking on the flowsheet model in the project </p>
+                </div>
+                <ul>
+                    <li value="1">Select "Edit process"&#160;from the context menu. A new process will be created, with the same name as the model entity.</li>
+                    <li value="2">Click on the "Processes" folder in the project and select the newly created process.</li>
+                </ul>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/dialog_source_mixing_example11.png" />
+                    </p>
+                    <p class="FigureCaption">A new process has been added to the project with the same name as the flowsheet model. </p>
+                </div>
+                <ul>
+                    <li value="1">Run the created process by pressure the <span class="guibutton">Simulate</span> <span class="guibuttonImage"><img src="../../../Resources/Images/Global/IME Toolbar/Process.png" /></span>toolbar button or by pressing <span class="keyCap">SHIFT+F5</span>. A simulation will be run for the completed flowsheet. </li>
+                </ul>
+                <p>For more information on running a simulation of a flowsheet model see <a href="Simulating flowsheets and viewing results.htm" class="MCXref xref">'Simulating flowsheets'</a>.  The approach described here covers the construction of simple steady-state flow-driven flowsheets with sources, sinks and a series of unit operations. More complex flowsheets may require the use of breaker models (when so-called "recycle streams"&#160;are present, see <a href="Flowsheets with recycles.htm" class="MCXref xref">'Flowsheets with recycles'</a>) or specification trade-offs (when simulations are done where certain targets need to be satisfied by modifying inputs, see <a href="../Trading off degrees of freedom/Trading off degrees of freedom.htm" class="MCXref xref">'Trading off degrees of freedom'</a>). </p>
+                <p>A number of errors maybe only become apparent when a simulation is run, to troubleshoot errors during a simulation refer to <a href="../Troubleshooting/Troubleshooting.htm" class="MCXref xref">'Troubleshooting'</a></p>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>Simulate the flowsheet which mixes the two water streams by right-clicking the "my_flowsheet" flowsheet model, creating a PROCESS and running the created process. </p>
+                </div>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>When unit models, within a flowsheet, have not been correctly connected or have not been correctly configured, a warning will appear in the Problem panel at the bottom of the topology. Before attempting to simulate the flowsheet model, first check the warning messages to get clues on how to rectify the errors.</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/dialog_source_mixing_example6.png" />
+                        </p>
+                        <p class="FigureCaption">Warnings shown in the problem panel when unit model, within the flowsheet, have not been correctly connected</p>
+                    </div>
+                </div>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>When constructing a flowsheet of a complex process with many unit operations, a good working practice is to construct a flowsheet incrementally. Add a few unit operations, configure them and simulate the resulting intermediate flowsheet. This makes finding and resolving errors easier.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

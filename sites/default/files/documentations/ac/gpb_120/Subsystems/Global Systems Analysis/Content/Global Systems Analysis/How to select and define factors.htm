@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-gb" lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Global Systems Analysis.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Creating and running an analysis">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" /><title>How to select and define factors</title>
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Global Systems Analysis.htm#Global Systems Analysis/How to select and define factors.htm">Open topic with navigation</a>
+        </p>
+        <h1><a name="_How_to_select"></a><a name="_Toc478315912"></a>How to select and define factors</h1>
+        <p>Factors are user-specified inputs to a system which are uncertain or experience variability. Internally, a factor is mapped to a scalar element of an assigned gPROMS variable<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>If it is attempted to map a factor to a continuous distribution or an array, the selection dialog will denote this with an error mark and an explanation.</span></a>.</p>
+        <p>Factors are specified in the Factors tab and named according to gPROMS naming conventions, as long as they are unique within the GSA entity. All references to the factor within the GSA entity make use of this name rather than the variable path, for convenience. Factors can also be given a textual description and a set of tags. </p>
+        <p>The units of measurement shown in the Factors tab apply to all values associated with each factor throughout the GSA entity and its execution results.</p>
+        <p>For parametric and uncertainty studies, selecting the factors is straightforward. However, for sensitivity analysis it depends on the goal of the analysis:</p>
+        <ul>
+            <li value="1">To identify the most influential factors before an in-depth analysis, a large number of factors can be considered (see <a href="Elementary effect sensitivity.htm#_Elementary_effect_sensitivity"><a href="Elementary effect sensitivity.htm" class="MCXref xref" xrefformat="'{paratext}'">'Elementary effects sensitivity method'</a></a>). In this case, specify factors which are suspected to have an effect on the responses.</li>
+            <li value="2">To determine which factors are most influential from a reasonably sized set, a smaller set should be used (see <a href="Uncertainty analysis.htm#_Uncertainty_analysis"><a href="Uncertainty analysis.htm" class="MCXref xref" xrefformat="'{paratext}'">'Uncertainty analysis'</a></a> and <a href="Variance based sensitivity.htm" class="MCXref xref" xrefformat="'{paratext}'">'Variance-based sensitivity method'</a>). Available physical insight, knowledge of the system or reduction as described above, dictate the number and type of factors to consider.</li>
+        </ul>
+    </body>
+</html>

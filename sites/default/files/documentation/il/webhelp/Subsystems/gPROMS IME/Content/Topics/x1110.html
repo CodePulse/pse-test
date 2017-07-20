@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=Product.Name%] Guide|Constructing flowsheet Models|Constructing the flowsheet|Making a Unit into an Array">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Connecting Array of Units</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x1110.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">gPROMS ModelBuilder Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c755.html">Constructing flowsheet Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x797.html">Constructing the flowsheet</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1065.html">Making a Unit into an Array</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Connecting Array of Units</span>
+            </div>
+        </div>
+        <h1><a name="AEN1110"></a>Connecting Array of Units</h1>
+        <p>Once a number of Arrays of Units are present in the Flowsheet, these will need to be connected to other Units or other Arrays of Units. It is
+ also possible to connect an element of an Array to another element in the same Array.</p>
+        <p>It is easiest to describe the process of connecting Arrays of Units using an example. Here, we consider developing a Flowsheet comprising a
+ series of CSTRs using Models from the Process Model Library. We wish to simulate a sequence of six CSTRs (using the
+        <code class="varname">Reactor_stirred_tank_kinetic</code> Model), interconnected by <code class="varname">Pipe</code> Models. The Flowsheet will also need an inlet
+        <code class="varname">Source</code> and an outlet <code class="varname">Sink</code>.</p>
+        <p>We begin by adding a Unit of a <code class="varname">Reactor_stirred_tank_kinetic</code> Model and a Unit of a <code class="varname">Pipe</code> Model and
+ converting them to Arrays, as shown in the figure below.</p>
+        <div class="figure"><a name="AEN1121"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_ArrayUnits_CSTR_Flowsheet_Start.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Flowsheet with unconnected Arrays of <code class="varname">Reactor_stirred_tank_kinetic</code> and <code class="varname">Pipe</code></p>
+        </div>
+        <p>Now we need to connect the outlet of the first CSTR to the inlet of the first Pipe, the outlet of the 2nd CSTR to the inlet of the 2nd Pipe
+ and so on up to the 5th CSTR and Pipe. To do this, use the Connection tool, left click on the outlet of the CSTR Array and then left click on the
+ inlet of the Pipe Array. This will activate the <tt class="guilabel"><b>Connection details</b></tt> dialog, where the details of connection can be specified.
+ gPROMS first assumes that a single connection will be made, and therefore asks for just one index for each Array, but we need to make an Array
+ connection: in order to do this, the box labelled <tt class="guilabel"><b>Multiple connections</b></tt> must be checked. Once checked, the dialog is updated
+ and now the first and last index of each Array can be specified. Since we want the first CSTR outlet to go to the first Pipe inlet and so on up to
+ the fifth element of each array, we just need to specify 1 as the first index and 5 as the last index for both Arrays. The correct specification is
+ shown in the figure below.</p>
+        <div class="figure"><a name="AEN1133"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_ArrayUnits_CSTR_Flowsheet_dialog1.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Connection details dialog for the outlet of the CSTR Array to the inlet of the Pipe Array</p>
+        </div>
+        <p>Note that gPROMS automatically sets the first index to 1 and the last index to the size of the Array. More often than not, this is what will
+ be desired, but in this case we needed to change the 6 on the left to a 5 because there is no Model to which the last CSTR can connect.</p>
+        <p>Clicking on the <b class="guibutton">Advanced &gt;&gt;</b> button with change the dialog so that gPROMS language can be entered. However, this
+ is not usually necessary and pressing the <b class="guibutton">OK</b> button will add the connections to the flowsheet as shown below.</p>
+        <div class="figure"><a name="AEN1144"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_ArrayUnits_CSTR_Flowsheet_1_Connection.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Flowsheet with outlet of CSTR Array connected to inlet of <code class="varname">Pipe</code> Array</p>
+        </div>
+        <p>The gPROMS language associated with this connection is automatically generated and the whole model of the Flowsheet (in its present state) is
+ shown below.</p><pre class="programlisting">UNIT
+ Reactor_stirred_tank_kinetic001 AS ARRAY (6) OF Reactor_stirred_tank_kinetic
+ Pipe001 AS ARRAY (5) OF Pipe
+SET
+# Start Dynamic Connections
+# End Dynamic Connections
+
+TOPOLOGY
+ Reactor_stirred_tank_kinetic001(1:5).outlet = Pipe001(1:5).inlet;</pre>
+        <p>The <code class="varname">TOPOLOGY</code> section in the language above defines exactly the connection we require. The outlet of the first CSTR being
+ connected to the inlet of the first <code class="varname">Pipe</code>, and so on up to the fifth CSTR and <code class="varname">Pipe</code>. See Expressions involving arrays of Units for more details.</p>
+        <p>The next step is to connect the outlet of the <code class="varname">Pipe</code> Array to the inlet of the CSTR Array. This is done in more-or-less the
+ same way: use the connection tool to connect the outlet port of the <code class="varname">Pipe</code> Array to the inlet port of the CSTR Array. When the
+ Connection details dialog appears, check the Multiple connections box. This time, we need to connect the outlet of the first
+        <code class="varname">Pipe</code> to the inlet of the second CSTR, and so on up to the 5th Pipe to the 6th CSTR.</p>
+        <p>The main difference this time is that the <code class="varname">Reactor_stirred_tank_kinetic</code> Model has multiple inlets: therefore there is a
+ second set of text boxes that allow you to specify to which inlets the connections should go. (For example, it could be that we wanted the outlet
+ each <code class="varname">Pipe</code> to be connected to each of the inlets of just one of the CSTRs.) In this case, we want the outlet of each
+        <code class="varname">Pipe</code> to go to the first inlet of each CSTR, so we must specify the first and last index of the CSTR inlets to be 1. The correct
+ connection dialog is shown below, along with the gPROMS language that is automatically generated.</p>
+        <div class="figure"><a name="AEN1167"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_ArrayUnits_CSTR_Flowsheet_dialog2.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Connection details dialog for the outlet of the Pipe Array to the inlet of the CSTR Array</p>
+        </div><pre class="programlisting">UNIT
+ Reactor_stirred_tank_kinetic001 AS ARRAY (6) OF Reactor_stirred_tank_kinetic
+ Pipe001 AS ARRAY (5) OF Pipe
+SET
+# Start Dynamic Connections
+# End Dynamic Connections
+
+TOPOLOGY
+ Reactor_stirred_tank_kinetic001(1:5).outlet = Pipe001(1:5).inlet;
+ Pipe001(1:5).outlet = Reactor_stirred_tank_kinetic001(2:6).inlet(1);</pre>
+        <p>Now the CSTR train is complete, all that needs to be done to complete the flowsheet is to add the Source and connect it to the inlet of the
+ first CSTR (using another <code class="varname">Pipe</code>) and similarly to connect the outlet of the last CSTR <code class="varname">Sink</code>.</p>
+        <p>Adding the <code class="varname">Source</code>, the new <code class="varname">Pipe</code> (called <code class="varname">Pipe002</code>) and connecting them is straight
+ forward. The outlet of the <code class="varname">Pipe002</code> can be connected to the Array of CSTRs as before, but this time we only need a single
+ connection so there is no need to check the <tt class="guilabel"><b>Multiple connections</b></tt> box. Since we want to connect it to the first CSTR, we must
+ make sure that the Unit Array index is set to 1 and the Model port index is also set to 1. The correct specification is shown below.</p>
+        <div class="figure"><a name="AEN1184"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_ArrayUnits_CSTR_Flowsheet_dialog3.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Connection details dialog for the outlet of the inlet Pipe to the inlet of the CSTR Array</p>
+        </div>
+        <p>Once the <b class="guibutton">OK</b> button is pressed, gPROMS creates the link and updates the gPROMS language, both of which are shown
+ below.</p>
+        <div class="figure"><a name="AEN1193"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_ArrayUnits_CSTR_Flowsheet_Source_Connected.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Flowsheet with <code class="varname">Source</code> connected to first CSTR of the Array</p>
+        </div><pre class="programlisting">UNIT
+ Reactor_stirred_tank_kinetic001 AS ARRAY (6) OF Reactor_stirred_tank_kinetic
+ Pipe001 AS ARRAY (5) OF Pipe
+ Source001 AS Source
+ Pipe002 AS Pipe
+SET
+# Start Dynamic Connections
+# End Dynamic Connections
+
+TOPOLOGY
+ Reactor_stirred_tank_kinetic001(1:5).outlet = Pipe001(1:5).inlet;
+ Pipe001(1:5).outlet = Reactor_stirred_tank_kinetic001(2:6).inlet(1);
+ Source001.outlet = Pipe002.inlet;
+ Pipe002.outlet = Reactor_stirred_tank_kinetic001(1).inlet(1);</pre>
+        <p>Finally, we need to add the last <code class="varname">Pipe</code> Unit, the <code class="varname">Sink</code> and connect them to the outlet of the last CSTR.
+ This is done just as before. When connecting the outlet of the CSTR Array to the inlet of the <code class="varname">Pipe</code> (<code class="varname">Pipe003</code>),
+ we just have to specify that it is the 6th CSTR's outlet that is connected to the <code class="varname">Pipe</code>, as shown below.</p>
+        <div class="figure"><a name="AEN1208"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_ArrayUnits_CSTR_Flowsheet_dialog4.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Connection details dialog for the outlet of the CSTR Array to the inlet of the outlet Pipe</p>
+        </div>
+        <p>The final flowsheet and gPROMS language are shown below.</p>
+        <div class="figure"><a name="AEN1216"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_ArrayUnits_CSTR_Flowsheet_Final.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Final Flowsheet</p>
+        </div><pre class="programlisting">UNIT
+ Reactor_stirred_tank_kinetic001 AS ARRAY (6) OF Reactor_stirred_tank_kinetic
+ Pipe001 AS ARRAY (5) OF Pipe
+ Source001 AS Source
+ Pipe002 AS Pipe
+ Pipe003 AS Pipe
+ Sink001 AS Sink
+SET
+# Start Dynamic Connections
+# End Dynamic Connections
+
+TOPOLOGY
+ Reactor_stirred_tank_kinetic001(1:5).outlet = Pipe001(1:5).inlet;
+ Pipe001(1:5).outlet = Reactor_stirred_tank_kinetic001(2:6).inlet(1);
+ Source001.outlet = Pipe002.inlet;
+ Pipe002.outlet = Reactor_stirred_tank_kinetic001(1).inlet(1);
+ Pipe003.outlet = Sink001.inlet;
+ Reactor_stirred_tank_kinetic001(6).outlet = Pipe003.inlet;</pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

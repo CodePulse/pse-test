@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties|Using Physical Properties for Simple Materials|The gSAFT physical properties interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>gSAFT example</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/gSAFT example.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Physical Properties</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c257.html">Using Physical Properties for Simple Materials</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="gSAFT introduction.htm">The gSAFT physical properties interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">A simple example</span>
+            </div>
+        </div>
+        <h1>gSAFT example</h1>
+        <p>gSAFT is distributed with an example for a highly non-ideal mixture consisting of HF and water. The figure below depicts a T-X-Y plot at a given pressure where measurements (circles) are compared against predictions (solid lines).</p>
+        <div class="figure">
+            <p>
+                <img src="../Resources/Images/gSAFT_plot_hf_water_dew_vs_bubble_measurement_prediction.png" />
+            </p>
+            <p class="FigureCaption">HF-water mixture: comparison of SAFT-VR SW prediction and measurements</p>
+        </div>
+        <p>The example project <span class="fileName">HF_water.gPJ</span> contains a gPROMS Model that allows to reproduce the trajectories of the predicted behaviour. The gPROMS Model for this prediction is very simple and it is intended to demonstrate the basic aspects of choosing an EOS, here the SAFT-VR SW EOS, by selecting the database, and of specifying the components <code>hydrogen_fluoride</code> and <code>water</code> as the mixture.</p><pre class="programlisting" xml:space="preserve">
+PARAMETER
+
+  physProps         AS FOREIGN_OBJECT
+  components        AS ORDERED_SET 
+  pressure          AS REAL          default 101325
+
+VARIABLE
+  z                 AS ARRAY(components)           of Fraction
+
+  dewTemperature    AS                                Temperature 
+  bubbleTemperature AS                                Temperature
+
+SET
+  physProps   := "<span style="color: #ff0000;">gSAFT::VR_SW_databank.dtb&lt;hydrogen_fluoride,water&gt;</span>";
+  components  := physProps.components;
+
+EQUATION
+  $z("hydrogen_fluoride") =  1;
+  sigma(z)                =  1;
+
+  dewTemperature          = physProps.DewTemperature   (pressure, z);  
+  bubbleTemperature       = physProps.BubbleTemperature(pressure, z);
+
+INITIAL
+  z("hydrogen_fluoride") = 0.0;
+			</pre>
+        <p><code>z</code> varies between 0 and 1 and allows plotting the dew and bubble temperature which renders the diagram below.</p>
+        <div class="figure">
+            <p>
+                <img src="../Resources/Images/gSAFT_plot_hf_water_dew_vs_bubble.png" />
+            </p>
+            <p class="FigureCaption">HF-water mixture - prediction using the gSAFT interface in gPROMS</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

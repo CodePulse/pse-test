@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation Guide|Experiment Design in gPROMS">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>An Experiment Design example</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/Equation.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x3622.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="ed_fedbatch"></a>An Experiment Design example</h1>
+        <p>The gPROMS installation includes a simple Experiment Design example - it is highly recommended that you take a look at this. You can access this
+ by clicking on the browse examples button on the gPROMS Tool bar and then navigating to <tt class="filename">General capabilities\Model
+ Validation\DesignFedbatch.gPJ</tt>. This section explains the features of the model.</p>
+        <p>The example considers the fed-batch fermentation process shown in the figure below.</p>
+        <div class="figure"><a name="AEN3632"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/XD_FedbatchFermentation.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Fed-batch fermentation</p>
+        </div>
+        <p>The mathematical model for the process is as follows:</p>
+        <ul>
+            <li value="1">
+                <p><i class="emphasis">Biomass concentration</i>
+                </p>
+                <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+                    <col class="TableStyle-Equation-Column-Column1" />
+                    <col class="TableStyle-Equation-Column-Column2" />
+                    <tbody>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                                <img src="../GeneratedImages/Equations/Equation73.svg" alt="" class="_MCEquation_0 mcReset" />
+                            </td>
+                            <td class="TableStyle-Equation-BodyA-Column2-Body2">&#160;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li value="2">
+                <p><i class="emphasis">Substrate concentration</i>
+                </p>
+                <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+                    <col class="TableStyle-Equation-Column-Column1" />
+                    <col class="TableStyle-Equation-Column-Column2" />
+                    <tbody>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                                <img src="../GeneratedImages/Equations/Equation74.svg" alt="" class="_MCEquation_0 mcReset" />
+                            </td>
+                            <td class="TableStyle-Equation-BodyA-Column2-Body2">&#160;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li value="3">
+                <p><i class="emphasis">Reaction rate</i>
+                </p>
+                <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+                    <col class="TableStyle-Equation-Column-Column1" />
+                    <col class="TableStyle-Equation-Column-Column2" />
+                    <tbody>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                                <img src="../GeneratedImages/Equations/Equation75.svg" alt="" class="_MCEquation_0 mcReset" />
+                            </td>
+                            <td class="TableStyle-Equation-BodyA-Column2-Body2">&#160;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+        </ul>
+        <p>The table below summarises the parameters to be estimated and the design variables that appear in this model.</p>
+        <div class="table"><a name="AEN3670"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Parameters and design variables in fed-batch fermentation model.</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Model Variables</th>
+                        <td class="TableStyle-GeneralTable-HeadD-Column1-Header1">&#160;</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                            <img src="../GeneratedImages/Equations/Equation76.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Parameters to be estimated</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><span class="InlineEquation">u<sub>1</sub></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Dilution factor</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><span class="InlineEquation">u<sub>2</sub></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Feed substrate concentration</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><span class="InlineEquation">y<sub>1</sub></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Biomass concentration</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><span class="InlineEquation">y<sub>2</sub></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Substrate concentration</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2"><span class="InlineEquation">r<sub>m</sub></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">Reaction rate</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Before this model can be used to simulate or optimise the fermentation process, all parameters that appear in it must be given values. Imagine,
+ however, a situation where the kinetic parameters are unknown. That is, we do not know the values of <img src="../GeneratedImages/Equations/Equation77.svg" alt="" class="_Inline_MCEquation_0 mcReset" />. To determine these, we can perform a number of experiments, measure the values of some or all process variables, and estimate the
+ kinetic parameters that best fit the measured data (see <a href="c570.html">Parameter Estimation in gPROMS</a> for a more
+ detailed description).</p>
+        <p>In the example, it is assumed that we design one new experiment, take up to 10 samples at different times and measure the biomass and substrate
+ concentration, <span class="InlineEquation">y<sub>1</sub></span> and <span class="InlineEquation">y<sub>2</sub></span>, in each sample using a High Pressure Liquid Chromatograph (HPLC). The duration
+ of the experiment should be between 5 and 10 hours. The dilution factor <span class="InlineEquation">u<sub>1</sub></span> and the feed substrate concentration
+ <span class="InlineEquation">u</span><sub>2</sub> may be varied over time. We may also change the initial value of the biomass concentration <span class="InlineEquation">y<sub>1</sub>(0)</span> in
+ the reactor.</p>
+        <p>Resource availability may impose an upper limit on the feed substrate concentration.</p>
+        <p>The Experiment Design problem seeks to provide answers to the following questions</p>
+        <ul>
+            <li value="1">
+                <p>What initial biomass concentration <span class="InlineEquation">y<sub>1</sub>(0)</span> should we use?</p>
+            </li>
+            <li value="2">
+                <p>How long should we run the experiment for?</p>
+            </li>
+            <li value="3">
+                <p>How should we vary the feed flowrate for the dilution factor <span class="InlineEquation">u<sub>1</sub>(t)</span> and the feed substrate concentration
+ <span class="InlineEquation">u<sub>2</sub>(t)</span> over the duration of the experiment?</p>
+            </li>
+            <li value="4">
+                <p>When should we take the measurement samples?</p>
+            </li>
+        </ul>
+        <p>The unknown parameters to be estimated are <img src="../GeneratedImages/Equations/Equation78.svg" alt="" class="_Inline_MCEquation_0 mcReset" /> (gPROMS pathname FERMENT.theta(1)) to <img src="../GeneratedImages/Equations/Equation79.svg" alt="" class="_Inline_MCEquation_0 mcReset" /> (gPROMS pathname FERMENT.<img src="../GeneratedImages/Equations/Equation80.svg" alt="" class="_MCEquation_0 mcReset" />). We use the estimated value of each of the parameters as the SCALING_FACTOR so that the scaled values of all parameters are
+ one.</p>
+        <p>An HPLC is used to measure both<span class="InlineEquation"> y<sub>1</sub></span> and<span class="InlineEquation"> y<sub>2</sub></span>. The variance model is described as CONSTANT_VARIANCE
+ with <img src="../GeneratedImages/Equations/Equation81.svg" alt="" class="_Inline_MCEquation_0 mcReset" /> equal to 0.5.</p>
+        <p>The table below contains the above information for the fed-batch fermentation experiment.</p>
+        <div class="table"><a name="AEN3764"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Conditions for the fed-batch fermentation experiment</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Type of Decision Variable</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Variable</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Initial Guess</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Lower Bound</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Upper Bound</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Experiment Duration</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><span class="InlineEquation">t<sub>f</sub></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">10.0</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">5.0</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">10.0</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Initial Condition</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><span class="InlineEquation">y<sub>1</sub>(0)</span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">7.0</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">1.0</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">10.0</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Time-varying control (piecewise-constant)</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><span class="InlineEquation">u<sub>1</sub>(t)</span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">0.2</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">0.05</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">0.2</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Time-varying control (piecewise-constant)</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2"><span class="InlineEquation">u<sub>2</sub>(t)</span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">15.0</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">5.0</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">35.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

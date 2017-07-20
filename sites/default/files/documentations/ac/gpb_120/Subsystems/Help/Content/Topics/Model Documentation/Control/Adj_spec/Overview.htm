@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Adj spec</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Control/Adj_spec/Overview.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Adj spec</h1>
+        <p>The Adj spec model can be used to trade off specifications between different models. This is done by imposing a specification ("target") on a variable of a particular model and at the same time removing a specification on a variable ("adjusted variable") of another model. This variable can then be varied in order to meet the target specification. </p>
+        <p>This principle can be used for various reverse calculations, imposing performance specifications and to represent controllers in steady-state problems. For example, this model may be used to determine the flowrate (adjusted variable) of a given inlet mixer stream that generates a particular composition (target variable) in the outlet mixer stream. Both the adjusted and target variables are specified by the user in the Adj_spec dialog. </p>
+        <p>Depending on which specifications are traded, the resulting problem can be more or less difficult to converge. To aid in the convergence of problems that become more difficult, the Adj spec model permits the specification of an initial guess for the adjusted variable. The flowsheet will first be converged while imposing the initial guess on the adjusted variable, after which the problem is changed such that the target specification is imposed.</p>
+        <p>This section contains the following topics:</p>
+        <div class="MCMiniTocBox_0 miniToc nocontent" data-mc-depth="9" data-mc-toc="True">
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

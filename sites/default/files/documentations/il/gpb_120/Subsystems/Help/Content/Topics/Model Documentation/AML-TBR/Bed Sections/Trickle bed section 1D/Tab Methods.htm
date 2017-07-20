@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Methods</title>
+        <link href="../../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../../Help.htm#Topics/Model Documentation/AML-TBR/Bed Sections/Trickle bed section 1D/Tab Methods.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Methods</h1>
+        <p>The <span class="HeadingLevel1">Methods</span> tab is used to specify modelling and correlations options.</p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Transport physical properties</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Same as inlet</dt>
+                        <dd>Transport properties are calculated from the inlet physical property package.</dd>
+                        <dt>Different from inlet</dt>
+                        <dd>Allows the specification of a different physical property package for transport properties.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Partial enthalpy calculation</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Ideal mixture</dt>
+                        <dt>Real mixture</dt>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Flow resistance</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Fixed</dt>
+                        <dd>Selects a fixed pressure drop per metre.</dd>
+                        <dt>Larachi, 1991</dt>
+                        <dd>Flow resistance is predicted from a predefined correlation.</dd>
+                        <dt>Ergun</dt>
+                        <dd>Flow resistance is predicted from a predefined correlation.</dd>
+                        <dt>Custom</dt>
+                        <dd>Flow resistance is predicted from a user defined correlation.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Liquid holdup</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Fixed</dt>
+                        <dd>Selects a fixed liquid phase volume fraction (excluding liquid in pellets).</dd>
+                        <dt>Specchia and Baldi, 1977</dt>
+                        <dd>Liquid holdup is predicted from a predefined correlation.</dd>
+                        <dt>Satterfield, 1969</dt>
+                        <dd>Liquid holdup is predicted from a predefined correlation.</dd>
+                        <dt>Custom</dt>
+                        <dd>Liquid holdup is predicted from a user defined correlation.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">External wetting efficiency</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Off</dt>
+                        <dd>Particles are completely wet.</dd>
+                        <dt>On</dt>
+                        <dd>Particle external surface wetting can be incomplete. Internal particle pores are completely filled with liquid.</dd>
+                        <dt>On - neglecting the liquid stagnant zone</dt>
+                        <dd>Use the particle external wetting model without liquid stagnant pockets.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">External wetting efficiency correlation</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Fixed</dt>
+                        <dd>External wetting efficiency is explicitly specified.</dd>
+                        <dt>Mills and Dudukovic, 1981</dt>
+                        <dd>External wetting efficiency is predicted from a predefined correlation.</dd>
+                        <dt>El-Hisnawi, Dudukovic and Mills, 1982</dt>
+                        <dd>External wetting efficiency is predicted from a predefined correlation.</dd>
+                        <dt>Custom</dt>
+                        <dd>External wetting efficiency is predicted from a user defined correlation.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" colspan="3">Transport properties packages</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Gas phase physical properties</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dl>
+                            <dt>Physical properties configuration for the gas phase.</dt>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Liquid phase physical properties</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Physical properties configuration for the liquid phase.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" colspan="3">Flow resistance</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Pressure drop per metre</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kPa/m</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Assigns the pressure drop per metre.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Parameters</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Adjustable parameters. Defined as a multiplier for predefined correlations.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Custom correlation</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Predefined options</dt>
+                        <dd>Choose one of the predefined options.</dd>
+                        <dt>Custom options</dt>
+                        <dd>This list can be extended in the relevant custom model.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Number of parameters</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Defines the number of adjustable parameters to be used in the custom model.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" colspan="3">Liquid holdup</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Liquid phase volume fraction (excluding liquid in pellets)</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Assigns the liquid phase volume fraction excluding liquid in pellets.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Parameters</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Adjustable parameters. Defined as a multiplier for predefined correlations.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Custom correlation</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Predefined options</dt>
+                        <dd>Choose one of the predefined options.</dd>
+                        <dt>Custom options</dt>
+                        <dd>This list can be extended in the relevant custom model.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Number of parameters</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Defines the number of adjustable parameters to be used in the custom model.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" colspan="3">External wetting efficiency</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Parameters</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Adjustable parameters. Defined as a multiplier for predefined correlations.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Custom correlation</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Predefined options</dt>
+                        <dd>Choose one of the predefined options.</dd>
+                        <dt>Custom options</dt>
+                        <dd>This list can be extended in the relevant custom model.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1">Number of parameters</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1">Defines the number of adjustable parameters to be used in the custom model.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="System Programmer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="System Programmer Guide|Developing New Foreign Objects|The gPROMS Foreign Object Interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The Foreign Object calculation procedures</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../System Programmer Guide.htm#Topics/x658.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="ForeignObjectCalculationProcedures"></a>The Foreign Object calculation procedures</h1>
+        <p>If the Foreign Object initialisation and verification are completed successfully, gPROMS proceeds with the execution of the Process under
+ consideration. This requires the evaluation of the outputs of the various Foreign Object methods used in the problem for given values of their
+ inputs. It also usually involves the evaluation of partial derivatives of the outputs with respect to the inputs.</p>
+        <p>In order to obtain the above numerical information, gPROMS will call the following procedures during the run:</p>
+        <ul>
+            <li value="1">
+                <p>gFOM (ForeignObjectID, ForeignObjectHandle, MethodName, OutputLength, NoInputs, InputLengths, TotalInpLength, MethodInputs, MethodOutput,
+ Status)</p>
+            </li>
+        </ul>
+        <div class="table"><a name="AEN665"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Arguments of the procedure gFOM.</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Name of Argument</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Type</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Specified on Entry</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Specified on Exit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ForeignObjectID</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Character*256</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Full name of Foreign Object (terminated with a null).</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ForeignObjectHandle</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Handle for identifying Foreign Object.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">MethodName</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Character*256</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Name of the method (terminated with a null).</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">OutputLength</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Length of method output.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">NoInputs</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Number of method inputs.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">InputLengths</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Lengths of method inputs. An <i class="emphasis">array</i> of length NoInputs.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">TotalInpLength</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Total length of array MethodInputs.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">MethodInputs</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Double Precision</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Numerical values of all the inputs for this method.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">MethodOutput</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Double Precision</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">The numerical value(s) of the method output to be returned. An <i class="emphasis">array</i> of length OutputLength.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">NO</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">YES</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Status</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Status of requested computation. A value of 1 indicates a successful computation. A value of 0 indicates that the Foreign Object does
+ not support the requested calculation. All other values signify failure.</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">NO</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">YES</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <ul>
+            <li value="1">
+                <p>gFOMD (ForeignObjectID, ForeignObjectHandle, MethodName, OutputLength, NoInputs, InputLengths, TotalInpLength, MethodInputs, DInputName,
+ DInputLength, DerivOutputs, Status)</p>
+            </li>
+        </ul>
+        <div class="table"><a name="AEN746"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Arguments of the procedure gFOMD.</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Name of Argument</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Type</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Specified on Entry</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Specified on Exit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ForeignObjectID</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Character*256</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Full name of Foreign Object (terminated with a null).</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ForeignObjectHandle</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Handle for identifying Foreign Object.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">MethodName</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Character*256</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Name of the method (terminated with a null).</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">OutputLength</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Length of method output.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">NoInputs</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Number of method inputs.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">InputLengths</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Lengths of method inputs. An <i class="emphasis">array</i>} of length NoInputs.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">TotalInpLength</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Total length of array MethodInputs.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">MethodInputs</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Double Precision</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Numerical values of all the inputs for this method.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">DInputName</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Character*256</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Name of the input with respect to which the partial derivatives are to be calculated.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">DInputLength</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Length of the input with respect to which the partial derivatives are to be calculated.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">DerivOutputs</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Double Precision</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Numerical values of the requested partial derivatives. These will be packed in a <i class="emphasis">one-dimensional array</i> of total
+ length OutputLength*DInputLength. The values must be ordered by output.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">NO</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">YES</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Status</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Status of requested computation. A value of 1 indicates a successful computation. A value of 0 indicates that the Foreign Object does
+ not support the requested calculation. All other values signify failure.</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">NO</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">YES</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Note that most of the arguments have already been encountered. Before calling either of the two procedures, gPROMS copies the current values of
+ the method arguments into a single array MethodInputs in the order in which they were declared. The total length of this array is computed by gPROMS
+ and passed to the procedures in argument TotalInpLength. This is done only for convenience: TotalInpLength is simply the sum of the NoInputs entries
+ in array InputLengths.</p>
+        <p>In case of gFOM, the method output is returned to gPROMS in argument MethodOutput of length OutputLength. The values for outputs of type
+ Integer should be converted by gFOM to the equivalent real quantities; similarly, for Logical results, the values returned should be 1.0 for True and
+ 0.0 for False.</p>
+        <p>In case of gFOMD, the arguments DInputName and DInputLength are used by gPROMS to pass the name and the length of the input with respect to
+ which the partial derivatives of the output are requested. The values of these derivatives are returned by gFOMD in array DerivOutputs. <i class="emphasis">Note that</i> gFOMD must only return the partial derivatives with respect to the <i class="emphasis">one</i> input specified in the
+ DInputName argument. This will be discussed in more detail later.</p>
+        <p>gPROMS will never call gFOMDs for an input that is not of type Real, or one for which partial derivatives are not available as notified to
+ gPROMS by a call to gFOCMI.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

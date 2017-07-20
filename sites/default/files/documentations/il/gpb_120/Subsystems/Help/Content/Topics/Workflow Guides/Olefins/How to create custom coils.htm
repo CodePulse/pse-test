@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Workflow guides|gML Olefins|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Creating custom coil models</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Help.htm#Topics/Workflow Guides/Olefins/How to create custom coils.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h2 class="Heading2">Creating custom coil models</h2>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Creating the custom coil model in the working project</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p class="p_1">If the desired coil geometry is not available in the list of pre-defined geometries, it is possible to create a custom coil model using models in the <i>palette</i>. To facilitate this task, a custom coil template is provided with the installation. This model is in the <i>gML Olefins Templates - Custom Modelling</i> project, which can be accessed by clicking on the <i>Open an example project</i> icon, and navigating to the <i>Templates </i> directory.</p>
+                <p class="p_1" style="text-align: center;">
+                    <img src="../../../Resources/Images/Workflow guides - Olefins/0_open_examples.png" alt="" title="" style="width: 1065px;height: 563px;" />
+                </p>
+                <p class="p_1">From the <i>gML Olefins Templates - Custom Modelling</i> project, copy the <i>coil_custom_gML</i> model to the working project and rename  it with a meaningful name. The topology of the custom coil model should at this point look like the image below.</p>
+                <p class="p_1" style="text-align: center;">
+                    <img src="../../../Resources/Images/Workflow guides - Olefins/2_blank_custom_model.png" style="width: 1086px;height: 544px;" />
+                </p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Constructing the custom coil</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p class="p_1">The custom coil can be constructed by dragging and dropping the required models and connecting them appropriately. To achieve this, the <i>Cracking tube</i>, <i>Source heat 1D</i> and <i>Mixer olefins</i> models from 'gML Olefins Furnaces' library should be used, as well as models from the <i>gML Basics</i> library (e.g. Flow multiplier). The port <i>heat_in</i> should be left unconnected. Below is an example of the topology view of a custom coil with two passes.</p>
+                <p class="p_1" style="text-align: center;">
+                    <img src="../../../Resources/Images/Workflow guides - Olefins/3_custom_after_drag_and_drop.png" style="width: 1041px;height: 474px;" />
+                </p>
+                <p class="p_1">The Specifications selector in the dialog of all the <i>Cracking tube</i> and <i>Source heat 1D</i> model instances must be set to ON and the respective model specifications must be filled in. Subsequently, it is necessary to edit the user-specified sections of the custom coil so that the new coil works properly with the furnace model. These sections can be found in the  <i>gPROMS language</i> tab of the custom coil model.</p>
+                <p class="p_1">The parameters and variables that need to be customised are:</p>
+                <ul>
+                    <li value="1">coil_length</li>
+                    <li value="2">cracking_model_sel</li>
+                    <li value="3">Area_surface_external</li>
+                    <li value="4">Heat_flux_average</li>
+                </ul>
+                <p>For the custom coil example above, which is cracking an ethane and propane feed, using a molecular mechanism, from Sundaram and Froment, the coil_length and cracking_model_sel parameters in the SET section of the <i>gPROMS language</i> should be customised to look like the image below.</p>
+                <p class="p_1" style="text-align: center;">
+                    <img src="../../../Resources/Images/Workflow guides - Olefins/4_gproms_language_Length_cracking_model_sel.png" style="width: 993px;height: 707px;" />
+                </p>
+                <p>In the EQUATION section of the <i>gPROMS&#160;language</i>, the calculation of the variables <i>Area_surface_external</i> and <i>Heat_flux_average</i> must be changed to account for the existence of all the passes. For this example, it should look like the image below.</p>
+                <p style="text-align: center;">
+                    <img src="../../../Resources/Images/Workflow guides - Olefins/4a_gproms_language_Area_surface_Heat_flux.png" style="width: 952px;height: 612px;" />
+                </p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Using global specifications</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p class="p_1">If the custom coil is to be used by a <i>Furnace</i> model instance, then a global specification needs to be set in the custom coil model. </p>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>Global specifications can have two purposes:</p>
+                    <ul>
+                        <li value="1">Allow one assignment  to be propagated to all the model instances that make use of this specification. In this case, the global specification must be assigned in the ASSIGN section of the custom coil.</li>
+                        <li value="2">Provide one variable against which  a severity specification (e.g. COT) in the furnace can be traded-off. In this case, the global specification must not be assigned.</li>
+                    </ul>
+                    <p>In both cases, equations connecting the global specification to all the instances must be written in the EQUATION section of the custom coil, and each corresponding specification should be unchecked in the model instance dialog (e.g. the emissivity global specification in the example followed in this workflow guide).</p>
+                    <p>This means that more than one global specification can be used in the custom coil, but only one should be left unassigned, so that the model can calculate it using the severity specification provided in the Furnace dialog. This also means that, if the severity specification is not imposed, then all global specifications must be assigned.</p>
+                    <table style="mc-table-style: url('../../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                        <col class="TableStyle-GeneralTable-Column-Column1" />
+                        <col class="TableStyle-GeneralTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-GeneralTable-Head-Header1">
+                                <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Source heat 1D option</th>
+                                <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Global specifications available</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Adiabatic</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">None</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body2">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Constant heat flux</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Heat flux</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Heat flux profile predicted</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Emissivity, Temperature (flame)</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body2">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Heat flux profile uniform</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Emissivity, Temperature (flame)</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Heat flux profile (lookup table)</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Emissivity, Temperature (flame)</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body2">
+                                <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Cooling jacket</td>
+                                <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">None</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="p_1">For the custom coil model constructed, if the <i>Source heat 1D</i> is set to <i>Heat flux profile predicted</i> mode and the Severity specification in the <i>Furnace</i> model is to be traded-off against the emissivity, then the <i>Emissivity</i> specification needs to be unchecked in the dialog box of both Energy_to_pass_1 and Energy_to_pass_2, as shown below:</p>
+                <p class="p_1" style="text-align: center;">
+                    <img src="../../../Resources/Images/Workflow guides - Olefins/6_source_heat_1D_dialog.png" />
+                </p>
+                <p class="p_1">Then set the respective flag (in this case the parameter <i>use_emissivity_effective_global_spec</i>) in the SET section of the custom coil to 1 as illustrated below:</p>
+                <p class="p_1" style="text-align: center;">
+                    <img src="../../../Resources/Images/Workflow guides - Olefins/5_global_spec_SET_section.png" />
+                </p>
+                <p class="p_1">Equations connecting the specifications in each instance to the global specification must also be included and templates for these equations are available as comments in the EQUATION section. In the example followed thus far, the following equations must be added to the EQUATION section.</p>
+                <p class="p_1" style="text-align: center;">
+                    <img src="../../../Resources/Images/Workflow guides - Olefins/5a_global_spec_EQUATION_section.png" />
+                </p>
+                <p class="p_1">If the  custom coil model is to be used as a standalone model, i.e. directly in a flowsheet and not from a Furnace model, then the global specification needs to be set a value. This can be done in the ASSIGN section.</p>
+                <p class="p_1">Finally, to make a custom coil available from the Furnace specification dialog, see <a href="How to make custom coils available.htm" class="MCXref xref">'Making custom coil models available in the Furnace dialog'</a>.</p>
+            </div>
+        </div>
+        <p>&#160;</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

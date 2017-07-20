@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Model Analysis and Diagnosis|High-index DAEs, initialisation and integration">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Simple examples of high-index DAE systems</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x8799.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c8364.html">Model Analysis and Diagnosis</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x8614.html">High-index DAEs, initialisation and integration</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Simple examples of high-index DAE systems</span>
+            </div>
+        </div>
+        <h1><a name="MDG_Diag_HighIndex_Details_HiIndex"></a>Simple examples of high-index DAE systems</h1>
+        <p>In this section, two examples of high-index systems are described.</p>
+        <p>Consider, for this first example, a slightly modified version of the index-1 system (<a href="x8634.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index1.png" data-mc-conditions="Default.ScreenOnly" /></span></a>) described <a href="x8634.html">previously</a>:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_6.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>the only difference being between <a href="x8634.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index1_a1.png" data-mc-conditions="Default.ScreenOnly" /></span></a> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_a1.png" data-mc-conditions="Default.ScreenOnly" /></span>.</p>
+        <p>We immediately note that we can no longer specify arbitrary initial values for the differential variables <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_1_0.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_2_0.png" data-mc-conditions="Default.ScreenOnly" /></span> since they have to satisfy <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_a1.png" data-mc-conditions="Default.ScreenOnly" /></span>. Furthermore, we cannot convert <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2.png" data-mc-conditions="Default.ScreenOnly" /></span> to a set of ODEs in <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_1.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_2.png" data-mc-conditions="Default.ScreenOnly" /></span> by using <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_a1.png" data-mc-conditions="Default.ScreenOnly" /></span> to eliminate <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_y.png" data-mc-conditions="Default.ScreenOnly" /></span> from <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_d1.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_d2.png" data-mc-conditions="Default.ScreenOnly" /></span> since <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_y.png" data-mc-conditions="Default.ScreenOnly" /></span> does not even occur in <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_a1.png" data-mc-conditions="Default.ScreenOnly" /></span>!</p>
+        <p>It can be shown that initial conditions for DAE systems (<a href="x8634.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_gen.png" data-mc-conditions="Default.ScreenOnly" /></span></a>) do not necessarily have to be specified in terms of the differential variables <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x.png" data-mc-conditions="Default.ScreenOnly" /></span>. This might seem to imply that, although we cannot specify both <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_1_0.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_2_0.png" data-mc-conditions="Default.ScreenOnly" /></span>, perhaps we could specify some other combination of two variables, for instance:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_7.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>Then from <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_a1.png" data-mc-conditions="Default.ScreenOnly" /></span>, we would get <span class="inlinemediaobject"><img src="../Resources/Images/inline_equation_x_2_0=-1.png" data-mc-conditions="Default.ScreenOnly" /></span> and from <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_d1.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_d2.png" data-mc-conditions="Default.ScreenOnly" /></span>:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_8.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>This, however, is not correct. We note, in particular, that <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_a1.png" data-mc-conditions="Default.ScreenOnly" /></span> is valid at all times <span class="inlinemediaobject"><img src="../Resources/Images/inline_expression_t_ge_0.png" data-mc-conditions="Default.ScreenOnly" /></span>. We can therefore derive a valid equation by differentiating <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_a1.png" data-mc-conditions="Default.ScreenOnly" /></span> with respect to time:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_9.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>Now, <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_new1.png" data-mc-conditions="Default.ScreenOnly" /></span> is valid at all times <span class="inlinemediaobject"><img src="../Resources/Images/inline_expression_t_ge_0.png" data-mc-conditions="Default.ScreenOnly" /></span>, so, in particular, it should hold at <span class="inlinemediaobject"><img src="../Resources/Images/inline_expression_t=0.png" data-mc-conditions="Default.ScreenOnly" /></span>:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_10.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>which is <i class="emphasis">not</i> satisfied by our initial condition <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_init1.png" data-mc-conditions="Default.ScreenOnly" /></span>. Thus the latter is, in fact, inconsistent.</p>
+        <p>In fact, <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_new1.png" data-mc-conditions="Default.ScreenOnly" /></span> form a set of 4 independent consistency relations that the initial variable values must satisfy:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_11.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>Since these involve 5 variables, we can specify only 1 (=5-4) arbitrary initial condition, which is less than the number of differential
+ variables (2) in the system <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2.png" data-mc-conditions="Default.ScreenOnly" /></span>.</p>
+        <p>Now, for the second example, consider a slight modification of <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2.png" data-mc-conditions="Default.ScreenOnly" /></span>:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_12.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>By differentiating <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index3_a1.png" data-mc-conditions="Default.ScreenOnly" /></span> with respect to time, we get:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_13.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>which, together with system <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index3.png" data-mc-conditions="Default.ScreenOnly" /></span> yields 4 consistency relations that the intial variable values must satisfy. So, once again, it appears that we can
+ specify 1 (= 5 - 4) arbitrary initial condition. However, if we combine <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index3_new1.png" data-mc-conditions="Default.ScreenOnly" /></span> with <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index3_d1.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index3_d2.png" data-mc-conditions="Default.ScreenOnly" /></span>, we obtain:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_14.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>which is also valid at all times. We can therefore differentiate this with respect to time to obtain:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_15.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>We now have 5 consistency relations <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index3.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index3_new1.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index3_new2.png" data-mc-conditions="Default.ScreenOnly" /></span> that the 5 initial variable values must satisfy – in fact, there is no freedom left with respect to the specification
+ of initial conditions. The <i class="emphasis">only</i> possible initial condition for the system is:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_16.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>Overall, what we have seen is that the three example systems <a href="x8634.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index1.png" data-mc-conditions="Default.ScreenOnly" /></span></a>, <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index3.png" data-mc-conditions="Default.ScreenOnly" /></span>, albeit ostensibly very similar, are, in fact, quite different. Perhaps a natural question to ask at this point is:</p><a name="AEN9250"></a>
+        <blockquote class="BLOCKQUOTE">
+            <p><i class="emphasis">Are there some further consistency relations also hidden within <a href="x8634.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index1.png" data-mc-conditions="Default.ScreenOnly" /></span></a>?</i>
+            </p>
+        </blockquote>
+        <p>Of course, we can easily obtain a valid relation by differentiating <a href="x8634.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index1_a1.png" data-mc-conditions="Default.ScreenOnly" /></span></a> with respect to time:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_17.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>However, this does not impose any further restrictions on both <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_xdot_1_0.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_xdot_2_0.png" data-mc-conditions="Default.ScreenOnly" /></span> since it also involves a new variable <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_ydot_0.png" data-mc-conditions="Default.ScreenOnly" /></span>.</p>
+        <p>Similarly, in the case of system <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2.png" data-mc-conditions="Default.ScreenOnly" /></span>, we could combine <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_new1.png" data-mc-conditions="Default.ScreenOnly" /></span> with <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_d1.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_d2.png" data-mc-conditions="Default.ScreenOnly" /></span> to yield:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_18.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>and then differentiate this with respect to time to obtain:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_19.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>but, once again, this does not actually restrict <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_xdot_1_0.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_xdot_2_0.png" data-mc-conditions="Default.ScreenOnly" /></span>.</p>
+        <p>Overall, our original conclusions regarding the initial conditions of <a href="x8634.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index1.png" data-mc-conditions="Default.ScreenOnly" /></span></a> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2.png" data-mc-conditions="Default.ScreenOnly" /></span> were correct.</p>
+        <p>We can summarise what we have seen so far with reference to the general DAE system <a href="x8634.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_gen.png" data-mc-conditions="Default.ScreenOnly" /></span></a>, as follows:</p>
+        <ul>
+            <li value="1">
+                <p>A set of initial values <span class="inlinemediaobject"><img src="../Resources/Images/inline_eqn_x_xd_y_zero.png" data-mc-conditions="Default.ScreenOnly" /></span> must always satisfy:</p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_initial.png" data-mc-conditions="Default.ScreenOnly" /></span>
+                </p>
+            </li>
+            <li value="2">
+                <p>For some systems, the values <span class="inlinemediaobject"><img src="../Resources/Images/inline_eqn_x_xd_y_zero.png" data-mc-conditions="Default.ScreenOnly" /></span> may also have to satisfy additional relations obtained by differentiating <a href="x8634.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_gen.png" data-mc-conditions="Default.ScreenOnly" /></span></a> one or more times with respect to time.</p>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

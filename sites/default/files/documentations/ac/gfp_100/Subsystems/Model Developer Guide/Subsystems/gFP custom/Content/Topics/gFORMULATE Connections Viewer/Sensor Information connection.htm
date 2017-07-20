@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gFP custom.xml" data-mc-path-to-help-system="../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Sensor information</title>
+        <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../gFP custom.htm#Topics/gFORMULATE Connections Viewer/Sensor Information connection.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Connection Types.htm">Connection Types</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Sensor information</span>
+            </div>
+        </div>
+        <h2>Sensor information</h2>
+        <p>The gPROMS name for the sensor information connection type is <b>Sensor_information_gFP</b>.</p>
+        <p>This connection type is used to convey information to sensor models and contains extra details such as physical property values as well as the material stream information.</p>
+        <table style="mc-table-style: url('../../Resources/TableStyles/GeneralTable.css');width: 100%;margin-left: 0;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+            <caption>Parameters of Sensor information connection type</caption>
+            <col class="TableStyle-GeneralTable-Column-Column1" style="width: 271px;" />
+            <col class="TableStyle-GeneralTable-Column-Column1" style="width: 160px;" />
+            <col class="TableStyle-GeneralTable-Column-Column1" style="width: 205px;" />
+            <col class="TableStyle-GeneralTable-Column-Column1" style="width: 73px;" />
+            <col class="TableStyle-GeneralTable-Column-Column1" style="width: 429px;" />
+            <thead>
+                <tr class="TableStyle-GeneralTable-Head-Header1">
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>gPROMS Name</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Parameter Type</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Dimensions</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Unit</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">active_components</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">All components in active phases.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">active_components_continuous</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">All components in active continuous phases.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">active_components_distributed</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">All components in active distributed phases. </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">active_phases</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">&#160;</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">&#160;</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Active phases in the local system.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">active_phases_composite</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Active phases that are composite. </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">active_phases_continuous</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Active phases that are continuous (liquid and vapour phases)</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">active_phases_distributed</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Active phases that are distributed (solid and composite phases)</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">active_phases_liquid</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Active phases that are liquid</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">active_phases_solid</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Active phases that are solid</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">active_phases_soluble</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Active solid phases that are soluble</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">active_phases_vapour</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Active phases that are vapour</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">active_salt_phases</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Active solid phases that are salts</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">base_phases_per_phase</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">composite_phases</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Base phases (solid, liquid and vapour phases) in each composite phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_composite_density</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for calculating composite density</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">calculate_composite_enthalpy</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flag for calculating composite enthalpy</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_diffusivity_in_vapour</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for calculating diffusivity in vapour</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">calculate_enthalpy_of_xn</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flag for calculating enthalpy of solution</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_equilm_adsorbed_moisture</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for calculating equilibrium adsorbed moisture</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">calculate_latent_heat_vaporisation</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flag for calculating latent heat of vaporisation</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_liquid_activity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for calculating liquid activity</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">calculate_liquid_density</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flag for calculating liquid density</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_liquid_diffusivity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for calculating liquid diffusivity</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">calculate_liquid_enthalpy</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flag for calculating liquid enthalpy</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_liquid_viscosity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for calculating liquid viscosity</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">calculate_mol_weights</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flag for calculating molar weight</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_molar_concentration</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for calculating molar concentration</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">calculate_solid_density</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flag for calculating solid density</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_solid_enthalpy</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for calculating solid enthalpy</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">calculate_solubility</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flag for calculating solubility</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_solubility_product</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                        <p>Flag for calculating solubility product</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">calculate_vapour_density</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flag for calculating vapour density</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_vapour_enthalpy</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for calculating vapour enthalpy</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">calculate_vapour_heat_capacity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flag for calculating vapour heat capacity</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_vapour_pressure</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for calculating vapour pressure</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">calculate_vapour_thermal_cond</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flag for calculating vapour thermal conductivity</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">calculate_vapour_viscosity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for calculating vapour viscosity</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">composite_phases</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">All phases that are composite</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">conversion_basis*</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">variables_for_conversion</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Conversion units, which are specified from Global_specifications.  For example, the unit of mass variables can be set as kilogram, gram, metric ton. Defaults are SI units.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">descendant_phases_per_phase</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">composite_phases</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">All descendants of a composite phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">grid_type</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">INTEGER</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">phases_distributed</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                        <p>Logarithmic grid- 0</p>
+                        <p>Linear grid - 1</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">L_max</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">particle_length_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">phases_distributed</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">μm</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Maximum particle size</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">L_min</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">particle_length_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">phases_distributed</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">μm</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Minimum particle size</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">lubrication_parameters</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Lubrication related variables (for tablet compaction use only, see <a href="../Model Documentation/Solids processing/Tableting/Tablet press/Key eqations/Lubrication effects.htm" class="MCXref xref">'Effect of lubrication'</a>)</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">max_no_grid_pts</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">INTEGER</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Maximum number of grid points</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">molecular_weights</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">molecular_weight_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_mol_weights</p>
+                        <p>active_components</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">kg/mol</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Molecular weight of each component</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">nested_phases</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Phases that are contained in all composite phases, only includes next level down</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">nested_phases_per_phase</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">composite_phases</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Phases that are contained in each composite phase, only includes next level down</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">no_grid_pts</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">INTEGER</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">phases_distributed</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Number of grid points of each distributed phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">override_parameters</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Properties selected for modification based on their database values by multiplying a factor. They are specified from "Properties" tab of Global_specifications.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">phases_distributed</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">All phases that are distributed in the global system</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">phys_prop</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">FOREIGN OBJECT</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Physical property foreign object</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">specify_equipment_volume</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">INTEGER</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Flag for specifying equipment volume</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">variables_for_conversion*</td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">ORDERED SET</td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Variables for unit conversion (mass, time, volume, area, length, or energy)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="text-align: left;">Note: *This capability is not currently activated in gPROMS FormulatedProducts 1.0. </p>
+        <p style="text-align: left;">&#160;</p>
+        <table style="mc-table-style: url('../../Resources/TableStyles/GeneralTable.css');border-left-style: solid;border-left-width: 1px;border-left-color: #000000;border-right-style: solid;border-right-width: 1px;border-right-color: #000000;border-top-style: solid;border-top-width: 1px;border-top-color: #000000;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #000000;width: 100%;margin-left: 0;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+            <caption> Variables of Sensor information connection type</caption>
+            <col class="TableStyle-GeneralTable-Column-Column1" style="width: 284px;" />
+            <col class="TableStyle-GeneralTable-Column-Column1" style="width: 182px;" />
+            <col class="TableStyle-GeneralTable-Column-Column1" style="width: 278px;" />
+            <col class="TableStyle-GeneralTable-Column-Column1" style="width: 65px;" />
+            <col class="TableStyle-GeneralTable-Column-Column1" style="width: 338px;" />
+            <thead>
+                <tr class="TableStyle-GeneralTable-Head-Header1">
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>gPROMS Name</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Parameter Type</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Dimensions</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Unit</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">composite_enthalpy</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">energy_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_composite_enthalpy</p>
+                        <p>active_phases_composite</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">J/kg</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Specific enthalpy of each active composite phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">composite_particle_density</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">mass_density_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_composite_density</p>
+                        <p>active_phases_composite</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">kg/m<sup>3</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Particle density of each composite phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">composite_phase_contents</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">no_type</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>composite_phases</p>
+                        <p>nested_phases</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">kg/kg</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Nested phase contents in each composite phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">composite_skeletal_density</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">mass_density_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_composite_density</p>
+                        <p>active_phases_composite</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">kg/m<sup>3</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Skeletal density of each composite phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">diffusivity_in_vapour</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">diffusivity_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_diffusivity_in_vapour</p>
+                        <p>active_phases_vapour</p>
+                        <p>active_components_continuous</p>
+                        <p>active_components_continuous</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">m<sup>2</sup>/s</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Diffusivity of each component in each vapour phase </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">equilm_adsorbed_moisture</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">moisture_content_dry_basis_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_equilm_adsorbed_moisture</p>
+                        <p>active_phases_vapour</p>
+                        <p>active_phases_composite</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">kg/kg</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Equilibrium adsorbed moisture in each composite phase (dry basis)</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">equipment_volume</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">volume_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">specify_equipment_volume</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Equipment volume</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">inter_particle_volumetric_void_fraction</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">volumetric_void_fraction_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">m<sup>3</sup>/m<sup>3</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+	
+
+Inter-particle volumetric void fraction</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">intra_particle_void_volume</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">volume_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>active_phases_distributed</p>
+                        <p>max_no_grid_pts</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">m<sup>3</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Intra-particle volume 
+of each distributed phase	
+
+	
+
+</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">latent_heat_of_vaporisation</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">latent_heat_of_vaporisation_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_latent_heat_vaporisation</p>
+                        <p>active_phases_vapour</p>
+                        <p>active_components_continuous</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">J/kg</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Latent heat of vaporisation of each liquid component </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">liquid_activity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">no_type</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_liquid_activity</p>
+                        <p>active_phases_liquid</p>
+                        <p>active_components_continuous</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Activity of each liquid component in each liquid phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">liquid_density</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">mass_density_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_liquid_density, </p>
+                        <p>active_phases_liquid</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">kg/m<sup>3</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Density of each liquid phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">liquid_diffusivity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">diffusivity_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_liquid_diffusivity</p>
+                        <p>active_phases_liquid</p>
+                        <p>active_components_continuous</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">m<sup>2</sup>/s</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Diffusivity of each liquid component in each liquid phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">liquid_enthalpy</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">enthalpy_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_liquid_enthalpy</p>
+                        <p>active_phases_liquid</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">J/kg</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Specific enthalpy of each liquid phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">liquid_viscosity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">viscosity_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_liquid_viscosity</p>
+                        <p>active_phases_liquid</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Pa s</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Viscosity of each liquid phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">lubrication_variables</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">dimensionless_constant_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">lubrication_parameters</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Variables that characterize extent of lubrication and lubrication effect</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">mass_components_continuous</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">mass_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>active_phases_continuous</p>
+                        <p>active_components_continuous</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">kg</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Mass of each component in each continuous phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">mass_components_distributed</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">mass_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>active_phases_distributed</p>
+                        <p>active_components_distributed</p>
+                        <p>max_no_grid_pts</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">kg</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Mass of each component in each distributed phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">molar_concentration</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">molar_concentration_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_molar_concentration</p>
+                        <p>active_phases_liquid</p>
+                        <p>active_components_continuous</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">mol/m<sup>3</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Molar concentration of each component in each continuous phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">nested_phase_composition</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">no_type</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>composite_phases</p>
+                        <p>nested_phases</p>
+                        <p>active_components_distributed</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">kg/kg</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Nested phase composition in each composite phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">nested_phase_distribution</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">no_type</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>composite_phases, </p>
+                        <p>nested_phases, </p>
+                        <p>max_no_grid_pts</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">kg/kg</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Size distribution of each nested phase in each composite phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">nested_phase_shape_factor_area</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">shape_factor_area_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>composite_phases</p>
+                        <p>nested_phases</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Surface shape factor of particle of each nested phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">nested_phase_shape_factor_volume</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">shape_factor_vol_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>composite_phases</p>
+                        <p>nested_phases</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Volumetric shape factor of particle of each nested phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">nested_phase_void_frac</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">no_type</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>composite_phases</p>
+                        <p>nested_phases</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">m<sup>3</sup>/m<sup>3</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Intra-particle volumetric void fraction of each nested phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">operating_status</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">on_off_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">on/off operating status</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">override_variables</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">property_override_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">override_parameters</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Multiplicative factors used to modify physical properties</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">pressure</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">pressure_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Pa</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Pressure</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">relative_mass_supersaturation</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">super_saturation_level_rel_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_solubility</p>
+                        <p>active_phases_soluble</p>
+                        <p>active_phases_liquid</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">The relative supersaturation which is equal to (actual concentration in solution - solubility) / solubility, yields a value of 0 at saturation and is also  unit-less. Commonly denoted as lower case sigma.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">shape_fac_area</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">shape_factor_area_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">active_phases_distributed</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Surface shape factor of particle of each distributed phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">shape_fac_vol</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">shape_factor_vol_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">active_phases_distributed</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Volumetric shape factor of particle of each distributed phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">solid_enthalpy</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">enthalpy_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_solid_enthalpy</p>
+                        <p>active_phases_solid</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">J/kg</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Specific enthalpy of each solid phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">solid_particle_density</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">mass_density_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_solid_density</p>
+                        <p>active_phases_solid</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">kg/m<sup>3</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Particle density of each solid phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">solid_skeletal_density</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">mass_per_length_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_solid_density</p>
+                        <p>active_phases_solid</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">kg/m<sup>3</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Skeletal density of each solid phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">solubility_product</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">no_type</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_solubility_product</p>
+                        <p>active_salt_phases</p>
+                        <p>active_phases_liquid</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">varying with stoichiometry</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Solubility product of each salt phase in each liquid phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Status_signal_continuous</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">on_off_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>active_phases_continuous</p>
+                        <p>active_components_continuous</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">on/off status signal of each continuous component in each continuous phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Status_signal_distributed</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">on_off_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>active_phases_distributed</p>
+                        <p>active_components_distributed</p>
+                        <p>max_no_grid_pts</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">on/off status signal of each distributed component in each distributed phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Status_signal_distributed_void</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">on_off_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>active_phases_distributed</p>
+                        <p>max_no_grid_pts</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">on/off status signal of each grid void in each distributed phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">supersaturation_ratio</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">supersaturation_ratio_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_solubility</p>
+                        <p>active_phases_soluble</p>
+                        <p>active_phases_liquid</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">-</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Supersaturation ratio which is equal to the actual concentration in solution / solubility, yields a value of 1 at saturation and is unit-less. Commonly denoted as capital S</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">temperature</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">temperature_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">active_phases</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">K</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Temperature of each phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">vapour_density</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">mass_density_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_vapour_density</p>
+                        <p>active_phases_vapour</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">kg/m<sup>3</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Density of vapour phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">vapour_enthalpy</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">enthalpy_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_vapour_enthalpy</p>
+                        <p>active_phases_vapour</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">J/kg</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Specific enthalpy of vapour phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">vapour_heat_capacity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">heat_capacity_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_vapour_heat_capacity</p>
+                        <p>active_phases_vapour</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">J kg<sup>-1</sup> K<sup>-1</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Heat capacity of vapour phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">vapour_pressure</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">vapour_pressure_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_vapour_pressure</p>
+                        <p>active_phases_vapour</p>
+                        <p>active_components_continuous</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">kPa</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Saturate pressure of each component in vapour phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">vapour_thermal_conductivity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">thermal_conductivity_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>calculate_vapour_thermal_cond</p>
+                        <p>active_phases_vapour</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">W m<sup>-1</sup>K<sup>-1</sup></td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Thermal conductivity of vapour phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">vapour_viscosity</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">viscosity_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>calculate_vapour_viscosity</p>
+                        <p>active_phases_vapour</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">m<sup>2</sup>/s</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Viscosity of vapour phase</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">xn_enthalpy</td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">energy_ref_gFP</td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                        <p>calculate_enthalpy_of_xn, </p>
+                        <p>active_phases_soluble, </p>
+                        <p>active_phases_liquid</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">J/kg</td>
+                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">Enthalpy of crystallization which is the heat evolved or absorbed when one kg in this case of given substance crystallises from a saturated solution of the same substance</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="text-align: left;">&#160;</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Controlling the Execution of Model-based Activities|The SOLUTIONPARAMETERS section">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Controlling the behaviour of Foreign Objects</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x7273.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="AEN7273"></a>Controlling the behaviour of Foreign Objects</h1>
+        <p>The following Solution Parameters allow the user to control the behaviour of Foreign Objects associated with the execution of a model-based activity:</p>
+        <ul>
+            <li value="1">
+                <p>FOStatisticsLevel: An integer in the range [0, 2]</p>
+                <div class="informaltable"><a name="AEN7280"></a>
+                    <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                        <tbody>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">0</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">No statistics</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body2">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">1</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Cumulative statistics on the CPU usage of all Foreign Object methods and derivatives executed during any activity</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">2</td>
+                                <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Detailed statistics on the CPU usage of all Foreign Objects methods and derivatives executed during any activity</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>IgnoreAllFODerivatives: ON or OFF</p>
+                <p>If ON, ignores the analytical derivatives calculated by all Foreign Objects associated with a model-based activity. gPROMS uses numerical
+ perturbations instead.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>LogAllFODerivatives: ON or OFF</p>
+                <p>If ON, details of both input and output arguments to all Foreign Object derivative calls will be written to the Execution Output.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>LogAllFOMethods: ON or OFF</p>
+                <p>If ON, details of both input and output arguments to all Foreign Object method calls will be written to the Execution Output.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>TestAllFODerivatives: ON or OFF</p>
+                <p>If ON, compares the analytical derivatives calculated by all Foreign Objects associated with a model-based activity against those
+ calculated from numerical perturbations. Details of which comparisons fail this test are written to the file DerivativeFailure.txt which will be
+ present in the <i class="emphasis">Results</i> folder of the Execution Case after execution.</p>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

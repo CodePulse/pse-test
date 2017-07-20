@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="System Programmer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="System Programmer Guide|Developing New Foreign Objects|The gPROMS Foreign Object Interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The Foreign Object termination procedure</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../System Programmer Guide.htm#Topics/x1042.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">System Programmer Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c271.html">Developing New Foreign Objects</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x276.html">The gPROMS Foreign Object Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The Foreign Object termination procedure</span>
+            </div>
+        </div>
+        <h1><a name="ForeignObjectTerminationProcedure"></a>The Foreign Object termination procedure</h1>
+        <p>The Foreign Object termination procedure is of the form:</p>
+        <ul>
+            <li value="1">
+                <p>gFOT (ForeignObjectID, ForeignObjectHandle, Status).</p>
+            </li>
+        </ul>
+        <p>The arguments are as listed in the table below:</p>
+        <div class="table"><a name="AEN1049"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Arguments of the procedure gFOT.</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Name of Argument</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Type</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Specified on Entry</th>
+                        <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Specified on Exit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ForeignObjectID</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Character*256</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Full name of Foreign Object (terminated with a null).</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">ForeignObjectHandle</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Handle for identifying Foreign Object in subsequent calls (see text).</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">YES</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">NO</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Status</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Integer</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Status of this initialisation. Status = 1 implies successful initialisation. All other values signify failure.</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">NO</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">YES</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>At the end of the Process execution, gPROMS will call this procedure in turn for each Foreign Object instance that has been successfully
+ created via an earlier successful call to gFOI. This is intended to provide the external package with an opportunity to do any necessary housekeeping
+ (e.g. closing of databank files etc.).</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

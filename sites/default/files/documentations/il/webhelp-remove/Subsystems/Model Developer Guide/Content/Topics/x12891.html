@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Initialisation Procedures|Initialisation Procedures for Non-Composite Models|Specifying Initialisation Procedures in the Model">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Specifying the sequence of Actions in Initialisations Procedures</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x12891.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c12654.html">Initialisation Procedures</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x12659.html">Initialisation Procedures for Non-Composite Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x12670.html">Specifying Initialisation Procedures in the Model</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Specifying the sequence of Actions in Initialisations Procedures</span>
+            </div>
+        </div>
+        <h1><a name="MDG_IP_order"></a>Specifying the sequence of Actions in Initialisations Procedures</h1>
+        <p>Initialisation Procedures for non-composite Models must contain at least one START section and then optionally any number of NEXT
+ sections.</p>
+        <p>The START section specifies which Parameters, Variables or Selector Variables are to be changed during initialisation. The START section may
+ contain any number of simplifications (as described in the sections on <a href="x12715.html">changing the value of a Parameter</a>,
+        <a href="x12758.html">changing the value of a Degree of Freedom</a>, <a href="x12778.html">changing the choice of a Degree of
+ Freedom</a> and <a href="x12837.html">simplifying equations</a>) in any order: they are all performed in parallel and together form
+ the first initialisation problem.</p>
+        <p>After the first initialisation is successful, gPROMS then needs to know in what order to relax the simplifications. This is specified by an
+ optional sequence of NEXT sections, each of which contains a list of changes (either partial or complete relaxations of some of the simplifications
+ in the START section) that are to be made in parallel. If no NEXT section is present, then gPROMS will relax all simplifications simultaneously and
+ try to reinitialise the problem. If any NEXT sections are present, then each NEXT section is processed in sequence, reinitialising after each one.
+ Any simplifications that have not been completely relaxed after the final NEXT section are then relaxed simultaneously in an implicit final
+ step.</p>
+        <p>Each NEXT section must contain a list of one or more changes to a Parameter or Variable listed in the START section: they may be assigned a
+ new value or reverted to the value specified in the Process by use of the REVERT task. The syntax of the REVERT task is:</p><pre class="programlisting" xml:space="preserve">REVERT ParameterName ;
+REVERT VariableName ;
+REVERT SelectorName ;</pre>
+        <p>All changes (including revertions) to a Parameter or a Variable must occur within either a MOVE_TO or JUMP_TO section.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

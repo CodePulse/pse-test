@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Defining a Public Model Interface|Defining a Specification dialog and Model Reports">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Defining Public Model Attributes</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x3907.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c3572.html">Defining a Public Model Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3832.html">Defining a Specification dialog and Model Reports</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Defining Public Model Attributes</span>
+            </div>
+        </div>
+        <h1><a name="PMA"></a>Defining Public Model Attributes</h1>
+        <p><i class="emphasis">Step 1</i>
+        </p>
+        <p>The first step is to specify, from the full set of Parameters, Variables and Selectors declared by the Model (<i class="emphasis">the Model
+ symbols</i>), a <i class="emphasis">sub-set</i> which shall be exported as <i class="emphasis">Public Model Attributes</i> (PMA).
+ These are essentially those that will appear on a Specification dialog or on a Model
+ report.</p>
+        <p>When compared against other Model symbols, Public Model Attributes have the following additional information:</p>
+        <dl>
+            <dt>Name</dt>
+            <dd>A display name for the PMA that is not necessarily the same as its ID (i.e. how it is referred to in the gPROMS
+ language).</dd>
+            <dt>Default</dt>
+            <dd>The default value for the PMA when it appears on the Specification dialog.</dd>
+            <dt>Lower and upper bounds</dt>
+            <dd>These are used to guide the Model user to provide sensible values
+ for the specification:<ul><li value="1"><p>It is still possible for a user to provide a value outside these bounds but the value is highlighted with a red box and an error message appears.</p></li><li value="2"><p>For Variables, it is anticipated that these bounds would be much tighter than those provided by its <a href="x292.html">Variable Type</a> which are usually relatively loose.</p></li></ul></dd>
+            <dt>Units</dt>
+            <dd>The engineering units that are displayed wherever the PMA appears on the Model's specification dialog.</dd>
+            <dt>Field width and field alignment</dt>
+            <dd>The size and alignment of the space provided for the
+ PMA’s value.</dd>
+            <dt>Description</dt>
+            <dd>In the description, additional information about the PMA can be given. This is displayed to the
+ Model user as a <i class="emphasis">tool-tip</i>, when the mouse hovers over the PMA on the Specifications dialog.</dd>
+        </dl>
+        <div class="figure"><a name="AEN3951"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PMABuilder.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Public Model Attributes page</p>
+        </div>
+        <p>To define the Public Model Attributes:</p>
+        <ul>
+            <li value="1">
+                <p>Select the Public Model Attributes from the <i class="emphasis">Model symbols</i> pane by clicking on the <i class="emphasis">check
+ box</i> to select the desired Model attribute. All the <i class="emphasis">checked</i> symbols will appear in the Public Model
+ Attributes table.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>The default value, the lower bound, the upper bound and the units for the PMA are entered in a separate dialog that appears when choosing the “Edit...” button or double-clicking on a row, see below.</p>
+                <p>Note that the bounds and units are only meaningful if the attribute is a Parameter or a Variable. If not specified here, the bounds for PMA Variables are
+ taken from their Variable Types but they can be further refined to bounds that prevent the Model being
+ used in operating regions for which it is invalid.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>The PMA's name, description and the width of its value field and the alignment for this field are specified in a separate pane and are
+ accessed by selecting the PMA in the PMA table.</p>
+            </li>
+        </ul>
+        <p>As can be seen in the image above, Initialisation Procedures can be included in a Public Model Interface. A name and description can be
+ given for the Initialisation Procedure and the default value must be set to <code class="varname">DEFAULT</code>. At present, the Model user will only
+ have the option of selecting whether or not Initialisation Procedures are used; if they are to be used, they must be the default Initialisation
+ Procedure. Non-default Initialisation Procedures must be specified using the gPROMS language tab of the Process.</p>
+        <p>A&#160;PMA&#160;that references Variable Types with plain-text units can only define which string to display or if nothing is to be displayed at all. </p>
+        <div class="figure">
+            <p>
+                <img src="../Resources/Images/PMAEditTextOnlyUoM.png" /> <img src="../Resources/Images/PMAEditTextOnlyNoUnit.png" /></p>
+            <p class="FigureCaption">Declaring PMA&#160;with plain-text units of measurement</p>
+        </div>
+        <p>If configurable units of measurement are enabled and the Variable Type of the PMA is specified accordingly with a reference unit, a choice of units, compatible with the physical quantity type, become available. The model developer can choose which one is the default that is presented to the end user in model specification dialogs.</p>
+        <p><b>Note:</b> All required conversions, from displayed units into the internal reference units, happen automatically and require neither end user nor model developer intervention.</p>
+        <div class="figure">
+            <p>
+                <img src="../Resources/Images/PMAEdit.png" /> <img src="../Resources/Images/PMAEditUoMDropDown.png" /></p>
+            <p class="FigureCaption">Declaring PMA&#160;with selectable units of measurement</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=Product.Name%] Guide|Miscellaneous Utilities|Printing">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The Page Setup Dialog</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x3848.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="MBG_PrintingPageSetup"></a>The Page Setup Dialog</h1>
+        <p>Left-clicking on the <b class="guimenu">File</b> menu and selecting <b class="guimenuitem">Page Setup...</b> activates the dialog shown
+ below.</p>
+        <div class="figure"><a name="AEN3853"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_PageSetupDialog.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Page Setup Dialog</p>
+        </div>
+        <p>The dialog is partitioned into two sections along with three command buttons. The first part sets parameters that affect all printed objects;
+ the second concerns only the printing of Model Topologies. Each control on the Page Setup dialog is described below.</p>
+        <p>The <tt class="guilabel"><b>General</b></tt> Page Setup controls are:</p>
+        <ul>
+            <li value="1">
+                <p>Printer</p>
+            </li>
+            <li value="2">
+                <p>Paper size</p>
+            </li>
+            <li value="3">
+                <p>Paper orientation</p>
+            </li>
+            <li value="4">
+                <p>Left, Right, Top and Bottom margins</p>
+            </li>
+            <li value="5">
+                <p>Header</p>
+            </li>
+            <li value="6">
+                <p>Footer</p>
+            </li>
+            <li value="7">
+                <p>Show borders</p>
+            </li>
+            <li value="8">
+                <p>Show line numbers</p>
+            </li>
+            <li value="9">
+                <p>Begin each entity on a new page</p>
+            </li>
+        </ul>
+        <p>Most of the controls are quite straight-forward and are found as standard in many applications. The last five merit some explanation.</p>
+        <p>Header and footer text can be provided by entering values in the two text controls labelled Header and Footer. Values entered into these boxes
+ can be a combination of either plain text or tags. Plain text entries will be printed directly on the head or foot of each page. Tags allow
+ project-specific parameters to be printed, such as the page number, the date and a number parameters found in the Project and Entity Properties
+ sections. A full list of tags is given below.</p>
+        <div class="variablelist">
+            <dl>
+                <dt>&amp;[break]</dt>
+                <dd>
+                    <p>Creates a space between groups of text.</p>
+                    <ul>
+                        <li value="1">
+                            <p>With no &amp;[break] tags, all text is printed flush left.</p>
+                        </li>
+                        <li value="2">
+                            <p>With one &amp;[break] tag, the text on the left is printed flush left and the text to the right of the tag is printed flush
+ right.</p>
+                        </li>
+                        <li value="3">
+                            <p>A second &amp;[break] tag causes the second group of text to be centred on the page.</p>
+                        </li>
+                        <li value="4">
+                            <p>Adding further tags causes each group of text to be spaced out evenly on the page. However, as the text is always printed on one
+ line, too many groups can cause some text to be cropped.</p>
+                        </li>
+                    </ul>
+                </dd>
+                <dt>&amp;[page]</dt>
+                <dd>
+                    <p>Prints the current page number.</p>
+                </dd>
+                <dt>&amp;[pages]</dt>
+                <dd>
+                    <p>Prints the total number of pages being printed.</p>
+                </dd>
+                <dt>&amp;[short date]</dt>
+                <dd>
+                    <p>Prints the current date in short-date format, e.g. 28/08/07.</p>
+                </dd>
+                <dt>&amp;[long date]</dt>
+                <dd>
+                    <p>Prints the current date in long-date format, e.g. 28 August 2007.</p>
+                </dd>
+                <dt>&amp;[time]</dt>
+                <dd>
+                    <p>Prints the current time.</p>
+                </dd>
+                <dt>&amp;[project name]</dt>
+                <dd>
+                    <p>The name of the gPROMS Project (i.e. its filename minus the .gPJ extension).</p>
+                </dd>
+                <dt>&amp;[project url]</dt>
+                <dd>
+                    <p>The location of the gPROMS Project in URL format.</p>
+                </dd>
+                <dt>&amp;[project created by]</dt>
+                <dd>
+                    <p>The user id of the person who created the Project.</p>
+                </dd>
+                <dt>&amp;[project created date]</dt>
+                <dd>
+                    <p>The date the Project was created.</p>
+                </dd>
+                <dt>&amp;[project modified by]</dt>
+                <dd>
+                    <p>The user id of the person who last modified the Project.</p>
+                </dd>
+                <dt>&amp;[project modified date]</dt>
+                <dd>
+                    <p>The date the Project was last modified.</p>
+                </dd>
+                <dt>&amp;[entity name]</dt>
+                <dd>
+                    <p>The name of the current entity being printed.</p>
+                </dd>
+                <dt>&amp;[entity type]</dt>
+                <dd>
+                    <p>The type of entity being printed.</p>
+                </dd>
+                <dt>&amp;[entity view]</dt>
+                <dd>
+                    <p>The entity view: i.e. Topology, gPROMS Language etc.</p>
+                </dd>
+                <dt>&amp;[entity created by]</dt>
+                <dd>
+                    <p>The user id of the person who created the entity.</p>
+                </dd>
+                <dt>&amp;[entity created date]</dt>
+                <dd>
+                    <p>The date the entity was created (in short-date format).</p>
+                </dd>
+                <dt>&amp;[entity modified by]</dt>
+                <dd>
+                    <p>The user id of the person who last modified the entity.</p>
+                </dd>
+                <dt>&amp;[entity modified date]</dt>
+                <dd>
+                    <p>The date the entity was last modified (in short-date format).</p>
+                </dd>
+            </dl>
+        </div>
+        <p>The default header text is <samp class="computeroutput">&amp;[project name] - created by &amp;[project created by] on &amp;[project created
+ date]&amp;[break]Page &amp;[page] of &amp;[pages]</samp>. The footer is empty by default.</p>
+        <p>The <b class="guibutton">Show borders</b> check box enables borders around each page, at the margin boundaries.</p>
+        <p>The <b class="guibutton">Show line numbers</b> check box enables printing of gPROMS language to be accompanied by line numbers.</p>
+        <p>The <b class="guibutton">Begin each entity on a new page</b> check box forces each entity to begin on a new page. By default, each entity is
+ printed directly after the last one, which is more economical on paper usage, particularly for small entities.</p>
+        <p>The <tt class="guilabel"><b>Topology</b></tt> Page Setup is applied only to Topology entities, i.e. flowsheets. For large flowsheets, many smaller details
+ may not be clear if the whole flowsheet is printed on a single page, which is the default. The controls in this section of the dialog therefore allow
+ one to specify that Topology entities should be printed over several pages, and how this should be done.</p>
+        <p>As the aspect ratio of the flowsheet is always maintained, one need only specify how many pages should be used either horizontally or
+ vertically. This is done by selecting one of the two radio buttons labelled <b class="guibutton">Rows</b> or <b class="guibutton">Columns</b>. Once
+ selected, you may then enter the number of pages in the box to the right. For example, if you were to select the <b class="guibutton">Rows</b> button
+ and enter 2 in the box to the right, gPROMS will enlarge the Topology so that it will fit on two pages horizontally. The number of pages used
+ vertically then depends only on the shape of the Topology.</p>
+        <p>The final control in this section is a checkbox to enable crop marks. These are guides printed in the corners of each page to aid alignment in
+ a guillotine, should one wish to tape each page together to form a complete diagram. As with the page borders, the page margins are used for the
+ placement of the crop marks, so if the pages are to be cut with scissors then page borders may be a more suitable alternative. This, however, would
+ affect all printed pages; not just the Topologies.</p>
+        <p>The figure <a href="x4001.html">here</a> illustrates a Topology printed over multiple pages (in this case, 2 rows) with
+ crop marks enabled.</p>
+        <p>The command buttons at the bottom of the Page Setup dialog are:</p>
+        <ul>
+            <li value="1">
+                <p><b class="guibutton">Reset</b>
+                </p>
+                <p>Reverts all settings to the defaults, including any changes previously saved by pressing OK.</p>
+            </li>
+            <li value="2">
+                <p><b class="guibutton">OK</b>
+                </p>
+                <p>Closes the dialog and accepts all changes made to the values in the controls.</p>
+            </li>
+            <li value="3">
+                <p><b class="guibutton">Cancel</b>
+                </p>
+                <p>Closes the dialog, abandoning any changes made.</p>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

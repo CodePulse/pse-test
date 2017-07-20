@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Defining Schedules|Elementary tasks|The Reinitial elementary task">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The Reinitial Task configuration dialog</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x6099.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c5411.html">Defining Schedules</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x5897.html">Elementary tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x6083.html">The Reinitial elementary task</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The Reinitial Task configuration dialog</span>
+            </div>
+        </div>
+        <h1><a name="AEN6099"></a>The Reinitial Task configuration dialog</h1>
+        <p>When inserting or modifying a Reinitial Task using the graphical Schedule interface, the following Task configuration dialog is used.</p>
+        <div class="figure"><a name="AEN6102"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_ScheduleTab_TaskConfig_Reinitial.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Reinitial Task configuration dialog</p>
+        </div>
+        <p>This dialog contains a list of all of the differential Variables that are to be Reinitialised by the Task and a list of new initial
+ conditions. To add a new differential Variable to the list, left click on the cell in the top half of the dialog containing
+        <code class="varname">&lt;new&gt;</code> and enter the full path of a Variable. Pathname completion can be used at this stage, just as when typing gPROMS
+ language into a Model or a Process. Press <b class="keycap">RETURN</b> when done. Add more Variables by repeating this process until all of the
+ Variables that need to be Reinitialised have been entered.</p>
+        <p>The bottom half of the dialog contains a list of initial conditions that are to be used to reinitialise the system. This part of the dialog
+ behaves exactly the same as the <a href="x5920.html">Reassign dialog</a>, although its function is fundamentally different: these are
+ additional equations to be used for reinitialisation; not assignments of degrees of freedom. This part of the dialog must contain exactly the same
+ number of equations as Variables listed in the top half (otherwise the initialisation problem will be under or over specified, and gPROMS will
+ report an error.). When using the Simple view of the dialog, these initial conditions must be of the form <i class="emphasis">&lt;Variable&gt;</i> =
+        <i class="emphasis">&lt;Expression&gt;</i>. Use the Advanced view or the gPROMS language tab of the Process to enter more general initial conditions
+ (of the form <i class="emphasis">&lt;Expression&gt;</i> = <i class="emphasis">&lt;Expression&gt;</i>).</p>
+        <p>To delete a Variable from the either of the lists, simply select it by left clicking on its row and then press the appropriate
+        <b class="guibutton">Delete</b> button.</p>
+        <p>Once complete, press the <b class="guibutton">OK</b> button.</p>
+        <p>The <b class="guibutton">Cancel</b> button will close the dialog and discard any changes made to the Task. If the dialog was activated due to
+ the addition of a new Task, then no Task will be added.</p>
+        <p>The <b class="guibutton">Advanced</b> button can be used to enter gPROMS language. For a new Task, the dialog will contain an empty
+        <code class="methodname">REINITIAL</code> statement:</p><pre class="programlisting">REINITIAL
+WITH
+END</pre>
+        <p>The <code class="methodname">WITHIN</code> statement may be used in the Advanced view (just as it can be in the gPROMS language tab) if many
+ Variables within the same Unit are to be Switched. The Advanced view also supports pathname completion and copy/paste functionality.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

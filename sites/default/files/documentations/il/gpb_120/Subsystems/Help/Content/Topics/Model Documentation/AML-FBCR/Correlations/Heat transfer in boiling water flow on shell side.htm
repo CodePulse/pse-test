@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|AML:FBCR|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Heat transfer in boiling water flow on shell-side of vertical tube bank</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Nomenclature_dropdown.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Equation.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/AML-FBCR/Correlations/Heat transfer in boiling water flow on shell side.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Heat transfer in boiling water flow on shell-side of vertical tube bank</h1>
+        <p>The AML:FBCR boiling water cooling section model employs heat transfer correlations for flow boiling inside plain vertical tubes and applies the to the shell side flow using the hydraulic diameter of the shell.</p>
+        <ul>
+            <li value="1">
+                <dt>Steiner and Taborek (1992)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Steiner, D. and Taborek, J. (1992) Flow boiling heat transfer in vertical tubes correlated by an asymptotic model. Heat Transfer Engineering,  vol. 13 (2), pp. 43-69.</span></a> method </dt>
+            </li>
+            <dd>
+                <dt>Flow boiling heat transfer coefficient:</dt>
+                <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+                    <col class="TableStyle-Equation-Column-Column1" />
+                    <col class="TableStyle-Equation-Column-Column2" />
+                    <tbody>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                                <img src="../../../../GeneratedImages/Equations/Equation4860.svg" alt="" class="_MCEquation_0 mcReset" />
+                            </td>
+                            <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                                <p class="EquationNumber" data-mc-autonum="(1)"><span class="autonumber"><span>(1)</span></span>&#160;</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Eqn_boiling_Steiner"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+                </p>
+                <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Eqn_boiling_Steiner">
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">where</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4861.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Flow boiling heat transfer coefficient</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>J s<sup>-1</sup> m<sup>-2</sup> K<sup>-1</sup></p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4862.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Liquid phase forced convection heat transfer coefficient</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>J s<sup>-1</sup> m<sup>-2</sup> K<sup>-1</sup></p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4863.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Nucleate pool boiling heat transfer coefficient at a reference heat flux <img src="../../../../GeneratedImages/Equations/Equation4864.svg" alt="" class="_inline_MCEquation_0 mcReset" /> <img src="../../../../GeneratedImages/Equations/Equation4865.svg" alt="" class="_inline_MCEquation_0 mcReset" /></p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>J s<sup>-1</sup> m<sup>-2</sup> K<sup>-1</sup></p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4866.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Nucleate boiling correction factor</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>-</p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4867.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Two-phase correction factor for convective evaporation</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>-</p>
+                        </td>
+                    </tr>
+                </table>
+                <dt>Liquid-phase convective flow heat transfer coefficient (Gnielinski correlation):</dt>
+                <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+                    <col class="TableStyle-Equation-Column-Column1" />
+                    <col class="TableStyle-Equation-Column-Column2" />
+                    <tbody>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyE-Column1-Body2">
+                                <img src="../../../../GeneratedImages/Equations/Equation4868.svg" alt="" class="_MCEquation_0 mcReset" />
+                            </td>
+                            <td class="TableStyle-Equation-BodyD-Column2-Body2">
+                                <p class="EquationNumber" data-mc-autonum="(2)"><span class="autonumber"><span>(2)</span></span>&#160;</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                                <p>
+                                    <img src="../../../../GeneratedImages/Equations/Equation4869.svg" alt="" class="_MCEquation_0 mcReset" />
+                                </p>
+                            </td>
+                            <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                                <p class="EquationNumber" data-mc-autonum="(3)"><span class="autonumber"><span>(3)</span></span>&#160;</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Eqn_boiling_Gnielinski"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+                </p>
+                <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Eqn_boiling_Gnielinski">
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">where</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4870.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Nusselt number for liquid-phase forced convection heat transfer <img src="../../../../GeneratedImages/Equations/Equation4871.svg" alt="" class="_Inline_MCEquation_0 mcReset" /></p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>-</p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4872.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Reynolds number for flow of liquid in two-phase system, based on total flow <img src="../../../../GeneratedImages/Equations/Equation4873.svg" alt="" class="_Inline_MCEquation_0 mcReset" /></p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>-</p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4874.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Liquid phase Prandtl number <img src="../../../../GeneratedImages/Equations/Equation4875.svg" alt="" class="_Inline_MCEquation_0 mcReset" /></p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>-</p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4876.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Friction factor for the liquid</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>-</p>
+                        </td>
+                    </tr>
+                </table>
+                <dt>Two-phase correction factor accounting for two-phase flow convection. For heat flux from the wall <img src="../../../../GeneratedImages/Equations/Equation4877.svg" alt="" class="_Inline_MCEquation_0 mcReset" /> higher than the minimum heat-flux determining the onset of nucleate boiling <img src="../../../../GeneratedImages/Equations/Equation4878.svg" alt="" class="_Inline_MCEquation_0 mcReset" /> the nucleate boiling mechanism is considered together with convective heat transfer.</dt>
+                <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+                    <col class="TableStyle-Equation-Column-Column1" />
+                    <col class="TableStyle-Equation-Column-Column2" />
+                    <tbody>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyE-Column1-Body2">
+                                <img src="../../../../GeneratedImages/Equations/Equation4879.svg" alt="" class="_MCEquation_0 mcReset" />
+                            </td>
+                            <td class="TableStyle-Equation-BodyD-Column2-Body2">
+                                <p class="EquationNumber" data-mc-autonum="(4)"><span class="autonumber"><span>(4)</span></span>&#160;</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                                <img src="../../../../GeneratedImages/Equations/Equation4880.svg" alt="" class="_MCEquation_0 mcReset" />
+                            </td>
+                            <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                                <p class="EquationNumber" data-mc-autonum="(5)"><span class="autonumber"><span>(5)</span></span>&#160;</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Eqn_name"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+                </p>
+                <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Eqn_name">
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">where</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4881.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Two-phase correction factor for convective evaporation</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>-</p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4882.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Mass fraction of vapour in two-phase system</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>kg/kg</p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4883.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Gass mass density</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>kg/m<sup>3</sup></p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4884.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Liquid mass density</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>kg/m<sup>3</sup></p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4885.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Heat flux from tube wall</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>W/m<sup>2</sup></p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4886.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Minimum heat flux determining the onset of nucleate boiling</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>W/m<sup>2</sup></p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4887.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Stefan Boltzmann constant</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>W m<sup>-2</sup> K<sup>-4</sup></p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4888.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Saturated boiling temperature</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>K</p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4889.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Liquid phase forced convection heat transfer coefficient</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>J s<sup>-1</sup> m<sup>-2</sup> K<sup>-1</sup></p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4890.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Latent heat</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>J/kg</p>
+                        </td>
+                    </tr>
+                </table>
+                <dt>The nucleate boiling correction factor</dt>
+                <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+                    <col class="TableStyle-Equation-Column-Column1" />
+                    <col class="TableStyle-Equation-Column-Column2" />
+                    <tbody>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyE-Column1-Body2">
+                                <img src="../../../../GeneratedImages/Equations/Equation4891.svg" alt="" class="_MCEquation_0 mcReset" /> </td>
+                            <td class="TableStyle-Equation-BodyD-Column2-Body2">
+                                <p class="EquationNumber" data-mc-autonum="(6)"><span class="autonumber"><span>(6)</span></span>&#160;</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyE-Column1-Body2">
+                                <img src="../../../../GeneratedImages/Equations/Equation4892.svg" alt="" class="_MCEquation_0 mcReset" />
+                            </td>
+                            <td class="TableStyle-Equation-BodyD-Column2-Body2">
+                                <p class="EquationNumber" data-mc-autonum="(7)"><span class="autonumber"><span>(7)</span></span>&#160;</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyE-Column1-Body2">
+                                <img src="../../../../GeneratedImages/Equations/Equation4893.svg" alt="" class="_MCEquation_0 mcReset" />
+                            </td>
+                            <td class="TableStyle-Equation-BodyD-Column2-Body2">
+                                <p class="EquationNumber" data-mc-autonum="(8)"><span class="autonumber"><span>(8)</span></span>&#160;</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                                <img src="../../../../GeneratedImages/Equations/Equation4894.svg" alt="" class="_MCEquation_0 mcReset" />
+                            </td>
+                            <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                                <p class="EquationNumber" data-mc-autonum="(9)"><span class="autonumber"><span>(9)</span></span>&#160;</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Eqn_nucleate_boiling"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+                </p>
+                <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Eqn_nucleate_boiling">
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+                    <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">where</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4895.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Nucleate boiling correction factor</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>-</p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4896.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Heat flux from tube wall</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>W/m<sup>2</sup></p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4897.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Hydraulic diameter of the tube or tube shell <img src="../../../../GeneratedImages/Equations/Equation4898.svg" alt="" class="_inline_MCEquation_0 mcReset" /></p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>m</p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4899.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Reduced pressure <img src="../../../../GeneratedImages/Equations/Equation4900.svg" alt="" class="_inline_MCEquation_0 mcReset" /></p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>-</p>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                            <p>
+                                <img src="../../../../GeneratedImages/Equations/Equation4901.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                            </p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                            <p>Average molecular weight</p>
+                        </td>
+                        <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                            <p>g/mol</p>
+                        </td>
+                    </tr>
+                </table>
+            </dd>
+            <li value="2">
+                <dt>Gungor and Winterton (1987)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Gungor, K.E. and Winterton, R.H.S. (1987) Simplified general correlation for saturated flow boiling and comparisons of correlations with data. Chemical Engineering Research and Development,  vol. 65, pp. 148-156.</span></a> simplified correlation  based on liquid convective boiling:</dt>
+            </li>
+            <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+                <col class="TableStyle-Equation-Column-Column1" />
+                <col class="TableStyle-Equation-Column-Column2" />
+                <tbody>
+                    <tr class="TableStyle-Equation-Body-Body2">
+                        <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                            <img src="../../../../GeneratedImages/Equations/Equation4902.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </td>
+                        <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                            <p class="EquationNumber" data-mc-autonum="(10)"><span class="autonumber"><span>(10)</span></span>&#160;</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Eqn_boiling_Gungor"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+            </p>
+            <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Eqn_boiling_Gungor">
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">where</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation4903.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Flow boiling heat transfer coefficient</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>J s<sup>-1</sup> m<sup>-2</sup> K<sup>-1</sup></p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation4904.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Liquid phase forced convection heat transfer coefficient</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>J s<sup>-1</sup> m<sup>-2</sup> K<sup>-1</sup></p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../GeneratedImages/Equations/Equation4905.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Two-phase convection multiplier</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">-</td>
+                </tr>
+            </table>
+            <dt>Liquid-phase convective flow heat transfer coefficient (Dittus-Boelter,1930):</dt>
+            <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+                <col class="TableStyle-Equation-Column-Column1" />
+                <col class="TableStyle-Equation-Column-Column2" />
+                <tbody>
+                    <tr class="TableStyle-Equation-Body-Body2">
+                        <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                            <img src="../../../../GeneratedImages/Equations/Equation4906.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </td>
+                        <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                            <p class="EquationNumber" data-mc-autonum="(11)"><span class="autonumber"><span>(11)</span></span>&#160;</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Eqn_liquid_phase_Dittus_Boelter"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+            </p>
+            <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Eqn_liquid_phase_Dittus_Boelter">
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">where</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation4907.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Nusselt number for liquid-phase forced convection heat transfer <img src="../../../../GeneratedImages/Equations/Equation4908.svg" alt="" class="_Inline_MCEquation_0 mcReset" /></p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation4909.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Reynolds number for flow of liquid in two-phase system <img src="../../../../GeneratedImages/Equations/Equation4910.svg" alt="" class="_Inline_MCEquation_0 mcReset" /></p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation4911.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Liquid phase Prandtl number <img src="../../../../GeneratedImages/Equations/Equation4912.svg" alt="" class="_Inline_MCEquation_0 mcReset" /></p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>-</p>
+                    </td>
+                </tr>
+            </table>
+            <dt>Two-phase convection multiplier:</dt>
+            <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+                <col class="TableStyle-Equation-Column-Column1" />
+                <col class="TableStyle-Equation-Column-Column2" />
+                <tbody>
+                    <tr class="TableStyle-Equation-Body-Body2">
+                        <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                            <img src="../../../../GeneratedImages/Equations/Equation4913.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </td>
+                        <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                            <p class="EquationNumber" data-mc-autonum="(12)"><span class="autonumber"><span>(12)</span></span>&#160;</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Eqn_two_phase_convection"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+            </p>
+            <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Eqn_two_phase_convection">
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+                <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">where</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../GeneratedImages/Equations/Equation4914.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Two-phase convection multiplier</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">-</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation4915.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Mass fraction of vapour in two-phase system</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>kg/kg</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation4916.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Gass mass density</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>kg/m<sup>3</sup></p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation4917.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Liquid mass density</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>kg/m<sup>3</sup></p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation4918.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Boiling number <img src="../../../../GeneratedImages/Equations/Equation4919.svg" alt="" class="_Inline_MCEquation_0 mcReset" /></p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>-</p>
+                    </td>
+                </tr>
+            </table>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

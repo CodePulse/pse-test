@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|gPROMS Fundamentals">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Connection Types</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x325.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c251.html">gPROMS Fundamentals</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Connection Types</span>
+            </div>
+        </div>
+        <h1><a name="md_connectiontype"></a>Connection Types</h1>
+        <p><i class="emphasis">See also: <a href="x601.html">Declaring Connection Types</a></i>
+        </p>
+        <p>Connections between different Units in a flowsheet Model are associated with a Connection Type which defines the type of information
+ conveyed by the connection.</p>
+        <p>A Connection Type definition includes</p>
+        <ul>
+            <li value="1">
+                <p>A declaration of a set of Parameters, Distribution domains and Variables; these are identical to those that are declared in <a href="x358.html">Models.</a></p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>A<i class="emphasis"><i class="emphasis">Graphical representation.</i></i></p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Connectivity rules to allow and forbid connections between Ports of different categories.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>A <i class="emphasis"><i class="emphasis">Display template</i></i> which specifies how any connection based on this Connection Type appears in
+ results stream tables.</p>
+            </li>
+        </ul>
+        <p>A connections to or from a Unit is made from its Model <a href="x3634.html">Port</a>. Model Ports are associated with a Connection
+ Type and all the quantities declared by the Connection Type are automatically included in the Model that declares the Port.</p>
+        <p>When a connection between two Ports is made in a flowsheet Model; all the Variables, Parameters and Distribution domain are equated.</p>
+        <div class="figure"><a name="AEN352"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_ExampleConnectionTypes.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> The PMLMaterial Connection Type from the gPROMS Process Model Library - Parameters and Variable declaration tab</p>
+        </div>
+        <p>When developing gPROMS Models you can either use existing Connection Types such as those that are found in the gPROMS Process Model Library
+ (PML) or you can define your own Connection Types.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

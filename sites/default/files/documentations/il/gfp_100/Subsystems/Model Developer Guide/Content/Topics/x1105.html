@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Defining Models and Processes|Defining a gPROMS Process">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The ASSIGN section</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x1105.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c775.html">Defining Models and Processes</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1004.html">Defining a gPROMS Process</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The ASSIGN section</span>
+            </div>
+        </div>
+        <h1><a name="AEN1105"></a>The ASSIGN section</h1>
+        <p>The set of equations resulting from the instantiation of Models declared in the <code class="methodname">UNIT</code> section is typically
+ under-determined. This simply means that there are more variables than equations. The number of <i class="emphasis">degrees of freedom</i> in the
+ simulation activity is given by:</p>
+        <p>Number of degrees of freedom (<i class="emphasis">N<sub>DOF</sub></i>) = Number of variables - Number of equations.</p>
+        <p>For the simulation activity to be fully defined, <i class="emphasis">N<sub>DOF</sub></i> variables must be specified as either
+ constant values or given functions of time. Variables specified in this way are the input variables (or "inputs") of this simulation activity.
+ The remainder of the variables are the <i class="emphasis">unknown</i> variables, the time variation of which will be determined by the solution of
+ the system equations. Clearly, the number of unknowns is equal to the number of available equations - we therefore have a "square" system of
+ equations.</p>
+        <p>The specification of input variables is provided in the <code class="methodname">ASSIGN</code> section of the
+      <code class="methodname">PROCESS</code><a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>The specification of degrees of freedom can also be performed within Models, using an
+          ASSIGN section that is completely equivalent to the one described here. However, it is generally advisable that
+ variables be assigned at the PROCESS level. This practice maximises the reusability of the underlying
+          Models and minimises the probability of error.</span></a>. For instance,</p><pre class="programlisting">ASSIGN 
+ T101.Fin := 20 ; </pre>designates the inlet flowrate as an input and assigns it a constant value of 20. Again, in order to emphasise the
+ assignment form of these specifications, input specifications use the assignment operator (<code class="methodname">:=</code>).<p>The inlet flowrate may not be constant but may vary with the simulation time, for instance by linearly increasing</p><pre class="programlisting">ASSIGN 
+ T101.Fin := 20 + 1.2*TIME ; </pre><p>In this example, the built-in function <code class="methodname">TIME</code> is used to reference the value of the simulation time. Please note
+ that the value of the simulation time depends on the chosen units of measurement.</p><p><code class="methodname">TIME</code> can be used with any of gPROMS' built-in functions, for instance in order to create a sinosoidal
+ oscillation:</p><pre class="programlisting">ASSIGN 
+ T101.Fin := 20 + SIN(TIME) ; </pre><div><p class="Footer">&#160;</p><p class="Footer">&#160;</p><hr width="100%" size="0" align="center" /><p class="Footer">Commercial in confidence</p><p class="Footer">© 2017 Process Systems Enterprise Limited</p></div></body>
+</html>

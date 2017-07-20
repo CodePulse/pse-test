@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Dynamics</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Separations Fluid-Fluid/Distillation column/Tab Dynamics.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Dynamics</h1>
+        <p>The Dynamics tab is used to turn dynamic mode on and off, as well as and specify the initial condition. This tab is only activated when the Pressure profile specification: Calculated from hydraulics in the Pressure tab is selected.</p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Mode</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Flow-driven</dt>
+                        <dd> Simulation mode where the flowrates are specified at the sources or in splitter units.</dd>
+                        <dd>This mode can be used to perform steady-state material and energy balances. It is not necessary to define flow-pressure relationships for flow-transportation equipment.</dd>
+                        <dt>Pressure-driven (flow-driven initialisation)</dt>
+                        <dd>Simulation mode where the user specifies pressures at the sources and the sinks and where flowrates are calculated based on these pressures and on the flow-pressure relationship in the unit operations. To facilitate initialisation of a steady-state process  in pressure-driven mode, a flow-driven simulation is performed prior to the pressure driven one and the results from this simulation are used as an initial guess for the pressure driven simulation.</dd>
+                        <dd>This mode requires the definition of flow-pressure relationships for all flow-transportation equipment (e.g. valves, pipes, compressors, pumps and turbines should be set to Performance Mode). It also requires the specification of initial guesses for the flowrates of all sources and for split fractions of all splitters. These will be used for the flow-driven initialisation.</dd>
+                        <dt>Pressure-driven</dt>
+                        <dd>Simulation mode where the user specifies pressures at the sources and the sinks and where flowrates are calculated based on these pressures and on the flow-pressure relationship in the unit operations.  This mode can be used when no initialisation in flow-driven mode is required (e.g. when the flowsheet is not initialised at steady-state or when the initial state is restored from a snapshot created using a previous simulation).
+
+		</dd>
+                        <dd>This mode requires the definition of flow-pressure relationships for all flow-transportation equipment (e.g. valves, pipes, compressors, pumps and turbines should be set to Performance Mode).
+</dd>
+                        <dd><![CDATA[		]]></dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Dynamics</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt> Off</dt>
+                        <dd>Simulates the unit in steady-state mode. If this option is selected, the unit will always be in steady-state mode. </dd>
+                        <dt>On</dt>
+                        <dd>Simulates the unit in dynamic mode. If this option is selected, changes in time for mass, momentum and energy holdups will be automatically calculated.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">
+                        <p>Initial conditions specifications</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Steady-state</dt>
+                        <dd>The model is at steady-state initially.</dd>
+                        <dt>Dynamic</dt>
+                        <dd>The initial values for all the state variables of the column must be specified.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Initial holdup</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Composition (w) and intensive variable (P, T, h)
+						</dt>
+                        <dd> Determines the initial material holdup in the vessel from the composition and an intensive variable (pressure, temperature or enthalpy).</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Initial sump holdup</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Composition (w) and volume (V)	</dt>
+                        <dd> Determines the initial material holdup in the vessel from the composition and the volume.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Intensive variable specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Pressure</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Holdup specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>	Mass</dt>
+                        <dd>Selects mass basis for the specification of holdup or composition.</dd>
+                        <dt>Molar</dt>
+                        <dd>Selects molar basis for the specification of holdup or composition.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Initial pressure profile specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dl>
+                            <dt>Linear profile, specify top and bottom pressure</dt>
+                            <dd>Pressure varies linearly between the top and the bottom of the column. Top and bottom pressures in the column are specified.</dd>
+                            <dt>Linear profile, specify pressure drop per stage</dt>
+                            <dd>Pressure varies linearly between the top and the bottom of the column. Constant pressure drop per stage and one extra pressure on the column are specified.</dd>
+                            <dt>Custom profile</dt>
+                            <dd>Pressure specified by the user.</dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Initial thermal specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Vapour fraction</dt>
+                        <dt>Temperature</dt>
+                        <dt>Liquid level fraction</dt>
+                        <dd>Specifies the initial liquid level in each stage.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Sump holdup specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>	Mass</dt>
+                        <dd>Selects mass basis for the specification of holdup or composition.</dd>
+                        <dt>Molar</dt>
+                        <dd>Selects molar basis for the specification of holdup or composition.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Sump volume specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Liquid level fraction
+						</dt>
+                        <dd>When selecting this option, the liquid level fraction, initially in the vessel, will be specified. The liquid level fraction is the ratio of the liquid height measured relative to the bottom of the vessel to the vessel height.</dd>
+                        <dt>Liquid volume fraction</dt>
+                        <dd>When selecting this option, the liquid volume fraction, initially in the vessel, will be specified. The liquid volume fraction is the ratio of the liquid volume to the vessel characteristic volume.</dd>
+                        <dt>Liquid volume</dt>
+                        <dd>When selecting this option, the liquid volume, initially in the vessel, will be specified.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Sump initial thermal specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Temperature</dt>
+                        <dt>Enthalpy</dt>
+                        <dt>Saturated liquid (Vapour fraction = 0)</dt>
+                        <dd>When selecting this option, the 
+			<MadCap:conditionalText data-mc-conditions="Snippets/Snippet_vessel_stream.Vessel">vessel</MadCap:conditionalText>
+			 will <MadCap:conditionalText data-mc-conditions="Snippets/Snippet_Initial.Initial">initially </MadCap:conditionalText>consist of a saturated liquid (i.e. the <MadCap:conditionalText data-mc-conditions="Snippets/Snippet_vessel_stream.Vessel">vessel</MadCap:conditionalText> temperature is the bubble temperature of the mixture).</dd>
+                        <dt>Subcooled liquid</dt>
+                        <dd>When selecting this option, the 
+		<MadCap:conditionalText data-mc-conditions="Snippets/Snippet_vessel_stream.Vessel">vessel</MadCap:conditionalText>
+		will <MadCap:conditionalText data-mc-conditions="Snippets/Snippet_Initial.Initial">initially </MadCap:conditionalText>consist of a subcooled liquid (i.e. outlet temperature is calculated using the provided degree of subcooling relative to the saturated liquid).</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Initial specified pressure</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Top</dt>
+                        <dt>Bottom</dt>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Initial top column pressure</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Specified pressure at the top of the column.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Initial bottom column pressure</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+Specified pressure at the bottom of the column.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Initial pressure drop per stage</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">kPa</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Difference in pressure between two adjacent stages.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Initial vapour fraction</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Initial  vapour fraction (mass basis) of the contents of each stage.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Initial liquid height fraction</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">m/m</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Initial liquid height fraction of the contents of each stage.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Initial temperature</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Initial temperature of the contents of each stage.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Initial mass fraction</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Initial mass fraction of the contents of each stage.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Initial molar fraction</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">mol/mol</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Initial molar fraction of the contents of each stage.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Initial sump mass fraction</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">kg/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <p>Initial mass fraction of the contents in the sump.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Initial sump molar fraction</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">mol/mol</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <p>Initial molar fraction of the contents in the sump.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Initial sump liquid level fraction</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">m/m</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Initial liquid height fraction of the contents in the sump.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Initial sump liquid volume fraction</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">m<sup>3</sup>/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Initial liquid volume fraction of the contents in the sump.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Initial sump volume</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Initial volume of the contents in the sump.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Initial sump temperature</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <p>Initial temperature of the contents in the sump.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Initial sump enthalpy</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">kJ/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <p>Initial enthalpy of the contents in the sump.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1">Initial sump degree of subcooling</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1">
+                        <p>
+                            <MadCap:conditionalText data-mc-conditions="Snippets/Miscelaneous/Snippet Initial Initial guess None.Initial">Initial </MadCap:conditionalText>difference between the saturated liquid temperature (bubble temperature) and the actual temperature of the <MadCap:conditionalText data-mc-conditions="Snippets/Snippet_vessel_stream.Vessel">contents of the vessel</MadCap:conditionalText>.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Pressure</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Separations Fluid-Fluid/Distillation column/Tab Pressure.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Pressure</h1>
+        <p>The Pressure tab is used to specify the pressure along the column.</p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" style="width: 243px;" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" style="width: 3.15cm;" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" style="width: 577px;" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">Pressure profile specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dl>
+                            <dt>Pressure uniform over the column</dt>
+                            <dd>Pressure is the same on all trays.</dd>
+                            <dt>Linear profile, specify top and bottom pressure</dt>
+                            <dd>Pressure varies linearly between the top and the bottom of the column. Top and bottom pressures in the column are specified.</dd>
+                            <dt>Linear profile, specify the pressure drop per stage</dt>
+                            <dd>Pressure varies linearly between the top and the bottom of the column. Constant pressure drop per stage and one extra pressure on the column are specified.</dd>
+                            <dt data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">Calculated from column hydraulics</dt>
+                            <dd data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">Determines the pressure on each stage based on hydraulic correlations.</dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">
+                        <p>Pressure</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dl>
+                            <dt>Specified here (Pressure uniform over column)</dt>
+                            <dd>Uses the pressure specified in the dialog.</dd>
+                            <dt>From feed</dt>
+                            <dd>Uses the pressure of the selected feed and applies it uniformly over the column.</dd>
+                            <dt>Top and bottom pressures specified here (Linear profile, specify top and bottom pressure)</dt>
+                            <dd>The two different pressures used for the linear profile are located at the top and the bottom of the column and are specified here.</dd>
+                            <dt>Top pressure from feed (at location) and bottom pressure specified here</dt>
+                            <dd>The two different pressures used for the linear profile are located at the same location as one of the feed for the top one and the bottom of the column for the bottom one. The bottom pressure is specified here.</dd>
+                            <dt>Top pressure specified here and bottom pressure from feed (at location)</dt>
+                            <dd>The two different pressures used for the linear profile are located at the top of the column for the top one and at the same location as one of the feed for the bottom one. The top pressure is specified here.</dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses,Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Specified pressure</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Top</dt>
+                        <dd>The pressure is specified at the top of the column.</dd>
+                        <dt>Bottom</dt>
+                        <dd>The pressure is specified at the bottom of the column.</dd>
+                        <dt>From feed</dt>
+                        <dd>The specified pressure of the column is obtained from a selected feed.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Clear liquid height</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Bennett (Perry, 1999, p. 14-32, 14-33)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Perry, R.H. &amp; Green, D.W., 1999. Chemical Engineers’ Handbook, 7th Ed., McGraw-Hill.</span></a></dt>
+                        <dt>Sawistowski (Perry, 1999, p. 14-28)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Perry, R.H. &amp; Green, D.W., 1999. Chemical Engineers’ Handbook, 7th Ed., McGraw-Hill.</span></a></dt>
+                        <dt>Francis (Perry, 1999, p. 14-32)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">3<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Perry, R.H. &amp; Green, D.W., 1999. Chemical Engineers’ Handbook, 7th Ed., McGraw-Hill.</span></a></dt>
+                        <dt>Billet and Schultes (1999) (Billet and Schultes, 1999)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">4<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Billet, R. &amp; Schultes, M., 1999. Prediction of Mass Transfer Columns with Dumped and Arranged Packings: Updated Summary of the Calculation Method of Billet and Schultes, Trans IChemE, 77, 498-504.</span></a></dt>
+                        <dt>Rocha (1993) (Rocha et al., 1993)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">5<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Rocha, J.A.., Bravo, J.L., and Fair, J.R., 1993. Distillation Columns Containing Structured Packings: A Comprehensive Model for THeir Performance. 1. Hydraulic Models, Ind. Eng. Chem. Res., 32, 641-651.</span></a></dt>
+                        <dt>Custom</dt>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Pressure drop calculation</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Simple Bernoulli</dt>
+                        <dd>Determines the pressure drop per stage via a flow-pressure relationship in the form or the Bernoulli equation.</dd>
+                        <dt>Advanced correlations</dt>
+                        <dd>Uses advanced correlations to determine the pressure drop, defined as the sum of the dry and aerated liquid pressure drops.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Pressure drop mode</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Design</dt>
+                        <dd>This selector is available when using the simple Bernoulli option for the pressure drop calculation. In design mode, the adjustable coefficient of the correlation is calculated automatically.</dd>
+                        <dt>Performance</dt>
+                        <dd>This selector is available when using the simple Bernoulli option for the pressure drop calculation. In performance mode, the adjustable coefficient of the correlation must be supplied in the specification window.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Dry vapour pressure drop correlation</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dl>
+                            <dt>Bernoulli (Perry, 1999, p. 14-30)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">6<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Perry, R.H. &amp; Green, D.W., 1999. Chemical Engineers’ Handbook, 7th Ed., McGraw-Hill.</span></a></dt>
+                            <dt>Hughmark (Wankat, 2006)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">7<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Wankat, P.C., 2006. Separation Process Engineering, Pearson Education.</span></a></dt>
+                            <dt>Liebson (Perry, 1999, p. 14-31)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">8<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Perry, R.H. &amp; Green, D.W., 1999. Chemical Engineers’ Handbook, 7th Ed., McGraw-Hill.</span></a><dt>Billet and Schultes (1999) (Billet and Schultes, 1999)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">9<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Billet, R. &amp; Schultes, M., 1999. Prediction of Mass Transfer Columns with Dumped and Arranged Packings: Updated Summary of the Calculation Method of Billet and Schultes, Trans IChemE, 77, 498-504.</span></a></dt><dt>Rocha (1993) (Rocha et al., 1993)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">10<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Rocha, J.A.., Bravo, J.L., and Fair, J.R., 1993. Distillation Columns Containing Structured Packings: A Comprehensive Model for THeir Performance. 1. Hydraulic Models, Ind. Eng. Chem. Res., 32, 641-651.</span></a></dt></dt>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Aerated liquid pressure drop correlation</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Bennett (Perry, 1999, p. 14-32, 14-33)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">11<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Perry, R.H. &amp; Green, D.W., 1999. Chemical Engineers’ Handbook, 7th Ed., McGraw-Hill.</span></a></dt>
+                        <dt>Fair (Perry, 1999, p. 14-31)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">12<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Perry, R.H. &amp; Green, D.W., 1999. Chemical Engineers’ Handbook, 7th Ed., McGraw-Hill.</span></a></dt>
+                        <dt>Hydrostatic</dt>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Use a reflux valve or pump</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Valve</dt>
+                        <dd>Puts a valve on the liquid line going from the condenser to the top tray</dd>
+                        <dt>Pump</dt>
+                        <dd>Puts a pump on the liquid line going from the condenser to the top tray</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Condenser pressure specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Liquid height</dt>
+                        <dd>Imposes a liquid height in the condenser.</dd>
+                        <dt>Distillate pressure</dt>
+                        <dd>Specifies the value of the distillate pressure.</dd>
+                        <dt>Pressure drop</dt>
+                        <dd>Uses the pressure drop specified in the dialog.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reboiler pressure specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Liquid height</dt>
+                        <dd>Imposes a liquid height in the reboiler.</dd>
+                        <dt>Bottom product pressure</dt>
+                        <dd>Uses the bottom product pressure specified in the dialog.</dd>
+                        <dt>Pressure drop</dt>
+                        <dd>Uses the pressure drop specified in the dialog.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Average column pressure</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Constant pressure being applied on the whole column.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Feed number</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Index of the feed from which the pressure is specified.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Top column pressure</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <p>Specified pressure at the top of the column.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Bottom column pressure</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Specified pressure at the bottom of the column.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Pressure drop per stage</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Difference in pressure between two adjacent stages.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Flow coefficient per stage</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Coefficient used in the simple Bernoulli flow-pressure relationship</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Stem position of the reflux valve</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Value of the stem position of the reflux valve between the condenser (stage 1) and the stage below (stage 2).</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Flow coefficient of the condenser inlet valve</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kg s<sup>-1</sup> Pa<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Value of the flow coefficient of the valve located on the vapour line between the top tray (stage 2) and the condenser (stage 1).</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Stem position or the condenser inlet valve</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Value of the stem position of the valve located on the vapour line between the top tray (stage 2) and the condenser (stage 1).</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Liquid level in the condenser</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">m</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <p>Used to determine the pressure head in the condenser.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Distillate pressure</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Pressure of the liquid stream leaving the condenser.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Pressure drop in the condenser</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Specified hydrostatic pressure drop in the condenser.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Liquid level in the reboiler</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">m</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <p>Used to determine the pressure head in the reboiler.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Bottom product pressure</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Pressure of the liquid leaving the reboiler.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2" data-mc-conditions="Snippets/Pressure/Snippet Column Pressure.Pressure,Snippets/InitialGuesses/Snippet Column Initial guesses.Initial guesses">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2">Pressure drop in the reboiler</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2">bar</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body2">Specified hydrostatic pressure drop in the reboiler.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

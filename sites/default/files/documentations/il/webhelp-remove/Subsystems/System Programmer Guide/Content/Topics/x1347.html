@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="System Programmer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="System Programmer Guide|Developing New Foreign Processes|The FPI communication protocol">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The gFPPAUSE procedure</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../System Programmer Guide.htm#Topics/x1347.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">System Programmer Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c1218.html">Developing New Foreign Processes</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1261.html">The FPI communication protocol</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The gFPPAUSE procedure</span>
+            </div>
+        </div>
+        <h1><a name="ThegFPPAUSEProcedure"></a>The gFPPAUSE procedure</h1>
+        <div class="informaltable"><a name="AEN1349"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td colspan="4" align="left" class="TableStyle-GeneralTable-BodyD-Column1-Body1"><i class="emphasis">Purpose:</i> To carry out any Pause tasks in the simulation Schedule, as
+ detailed in the section on the Pause elementary communication
+ task.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td colspan="4" align="left" class="TableStyle-GeneralTable-BodyD-Column1-Body2"><i class="emphasis">Invoked:</i> Whenever a Pause elementary communication task is executed
+ in a Schedule.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td colspan="4" class="TableStyle-GeneralTable-BodyD-Column1-Body1"><i class="emphasis">PROCEDURE DECLARATION</i>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td colspan="4" align="left" class="TableStyle-GeneralTable-BodyD-Column1-Body2"><pre class="programlisting">SUBROUTINE gFPPAUSE (FPID, FPHANDLE, PRNAME,
++ SIGNAL, TIME, STATUS)
+CHARACTER * 256 FPID, PRNAME, SIGNAL
+INTEGER FPHANDLE
+DOUBLE PRECISION TIME 
+INTEGER STATUS</pre>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Argument</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Type</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">On Entry</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">On Exit</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">FPID</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">C*256</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Full name of Foreign Process</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Unchanged</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">FPHANDLE</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">I</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Identifier assigned to this gPROMS Process by the call to <a href="x1279.html">gFPI</a></td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Unchanged</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">PRNAME</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">C*256</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Name of executing gPROMS Process which has initiated this call</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Unchanged</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">SIGNAL</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">C*256</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">SigName</i> string specified for current instance of Pause task in Schedule</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Unchanged</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">TIME</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">R*8</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Current simulation time</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Unchanged</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">STATUS</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">I</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">1</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">1 if the task has been performed successfully; 0 otherwise</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td colspan="4" class="TableStyle-GeneralTable-BodyD-Column1-Body2"><i class="emphasis">NOTES</i>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td colspan="4" align="left" class="TableStyle-GeneralTable-BodyA-Column1-Body1">
+                            <ul>
+                                <li value="1">
+                                    <p>The action, if any, that will be taken if the STATUS variable is set to 0 within this procedure will be determined by the user
+ through the gPROMS Schedule.</p>
+                                    <p>gPROMS does <i class="emphasis">not</i>, by itself, initiate any action on such occasions.</p>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

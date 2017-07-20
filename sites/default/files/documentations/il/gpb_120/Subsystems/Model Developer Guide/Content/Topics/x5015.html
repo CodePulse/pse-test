@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Defining a Public Model Interface|Defining a Specification dialog and Model Reports|Advanced Report Configuration|Formatting options">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Formatting options for &lt;Plot3D&gt;</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x5015.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="modelreports_advanced_Format_Plot3D"></a>Formatting options for <code class="varname">&lt;Plot3D&gt;</code></h1>
+        <p>The <code class="varname">&lt;Plot3D&gt;</code> tag has a number of attributes that specify how the graph will look in the report. These are
+ described in the table below. Where there are only a certain number of allowable values for the attribute, these are listed inside
+ brackets, separated by pipes. E.g. [true|false] means that an attribute may only take the values <code class="varname">true</code> or
+            <code class="varname">false</code>.</p>
+        <p>Note that all of the tags and attributes described above are <i class="emphasis">case senstitive</i>: if they are not typed exactly as
+ shown above, then the report will not be generated and an error message will be displayed instead.</p>
+        <div class="table"><a name="AEN5024"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Attributes of the <code class="varname">&lt;Plot3D&gt;</code> tag</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Attribute Name</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Default Value</th>
+                        <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">width</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">The width of the graph in pixels.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">600</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Only positive integers allowed.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">height</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">The height of the graph in pixels.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">400</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Only positive integers allowed.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">border</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Defines in a border should be drawn around the graph.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">false</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">[true|false]</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">version</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">The version of the XML plot format.</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">–</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">This attribute is mandatory and must be set to 1.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>The remainder of the formatting for 3D plots is done using embedded tags withing the <code class="varname">&lt;Plot3D&gt;</code> tag. These
+ are:</p>
+        <ul>
+            <li value="1">
+                <p><code class="varname">&lt;Header&gt;</code>
+                </p>
+            </li>
+            <li value="2">
+                <p><code class="varname">&lt;Footer&gt;</code>
+                </p>
+            </li>
+            <li value="3">
+                <p><code class="varname">&lt;Legend&gt;</code>
+                </p>
+            </li>
+            <li value="4">
+                <p><code class="varname">&lt;Axes&gt;</code>
+                </p>
+            </li>
+            <li value="5">
+                <p><code class="varname">&lt;Surface&gt;</code>
+                </p>
+            </li>
+            <li value="6">
+                <p><code class="varname">&lt;Rotation&gt;</code>
+                </p>
+            </li>
+        </ul>
+        <p>The <code class="varname">&lt;Header&gt;</code> and <code class="varname">&lt;Footer&gt;</code> tags define the text at the head and foot of the graph.
+ They both contain one attribute and one tag. The <code class="varname">label</code> attribute is a mandatory attribute and is the string defining
+ the text used for the header/footer. The &lt;Font&gt; tag defines the font used for the text. It has the following attributes.</p>
+        <div class="table"><a name="MBG_ModelReports_Advanced_FontTag3D"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Attributes of the <code class="varname">&lt;Font&gt;</code> tag</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Attribute Name</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Default Value</th>
+                        <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">name</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">The name of the font.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Automatically chosen</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">&#160;</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">size</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">The size of the font in points.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Automatically chosen</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Only positive integers allowed.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">style</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">The font style.</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Automatically chosen</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Can be a combination of bold, italic, underline and strikeout, separated by commas. E.g. style="bold, italic".</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>For example, the header might be specified like this:</p><pre class="programlisting">&lt;Plot3D version="1"&gt;
+ &lt;Header label="Some text to use at the head of the graph."&gt;
+ &lt;Font name="Arial" size="12" style="bold"/&gt;
+ &lt;/Header&gt;
+&lt;/Plot3D&gt;</pre>
+        <p>Or if the font were to be determined automatically, one could specify the header more simply like this:</p><pre class="programlisting">&lt;Plot3D version="1"&gt;
+ &lt;Header label="Some text to use at the head of the graph."/&gt;
+&lt;/Plot3D&gt;</pre>
+        <p>The <code class="varname">&lt;Legend&gt;</code> tag defines the properties of the graph legend, including whether or not it is displayed. It
+ may contain a <a href="#" class="selected"><code class="varname">&lt;Font&gt;</code></a> tag, which defines the font used
+ for the text, and it has the following attributes.</p>
+        <div class="table"><a name="AEN5116"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Attributes of the <code class="varname">&lt;Legend&gt;</code> tag</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Attribute Name</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Default Value</th>
+                        <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">show</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Defines whether or not the legend is visible.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">true</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">[true|false]</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">border</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Specifies if a border should be drawn around the legend.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">false</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">[true|false]</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">anchor</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">The position relative to the graph.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">right</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">[top|topRight|right|bottomRight|bottom|bottomLeft|left|topLeft]</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">orientation</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Whether the labels are listed horizontally or vertically.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">vertical</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">[horizontal|vertical]</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">style</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Determines the type of legend.</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">continuous</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">[continuous|stepped]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>The <code class="varname">&lt;Axes&gt;</code> tag is a full-form tag that contains just 3 sub-tags. These are:</p>
+        <ul>
+            <li value="1">
+                <p><code class="varname">&lt;LabelFont&gt;</code> specifies the font attributes for the axis label. This tag has the same attributes as the
+                <a href="#" class="selected"><code class="varname">&lt;Font&gt;</code></a> tag.</p>
+            </li>
+            <li value="2">
+                <p><code class="varname">&lt;NumberFont&gt;</code> specifies the font attributes for the numbers on the axis. This tag has the same
+ attributes as the <a href="#" class="selected"><code class="varname">&lt;Font&gt;</code></a> tag.</p>
+            </li>
+            <li value="3">
+                <p><code class="varname">&lt;Axis&gt;</code> defines each of the axes on the graph. There may be up to 3 <code class="varname">&lt;Axis&gt;</code> tags
+ used: one for each of the possible axes x, y and z. If none are used, all of the axes will take default properties.</p>
+            </li>
+        </ul>
+        <p>The &lt;Axis&gt; tag is a simple tag that contains the following attributes.</p>
+        <div class="table"><a name="AEN5170"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Attributes of the <code class="varname">&lt;Axis&gt;</code> tag</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Attribute Name</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Default Value</th>
+                        <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">orientation</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">The axis to which the attributes will apply.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">–</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Mandatory. [x|y|z]</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">label</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">The text used to label the axis.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Either "Time" or the id of the first line associated with this axis.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">&#160;</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">show</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Boolean specifying that the axis is visible.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">true</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">[true|false]</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">min</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">The minimum extent of the axis.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">–</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Any real number.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">max</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">The maximum extent of the axis.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">–</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Any real number.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">transform</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Applies a transform to the numbers on the axis.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">–</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Any simple expression containing numbers and the +, -, * and / operators. Operations are performed in sequence; there is no
+ operator precidence and bracketed expressions are not allowed. A typical use of this functionality would be to change the units of
+ measurement on a plot. e.g. If you had Temperature (K) vs. Time (sec) data but you wanted to plot it as Temperature (F) vs. Time
+ (hr) then you would enter /3600 (or /60/60) as the transformation for the x-axis -273.15*1.8+32 as the transformation for the
+ y-axis</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">scale</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Scales the axis by a certain amount.</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">1.0</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Only positive real numbers are allowed.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>The <code class="varname">&lt;Surface&gt;</code> tag is responsible for specifying which Variable will be plotted in the graph. There must be
+ exactly one <code class="varname">&lt;Surface&gt;</code> tag in each 3D plot. It is a simple tag that contains only the following attributes.</p>
+        <div class="table"><a name="AEN5219"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Attributes of the <code class="varname">&lt;Surface&gt;</code> tag</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Attribute Name</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Default Value</th>
+                        <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">id</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Variable id.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">–</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Mandatory. A string defining the Variable to be plotted (on the z axis) and the free domains to be used on the x and y
+ axes.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">mesh</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Display a wire mess effect on the surface.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">true</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">[true|false]</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">shade</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Include colours on the surface.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">true</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">[true|false]</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">contours</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Inlcude contour lines on the surface.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">true</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">[true|false]</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">zones</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Divide the surface up into different zones (colours).</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">true</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">[true|false]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>The final tag specifies the orientation of the 3D graph. This is done by giving rotations about each of the axes, relative to a
+ starting orientation, where the x axis is horizontal and in the plane of the screen/paper, the z axis is vertical and in the plane of the
+ screen/paper, and the y axis is perpendicular to and pointing into the screen/paper. The simple tag <code class="varname">&lt;Rotation&gt;</code> is
+ used to specify these rotations, and if omitted the default rotations will be used. The <code class="varname">&lt;Rotation&gt;</code> tag has just 3
+ optional attributes:</p>
+        <div class="table"><a name="AEN5258"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Attributes of the <code class="varname">&lt;Rotation&gt;</code> tag</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Attribute Name</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Default Value</th>
+                        <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">x</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Rotation about the x axis, in degrees.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">45</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Any real number.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">y</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Rotation about the y axis, in degrees.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">0</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Any real number.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">z</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Rotation about the z axis, in degrees.</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">45</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Any real number.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

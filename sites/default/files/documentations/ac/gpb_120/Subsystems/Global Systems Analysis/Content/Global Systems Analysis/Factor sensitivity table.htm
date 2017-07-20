@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Global Systems Analysis.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Creating and running an analysis|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" /><title>Factor sensitivity table</title>
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/custom.modernizr.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Global Systems Analysis.htm#Global Systems Analysis/Factor sensitivity table.htm">Open topic with navigation</a>
+        </p>
+        <h1>Factor sensitivity table</h1>
+        <p>The factor sensitivity table displays different measures  for each sensitivity analysis method, which are interpreted very differently:</p>
+        <ul>
+            <li value="1">Elementary effects<ul><li value="1">The mean is indicative of the importance of the factor in the variance of a response, and higher values denote higher impact. Although the largest values are representative, the impact order of smaller values, particularly when close to each other, is not reliable.</li><li value="2">The standard deviation (in relation to the mean) is an indication the extent to which the response is influenced by other factors. Large standard deviations suggest that other factors also have significant impact. Note that the elementary effects measures do not reflect mathematical sensitivities.</li></ul></li>
+            <li value="2">Variance-based<ul><li value="1">The first order effect index (<span class="InlineEquation">S<sub>i</sub></span>) represents the main effect contribution of each factor to the variance of a response. It is also known as 'importance measure'. An important factor is identified by a high value of <span class="InlineEquation">S<sub>i</sub></span>. <ul><li value="1">If <span class="InlineEquation">S<sub>i</sub></span><i> = 0</i>, the factor has no direct influence on the response. However, it might still be of importance through its interactions with other factors. Therefore, factors with small <span class="InlineEquation">S<sub>i</sub></span> values are not necessarily non-influential, and their total effect index (<span class="InlineEquation">S<sub>Ti</sub></span>) should be inspected. As a significant difference between <span class="InlineEquation">S<sub>i</sub></span> and <span class="InlineEquation">S<sub>Ti</sub></span> indicates an important interaction involving that factor. </li><li value="2">The sum of all <span class="InlineEquation">S<sub>i</sub></span> values is always lower than or equal to one. When equal to one, there are no interactions between the factors, which implies that the model is additive. </li><li value="3">Negative values should not be trusted. In some cases, negative values can be avoided by increasing the number of samples. However, the total effect index can still be trusted, as it is more robust.</li></ul></li><li value="2">The total effect index (<span class="InlineEquation">S<sub>Ti</sub></span>) accounts for the total contribution of the factor to the response variance, that is, its individual contribution (first-order effect) in addition to all higher order effects due to its interactions with other factors. <ul><li value="1"><span class="InlineEquation">S<sub>Ti</sub></span> should be higher or equal to <span class="InlineEquation">S<sub>i</sub></span>. When equal, the factor has no interactions with the other factors and the influence of the factor is strictly linear. The closer the <span class="InlineEquation">S<sub>i</sub></span>/<span class="InlineEquation">S<sub>Ti</sub></span> ration is to one, the more linear the influence.</li><li value="2">If <span class="InlineEquation">S<sub>Ti</sub></span> = 0, the factor has no influence on the response and can be fixed at any value within its range of uncertainty. </li><li value="3">The sum of <span class="InlineEquation">S<sub>Ti</sub></span> is always higher than or equal to one. When equal to one, then there are no interactions between the factors. </li></ul></li></ul></li>
+        </ul>
+        <p>To create a factor sensitivity table within a GSA&#160;Case, reproduce the steps below.</p>
+        <ol>
+            <li value="1">Right-click either on the top level grain of the Case or on the 'System Analysis Group' folder.</li>
+            <li value="2">Select 'New result element...'.</li>
+            <li value="3">Select 'Factor Sensitivity Table' in the drop down menu, provide a name and click on OK.</li>
+            <li value="4">In the Attributes panel, on the right-hand side, click on the ellipsis button to select which probabilistic factors and responses to add to the table.</li>
+            <li value="5">When applicable (that is, for factors with gridded set or enumerated set distributions), change the scenario in the Scenarios table.</li>
+        </ol>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/System Analysis Group_16.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="280" data-mc-height="733" src="../Resources/Images/Global Systems Analysis/System Analysis Group_16_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Settings for a factor sensitivity table</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Global Systems Analysis.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/TableStyles/Equation.css" rel="stylesheet" data-mc-stylesheet-type="table" />
+        <link href="../Resources/TableStyles/Nomenclature_dropdown.css" rel="stylesheet" data-mc-stylesheet-type="table" /><title>Case 1: Understanding the model</title>
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Global Systems Analysis.htm#Global Systems Analysis/Case 1 Get a feel for the.htm">Open topic with navigation</a>
+        </p>
+        <h1>Case 1: Understanding the model</h1>
+        <p>A gPROMS model typically has some degrees of freedom which are satisfied by assigning values to variables. Different assigned values typically result in different model behavior. To assess the robustness of a model  or gain insight into its behaviour, it is possible to obtain the results of a number of simulations at the end of a single GSA activity execution. </p>
+        <p>This case illustrates how to perform uncertainty and sensitivity analysis using assigned variables as factors and key performance indicators (KPIs) as responses. </p>
+        <p>Create a GSA entity named 'Case1_Sensitivity' and observe that it contains five tabs: General, Factors, Responses, 'GSA language', and Properties. </p>
+        <p>In the General tab, specify the 'Base activity for analysis', 'Type of analysis to be performed', 'Method to be used for analysis' and 'Sample generation method' as shown in the figure below. In this example, variance-based sensitivity analysis is performed using the quasi-random Sobol sample generation method.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="736" data-mc-height="553" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: General tab</p>
+        </div>
+        <p>Specify the factors in the Factors tab as shown in the figure below. Either use the 'Select...' button or enter the full variable path directly into the 'Variable in model 'column, pressing Control+Space to use autocompletion.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_1.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="1023" data-mc-height="622" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_1_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: Factors tab</p>
+        </div>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_2.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="729" data-mc-height="293" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_2_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: Adding factors using the variable path</p>
+        </div>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_3.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="585" data-mc-height="341" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_3_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: Adding factors via selector</p>
+        </div>
+        <p>After defining each factor, click on the 'Edit...' button to specify its variability/probability distribution and other information, as shown in the figure below. To assess model robustness and better understand the behavior of the model, select 'Uniform distribution' to ensure that the entire range of the factor space will be covered. In this example, five factors are specified, all of which assumed to have a uniform distribution. </p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_4.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="551" data-mc-height="755" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_4_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: Editing factors</p>
+        </div>
+        <p>Note that the 'Sampling restrictions' section is only available for uncertainty analysis at present. </p>
+        <p>In section 'Number of samples' specify the desired number of uncertainty scenarios. The total number of realisations of the base activity to be calculated is given by:&#160;</p>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../GeneratedImages/Equations/Equation57.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2" />
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Equation_1"><img class="MCToggler_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Equation_1">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"> <span class="InlineEquation">N<sub>d</sub></span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Number of deterministic cases </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"> <span class="InlineEquation">N</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Number of uncertainty scenarios (user defined) </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1"> <span class="InlineEquation">K</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column3-Body1">Number of probabilistic factors </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Specify the responses in the Responses tab. Similar to factors, it is possible to  either use the 'Select...' button or enter the full variable path directly into the 'Variable in model' column, pressing Control+Space to use auto-completion. </p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/How to select responses.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="889" data-mc-height="273" src="../Resources/Images/Global Systems Analysis/How to select responses_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: Responses tab</p>
+        </div>
+        <p>The 'GSA language' tab is automatically updated once tabs General, Factors and Responses are set up. Launch the execution by right-clicking on the GSA entity and selecting 'Analyse system...' or by pressing icon <a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_5.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="36" data-mc-height="22" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_5_thumb_0_264.png" tabindex="" /></a> in the toolbar.&#160; </p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_6.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="749" data-mc-height="262" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_6_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: Executing GSA</p>
+        </div>
+        <p>The 'Analyse System' dialog will be displayed. It is possible to change the Case name and select the desired number of workers for parallel computation. Note that this number should not exceed the total number of logical cores on the  machine. </p>
+        <p>Once execution completes successfully, right-click on the 'System Analysis Group' folder within the Case and select 'New result element...' to create result elements. </p>
+        <p>There are four options available: 'Distribution Statistics Table', 'Factor Sensitivity Table', Histogram, and 'Scatter 2d'. Result elements can also be copied and pasted to and from Projects and Cases. </p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_7.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="322" data-mc-height="224" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_7_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: Creating a result element</p>
+        </div>
+        <p>The 'Factor Sensitivity Table' indicates that the total effect of inlet molar fraction 1, on response yield, is much greater than that of any other factor. The total effects of coolant temperature, inlet molar flow rate and inlet molar fraction 1 on temperature are much greater than those of other factors. Among these three, inlet molar fraction 1 is the most important factor. In contrast, pressure has no effect on any of the responses and can be ignored in subsequent analyses, provided that the responses of interest are the same.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_8.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="1041" data-mc-height="168" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_8_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: Factor Sensitivity Table</p>
+        </div>
+        <p>The 'Scatter 2d' result element can be used to illustrate the relationship between any two factors, responses, or a factor and a response. Select which variables to show on the X and Y axes via the Attributes panel, shown in the figure below.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_9.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="1000" data-mc-height="515" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_9_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: ' Scatter 2d' plot of yield against inlet molar fraction 1</p>
+        </div>
+        <p>If the Attributes panel is not automatically displayed, expand the View menu and select Attributes to enable it.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_10.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="202" data-mc-height="245" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_10_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: Enabling the  Attributes panel</p>
+        </div>
+        <p>The Histogram can be used to display the distribution of a factor or response. It is possible to customise the type,  number of bins and bar colour.&#160; The figure below shows a simple histogram for yield. </p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_11.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="691" data-mc-height="430" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_11_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 1: Simple histogram for yield</p>
+        </div>
+        <p>Similarly, uncertainty analysis on assigned variables can also be performed. Please refer to entity 'Case1_Uncertainty' in the GSA example Project for details. However, for uncertainty analysis, the total number of realisations of the base activity to be calculated are instead given by: </p>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../GeneratedImages/Equations/Equation58.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2" />
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Equation_2"><img class="MCToggler_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Equation_2">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"> <span class="InlineEquation">N<sub>d</sub></span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Number of deterministic cases </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1"> <span class="InlineEquation">N</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column3-Body1">Number of uncertainty scenarios (user defined)</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

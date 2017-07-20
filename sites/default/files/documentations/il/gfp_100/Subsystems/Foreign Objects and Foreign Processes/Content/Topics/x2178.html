@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Foreign Objects and Foreign Processes.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Foreign Objects and Foreign Processes|Microsoft Excel Foreign Object and Foreign Process Interfaces">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Creating Microsoft Excel Foreign Objects</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Foreign Objects and Foreign Processes.htm#Topics/x2178.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Foreign Objects and Foreign Processes</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2139.html">Microsoft Excel Foreign Object and Foreign Process Interfaces</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Creating Microsoft Excel Foreign Objects</span>
+            </div>
+        </div>
+        <h1><a name="CreatingMicrosoftExcelForeignObjects"></a>Creating Microsoft Excel Foreign Objects</h1>
+        <p>Microsoft Excel Foreign Objects are created from Excel workbooks by including method definition worksheets. The method definition worksheets
+ specify, for each method:</p>
+        <ul>
+            <li value="1">
+                <p>the method name;</p>
+            </li>
+            <li value="2">
+                <p>which cells are to provide the output values of the method;</p>
+            </li>
+            <li value="3">
+                <p>the names of any inputs;</p>
+            </li>
+            <li value="4">
+                <p>which cells correspond to the inputs;</p>
+            </li>
+            <li value="5">
+                <p>the parameter type (Real, Integer, or Logical);</p>
+            </li>
+            <li value="6">
+                <p>information for consistency checking of dimensions;<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>These are for future compatibility with new versions of gPROMS.</span></a></p>
+            </li>
+            <li value="7">
+                <p>cells that provide values for the derivative of the output with respect to the input (if available).</p>
+            </li>
+        </ul>
+        <p>Worksheets that contain method definitions must have names that begin with gFO- (e.g. gFO-Scalars and gFO-Vectors), and there may be any number
+ of method definition worksheets. The format of the worksheet is shown in the figure below.</p>
+        <div class="figure"><a name="AEN2199"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/typical.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Format of the method definition worksheet.</p>
+        </div>
+        <p>Multiple method definitions can exist side-by-side on a worksheet. <i class="emphasis">ExcelFO</i> determines where a method definition starts by
+ searching for the word "Output'' in the first row. The first method definition must start in column B; column A is ignored so that the entries above
+ can be used for guidance. Any subsequent column in row 1 that contains anything other than "Output'' is treated as an input for the current method. If
+    <i class="emphasis">ExcelFO</i> finds an empty cell while scanning the first row (other than A1), it stops searching for any more method definitions on
+ the current worksheet and moves on to the next method-definition worksheet (method-definition worksheets are processed in order from left to right).
+ Therefore the method definitions must not be separated by blank columns; any definitions to the right of a blank column will be ignored.</p>
+        <p>In the figure above, there are three methods defined: Method 1, Method 2 and Method 3. The two inputs for Method 1 must be in columns C and D.
+ Column E must then contain the definition of the output for Method 2; if this column were left blank, then all of the definitions to the right would be
+ ignored. When <i class="emphasis">ExcelFO</i> gets to column K, it stops processing methods: any information to the right of column K will be
+ ignored.</p>
+        <p>The most convenient way to set up the method definitions is to use the <a href="x2292.html">Method Definition
+ Macro</a>. Although the cross references and output types can be added using the macro, the worksheet will need to be edited by hand to specify the
+ dimensions of the inputs and outputs. When doing so, make sure not to move any columns.</p>
+        <p>Below each entry in row 1, <i class="emphasis">ExcelFO</i> searches for information in the following order:</p>
+        <p><i class="emphasis">row 2</i>
+        </p>
+        <ul>
+            <li value="1">
+                <p>The method name (if the column begins with the keyword "Output'') or the input name must be specified in row 2. Note that since gPROMS is not
+ case sensitive, the methods method1 and Method1 are considered identical. If there are multiple definitions of the same method in your workbook,
+ the first definition that gPROMS finds will be used; all subsequent definitions will be ignored and a warning message will be displayed when the
+ gPROMS input file is executed.</p>
+            </li>
+        </ul>
+        <p><i class="emphasis">row 3</i>
+        </p>
+        <ul>
+            <li value="1">
+                <p>The third row contains cell cross-references for the inputs and output of the method. This is described in more detail below.</p>
+            </li>
+        </ul>
+        <p><i class="emphasis">row 4</i>
+        </p>
+        <ul>
+            <li value="1">
+                <p>The variable or parameter type must be specified here. The entries in this row must correspond with the type of the gPROMS Parameter that is
+ being transmitted (i.e. Real, Integer or Logical) or be set to "Real'' for gPROMS Variables. <i class="emphasis">ExcelFO</i> only recognises the first
+ letter of the entry and is case insensitive.</p>
+            </li>
+        </ul>
+        <p><i class="emphasis">rows 5-16</i>
+        </p>
+        <ul>
+            <li value="1">
+                <p>The information for checking the consistency of dimensions is specified here. Rows 5 to 14 contain the indices of the dimensions in rational
+ form. For example, for a parameter with dimensions of [Length]<sup>2</sup> the string "2/1'' would be entered in row 5; if the
+ units of a parameter were kg/m<sup>3</sup>, the strings "-3/1'' and "1/1'' would be entered in rows 5 and 6 respectively. The
+ indices of the dimensions must be entered in the order [Length], [Mass], [Time], [Electric current], [Temperature], [Amount of substance],
+ [Luminous intensity], [Plane angle], [Solid angle], [Money]. Rows 15 and 16 contain the <i class="emphasis">offset</i> and
+        <i class="emphasis">multiplier</i> required to convert the units of the parameter (or output) to SI using the equation: <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_mefoafpi-2.png" data-mc-conditions="Default.ScreenOnly" /> </span>. For example, if the units of a parameter were Celsius, the <i class="emphasis">offset</i> and <i class="emphasis">multiplier</i>
+        would be specified as 273.15 and 1 respectively.</p>
+            </li>
+        </ul>
+        <p><i class="emphasis">row 17</i>
+        </p>
+        <ul>
+            <li value="1">
+                <p>Contains optional cell references for the derivative of the method output with respect to its inputs. This is ignored for columns that
+ specify outputs. Blank cells indicate that the derivative is unavailable.</p>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

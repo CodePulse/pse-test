@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Software Environment|Modelling Support Tools|Export to CAPE-OPEN">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Advanced options</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x2827.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Software Environment</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2548.html">Modelling Support Tools</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2701.html">Export to CAPE-OPEN</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Advanced options</span>
+            </div>
+        </div>
+        <h1><a name="coadvanced"></a>Advanced options</h1>
+        <p>Advanced options for the exported unit operation are specified using the 'Advanced' page of the export wizard.</p>
+        <div class="figure"><a name="AEN2830"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_Export2CAPEOPEN_Advanced.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Export CAPE-OPEN Unit Operation Wizard: Advanced page</p>
+        </div>
+        <ul>
+            <li value="1">
+                <p>The <i class="emphasis">Initialise from Saved Variable Set</i> option allows you to specify a saved variable set that will be used to
+ initialize the gPROMS model. The list of available saved variable set's is restricted to those included as <i class="emphasis">Additional
+ files</i>.</p>
+            </li>
+            <li value="2">
+                <p>The <i class="emphasis">Convergence tolerance</i> option allows you to change the accuracy with which the gPROMS model will be solved;
+ the value can be between 1e-4 and 1e-10. For stable simulations within a PME you need the gPROMS model solved to a higher accuracy than that
+ with which the PME solves recycle loops, but a lower accuracy than that with which the PME performs physical properties calculations.</p>
+            </li>
+            <li value="3">
+                <p>If checked, the <i class="emphasis">Enable gRMS</i> option allows the value of all monitored variables in the gPROMS model to be sent to
+ the gRMS application (if running) when the unit operation is calculating. <i class="emphasis">Note that enabling this option exposes the gPROMS
+ model's unit and variable structure to the end user; you may not wish to do this for commercially sensitive models.</i></p>
+            </li>
+            <li value="4">
+                <p>The <i class="emphasis">Output level</i> option allows you to control what gPROMS execution diagnostics will be visible to the end user
+ of the exported unit operation (in the "execution output" report). This is achieved by setting the top-level "OutputLevel" solution
+ parameter of the generated gPROMS process. <i class="emphasis">Note that any value other than "Silent" has the potential to expose details of the
+ gPROMS model's implementation; you may not wish to do this for commercially sensitive models.</i></p>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

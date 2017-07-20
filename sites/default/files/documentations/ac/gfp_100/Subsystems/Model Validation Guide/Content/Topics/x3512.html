@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation|Experiment Design in gPROMS|Execution of Experiment Design activities|The Experiment Design text report and statistics files">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Example Experiment Design text report file</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x3512.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Model Validation</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2640.html">Experiment Design in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3342.html">Execution of Experiment Design activities</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3479.html">The Experiment Design text report and statistics files</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Example Experiment Design text report file</span>
+            </div>
+        </div>
+        <h1><a name="expdestextreport"></a>Example Experiment Design text report file</h1><pre class="programlisting">------------------------------------------------
+gPROMS Experiment Design for Parameter Precision
+------------------------------------------------
+
+
+gPROMS Process                    :  Batch
+Final Optimisation Status         :  Optimal Solution Found
+Design Criterion                  :  E-optimal
+Value of Design Criterion         :  0.0029227   
+
+Parameters to Be Estimated:                          Nominal Values (fixed)    Scaling factor
+--------------------------                           ======================    ==============
+Plant.Reactor.reaction_activation_energy("one")               1.221E+005          1.221E+005
+Plant.Reactor.reaction_activation_energy("two")                    79100               79100
+Plant.Reactor.reaction_pre_exponential_factor("one")          7.152E+006          7.152E+006
+Plant.Reactor.reaction_pre_exponential_factor("two")               254.5               254.5
+
+Variance Models:
+----------------
+Sensor Group 1  CONSTANT_RELATIVE_VARIANCE (        0.02)
+
+
+Experiment Decision Variables
+-----------------------------
+([*] denotes an active bound)
+
+
+Experiment   3: EXP_TBD
+---------------
+
+Decision Variable                        Value       Lower Bound    Upper Bound
+=================                        =====       ===========    ===========   
+Duration                                4999.9           1620          10000   
+
+Initial States:
+---------------
+Plant.REACTOR.HOLDUP_MASS("BENZENE           0              0[*]           0[*]
+Plant.REACTOR.HOLDUP_MASS("CYCLOHE           0              0[*]           0[*]
+Plant.REACTOR.HOLDUP_MASS("N_HEXAD    0.011559       0.011559[*]    0.011559[*]
+Plant.REACTOR.HOLDUP_MASS("PHENOL"       0.001          0.001[*]       0.001[*]
+Plant.REACTOR.HOLDUP_MASS("WATER")           0              0[*]           0[*]
+Plant.REACTOR.PRESSURE             7.0301E+006       6.4E+006       8.4E+006   
+Plant.REACTOR.TEMPERATURE               433.15         433.15[*]      543.15   
+
+Constant Controls:
+------------------
+Plant.T_controller.set_point            433.15         433.15[*]      543.15   
+
+Control Intervals:
+------------------
+Control Interval #1                     4999.9           1620          10000   
+
+Measurements:
+-------------
+Plant.Reactor.molar_conc("BENZENE")                                                                                                                                             Sensor Group 1 
+Plant.Reactor.molar_conc("CYCLOHEXANE")                                                                                                                                         Sensor Group 1 
+Plant.Reactor.molar_conc("PHENOL")                                                                                                                                              Sensor Group 1 
+ (OPTIMISED)
+Measured Variable                          Time    Predicted Value   Standard Deviation
+=================                          ====    ===============   ==================
+Plant.Reactor.molar_conc("BENZENE")        2186.3        0.01675            0.000335
+Plant.Reactor.molar_conc("CYCLOHEXANE")    2186.3      0.0917796          0.00183559
+Plant.Reactor.molar_conc("PHENOL")         2186.3        592.669             11.8534
+Plant.Reactor.molar_conc("BENZENE")          2966      0.0227227         0.000454454
+Plant.Reactor.molar_conc("CYCLOHEXANE")      2966       0.124506          0.00249013
+Plant.Reactor.molar_conc("PHENOL")           2966         592.63             11.8526
+Plant.Reactor.molar_conc("BENZENE")          3326      0.0254803         0.000509605
+Plant.Reactor.molar_conc("CYCLOHEXANE")      3326       0.139616          0.00279232
+Plant.Reactor.molar_conc("PHENOL")           3326        592.612             11.8522
+Plant.Reactor.molar_conc("BENZENE")          3686      0.0282378         0.000564755
+Plant.Reactor.molar_conc("CYCLOHEXANE")      3686       0.154725          0.00309451
+Plant.Reactor.molar_conc("PHENOL")           3686        592.594             11.8519
+Plant.Reactor.molar_conc("BENZENE")          4046      0.0309952         0.000619903
+Plant.Reactor.molar_conc("CYCLOHEXANE")      4046       0.169834          0.00339669
+Plant.Reactor.molar_conc("PHENOL")           4046        592.575             11.8515
+
+
+                                                                      
+Total CPU Time                                                          : 1.26563  seconds
+                                                                      
+  Batch Optimiser Statistics
+                                                                      
+    CPU Time                                                            : 0.015625 seconds (1.234568 % of total time)
+    Number of NLP Iterations                                            : 6
+    Number of NLP Line Search Steps                                     : 6
+                                                                      
+  DASOLV Integrator Statistics
+                                                                      
+    CPU Time                                                            : 2.25     seconds (177.777778 % of total time)
+    CPU Time Spent on (First Order) Sensitivity Integration Only        : 0.59375  seconds (26.388889 % of integration time)
+      1794 steps, 4984 residuals                                        : 0.0625   seconds
+      2198 Jacobians                                                    : 0.25     seconds
+    CPU Time Spent on Second Order Sensitivity Integration Only         : 1.65625  seconds (73.611111 % of integration time)
+      1476 steps, 9952 residuals                                        : 0.0625   seconds
+      7746 Jacobians                                                    : 0.375    seconds
+    Mean (1st+2nd Order Sensitivity)/(1st Order Sensitivity) CPU Ratio  : 3.78947
+
+</pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Foreign Objects and Foreign Processes.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Foreign Objects and Foreign Processes|Using Foreign Processes|The elementary communication tasks|The Get elementary communication task">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Getting array and distribution slices</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Foreign Objects and Foreign Processes.htm#Topics/x792.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="gettingarrayanddistributionslices"></a>Getting array and distribution slices</h1>
+        <p>In most applications, Get is applied to individual variables or
+ array elements. However, in some cases, it may be desirable to Get
+ values of an entire array or a slice of an array. The syntax for
+ achieving this is of the form:</p><pre class="programlisting">GET
+ SIGNALID "<i class="emphasis">SigName</i>"
+ STATUS <i class="emphasis">StatVar</i> <i class="emphasis">  gPROMSArrayVariable</i> := "<i class="emphasis">ForeignVariableID</i>"<i class="emphasis">(1:N</i>) ;
+  <i class="emphasis">gPROMSArrayVariable(N1:N2) </i>:= "<i class="emphasis">ForeignVariableID"(1:N2-N1+1)</i> ;
+  <i class="emphasis">gPROMSArrayVariable</i> ;
+  <i class="emphasis">gPROMSArrayVariable(N1:N2) </i>;
+ ...
+END</pre>
+        <p>The main point to note is that if a foreign variable ID is
+ specified to receive an array of gPROMS variable values, then we must
+ declare this <i class="emphasis">ForeignVariableID</i> as an
+        <i class="emphasis">array</i> of the same length. Thus, in the first case
+ above, to get an <i class="emphasis">entire </i>array of length
+        <i class="emphasis">N</i>, we treat the <i class="emphasis">ForeignVariableID
+        </i>also as an array of length <i class="emphasis">N
+        </i><i class="emphasis">and </i>show this explicitly by adding the
+ (1:N) "slice'' notation to it.</p>
+        <p>Similarly, in the second case, to get the values of a slice of
+ the array between indices <i class="emphasis">N1</i> and
+        <i class="emphasis">N2</i> inclusive (assuming <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_ufp-0.png" data-mc-conditions="Default.ScreenOnly" /> </span> ), we treat the <i class="emphasis">ForeignVariableID
+        </i>as an array of the same length(i.e. comprising <i class="emphasis">N2
+ - N1 + 1</i> elements).</p>
+        <p>If entire multi-dimensional arrays or slices thereof are to be
+ received, the <i class="emphasis">ForeignVariableID</i> must be treated
+ as arrays of the same number of dimensions <i class="emphasis">and</i>
+        this must be shown explicitly. For instance:</p><pre class="programlisting">GET
+  <i class="emphasis">SIGNALID</i> "<i class="emphasis">SigName</i>"
+  <i class="emphasis">STATUS</i><![CDATA[  ]]><i class="emphasis">StatVar</i> <i class="emphasis">gPROMSArrayVariable</i><i class="emphasis">(N1:N2, N3:N4)</i> := "<i class="emphasis">ForeignVariableID</i>" <i class="emphasis">(1:N2-N1+1, 1:N4-N3+1) </i>;
+  <i class="emphasis">gPROMSArrayVariable(N1:N2, N3:N4) </i>;
+ ...
+END</pre>
+        <p>Similar syntax and rules apply for Getting variables that are
+ distributed over one or more <i class="emphasis">continuous</i> domains.
+ However, in such cases, it must be borne in mind that Get can only
+ obtain a <i class="emphasis">discrete</i> representation of the
+ variable:</p><pre class="programlisting">GET
+  <i class="emphasis">SIGNALID</i> "<i class="emphasis">SigName</i>"
+  <i class="emphasis">STATUS</i><![CDATA[  ]]><i class="emphasis">StatVar</i> <i class="emphasis">gPROMSDistributedVariable</i> := "<i class="emphasis">ForeignVariableID</i>"<i class="emphasis">(1:N) </i>;
+  <i class="emphasis">gPROMSDistributedVariable</i> ;
+ ...
+END</pre>
+        <p>where <i class="emphasis">N</i> is the number of elements in the
+ discretisation of the distributed variable. This will depend on the
+ discretisation method specified for the corresponding distribution
+ domain, which is normally of the form:</p><pre class="programlisting">SET <i class="emphasis">DistributionDomain</i> := [<i class="emphasis"> Method, Order, NumberOfElements</i> ] ;</pre>
+        <p>In particular,</p>
+        <ul>
+            <li value="1">
+                <p>for finite-difference based methods (i.e. for
+            <i class="emphasis">Method </i>being BFDM, CFDM, or FFDM), use</p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_ufp-1.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                </p>
+                <p>Here the values to be received correspond to the values of
+ the distributed variable at <i class="emphasis">N</i> uniformly
+ distributed points (including the domain boundaries).</p>
+            </li>
+            <li value="2">
+                <p>for orthogonal-collocation based methods (i.e., for
+            <i class="emphasis">Method</i> being OCFEM), use</p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_ufp-2.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                </p>
+                <p>Here the values to be received correspond to the values of
+ the distributed variable at the (<i class="emphasis">NumberOfElements +
+ 1</i>) finite element boundaries, and at the
+ (<i class="emphasis">Order - 1</i>) collocation points within each
+ finite element.</p>
+            </li>
+        </ul>
+        <p>Getting <i class="emphasis">slices</i> of distributed variables is
+        <i class="emphasis">not</i> recommended as it requires a detailed
+ understanding of the internal representation and handling of variable
+ distributions by gPROMS.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

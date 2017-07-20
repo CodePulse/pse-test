@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Defining Tasks|Intrinsic Tasks">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Controlling the Use of Intrinsic Tasks</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x6866.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c6586.html">Defining Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x6829.html">Intrinsic Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Controlling the Use of Intrinsic Tasks</span>
+            </div>
+        </div>
+        <h1><a name="MDG_IntrinsicTasks_Control"></a>Controlling the Use of Intrinsic Tasks</h1>
+        <p>So far, the examples on Intrinsic Tasks have assumed that these Tasks should always be enabled for <i class="emphasis">every</i> instance of
+ a Model containing Intrinsic Tasks. Although this is the default behaviour, one can easily select which Model instances should have their
+ Intrinsic Tasks enabled. There are a number of ways to achieve this.</p>
+        <p>First, all Intrinsic Tasks can be switched off by editing the process properties. In this case, no matter what specifications are made in
+ the Models and Process, no Intrinsic Tasks will be used and the user will have to specify the use of Tasks manually. To do this, open the
+ Process entity and left click on the Solution Parameters tab. Double click on (or click on the "+" symbol next to) the <tt class="guilabel"><b>Intrinsic
+ Tasks</b></tt> folder. Now you can change the setting from <tt class="guilabel"><b>ON</b></tt> to <tt class="guilabel"><b>OFF</b></tt> by clicking on
+      <tt class="guilabel"><b>ON</b></tt> and selecting <tt class="guilabel"><b>OFF</b></tt> from the list.</p>
+        <div class="mediaobject">
+            <p>
+                <img src="../Resources/Images/MDG_SolParam_GUI_IntTasksOFF.png" />
+            </p>
+        </div>
+        <p>Finer control over the use of Intrinsic Tasks can be achieved by defining their use whenever a Model is instantiated. To do this, the
+      <tt class="guilabel"><b>Intrinsic Tasks</b></tt> solution parameter of the Process must be <tt class="guilabel"><b>ON</b></tt>. Then, there are three options for
+ instantiating a Model (<code class="varname">A</code> is the name of a Model defined in the gPROMS project):</p><pre class="programlisting">UNIT
+ A AS A
+ A_off AS A INTRINSIC_TASKS OFF
+ A_on AS A INTRINSIC_TASKS ON</pre>
+        <p>These three specifications work as follows.</p>
+        <p>Instantiating a model with the INTRINSIC_TASKS OFF option forces gPROMS not to use any of the Intrinsic Tasks defined for that Model
+ instance.</p>
+        <p>In contrast, instantiating a Model with the INTRINSIC_TASKS ON option turns on all Intrinsic Tasks for the Model instance.</p>
+        <p>Finally, if no specification is made (the first example above), then the behaviour of the Model instance will be the same as the Model
+ instance within which it is contained. If it is a top-level model instance, then the default behaviour is for the Intrinsic Tasks to be enabled.
+ So, the behaviour of a particular Model instance will be passed down the Model hierarchy until an explicit instantiation takes place, which will
+ then override the behaviour of the parent Model.</p>
+        <p>To illustrate the behaviour of Models (and sub Models) instantiated in this way, let us assume that the three Model instances of Model
+      <code class="varname">A</code> are made in a Process. Model <code class="varname">A</code> then contains three instances of a Model <code class="varname">B</code>:</p><pre class="programlisting">UNIT
+ B AS B
+ B_off AS B INTRINSIC_TASKS OFF
+ B_on AS B INTRINSIC_TASKS ON</pre>
+        <p>Finally, Model B also contains three different instances of Model C:</p><pre class="programlisting">UNIT
+ C AS C
+ C_off AS C INTRINSIC_TASKS OFF
+ C_on AS C INTRINSIC_TASKS ON</pre>
+        <p>This then produces the following Model-instance hierarchy.</p>
+        <div class="figure"><a name="AEN6900"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_IntrinsicTask_Propagation.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Illustration of Intrinsic Task control</p>
+        </div>
+        <p>The ticks and crosses next to each Model instance indicate whether or not intrinsic tasks are enabled for that Model instance. Since the
+ default behaviour for top-level Models is for Intrinsic Tasks to be enabled, <code class="varname">A</code> and <code class="varname">A_on</code> both have their
+ tasks enabled. Therefore, each of the Model instances within <code class="varname">A</code> will have the same properties as those within
+      <code class="varname">A_on</code>. The main feature is that the <code class="varname">*_on</code> instances always have Intrinsic Tasks enabled,
+      <code class="varname">*_off</code> instances are always disabled and the instances with the default specification always behave as the Model instance
+ above.</p>
+        <p>gPROMS also allows the these specifications to be made via the graphical interface. Click on the Topology tab and then right click
+ on the Unit you want to specify. The context menu contains an item called <tt class="guilabel"><b>Intrinsic Tasks…</b></tt>. Moving the mouse over this
+ item, enables a list containing the three possible settings for the Unit. Left clicking on one of these options sets the value for this Unit.
+ Units with disabled Intrinsic Tasks are indicated by a red cog image on the Unit; those with enabled Intrinsic Tasks by a green cog; and if the
+ default specification is made, no cog is shown. If you then switch back to the gPROMS language view, you will see that the code has changed to
+ reflect the choice made. An example of a Unit with enabled Intrinsic Tasks is shown below.</p>
+        <div class="figure"><a name="AEN6916"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_IntrinsicTask_EnabledIcon.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Example of a Unit with enabled Intrinsic Tasks</p>
+        </div>
+        <p>To reiterate, control over which Model instances use Intrinsic Tasks can occur only when the Process solution parameter
+      <tt class="guilabel"><b>Intrinsic Tasks</b></tt> is <tt class="guilabel"><b>ON</b></tt>; if it is <tt class="guilabel"><b>OFF</b></tt>, then none of the Intrinsic Tasks are enabled
+ and they must be included explicitly in the Schedule.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

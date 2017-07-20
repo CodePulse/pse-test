@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Optimisation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Optimisation|Specifying dynamic optimisation problems in gPROMS|The Optimisation entity">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Interior-point constraints</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Optimisation Guide.htm#Topics/x1121.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="x257.html">Optimisation</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x888.html">Specifying dynamic optimisation problems in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x924.html">The Optimisation entity</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Interior-point constraints</span>
+            </div>
+        </div>
+        <h1><a name="dynoptspecifyoptentityinteriorpoint"></a>Interior-point constraints</h1>
+        <p>The INTERIORPOINT specifications force the named variable to lie within the specified lower and upper bounds at a set of discrete times,
+ namely the time-interval boundaries<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>This includes the initial point but not the final one. An ENDPOINT_INEQUALITY specification should be used to
+ enforce a final-time constraint, if necessary.</span></a>The most frequent use of such specifications is as an approximate way of enforcing <a href="x568.html">path
+ constraints</a>–the latter are not handled directly by gPROMS.</p>
+        <p>In some applications, it can be useful to specify different bounds at each of the time-interval boundaries–for example, a batch reaction
+ procedure might require the temperature to lie in a narrower range in the final stages of reaction than in the earlier stages. This can be achieved
+ in gPROMS through the use of an alternative syntax for the INTERIORPOINT segment of the input file as shown in the table below.</p>
+        <div class="table"><a name="AEN1129"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Alternative syntax for Interiorpoint constraints</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Specification</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">INTERIORPOINT<p>{variable name}</p></td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Specification of a variable on which an interior-point constraint is to be imposed.Its full gPROMS path name.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">VARYING<p>{lower bound} : {upper bound}</p><p>...</p><p>{lower bound} : {upper bound}</p></td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">Keyword to indicate distinct bounds at each interval boundary<p>Bounds at start of first interval.</p><p /><p>Bounds at start of last interval.</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

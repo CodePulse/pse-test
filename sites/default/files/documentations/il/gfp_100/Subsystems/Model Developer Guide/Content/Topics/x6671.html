@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Defining Tasks">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Hierarchical Task Construction</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x6671.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c6586.html">Defining Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Hierarchical Task Construction</span>
+            </div>
+        </div>
+        <h1><a name="AEN6671"></a>Hierarchical Task Construction</h1>
+        <p>A complex operation on one or more items of process equipment can usually be decomposed into lower-level, simpler operations. Each of the
+ lower-level operations may in turn be decomposed in other, more primitive operations, the decomposition continuing until all operations can be
+ described in terms of elementary manipulations of the underlying models made possible by elementary tasks. Similarly to hierarchical sub-model
+ decomposition, this <i class="emphasis">hierarchical sub-task decomposition</i> defeats complexity by restricting the scope of the problem considered
+ at any point to a manageable level.</p>
+        <p>Hierarchical sub-task decomposition in gPROMS is possible because previously declared Tasks may be used within other, higher-level Tasks and
+ is greatly facilitated by the fact that suitably parameterised Tasks may be reused several times in different parts of an operation.</p>
+        <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span><a name="ComplexOpsOperateReactor"></a>
+            <p><b>Example 4. Low-level Task to operate a reactor</b>
+            </p><pre class="programlisting"># TASK OperateReactor
+
+ PARAMETER
+ Reactor AS MODEL StirredReactor
+ SR AS REAL
+ StartTemperature AS REAL
+ Terminationcondition AS LOGICAL_EXPRESSION
+
+ SCHEDULE
+ SEQUENCE
+ RESET
+ Reactor.SteamRate := SR ;
+ END
+ CONTINUE UNTIL Reactor.Temperature &gt; StartTemperature
+ RESET
+ Reactor.SteamRate := 0 ;
+ END
+ CONTINUE UNTIL TerminationCondition
+ END # Sequence</pre>
+        </div>
+        <p>Consider, for instance, the gPROMS code above containing the <code class="methodname">OperateReactor</code><code class="methodname">TASK</code>. It
+ specifies an operating procedure for performing a reaction in a reactor of type <code class="methodname">StirredReactor</code> (a parameter of the
+    <code class="methodname">TASK</code>). The operating procedure is simple, involving the execution of four elementary tasks in sequence. First, the steam
+ supply rate to the reactor is set to a value <code class="methodname">SR</code>. Operation then continues until the temperature in the reactor has
+ exceeded a predefined limit <code class="methodname">StartTemperature</code>. Finally, the steam supply is cut off and operation continues until a
+ TerminationCondition is satisfied. In addition to the reactor unit, <code class="methodname">SR</code>, <code class="methodname">StartTemperature</code> and
+    <code class="methodname">TerminationCondition</code> are also parameters of the <code class="methodname">TASK</code>, of type <code class="methodname">REAL</code>,
+    <code class="methodname">REAL_EXPRESSION</code> and <code class="methodname">LOGICAL_EXPRESSION</code> respectively.</p>
+        <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span><a name="ComplexOpsReactorTrain"></a>
+            <p><b>Example 5. High-level Task to operate a reactor train</b>
+            </p><pre class="programlisting"># TASK OperateReactorTrain
+
+ PARAMETER
+ Plant AS MODEL ReactorTrain
+
+ SCHEDULE
+ PARALLEL
+ PerformReaction
+ ( Reactor IS Plant.R1,
+ SR IS 35.3,
+ StartTemperature IS 70.0,
+ TerminationCondition IS Plant.R1.Conversion(1) &gt; 0.95 )
+ PerformReaction
+ ( Reactor IS Plant.R2,
+ SR IS 10.0,
+ StartTemperature IS 40.0,
+ TerminationCondition IS Plant.R2.Temperature &gt; 120.0 )
+ END # Parallel</pre>
+        </div>
+        <p>The gPROMS code above illustrates how the <code class="methodname">OperateReactor</code><code class="methodname">TASK</code> is used to define a
+ higher-level Task, namely <code class="methodname">OperateReactionTrain</code>. Two <code class="methodname">OperateReactor</code> tasks are invoked in parallel
+ to model the operation of two reactors. Parameterisation also permits the specification of different values for the operating parameters of the
+ two reactors.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Defining Tasks|Building Tasks using the graphical interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using the Interface tab</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x6719.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="MDG_DefiningTasks_InterfaceTab"></a>Using the Interface tab</h1>
+        <p>After inserting a new Task in the Project (right click on Tasks in the Project tree, select <b class="guimenuitem">New entity...</b>,
+ provide a name and click <b class="guibutton">OK</b>), left click on the Interface tab and the following will be shown.</p>
+        <div class="figure"><a name="AEN6724"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_Task_InterfaceTab_Empty.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> New Task Interface tab</p>
+        </div>
+        <p>The Interface tab contains a list of all of the Parameters in the Task. To add a new Parameter, left click on the &lt;new&gt; cell and
+ enter a name for the new Parameter. Then the type can be chosen from the list box, as shown below.</p>
+        <div class="figure"><a name="AEN6732"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_Task_InterfaceTab_AddingREAL.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Adding a new Parameter</p>
+        </div>
+        <p>MODEL Parameters require a further specification: left click in the model cell and type the name of a Model. A list box containing all
+ existing Models in the Project can be activated by pressing <b class="keycap">CTRL</b>-<b class="keycap">SPACE</b>. This is shown below.</p>
+        <div class="figure"><a name="AEN6743"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_Task_InterfaceTab_AddingMODEL.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Adding a MODEL Parameter</p>
+        </div>
+        <p>The order of the Parameters can be changed by selecting the Parameter and pressing the <b class="guibutton">Move up</b> or <b class="guibutton">Move
+ down</b> buttons. Parameters can be removed from the Task by selecting a Parameter and pressing the <b class="guibutton">Delete</b>
+      button.</p>
+        <p>For this example, the gPROMS language tab now contains:</p><pre class="programlisting">PARAMETER
+ A AS REAL
+ B AS MODEL Reactor_drum_kinetic</pre>
+        <p>Once all of the Parameters have been specified, the <a href="x6758.html">Variables</a> tab can be selected in
+ order to define any local&#160;Variables for the Task.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

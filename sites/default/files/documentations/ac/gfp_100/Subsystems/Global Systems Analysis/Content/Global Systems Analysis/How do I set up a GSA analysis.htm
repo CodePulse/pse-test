@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-gb" lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Global Systems Analysis.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Creating and running an analysis">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" /><title>Summary of the required steps to set up an analysis</title>
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Global Systems Analysis.htm#Global Systems Analysis/How do I set up a GSA analysis.htm">Open topic with navigation</a>
+        </p>
+        <h1><a name="_Toc478315920"></a>Summary of the required steps to set up an analysis</h1>
+        <p>To set  up a GSA entity, reproduce the steps below.</p>
+        <ol>
+            <li value="1">
+                <p>Load the Project which contains the model or flowsheet of interest.</p>
+            </li>
+            <li value="2">
+                <p>Create a new entity by selecting 'New entity...' in the 'Entity' menu, by pressing Control+C or by right-clicking on the Project and selecting 'New entity...'. </p>
+                <div class="figure">
+                    <p>
+                        <img src="../Resources/Images/Global Systems Analysis/How do I set up a GSA analysis.png" />
+                    </p>
+                    <p class="FigureCaption">Definition of a new Global system analysis entity</p>
+                </div>
+            </li>
+            <li value="3">
+                <p>Provide a name and description (optional) and click on OK.</p>
+            </li>
+            <li value="4">
+                <p>The GSA entity will be displayed in the 'Global System Analysis' folder.</p>
+            </li>
+            <li value="5">
+                <p>On the General  tab, select the Process to use as 'Base activity for analysis' from the options in the drop down menu.</p>
+            </li>
+            <li value="6">
+                <p>Select the type of analysis to be performed, between <a href="Sensitivity analyses.htm#_Sensitivity_analyses">sensitivity</a> and <a href="Uncertainty analysis.htm#_Uncertainty_analysis">uncertainty</a>. </p>
+            </li>
+            <li value="7">
+                <p>If sensitivity analysis is selected, specify the method to be used for analysis as well.</p>
+            </li>
+            <li value="8">
+                <p>Select the <a href="Selection of sample generation.htm#_Selection_of_sample">sample generation method</a>.</p>
+                <div class="figure">
+                    <p> <a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/How do I set up a GSA analysis_1.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="738" data-mc-height="717" src="../Resources/Images/Global Systems Analysis/How do I set up a GSA analysis_1_thumb_0_264.png" tabindex="" /></a></p>
+                    <p class="FigureCaption">General tab</p>
+                </div>
+            </li>
+            <li value="9">
+                <p>Note that the General tab will display an error message until one or more probabilistic factors are specified.</p>
+            </li>
+            <li value="10">
+                <p>On the Factors tab, specify the <a href="How to select and define factors.htm#_How_to_select">factors</a> of interest by clicking on the 'Select...' button. If the factor is not selectable in this manner, enter the full variable path in 'Variable in model' field.</p>
+            </li>
+            <li value="11">
+                <p>Set appropriate lower and upper bounds for each factor by double-clicking on each field and editing the values. Alternatively, select each factor and click on the 'Edit...' button.</p>
+            </li>
+            <li value="12">
+                <p>Select an appropriate probability distribution and values for the parameters of the distribution, if required.</p>
+            </li>
+            <li value="13">
+                <p>Edit the name of any factors as desired. Note that a number of suggestions are available in the drop down menu of the Name field of each factor.</p>
+            </li>
+            <li value="14">
+                <p>Optionally, add one or more tags.  Note that each tag must be enclosed in double quotes and that multiple tags can be associated with a factor when separated by a space or a comma. In future versions, tags will be used to filter results.</p>
+                <div class="figure">
+                    <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/How do I set up a GSA analysis_2.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="737" data-mc-height="514" src="../Resources/Images/Global Systems Analysis/How do I set up a GSA analysis_2_thumb_0_264.png" tabindex="" /></a>
+                    </p>
+                    <p class="FigureCaption">Factors tab </p>
+                </div>
+            </li>
+            <li value="15">
+                <p>If uncertainty analysis is selected, it is also possible to:</p>
+                <ol style="list-style-type: lower-alpha;">
+                    <li value="1">
+                        <p>Add <a href="Including sampling restrictions.htm#_Including_sampling_restrictions_1">sampling restrictions</a> by clicking on the 'Add...' button and  specify the constraint in the 'Constraint expression' field.</p>
+                        <div class="figure">
+                            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/How do I set up a GSA analysis_3.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="827" data-mc-height="536" src="../Resources/Images/Global Systems Analysis/How do I set up a GSA analysis_3_thumb_0_264.png" tabindex="" /></a>
+                            </p>
+                            <p class="FigureCaption">Sampling restrictions editor</p>
+                        </div>
+                    </li>
+                    <li value="2">
+                        <p>Create <a href="Including correlated factors.htm#_Including_correlated_factors/multiv_1">groups of correlated factors</a> can by selecting multiple factors while holding down the Control key and clicking on the Group button. The correlation can be added by selecting the factor group and clicking on the 'Edit...' button.</p>
+                        <div class="figure">
+                            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/How do I set up a GSA analysis_4.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="443" data-mc-height="395" src="../Resources/Images/Global Systems Analysis/How do I set up a GSA analysis_4_thumb_0_264.png" tabindex="" /></a>
+                            </p>
+                            <p class="FigureCaption">Factor group editor</p>
+                        </div>
+                        <p>Note that, in the figure above, the correlation was added due to operating practice rather than a physical correlation between factors. </p>
+                    </li>
+                </ol>
+            </li>
+            <li value="16">
+                <p>Specify the <a href="Recommended number of samples.htm#_Recommended_number_of">number of samples</a>. The number of discrete deterministic cases is calculated according to the factors which are gridded or enumerated in nature. In contrast, the number of uncertainty scenarios/probability distribution samples is a userdefined. The total number of realisations depends on these values as well as on the type and method of analysis to perform.</p>
+            </li>
+            <li value="17">
+                <p>Specify the <a href="How to select responses.htm#_How_to_select_1">responses</a> of interest in the Responses tab. Similar to factors, either use the 'Select...' button or enter the full variable path into the 'Variable in model' field.</p>
+                <div class="figure">
+                    <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/How do I set up a GSA analysis_5.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="1003" data-mc-height="517" src="../Resources/Images/Global Systems Analysis/How do I set up a GSA analysis_5_thumb_0_264.png" tabindex="" /></a>
+                    </p>
+                    <p class="FigureCaption">Responses tab</p>
+                </div>
+            </li>
+            <li value="18">
+                <p>Optionally add any <a href="Including results elements.htm#_Including_results_elements">results elements</a> to the GSA entity.</p>
+            </li>
+            <li value="19">
+                <p><a href="Executing resuming a GSA.htm#_Executing_&amp;_resuming">Execute the GSA</a> activity.</p>
+            </li>
+        </ol>
+    </body>
+</html>

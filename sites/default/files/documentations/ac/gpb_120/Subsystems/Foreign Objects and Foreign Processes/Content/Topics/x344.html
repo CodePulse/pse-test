@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Foreign Objects and Foreign Processes.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Foreign Objects and Foreign Processes|Using Foreign Objects|Using Foreign Objects in gPROMS entities">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using Foreign Objects in gPROMS Models</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Foreign Objects and Foreign Processes.htm#Topics/x344.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="usingforeignobjectsingpromsmodels"></a>Using Foreign Objects in gPROMS Models</h1>
+        <p>As we have already explained, a Foreign Object basically provides a means of calculating one or more quantities as function(s) of the
+ gPROMS variables. As such, the natural place for these objects to appear is in the gPROMS Models.</p>
+        <p>The usage of Foreign Objects in Models is governed by a set of simple rules:</p>
+        <ol type="A">
+            <li value="1">
+                <p>Each distinct Foreign Object used by a Model is declared as a Parameter of type FOREIGN_OBJECT<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>This is a new type of Parameter complementing the existing types INTEGER, REAL and LOGICAL.</span></a></p>
+                <p>The latter keyword is normally followed by the <i class="emphasis">class</i> of the Foreign Object (see also: <a href="x308.html">Classes and Instances</a>). This class simply identifies the external software (e.g. physical software
+ package, CFD code, capital costing tool) that will be used to implement this instance of the Foreign Object. For example, a typical
+ declaration would be:</p><pre class="programlisting"># MODEL Flash
+
+ PARAMETER
+ PPP AS FOREIGN_OBJECT "ThermoPack"
+
+ ...</pre>
+                <p>This simply states that:</p>
+                <ul>
+                    <li value="1">
+                        <p>Model Flash will make use of a Foreign Object.</p>
+                    </li>
+                    <li value="2">
+                        <p>Whenever necessary within this Model (see below), the Foreign Object will be referred to as PPP.</p>
+                    </li>
+                    <li value="3">
+                        <p>PPP is implemented by a piece of external software (in this case, a physical property package) called ThermoPack. Thus, PPP is an
+ "instance'' of ThermoPack.</p>
+                    </li>
+                </ul>
+                <p>One important thing to note is that the class of the Foreign Object must be enclosed in quotes ("ThermoPack"). This is because it is
+ neither a gPROMS keyword nor an identifier that has previously been defined in the gPROMS input file.</p>
+            </li>
+            <li value="2">
+                <p>The methods of a Foreign Object are referred to as:</p><pre class="programlisting">ForeignObjectName.MethodName (InputList)</pre>
+                <p>where the InputList is a list of method inputs. For a method without any inputs, the correct syntax is:</p><pre class="programlisting">ForeignObjectName.MethodName</pre>
+            </li>
+            <li value="3">
+                <p>Each input of a method is a scalar or vector-valued variable or expression.</p>
+            </li>
+            <li value="4">
+                <p>Each method returns a single scalar or vector-valued quantity. The latter may be of type integer, logical or real. A method may be
+ used <i class="emphasis">anywhere</i> in the MODEL where an expression of the corresponding dimensionality and type is allowed. For
+ instance:</p>
+                <ul>
+                    <li value="1">
+                        <p>A real-valued method may be used in an equation or in an expression Setting the value of a real Parameter.</p>
+                    </li>
+                    <li value="2">
+                        <p>An integer-valued method may be used to Set the value of an integer Parameter.</p>
+                    </li>
+                    <li value="3">
+                        <p>A logical-valued method may be used within the logical condition in an If equation.</p>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+        <p>An example of a gPROMS Model making use of a Foreign Object is shown in the example below:</p><pre class="programlisting">1 # MODEL Flash
+
+ 2 PARAMETER
+ 3 PPP AS FOREIGN_OBJECT "ThermoPack"
+ 4 NoComp AS INTEGER
+
+ 5 VARIABLE
+ 6 F, L, V AS MolarRate
+ 7 Hf AS MolarEnergy
+ 8 Q AS EnergyRate
+ 9 T AS Temperature
+10 P AS Pressure
+11 x, y, z AS ARRAY(NoComp) OF MoleFraction
+
+12 SET
+13 NoComp := PPP.NumberOfComponents ;
+
+14 EQUATION
+15 F*z = L*x + V*y ;
+16 F*Hf = L*PPP.LiquidEnthalpy(T,P,x) +
+ V*PPP.VapourEnthalpy(T,P,y) + Q ;
+17 x*PPP.LiquidFugacityCoeff(T,P,x) =
+ y*PPP.VapourFugacityCoeff(T,P,y) ;
+18 SIGMA(x) = SIGMA(y) = 1 ;
+19 IF PPP.StableLiquid(T,P,x) THEN
+20 ...
+21 ELSE
+22 ...
+23 END</pre>
+        <p>There are several features of this Model that are worth noting:</p>
+        <ul>
+            <li value="1">
+                <p>As we have already seen, line 3 specifies that the Model Flash makes use of a Foreign Object of type ThermoPack, corresponding to a
+ software package that is external to gPROMS. For the purposes of defining this Model, this Foreign Object will be called PPP.</p>
+            </li>
+            <li value="2">
+                <p>This Foreign Object provides several methods. These return quantities of various types that can be used anywhere in the Model. For
+ example:</p>
+                <ul>
+                    <li value="1">
+                        <p>At line 13, we make use of a method called NumberOfComponents which simply returns an integer corresponding to the number of
+ components in the mixture being considered. We use this to Set the number of components, a Parameter NoComp, in this Model. Note that
+ method NumberOfComponents does not have any inputs.</p>
+                    </li>
+                    <li value="2">
+                        <p>At line 16, we make use of two other methods provided by this Foreign Object, namely LiquidEnthalpy and VapourEnthalpy, which
+ compute liquid and vapour phase specific enthalpies respectively. Each of these returns a real quantity computed by the Foreign Object
+ from the inputs T,P,x and T,P,y respectively. We note that, in each case, the first two inputs are scalar quantities but the third one
+ is a vector.</p>
+                    </li>
+                    <li value="3">
+                        <p>At line 17, we make use of two more methods, namely LiquidFugacityCoeff and VapourFugacityCoeff respectively. These compute and
+ return <i class="emphasis">vectors</i> of real quantities, <i class="emphasis">i.e.</i> liquid and vapour phase fugacity coefficients.</p>
+                    </li>
+                    <li value="4">
+                        <p>At line 19, we make use of a method called StableLiquid that returns a logical quantity indicating whether or not the liquid phase
+ is stable under the prevailing temperature, pressure and composition.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>There are two further points that are worth making:</p>
+        <ul>
+            <li value="1">
+                <p>Method inputs can be expressions rather than simple variables. For instance, if we wanted to evaluate a liquid-phase viscosity at the
+ mean of the inlet and exit conditions of the above flash, we could achieve this via the following method invocation:</p><pre class="programlisting">PPP.LiquidViscosity((Tin+T)/2, (Pin+P)/2, (z+x)/2)</pre>
+            </li>
+            <li value="2">
+                <p>No direct reference can be made to an individual element (or slice) of a vector-valued method. For instance, it is not possible to
+ directly access the <i class="emphasis">i<sup>th</sup></i>element of the vector of liquid fugacity coefficients returned by
+ method LiquidFugacityCoeff (see line 17 in the example above). If such access is desired, an equation defining a vector-valued variable as
+ being equal to the method result must first be introduced, e.g.:</p><pre class="programlisting">LFC = PPP.LiquidFugacityCoeff(T.P,x) ;</pre>
+                <p>Other equations can then refer to individual elements of the variable LFC as desired.</p>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

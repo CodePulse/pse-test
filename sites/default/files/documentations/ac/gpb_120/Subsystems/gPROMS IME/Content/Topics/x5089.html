@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=Product.Name%] Guide|gRMS Output Channel|Advanced use of gRMS">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>gRMS resources under Linux</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x5089.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="AEN5089"></a>gRMS resources under Linux</h1>
+        <p>X-Windows provides a mechanism to customise applications using Resource Files. It is beyond the scope of this manual to discuss the
+ eccentricities of this mechanism other than to refer the user to a book ( X-Window System User's Guide, OSF/Motif 1.2 Edition, O'Reilly &amp;
+ Associates, Inc., ISBN 1-56592-015-5 ) and to list the resources that can be used to customise gRMS. </p>
+        <p>The resources provided for customisation can be split into three sets:</p>
+        <ul>
+            <li value="1">
+                <p>Those mimicking the command line switches. If gRMS is started from the command line using switches then these override the associated
+ resource settings.</p>
+            </li>
+            <li value="2">
+                <p>Those that control the overall appearance of gRMS.</p>
+            </li>
+            <li value="3">
+                <p>Those that control the appearance of individual gRMS windows and dialogs.</p>
+            </li>
+        </ul>
+        <div class="table"><a name="AEN5101"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Resources mimicking the command line switches.</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Resource</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms.directory</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Duplicates function of <i class="emphasis">-dir</i> command line switch.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Grms.lpr</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Duplicates function of <i class="emphasis">-lpr</i> command line switch.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms.port</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Duplicates function of <i class="emphasis">-port</i> command line switch.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Grms.printer</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">Duplicates function of <i class="emphasis">-print</i> command line switch.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table"><a name="AEN5125"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Resources controlling individual windows and dialogs.</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Resource</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Function</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Default</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">height</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">The height of the dialog or window.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Not set, except for Grms.PlotWindow.height that is set to 600.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">width</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">The width of the dialog or window.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Not set, except for Grms.PlotWindow.width that is set to 500.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">foreground</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">The foreground colour of the dialog or window.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Not set, so defaults to value of Grms*.foreground.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">background</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">The background colour of the dialog or window.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Not set, so defaults to value of Grms*.background.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">x</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">The initial <i class="emphasis">x</i> position of the top left corner of the dialog or window.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Not set, so position depends on Window Manager.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">y</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">The initial <i class="emphasis">y</i> position of the top left corner of the dialog or window.</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">Not set, so position depends on Window Manager.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table"><a name="AEN5160"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Names of individual windows and dialogs.</caption>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Grms*.PlotWindow</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Grms*.AddDialog</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Grms*.PrintDialog</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms*.AxisDialog</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Grms*.PrintPropsDialog</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Grms*.ErrorDialog</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Grms*.PropsDialog</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms*.FontDialog</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Grms*.QuestionDialog</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Grms*.GridDialog</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Grms*.StyleDialog</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms*.InformationDialog</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Grms*.TitleDialog</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Grms*.LegendDialog</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">&#160;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table"><a name="AEN5188"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Resources controlling general appearance.</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Resource</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Function</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Default</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms*.background</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Default background colour for gRMS windows.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">grey</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Grms*.foreground</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Default foreground colour for gRMS windows.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">black</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms*.fontList</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Comma separated list of three fonts, the standard font, the bold font and the italic font. N.B. Due to bugs in the DEC/OSF1
+ version of Motif, the bold and italic fonts do not have any effect.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">fixed, fixed=BOLD_TAG, fixed=ITALIC_TAG</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Grms*.selectColor</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Colour for selected toggle buttons.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">blue</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms*.DirList.background</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Background colour for list in File Dialog, should be set the same as Grms*.Text.background.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">light grey</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Grms*.DirList.foreground</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Foreground colour for list in File Dialog, should be set the same as Grms*.Text.foreground.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">black</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms*.FilterText.background</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Background colour for "Filter" text fields, should be set the same as Grms*.Text.background.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">light grey</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Grms*.FilterText.foreground</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Foreground colour for "Filter" text fields, should be set the same as Grms*.Text.foreground.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">black</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms*.ItemsList.background</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Background colour for list in Font Dialog and Add Dialog, should be set the same as Grms*.Text.background.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">light grey</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Grms*.ItemsList.foreground</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Foreground colour for list in Font Dialog and Add Dialog, should be set the same as Grms*.Text.foreground.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">black</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Grms*.Text.background</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Background colour for text fields.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">light grey</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Grms*.Text.foreground</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Foreground colour for text fields.</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">black</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

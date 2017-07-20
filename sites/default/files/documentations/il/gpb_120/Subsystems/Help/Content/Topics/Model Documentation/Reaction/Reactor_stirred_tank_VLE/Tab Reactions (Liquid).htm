@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Reactions (Liquid) </title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Reaction/Reactor_stirred_tank_VLE/Tab Reactions (Liquid).htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Reactions <MadCap:conditionalText data-mc-conditions="Snippets/Reactions/Snippet Liquid Vapour None.Liquid">(Liquid) </MadCap:conditionalText></h1>
+        <p>The Reactions <MadCap:conditionalText data-mc-conditions="Snippets/Reactions/Snippet Liquid Vapour None.Liquid">(Liquid) </MadCap:conditionalText> tab is used to specify the reactions taking <MadCap:conditionalText data-mc-conditions="Snippets/Reactions/Snippet Liquid Vapour None.Liquid">place in the liquid phase.</MadCap:conditionalText></p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reactions specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Specified here</dt>
+                        <dd>The reactions are specified in this unit.</dd>
+                        <dt>From kinetic port connection</dt>
+                        <dd>Reaction informations are obtained from the kinetic port.</dd>
+                        <dt>Using custom kinetic models</dt>
+                        <dd>User defined custom kinetic model.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Kinetic model</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dl>
+                            <dt>Power law</dt>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reaction rate basis</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>per volume (kmol/h/m3)</dt>
+                        <dd>Reaction rates are specified on a volumetric basis.</dd>
+                        <dt>per mass of catalyst (kmol/h/kg)</dt>
+                        <dd>Reaction rates are specified per mass of catalyst (heterogeneous reactions).</dd>
+                        <dt>per surface of catalyst (kmol/h/m2)</dt>
+                        <dd>Reaction rates are specified per surface area of catalyst (heterogeneous reactions).</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Component concentration basis</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dl>
+                            <dt>Molar concentrations</dt>
+                            <dt>Molar fractions</dt>
+                            <dt>Mass fractions</dt>
+                            <dt>Mass concentrations</dt>
+                            <dt>Activities</dt>
+                            <dt>Fugacities</dt>
+                            <dt>Partial pressures</dt>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Custom kinetic model</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Standard custom kinetics</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Irreversible reactions</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Enter the name of all the irreversible reactions taking place. These names are used to populate the tables of the dialog.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Reversible reactions</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Enter the name of all the reversible reactions taking place. These names are used to populate the tables of the dialog.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Equilibrium reactions</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Enter the name of all the equilibrium reactions taking place. These names are used to populate the tables of the dialog.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1">Stoichiometric matrix</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1">Stoichiometric coefficients of the reactions defined above. A negative integer value indicates the component is consumed by a reaction, a positive value indicates that the component is produced by the reaction and a zero value indicates that the component does not participate in the reaction.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

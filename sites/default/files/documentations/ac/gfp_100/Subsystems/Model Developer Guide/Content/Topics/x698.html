@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Declaring Variable and Connection types|Declaring Connection Types">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The Port categories tab and Connectivity rules</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x698.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c551.html">Declaring Variable and Connection types</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x601.html">Declaring Connection Types</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The Port categories tab and Connectivity rules</span>
+            </div>
+        </div>
+        <h1><a name="AEN698"></a><a name="PortCategoriesAndConnectivityRules"></a>The Port categories tab and connectivity rules</h1>
+        <p>gPROMS enforces a number of rules to ensure that only valid connections can be made when building flowsheet Models, and as such all Ports
+ must be defined as an <i class="emphasis">Inlet</i>, an <i class="emphasis">Outlet</i> or a <i class="emphasis">Bi-directional</i> Port. When <a href="x3634.html">defining a Model Port</a> the developer must specify which of these categories the Port belongs to and gPROMS enforces the
+ rules shown in the following table (e.g. it is possible to connect an <i class="emphasis">Outlet</i> Port to an <i class="emphasis">Inlet</i> Port but
+ not an <i class="emphasis">outlet</i> to an <i class="emphasis">outlet</i>):</p>
+        <div class="table"><a name="AEN709"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Enforced connectivity rules</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">&#160;</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Inlet</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Outlet</th>
+                        <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Bi-directional</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><i class="emphasis">Inlet</i>
+                        </td>
+                        <td align="center" class="TableStyle-GeneralTable-BodyE-Column1-Body1">Disallowed</td>
+                        <td align="center" class="TableStyle-GeneralTable-BodyE-Column1-Body1">Allowed</td>
+                        <td align="center" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Allowed</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><i class="emphasis">Outlet</i>
+                        </td>
+                        <td align="center" class="TableStyle-GeneralTable-BodyE-Column1-Body2">Allowed</td>
+                        <td align="center" class="TableStyle-GeneralTable-BodyE-Column1-Body2">Disallowed</td>
+                        <td align="center" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Allowed</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1"><i class="emphasis">Bi-directional</i>
+                        </td>
+                        <td align="center" class="TableStyle-GeneralTable-BodyB-Column1-Body1">Allowed</td>
+                        <td align="center" class="TableStyle-GeneralTable-BodyB-Column1-Body1">Allowed</td>
+                        <td align="center" class="TableStyle-GeneralTable-BodyA-Column1-Body1">Allowed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>In addition, for a particular Connection Type, it is possible to define an additional set of rules by defining new user-specified
+ categories. The gPROMS Process Model Library (PML) makes use of this capability: in the PML a Port must be either a <i class="emphasis">Node</i> or
+ a <i class="emphasis">Connector</i> with <i class="emphasis">Node-to-Node</i> connections forbidden (see also: Understanding the PML):</p>
+        <div class="figure"><a name="AEN743"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_ConnectionTypeEntityEditor8.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> The PMLMaterial Connection type in the gPROMS PML - Port categories</p>
+        </div>
+        <p>To define new connectivity rules; simply enter each of the categories by providing each with a name and clicking
+      <b class="guibutton">Add</b>. Then specify whether a particular connection is valid by <i class="emphasis">checking</i> the appropiate box in the
+      <i class="emphasis">Allowable connections</i>table: leaving the box <i class="emphasis">unchecked</i> means that the connection is not valid.</p>
+        <p>If you wish to delete a particular Port category, then simply click on its name in the <i class="emphasis">Allowable connections </i>table
+ and then click on the <b class="guibutton">Delete port category</b> button at the bottom of the window.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation Guide|Experiment Design in gPROMS|Execution of Experiment Design activities|The Experiment Design text report and statistics files">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Example Experiment Design text report file</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x3512.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Model Validation Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2640.html">Experiment Design in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3342.html">Execution of Experiment Design activities</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3479.html">The Experiment Design text report and statistics files</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Example Experiment Design text report file</span>
+            </div>
+        </div>
+        <h1><a name="expdestextreport"></a>Example Experiment Design text report file</h1><pre class="programlisting">------------------------------------------------
+gPROMS Experiment Design for Parameter Precision
+------------------------------------------------
+
+
+gPROMS Process : FEDBATCH_DES
+Final Optimisation Status : Optimal Solution Found
+Design Criterion : E-optimal
+Value of Design Criterion : 0.088667 
+
+Parameters to Be Estimated: Nominal Values (fixed) Scaling factor
+-------------------------- ====================== ==============
+Flowsheet.Ferment.theta(1) 0.1 0.1
+Flowsheet.Ferment.theta(2) 0.1 0.1
+Flowsheet.Ferment.theta(3) 0.1 0.1
+Flowsheet.Ferment.theta(4) 0.1 0.1
+Variance Models:
+----------------
+Sensor Group 1 CONSTANT_VARIANCE ( 0.2)
+
+Experiment Decision Variables
+-----------------------------
+([*] denotes an active bound)
+
+
+Experiment 1: FEDBATCH_DES
+---------------
+
+Decision Variable Value Lower Bound Upper Bound
+================= ===== =========== =========== 
+Duration 10 5 10[*]
+
+Initial States:
+---------------
+Flowsheet.Ferment.y1 9.6677 1 10 
+
+Control Intervals:
+------------------
+Control Interval #1 1.6907 0.5 10 
+Control Interval #2 1.399 0.5 10 
+Control Interval #3 2.6938 0.5 10 
+Control Interval #4 2.8357 0.5 10 
+Control Interval #5 1.3807 0.5 10 
+
+Time-Varying Controls:
+----------------------
+
+1. Flowsheet.Ferment.u1
+ (piecewise constant)
+ Control
+Interval Value Lower Bound Upper Bound
+======== ===== =========== ===========
+
+# 1 0.05 0.05[*] 0.2 
+# 2 0.17569 0.05 0.2 
+# 3 0.2 0.05 0.2[*]
+# 4 0.05 0.05[*] 0.2 
+# 5 0.097126 0.05 0.2 
+
+2. Flowsheet.Ferment.u2
+ (piecewise constant)
+ Control
+Interval Value Lower Bound Upper Bound
+======== ===== =========== ===========
+
+# 1 5.0571 5 35 
+# 2 33.745 5 35 
+# 3 34.021 5 35 
+# 4 18.669 5 35 
+# 5 24.875 5 35 
+
+Measurements:
+-------------
+Flowsheet.Ferment.y1 Sensor Group 1 
+Flowsheet.Ferment.y2 Sensor Group 1 
+ (OPTIMISED)
+Measured Variable Time Predicted Value Standard Deviation
+================= ==== =============== ==================
+Flowsheet.Ferment.y1 1.6938 7.53326 0.2
+Flowsheet.Ferment.y2 1.6938 0.0194794 0.2
+Flowsheet.Ferment.y1 2.8808 5.96486 0.2
+Flowsheet.Ferment.y2 2.8808 0.72187 0.2
+Flowsheet.Ferment.y1 3.1308 5.68698 0.2
+Flowsheet.Ferment.y2 3.1308 0.909819 0.2
+Flowsheet.Ferment.y1 3.3808 5.39825 0.2
+Flowsheet.Ferment.y2 3.3808 1.28748 0.2
+Flowsheet.Ferment.y1 6.902 3.12444 0.2
+Flowsheet.Ferment.y2 6.902 3.32092 0.2
+Flowsheet.Ferment.y1 7.152 3.08317 0.2
+Flowsheet.Ferment.y2 7.152 2.76509 0.2
+Flowsheet.Ferment.y1 7.402 3.04192 0.2
+Flowsheet.Ferment.y2 7.402 2.23121 0.2
+Flowsheet.Ferment.y1 9.5 2.53466 0.2
+Flowsheet.Ferment.y2 9.5 0.471863 0.2
+Flowsheet.Ferment.y1 9.75 2.46368 0.2
+Flowsheet.Ferment.y2 9.75 0.541938 0.2
+Flowsheet.Ferment.y1 10 2.39571 0.2
+Flowsheet.Ferment.y2 10 0.614262 0.2
+
+Computational Statistics
+Total CPU Time : 6.125 seconds
+ FEDBATCH_DES Optimiser Statistics
+ CPU Time : 0.015625 seconds (0.255102 % of total time)
+ Number of NLP Iterations : 11
+ Number of NLP Line Search Steps : 21
+ DASOLV Integrator Statistics
+ CPU Time : 9.4375 seconds (154.081633 % of total time)
+ CPU Time Spent on (First Order) Sensitivity Integration Only : 0.90625 seconds (9.602649 %of DASOLV time)
+ 10872 steps, 30178 residuals : 0.21875 seconds
+ 13322 Jacobians : 0.21875 seconds
+ CPU Time Spent on Second Order Sensitivity Integration Only : 8.53125 seconds (90.397351 %of DASOLV time)
+ 5872 steps, 110070 residuals : 0.03125 seconds
+ 101204 Jacobians : 1.84375 seconds
+ Mean (1st+2nd Order Sensitivity)/(1st Order Sensitivity) CPU Ratio : 10.4138
+
+                </pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

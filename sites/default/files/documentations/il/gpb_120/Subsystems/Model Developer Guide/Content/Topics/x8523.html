@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Model Analysis and Diagnosis|High-index DAE systems|Origin of index and the initialisation of DAEs">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Chemical-equilibrium example</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x8523.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="MDG_Diag_ChemicalEquilibriumExample"></a>Chemical-equilibrium example</h1>
+        <p>In this example, we have a batch-reactor model with reversible reactions at equilibrium. The general material balance for this problem
+ is:</p><pre class="programlisting">FOR i := 1 TO NoComp DO
+ $M(i) = V*SIGMA( r*nu(i,) ) ;
+END</pre>
+        <p>where, <code class="varname">M(i)</code> is the molar holdup of component <code class="varname">i</code>, <code class="varname">V</code> is the volume of the reaction
+ mixture, <code class="varname">r(j)</code> is the rate of reaction <code class="varname">j</code> and <code class="varname">nu(i,j)</code> is the stoichiometric coefficient
+ of component <code class="varname">i</code> in reaction <code class="varname">j</code>.</p>
+        <p>There is no difficulty in solving this problem (with appropriate definitions of the new variables introduced) if the rates of reaction
+ are specified using an equation similar to the following:</p><pre class="programlisting">FOR j := 1 TO NoReac DO
+ r(j) = k(j)*PRODUCT( C^ReactionPartialOrder(,j) ) ;
+END</pre>
+        <p>where <code class="varname">k(j)</code> is the rate constant for reaction <code class="varname">j</code>, <code class="varname">C(i)</code> is the molar concentration
+ of component <code class="varname">j</code> and <code class="varname">ReactionPartialOrder(i,j)</code> is the partial order of component <code class="varname">i</code> in
+ reaction <code class="varname">j</code>.</p>
+        <p>This model can be used for irreversible and reversible reactions where the rate expressions are known. E.g., for reversible reactions,
+ simply treat the forward and reverse reactions as entirely separate reactions, with their own rate constants.</p>
+        <p>However, it is often not possible (nor useful) to measure the rates of fast reversible reactions; usually only an equilibrium constant
+ is known, and so we may have <i class="emphasis">instead of a rate expression</i> a relationship similar to the following:</p><pre class="programlisting">EqmConst(1) = C(2)/C(1)^2 ;</pre>
+        <p>where the equilibrium constant, <code class="varname">EqmConst</code>, is given. It is clear now that we have a problem, because some of the
+        <code class="varname">r(j)</code> variables only appear in the differential equation for the material balance. There is no way to calculate the
+        <code class="varname">r(j)</code> associated with the reactions at equilibrium and so the problem cannot be solved. This is a typical cause of high
+ index: algebraic variables only occuring in differential equations.</p>
+        <p>Also of note is that the equation above introduces a relationship between the concentrations of some of the species in the problem, and
+ therefore also the molar holdups. So it is clear that we cannot specify arbitrary initial conditions for all of the components, as they are
+ not all independent.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

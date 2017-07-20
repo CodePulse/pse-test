@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>gPROMS FormulatedProducts Documentation</title>
+        <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../Help.htm#Topics/Global/gPRODUCT Titlepage Nonprint.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><span class="MCBreadcrumbs">gPROMS FormulatedProducts Documentation</span>
+            </div>
+        </div>
+        <h1 style="text-align: center;"><span class="ProductName">gPROMS FormulatedProducts</span> Documentation</h1>
+        <p style="text-align: center;">Release <span class="ProductVersion">1.0</span> - <span class="ProductReleaseDate">June 2017</span></p>
+        <address>Process Systems Enterprise Limited
+5th Floor East
+26-28 Hammersmith Grove
+London W6 7HA
+United Kingdom
+			
+e: <a href="mailto:support.formulatedproducts@psenterprise.com"><span class="ProductSupportEmail">support.formulatedproducts@psenterprise.com</span></a>
+w: <a href="http://www.psenterprise.com/products/gproms/formulated-products" target="_blank"><span class="ProductWebPage">www.psenterprise.com/products/gproms/formulated-products</span></a></address>
+        <p style="text-align: center;">© 2017 Process Systems Enterprise Limited</p>
+        <p class="DisclaimerTitle">Trademarks</p>
+        <p class="DisclaimerBody">gPROMS, ModelBuilder, ProcessBuilder, FormulatedProducts, gCOAS, gCRYSTAL, gSOLIDS, gFLARE, gFUELCELL, gPOWER and gCCS are registered trademarks of Process Systems Enterprise Limited ("PSE"). All other registered and pending trademarks mentioned in this material are considered the sole property of their respective owners. All rights reserved.</p>
+        <p class="DisclaimerTitle">Legal notice</p>
+        <p class="DisclaimerBody">No part of this documentation or associated materials may be copied, distributed, published, retransmitted or modified in any way without the prior written consent of PSE. This document is the property of PSE, and must not be reproduced in any manner without prior written permission.</p>
+        <p class="DisclaimerTitle">Disclaimer</p>
+        <p class="DisclaimerBody">PSE software products provide an environment for modelling the behaviour of complex systems. While they provide valuable insights into the behaviour of the system being modelled, this is not a substitute for a full understanding of the real system and any dangers or risks that may be present. Except as otherwise provided, all warranties, representations, terms and conditions, express and implied (including implied warranties of satisfactory quality and fitness for a particular purpose) are expressly excluded to the fullest extent permitted by law. PSE Software products provide a framework for applications which may be used for supervising a process control system and initiating operations automatically, however they are not intended for environments which require fail-safe characteristics from the supervisor system. PSE specifically disclaims any express or implied warranty of fitness for environments requiring a fail-safe supervisor. Nothing in this disclaimer shall limit PSE's liability for death or personal injury caused by its negligence.</p>
+        <p class="DisclaimerTitle">Acknowledgements</p>
+        <p class="DisclaimerBody"><span class="ProductName">gPROMS FormulatedProducts</span> and the gPROMS platform use
+			these third party free-software packages. The distribution and use of these
+			libraries is governed by their respective licences which can be found in full
+			in the distribution. Where required, the source code will be made available
+			upon request. Please contact <a href="mailto:support.formulatedproducts@psenterprise.com"><span class="ProductSupportEmail">support.formulatedproducts@psenterprise.com</span></a>
+		in such a case.</p>
+        <p class="DisclaimerBody">Many thanks to the developers of these great products!</p>
+        <table style="font-size: 80%;mc-table-style: url('../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-GeneralTable-Head-Header1">
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Software/Copyright</th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Website</th>
+                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">License</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">ANTLR v2</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.antlr2.org">http://www.antlr2.org</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Public Domain</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">ANTLR 1989-2006 Developed by Terence Parr.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache Batik</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://xml.apache.org/batik">http://xml.apache.org/batik</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 1999-2007 The Apache Software Foundation.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache Commons CLI</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://commons.apache.org/proper/commons-cli">https://commons.apache.org/proper/commons-cli</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2001-2009 The Apache Software Foundation.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache Commons Codec</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://commons.apache.org/proper/commons-codec/">http://commons.apache.org/proper/commons-codec/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 2002-2012 The Apache Software Foundation</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache Commons Collections</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://commons.apache.org/proper/commons-collections">https://commons.apache.org/proper/commons-collections</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 2001-2004 The Apache Software Foundation.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache Commons IO</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://commons.apache.org/proper/commons-io">https://commons.apache.org/proper/commons-io</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2002-2012 The Apache Software Foundation.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache Commons Lang</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://commons.apache.org/proper/commons-lang">https://commons.apache.org/proper/commons-lang</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2001-2008 The Apache Software Foundation.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache Commons Logging</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://commons.apache.org/proper/commons-logging/">https://commons.apache.org/proper/commons-logging/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 2003-2007 The Apache Software Foundation</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache Commons Math</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://commons.apache.org/proper/commons-math/">https://commons.apache.org/proper/commons-math/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2001-2008 The Apache Software Foundation.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache HttpComponents Client</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://hc.apache.org/httpcomponents-client-ga/">https://hc.apache.org/httpcomponents-client-ga/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 1999-2015 The Apache Software Foundation</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache HttpComponents Core</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://hc.apache.org/httpcomponents-core-ga/">http://hc.apache.org/httpcomponents-core-ga/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 2005-2015 The Apache Software Foundation</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache HttpComponents HttpClient - MIME</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://hc.apache.org/httpcomponents-client-ga/">https://hc.apache.org/httpcomponents-client-ga/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 1999-2015 The Apache Software Foundation</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache Jakarta Regexp</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://jakarta.apache.org/regexp">http://jakarta.apache.org/regexp</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 1.1</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 2001-2007 The Apache Software Foundation.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache Xerces2 Java Parser</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://xerces.apache.org/xerces2-j">http://xerces.apache.org/xerces2-j</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 1999-2015 The Apache Software Foundation.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache XML Commons</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://xerces.apache.org/xml-commons">https://xerces.apache.org/xml-commons</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2006 The Apache Software Foundation.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Apache XML Xalan</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://xml.apache.org/xalan-j">http://xml.apache.org/xalan-j</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Apache Xerces-C++ XML Parser</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="http://xerces.apache.org/xerces-c/">http://xerces.apache.org/xerces-c/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright © 1994-2008 The Apache Software Foundation.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">AWS Java SDK for Amazon S3</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="https://aws.amazon.com/sdk-for-java/">https://aws.amazon.com/sdk-for-java/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright 2010-2014 Amazon.com, Inc. or its affiliates.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">AWS Java SDK for AWS KMS</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="https://aws.amazon.com/sdk-for-java/">https://aws.amazon.com/sdk-for-java/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright 2010-2014 Amazon.com, Inc. or its affiliates.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">AWS SDK for Java - Core</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="https://aws.amazon.com/sdk-for-java/">https://aws.amazon.com/sdk-for-java/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright 2010-2014 Amazon.com, Inc. or its affiliates.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Bean Validation API</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="http://beanvalidation.org">http://beanvalidation.org</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">BLAS</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.netlib.org/blas">http://www.netlib.org/blas</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">BSD-like license (refer to license text for details)</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 1992-2009 The University of Tennessee.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Boost</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.boost.org">http://www.boost.org</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Boost Software License 1.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">c3p0</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="http://c3p0.sourceforge.net/">http://c3p0.sourceforge.net/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">GNU Lesser General Public License, Version 2.1</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Castor</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://castor-data-binding.github.io/castor">http://castor-data-binding.github.io/castor</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">BSD-like license (refer to license text for details)</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2004-2005 Werner Guttmann.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Crypto++</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.cryptopp.com">http://www.cryptopp.com</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Public Domain</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 1995-2009 Wei Dai and contributors.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Eigen</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://eigen.tuxfamily.org/dox">http://eigen.tuxfamily.org/dox</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Mozilla Public License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2008 Gael Guennebaud <a href="mailto:gael.guennebaud@inria.fr">gael.guennebaud@inria.fr</a>.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Fast MD5</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.twmacinta.com/myjava/fast_md5.php">http://www.twmacinta.com/myjava/fast_md5.php</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">GNU Lesser General Public License, Version 2.1</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2002-2005 Timothy W. Macinta.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">guava-libraries</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://github.com/google/guava">https://github.com/google/guava</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2010-2015 Google.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">httpservices</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://github.com/Unidata/thredds">https://github.com/Unidata/thredds</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">The MIT License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 1998-2011 University Corporation for Atmospheric Research/Unidata</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Jackson JSON Processor</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://wiki.fasterxml.com/JacksonHome">http://wiki.fasterxml.com/JacksonHome</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2007- Tatu Saloranta, tatu.saloranta@iki.fi</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright 2013 FasterXML</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Jansson</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="http://www.digip.org/jansson">http://www.digip.org/jansson</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">The MIT License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright © 2009-2014 Petri Lehtinen.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">JavaBeans Activation Framework</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="http://www.oracle.com/technetwork/java/jaf11-139815.html">http://www.oracle.com/technetwork/java/jaf11-139815.html</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Common Development and Distribution License, Version 1.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright 1997-2005 Sun Microsystems, Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">"Java Concurrency in Practice" book annotations</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="http://jcip.net/">http://jcip.net/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Public Domain</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Java Help</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://javahelp.java.net">https://javahelp.java.net</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">GNU General Public License, Version 2, with the Classpath Exception</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2011, Oracle and/or its affiliates.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Java LAF Graphics Repository</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.oracle.com/technetwork/java/index-138612.html">http://www.oracle.com/technetwork/java/index-138612.html</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Sun Public License, Version 1.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2000 Sun Microsystems, Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">JavaMail</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.oracle.com/technetwork/java/javamail/javamail143-243221.html">http://www.oracle.com/technetwork/java/javamail/javamail143-243221.html</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Common Development and Distribution License, Version 1.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 1996-2009 Sun Microsystems, Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">JCommander</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://jcommander.org/">http://jcommander.org/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 2012, Cedric Beust</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">JDOM</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.jdom.org/">http://www.jdom.org/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Similar to Apache License but with the acknowledgment clause removed</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2000-2012 Jason Hunter  Brett &amp; McLaughlin.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Joda-Time</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.joda.org/joda-time">http://www.joda.org/joda-time</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 2001-2015 Stephen Colebourne.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">JOpt Simple</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://pholser.github.io/jopt-simple">https://pholser.github.io/jopt-simple</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">The MIT License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2004-2015 Paul R. Holser, Jr.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">JSON Processing</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://jsonp.java.net">https://jsonp.java.net</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Common Development and Distribution License (CDDL - Version 1.1)</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2013 Oracle Corporation.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">JSON Schema Validator</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://github.com/fge/json-schema-validator">https://github.com/fge/json-schema-validator</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2014, Francis Galiegue (fgaliegue@gmail.com)</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Jsoup HTML parser</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://jsoup.org">https://jsoup.org</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">The MIT License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2009 - 2016 Jonathan Hedley (jonathan@hedley.net)</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">JXButtonPanel</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://java.net/projects/swinghelper">https://java.net/projects/swinghelper</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">GNU Lesser General Public License, Version 2.1</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2011, Oracle and/or its affiliates.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">LAPACK</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.netlib.org/lapack">http://www.netlib.org/lapack</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">BSD-like license (refer to license text for details)</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">libodbc++</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="http://libodbcxx.sourceforge.net">http://libodbcxx.sourceforge.net</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">GNU Lesser General Public License, Version 2</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright © 1999-2000 Manush Dodunekov &lt;manush@stendahls.net&gt;</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 1994-2008 Free Software Foundation, Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">libphonenumber</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://github.com/googlei18n/libphonenumber">https://github.com/googlei18n/libphonenumber</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0 + BSD-style</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright (C) 2009-2014 The Libphonenumber Authors.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">logback</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://logback.qos.ch">http://logback.qos.ch</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Eclipse Public License, Version 1.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 1999-2012, QOS.ch.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">lp_solve</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://lpsolve.sourceforge.net/5.5">http://lpsolve.sourceforge.net/5.5</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">GNU Lesser General Public License, Version 2.1</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 1998-2001 by the University of Florida.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright © 1991, 2009 Free Software Foundation, Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">MigLayout</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="http://www.miglayout.com">http://www.miglayout.com</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">BSD 3-Clause License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright © 2004, Mikael Grev, MiG InfoCom AB.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">NetBeans RCP (diff, editor and outline components) </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="https://netbeans.org/features/platform">https://netbeans.org/features/platform</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Common Development and Distribution License, Version 1.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright © 1997-2009 Sun Microsystems, Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2010-2015, Oracle and/or its affiliates.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">NetCDF</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.unidata.ucar.edu/software/netcdf/">http://www.unidata.ucar.edu/software/netcdf/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Public Domain</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright (C) 1993-2014 University Corporation for Atmospheric Research/Unidata.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">NetCDF-cxx4</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://github.com/Unidata/netcdf-cxx4">https://github.com/Unidata/netcdf-cxx4</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Public Domain</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">NetCDF-Java / Common Data Model Library</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="https://github.com/Unidata/thredds">https://github.com/Unidata/thredds</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">The MIT License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright 1998-2015 University Corporation for Atmospheric Research/Unidata</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">omniORB</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="http://omniorb.sourceforge.net">http://omniorb.sourceforge.net</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">GNU Lesser General Public License, Version 2.1</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body1">Copyright © 1996-2001 AT&amp;T Laboratories Cambridge.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 1997-2006 Free Software Foundation Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">opencsv</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://opencsv.sourceforge.net">http://opencsv.sourceforge.net</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 2005 Bytecode Pty Ltd.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Protocol Buffer Java API</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://github.com/google/protobuf">https://github.com/google/protobuf</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">BSD 2-Clause License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 2014, Google Inc.  All rights reserved.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Quartz Scheduler</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.quartz-scheduler.org/quartz">http://www.quartz-scheduler.org/quartz</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Apache License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 2001-2009 Terracotta, Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">RapidJSON</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://github.com/miloyip/rapidjson/">https://github.com/miloyip/rapidjson/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">The MIT License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright (C) 2015 THL A29 Limited, a Tencent company, and Milo Yip.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">raven-java</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://github.com/getsentry/raven-java">https://github.com/getsentry/raven-java</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">BSD 3-Clause License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2012 Ken Cochrane and individual contributors.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Rhino</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino">https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Mozilla Public License, Version 2.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 2010 the V8 project authors.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">SLF4J</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.slf4j.org/">http://www.slf4j.org/</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">The MIT License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2004-2013 QOS.ch.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">SuperLU</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://crd-legacy.lbl.gov/~xiaoye/SuperLU">http://crd-legacy.lbl.gov/~xiaoye/SuperLU</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">BSD 3-Clause License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2003, The Regents of the University of California, through Lawrence Berkeley National Laboratory</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">TableLayout</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://java.net/projects/tablelayout">https://java.net/projects/tablelayout</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Sun Public License, Version 1.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 2001 Daniel Barbalace.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Timing Framework</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://java.net/projects/timingframework">https://java.net/projects/timingframework</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">BSD 3-Clause License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 1997-2008 Sun Microsystems, Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">udunits</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://github.com/Unidata/thredds">https://github.com/Unidata/thredds</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">The MIT License</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright 1998-2015 University Corporation for Atmospheric Research/Unidata</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Vecmath</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://java.net/projects/vecmath">https://java.net/projects/vecmath</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Sun Public License, Version 1.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyD-Column1-Body2">Copyright © 1997-2008 Sun Microsystems, Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Wizard Framework</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://java.net/projects/wizard-framework">https://java.net/projects/wizard-framework</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">GNU Lesser General Public License, Version 3.0</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td colspan="3" class="TableStyle-GeneralTable-BodyA-Column1-Body2">Copyright © 2004-2005 Andrew Pietsch.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="DisclaimerBody">This product includes software developed by the <a href="http://www.apache.org/">Apache Software Foundation</a>.</p>
+        <p class="DisclaimerBody"><span class="ProductName">gPROMS FormulatedProducts</span> and the gPROMS platform also use these third party commercial software packages:</p>
+        <table style="font-size: 80%;mc-table-style: url('../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">FlexNet Operations</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://www.flexerasoftware.com">http://www.flexerasoftware.com</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Flexera Software LLC.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">JClass DesktopViews</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="http://software.dell.com/products/jclass-desktopviews">http://software.dell.com/products/jclass-desktopviews</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Dell Software Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">JGraph</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="https://github.com/jgraph">https://github.com/jgraph</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">JGraph Ltd.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Olectra Chart</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><a href="https://www.componentsource.com/product/componentone-chart-activex-dll">https://www.componentsource.com/product/componentone-chart-activex-dll</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">ComponentSource Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">XRT Graph/3D</td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><a href="http://software.dell.com/products/xrt-pds">http://software.dell.com/products/xrt-pds</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Dell Software Inc.</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">YFiles</td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2"><a href="http://www.yworks.com/en/products_yfiles_about.htm">http://www.yworks.com/en/products_yfiles_about.htm</a>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">YWorks GmbH</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

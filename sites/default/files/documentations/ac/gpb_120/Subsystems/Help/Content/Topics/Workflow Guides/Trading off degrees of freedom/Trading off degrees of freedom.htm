@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Workflow guides|Process">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Trading off degrees of freedom</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Help.htm#Topics/Workflow Guides/Trading off degrees of freedom/Trading off degrees of freedom.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Trading off degrees of freedom</h1>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Degrees of freedom in process flowsheet models</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>When a process flowsheet model is constructed a number of variables in the flowsheet are specified (fixed) while others are calculated. The fixed (or "Assigned") variables are typically known quantities, for example equipment sizes and the inlet conditions of the process. The calculated (or "Free") variables are typically process outlet conditions (for example the purity of the product), composition and conditions of the material streams that flow from one unit operation to the next.</p>
+                <p>For some applications different types of calculation may be required. For example, it may be necessary to determine how a piece of unit equipment must be sized  such that a given amount of product is produced by the plant or how much the flowrate of a particular inlet needs to be for the product to attain a defined purity. In general this type of query can be formulated as follows: <i>Change this quantity in the flowsheet model so that this other quantity equals a desired target value</i>. A different way of solving the model is required in order to get the answer to these types of queries. This is often referred to as a 'reverse calculation'&#160;or a 'specification trade-off'. </p>
+                <p>Solving these types of problems, in <span class="ProductName">gPROMS ProcessBuilder</span>, can be accomplished in a number of ways:</p>
+                <ul>
+                    <li value="1">Using an adjust model</li>
+                    <li value="2">Using the Graphical Task Scheduler to perform specification trade-offs after the model has initialized</li>
+                    <li value="3">Using equations in the gPROMS&#160;custom modelling language</li>
+                </ul>
+                <p>In this tutorial only the first method, using an adjust model, will be covered.</p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Using an adjust model to trade off degrees of freedom</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <h3>Connecting the adjust model</h3>
+                <p>To trade-off a single specification between two unit models on the flowsheet, first drag an adjust unit model from the 'gML&#160;Control' library to the flowsheet. Connect the 'Source' input port to the unit model in which a variable has to be fixed instead of being calculated. Connect the 'Adjust' output port to the unit model for which a variable will be calculated ("free") in order to achieve the desired value of the variable on the 'Source' input port. </p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Tradeing off degrees of freedom/adj_ports.png" />
+                    </p>
+                    <p class="FigureCaption">Adjust model with the 'Source' input port on the left and the 'Adjust' output port on the right. The port on the bottom is the optional external target port.</p>
+                </div>
+                <p>At this point the flowsheet will contain a number of error messages in the problem panel. This is because the adjust models has not yet been configured.</p>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>Construct a simple flowsheet, as shown below, in which two water streams are mixed (see <a href="../Flowsheeting/Constructing flowsheets.htm" class="MCXref xref">'Constructing flowsheets'</a> for information on how to construct such a flowsheet)</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Tradeing off degrees of freedom/water_mixing_flowsheet.png" />
+                        </p>
+                        <p class="FigureCaption">Simple flowsheet in which two streams of water a mixed.</p>
+                    </div>
+                    <p>The&#160;aim is to adjust the mass flowrate of one of the streams such that the mass flowrate of the mixed stream is a defined value. </p>
+                    <p>To do this connect an 'Adj_spec_gML' model that is dragged from the gML&#160;Control library, on the palette, on to the flowsheet model and name it 'adj_1'. Use the  'Flip selected icon(s) horizontally' button on the toolbar of the topology window to flip the model so that the adjust outlet port points left. Connect the 'adjust' outlet port, of the model 'adj_1', to the source of one of the streams that is to be mixed. Connect the source outlet port to the sink to which the mixed stream flows.</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Tradeing off degrees of freedom/adding_adjust1.png" />
+                        </p>
+                        <p class="FigureCaption">Flowsheet after adding Adjust model ("adj_1")</p>
+                    </div>
+                </div>
+                <h3>Selecting variables to trade-off</h3>
+                <p>To configure the Adjust model two things have to be done:</p>
+                <ul>
+                    <li value="1">Unchecking the field for the variable that will be adjusted, in the dialog of the model that is connected to the Adjust model 'adjust' outlet port.</li>
+                    <li value="2">Selecting the variables to be traded off in the dialog of the Adjust unit model</li>
+                </ul>
+                <p>For the unit model connected to the 'adjust'&#160;output port, open the specification dialog. Make sure the variable, that is to be changed using the adjust model, is selected as a specification. Then uncheck the checkbox next to the field for the variable that will be changed. To select which variables in the models will be involved in the trade-off, open the unit dialog of the adjust Aodel. On the 'Target' tab and 'Adjust (Initial guesses)' tabs select the two variables that will be traded off. On the "Target" tab select the variable that has to be set equal to a target value ("fixed"). </p>
+                <p>There are three types of variable that can be selected:</p>
+                <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <col class="TableStyle-GeneralTable-Column-Column1" style="width: 159px;" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" style="width: 445px;" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Variable type</th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Description</th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scalar</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">These are variables that are single numbers.</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">The temperature of a perfectly stirred tank.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Array</td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">These are variables that are arrays of numbers.</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">The temperatures on all the trays of a distillation column. The trays are numbered from 1 to the number of trays on the column.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Ordered set</td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">These are variables that are arrays of numbers, indexed by keywords (commonly lists of chemical components).</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">The mass fractions of a material stream. Each chemical component in the stream has an associated mass fraction.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>First, select the desired variable type. Then in the field 'Target variable' (for the variable that is to be set equal to the target value) and in the field 'Adjusted variable' (for the variable that will be adjusted), select the desired variable from a list.</p>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>The variables that can be selected depend on which type of model the Adjust model is connected to. For example for a 'Source_material_gML' model, all of the stream properties of the material stream can be set, such as the temperature, pressure and composition of the stream. For a different source, for example a 'Source_energy_gML', only the energy rate can be set. The variables that can be selected sometimes depend on the options selected in the unit model that the Adjust model is connected to. For example, if a 'Stream_analyser_gML' unit model has been configured to calculate a physical property, such as density, only then will this density be available for selection in the Adjust model.</p>
+                </div>
+                <p>Specify the target value in the field 'Target value' and specify an initial guess, for the adjusted variable, on the 'Adjust (Initial guesses)' tab. This initial guess will be used to aid in converging the flowsheet but will not affect the solution. Typically, the value entered here can be the value that was originally in the field of the unit model connected to the adjust port of the 'Adjust' model. In general, choose a value here that permits the convergence of the flowsheet to a feasible solution, before the specification trade-off is applied.</p>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>Make sure the choices in the dialog of a unit for which external specifications are provided, for example using using a 'Set_signal_gML' model or the 'Adjust' port of an 'Adjust_gML' model, are consistent with those specifications. For example if a mass fraction for a component in a 'Source_material_gML' model is provided by an external specification, make sure the dialog of the 'Source_material_gML' is set to specify mass fractions.</p>
+                </div>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>For the flowsheet where two streams are mixed, uncheck the 'Mass flowrate' field in the specification dialog for the Source "s2". </p>
+                    <p>In the dialog for the Adjust&#160;model, select 'Mass flowrate'&#160;both for the target variable and the adjusted variables. Now specify that the mass flowrate of the mixed stream must equal 3 kg/s.</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Tradeing off degrees of freedom/tradeing_off_degrees_of_freedom_2_configuring_adjust.png" />
+                        </p>
+                        <p class="FigureCaption">Target value of 3 for the mass flowrate</p>
+                    </div>
+                    <p>Enter "1" as the value for the initial guess of the adjusted variable. This corresponds to the value in the 'Mass flowrate' field in the dialog for Source "s2".</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Tradeing off degrees of freedom/tradeing_off_degrees_of_freedom_2_configuring_adjust1.png" />
+                        </p>
+                        <p class="FigureCaption">Mass flowrate is adjusted with an initial guess of 1</p>
+                    </div>
+                    <p>The resulting flowsheet can be simulated, and should yield a solution where the flowrate of the mixed stream equals the target value.</p>
+                </div>
+                <h3>Adjust model with external target</h3>
+                <p>In many cases the target value is a fixed value. However, in some cases, the target value may depend on another value in the flowsheet model. This can be accomplished by using the external target option on the Adjust model. When this option is used, the value of the target can be a quantity in another unit model. This permit, for example, to adjust a given variable such that the mass flowrate of a stream is equal to that of another stream in the flowsheet. To use this option, connect the external target port of the adjust model to a unit model from which the variable that serves as an external target is obtained. Next, on the dialog of the adjust model select the option to obtain the target value from the external target input.</p>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>For the flowsheet where two stream are mixed, the desired mass flowrate of the mixed stream may depend on that of another stream in the flowsheet model. For example, it may need to be equal to that of a stream originating from a source "s3". Add a new source model "s3", by copying an existing unit model "s1", for the copied model, changing the mass flowrate to "15". Add sink "sink2" and connect source "s1"&#160;and sink "sink2". Connect the external target port on "adj_1" to the Source "s3". </p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Tradeing off degrees of freedom/tradeing_off_degrees_of_freedom_3_external_target.png" />
+                        </p>
+                        <p class="FigureCaption">Mass flowrate is adjusted to match the flowrate of another stream</p>
+                    </div>
+                    <p>Open the specification dialog of the unit model "adj_1" and, on the 'Target' tab, from the 'Value for target variable' dropdown menu, select 'From external target input'. From the  'External target variable' dropdown menu, select 'Mass flowrate'. Execute the simulation of the resultant flowsheet.</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Tradeing off degrees of freedom/tradeing_degrees_of_freedom_external_spec.png" />
+                        </p>
+                        <p class="FigureCaption">Adjuster "adj_1" changed to obtain its target specification as the mass flowrate of source "s3"</p>
+                    </div>
+                </div>
+                <h3>Determining the order in which specifications are traded off</h3>
+                <p>When solving a flowsheet model with a specification trade-off, a nominal solution will first be sought for the flowsheet model without the applied target specification where the adjusted variable is equal to its initial guess value. Then the specification trade-off is applied. The nominal solution is used to aid in the convergence to the solution with the applied specification trade-off. When multiple specification trade-offs are made for a single flowsheet model, or when a flowsheet model contains a single specification trade-off and one or more process recycle streams (see <a href="../Flowsheeting/Flowsheets with recycles.htm" class="MCXref xref">'Flowsheets with recycles'</a>), it may be necessary to specify the order in which the specification trade-offs are applied. Specifying an order may aid in the convergence of the flowsheet model to the solution where all specification trade-offs are applied (and, for a flowsheet which also contains process stream recycles, to a solution where all recycle streams are closed).</p>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

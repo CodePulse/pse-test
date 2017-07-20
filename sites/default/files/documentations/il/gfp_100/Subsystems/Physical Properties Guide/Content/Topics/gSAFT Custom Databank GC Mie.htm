@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties|Using Physical Properties for Simple Materials|The gSAFT physical properties interface|gSAFT Databank Management">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Creating a custom databank for SAFT-g Mie
+        </title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/gSAFT Custom Databank GC Mie.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Physical Properties</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c257.html">Using Physical Properties for Simple Materials</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="gSAFT introduction.htm">The gSAFT physical properties interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="gSAFT Databank Management.htm">gSAFT Databank Management</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Creating a custom databank for SAFT-γ Mie</span>
+            </div>
+        </div>
+        <h1><a name="gc_mie_custom_databank"></a>Creating a custom databank for SAFT-<span style="font-family: Symbol;">g</span> Mie
+        </h1>
+        <p>In the case of a databank that corresponds to the SAFT-<span style="font-family: Symbol;">g</span> Mie EoS, the <span class="fileName">&lt;gsaft&gt;</span> element is required to have a single <span class="fileName">&lt;compounds&gt;</span> element
+			   as well as a single <span class="fileName">&lt;groups&gt;</span> element as children element.
+			   The <span class="fileName">&lt;compounds&gt;</span> element is only allowed to contain a single or multiple <span class="fileName">&lt;compound&gt;</span> elements, with each element containing the parameters that are 
+			   required to describe a compound. The <span class="fileName">&lt;groups&gt;</span> element can in turn contain multiple  <span class="fileName">&lt;group&gt;</span> elements, where each element 
+			   used to specify the required parameters that describe a functional group. Following the <span class="fileName">&lt;groups&gt;</span> element,   the interactions between different functional groups can be specified within an optional <span class="fileName">&lt;crossInteractions&gt;</span> element, which contains a <span class="fileName">&lt;crossInteraction&gt;</span> element for each specified interaction.
+	        </p>
+        <p> 			 
+			   Note that each <span class="fileName">&lt;crossInteraction&gt;</span> element
+			   is always in reference to declared groups in the <span class="fileName">&lt;groups&gt;</span> element, and the specification of the groups to which a <span class="fileName">&lt;crossInteraction&gt;</span> element refers to is done in terms of the 
+			   <span class="fileName">group1</span> and <span class="fileName">group2</span> attributes. A small example that demonstrates how a databank that specifies the compounds <span class="fileName">n_butane</span>, <span class="fileName">1-pentanol</span>, and
+			   <span class="fileName">1-hexylamine</span>, together with the required functional groups (in this case assumed to be the <span class="fileName">CH3, CH2, OH</span>, and <span class="fileName">NH2</span> groups)
+			    elements as well as some of the cross interactions between these is shown below. Note that the contents of the <span class="fileName">&lt;compound&gt;</span>, <span class="fileName">&lt;group&gt;</span>, and <span class="fileName">&lt;crossInteraction&gt;</span> elements are omitted for brevity; these
+				are discussed in more detail in the following sections.
+			</p><pre class="programlisting" xml:space="preserve">
+&lt;gsaft <span style="color: #ff0000;">theory</span>="gc_mie"&gt;
+  &lt;compounds&gt;
+    &lt;compound <span style="color: #ff0000;">name</span>="n_butane"&gt;
+      ...
+    &lt;/compound&gt;
+    &lt;compound <span style="color: #ff0000;">name</span>="1-pentanol"&gt;
+      ...
+    &lt;/compound&gt;
+    &lt;compound <span style="color: #ff0000;">name</span>="1-hexylamine"&gt;
+      ...
+    &lt;/compound&gt;
+  &lt;/compounds&gt;
+  &lt;groups&gt;
+    &lt;group <span style="color: #ff0000;">name</span>="CH3"&gt;
+      ...
+    &lt;/group&gt;
+    &lt;group <span style="color: #ff0000;">name</span>="CH2"&gt;
+      ...
+    &lt;/group&gt;
+    &lt;group <span style="color: #ff0000;">name</span>="OH"&gt;
+      ...
+    &lt;/group&gt;
+    &lt;group <span style="color: #ff0000;">name</span>="NH2"&gt;
+      ...
+    &lt;/group&gt;
+  &lt;/groups&gt;
+  &lt;crossInteractions&gt;
+    &lt;crossInteraction <span style="color: #ff0000;">group1</span>="CH3" <span style="color: #ff0000;">group2</span>="CH2"&gt;
+      ...
+    &lt;/crossInteraction&gt;
+    &lt;crossInteraction <span style="color: #ff0000;">group1</span>="CH3" <span style="color: #ff0000;">group2</span>="OH"&gt;
+      ...
+    &lt;/crossInteraction&gt;
+    &lt;crossInteraction <span style="color: #ff0000;">group1</span>="CH2" <span style="color: #ff0000;">group2</span>="OH"&gt;
+      ...
+    &lt;/crossInteraction&gt;
+    &lt;crossInteraction <span style="color: #ff0000;">group1</span>="OH" <span style="color: #ff0000;">group2</span>="NH2"&gt;
+      ...
+    &lt;/crossInteraction&gt;
+  &lt;/crossInteractions&gt;						
+&lt;/gsaft&gt;</pre>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Compound definition</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>In a databank that is to be used with the SAFT-<span style="font-family: Symbol;">g</span> Mie EoS each compound is specified within a <span class="fileName">&lt;compound&gt;</span> element.
+					A valid <span class="fileName">&lt;compound&gt;</span> element requires the specification of the name of the compound by setting the <span class="fileName">name</span> attribute to a valid string, 
+					whereby each compound must have a unique name. Since the SAFT-<span style="font-family: Symbol;">g</span> Mie EoS is a group contribution approach, compounds are defined in terms of the 
+					types and multiplicities of the functional groups that they comprise. The specification of the functional groups that a compound comprises is done by adding a <span class="fileName">&lt;groupMultiplicities&gt;</span> element, within which a <span class="fileName">&lt;groupMultiplicity&gt;</span> element
+				for each type of functional group is declared; in the <span class="fileName">&lt;groupMultiplicity&gt;</span> element, the group type is declared as the value of <span class="fileName">ref</span> attribute of the element and is required to be a valid string, whereas
+					the group multiplicity is defined as the value of the <span class="fileName">&lt;groupMultiplicity&gt;</span> element and is required to be a integer. For the 
+					compounds <span class="fileName">n_butane</span>, <span class="fileName">1-pentanol</span>, and <span class="fileName">1-hexylamine</span> used in the example above the group multiplicities are 
+					as show in the table below.</p>
+                <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <caption>Group types and multiplicities for n_butane, 1-pentanol, and 1-hexylamine</caption>
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Compound</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Group type</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                <p>Group multiplicity</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>n_butane</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>CH3</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>2</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>&#160;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>CH2</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>2</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>1-pentanol</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>CH3</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>1</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>&#160;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>CH2</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>4</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>&#160;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>OH</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>1</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>1-hexylamine</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>CH3</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>1</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>&#160;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>CH2</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>5</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                <p>&#160;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                <p>NH2</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">
+                                <p>1</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The specification of the above compounds in terms of the functional groups they comprise in the databank is then as follows:</p><pre class="programlisting" xml:space="preserve">
+&lt;gsaft theory = "gc_mie"&gt;
+  &lt;compounds&gt;					
+    &lt;compound name = "n_butane"&gt; 
+      &lt;groupMultiplicities&gt;
+        <span style="color: #ff0000;">&lt;groupMultiplicity ref = "CH3"&gt;2&lt;/groupMultiplicity&gt;</span>
+        <span style="color: #ff0000;">&lt;groupMultiplicity ref = "CH2"&gt;2&lt;/groupMultiplicity&gt;</span>
+      &lt;/groupMultiplicities&gt;
+    &lt;/compound&gt;
+    &lt;compound name = "1-pentanol"&gt;
+      &lt;groupMultiplicities&gt;
+        <span style="color: #ff0000;">&lt;groupMultiplicity ref = "CH3"&gt;1&lt;/groupMultiplicity&gt;</span>
+        <span style="color: #ff0000;">&lt;groupMultiplicity ref = "CH2"&gt;4&lt;/groupMultiplicity&gt;</span>
+        <span style="color: #ff0000;">&lt;groupMultiplicity ref = "OH"&gt;1&lt;/groupMultiplicity&gt;</span>
+      &lt;/groupMultiplicities&gt;										
+    &lt;/compound&gt;
+    &lt;compound name = "1-hexylamine"&gt;
+      &lt;groupMultiplicities&gt;
+        <span style="color: #ff0000;">&lt;groupMultiplicity ref = "CH3"&gt;1&lt;/groupMultiplicity&gt;</span>
+        <span style="color: #ff0000;">&lt;groupMultiplicity ref = "CH2"&gt;5&lt;/groupMultiplicity&gt;</span>
+        <span style="color: #ff0000;">&lt;groupMultiplicity ref = "NH2"&gt;1&lt;/groupMultiplicity&gt;</span>
+      &lt;/groupMultiplicities&gt;										
+    &lt;/compound&gt;					
+  &lt;/compounds&gt;					
+  &lt;groups&gt;					  					
+    ...
+  &lt;/groups&gt;														
+&lt;/gsaft&gt;					
+</pre>
+                <p>Note that since the compound specification is done in terms of functional group types, the group types used in the <span class="fileName">&lt;groupMultiplicity&gt;</span> elements of a compound must be 
+					   groups that are declared in the <span class="fileName">&lt;groups&gt;</span> element (see the section below).</p>
+                <p>In addition to the definition of a compound in terms of the functional groups it comprises, each <span class="fileName">&lt;compound&gt;</span> element can further contain the elements listed
+					   in the table below for the specification of some compound specific properties. Note that all these elements are optional, and if declared they can only be only be of single occurrence.</p>
+                <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <caption><a name="Optional element of the compound element (SAFT-VR SW)"></a>Optional elements of the &lt;compound&gt; element</caption>
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Element name</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Description</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Element Type</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Value Type</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Units</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>&lt;dielectric&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Coefficients for the linear correlation of the dielectric constant</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Complex</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p> - </p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p> - </p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>&lt;enthalpyOfFusion&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Compound's enthalpy of fusion</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Simple</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Real</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>[J mol<sup>-1</sup>]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>&lt;meltingTemperature&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Compound's melting temperature</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Simple</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Real</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>[K]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                <p>&lt;heatCapacityDifference&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                <p>Difference between the compound's heat capacity in solid and liquid form</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                <p>Simple</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                <p>Real</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                <p>[J mol<sup>-1</sup> K<sup>-1</sup>]</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>All the elements listed above (apart from the <span class="fileName">&lt;dielectric&gt;</span> element) are of <span class="fileName">Simple</span> element type. That is,
+					they are declared as elements with the element name being the corresponding parameter name, and the parameter value is given as the element value. The enthalpy of fusion and the 
+					melting temperature for 1-pentanol would be for example specified as shown below.</p><pre class="programlisting" xml:space="preserve">
+&lt;gsaft theory = "gc_mie"&gt;
+  &lt;compounds&gt;					
+    &lt;compound name = "1-pentanol"&gt;
+      &lt;groupMultiplicities&gt;
+        &lt;groupMultiplicity ref = "CH3"&gt;1&lt;/groupMultiplicity&gt;
+        &lt;groupMultiplicity ref = "CH2"&gt;4&lt;/groupMultiplicity&gt;
+        &lt;groupMultiplicity ref = "OH" &gt;1&lt;/groupMultiplicity&gt;
+      &lt;/groupMultiplicities&gt;	
+      <span style="color: #ff0000;">&lt;enthalpyOfFusion&gt;10502.0&lt;/enthalpyOfFusion&gt;</span>
+      <span style="color: #ff0000;">&lt;meltingTemperature&gt;195.56&lt;/meltingTemperature&gt;</span>					
+    &lt;/compound&gt;
+  &lt;/compounds&gt;
+  &lt;groups&gt;				
+    ...
+  &lt;/groups&gt;
+&lt;/gsaft&gt;					
+</pre>
+                <p>The <span class="fileName">&lt;dielectric&gt;</span> element is specified in a different way and is discussed in more detail in the following paragraph.</p>
+                <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />The <span class="fileName">&lt;dielectric&gt;</span> element</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>This element gives the coefficients of a linear correlation for the value of the dielectric constant as a function of temperature. The parameters <i class="emphasis">v</i> and <i class="emphasis">t</i>
+						are specified as the values of the corresponding attributes of the <span class="fileName">&lt;dielectric&gt;</span> element, as shown below for the case of water as an example (note
+							that water is assumed to comprise a single occurence of the <span class="fileName">H2O</span> group).</p><pre class="programlisting" xml:space="preserve">
+&lt;gsaft theory = "gc_mie"&gt;
+  &lt;compounds&gt;								
+    &lt;compound name = "water" &gt;
+      &lt;groupMultiplicities&gt;
+        &lt;groupMultiplicity  ref = "H2O"&gt;1&lt;/groupMultiplicity&gt;
+      &lt;/groupMultiplicities&gt;
+      &lt;dielectric <span style="color: #ff0000;">v = "0.3777e-3" t = "1403"</span>/&gt;
+    &lt;/compound&gt;							
+  &lt;/compounds&gt;
+  &lt;groups&gt;						
+    ...
+  &lt;/groups&gt;
+&lt;/gsaft&gt;</pre>
+                        <p>The dielectric constant, <i class="emphasis">D</i>, is then calculated according as a function of temperature, <i class="emphasis">T</i>, according to the following formula</p>
+                        <p>
+                            <img src="../GeneratedImages/Equations/Equation9.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </p>
+                        <p>where <i class="emphasis">ρ<sub>solv</sub></i> is the density of the compound at the specifief temperature.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Group definition</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>In a databank that is to be used with the SAFT-<span style="font-family: Symbol;">g</span> Mie EoS each group type is specified by adding a <span class="fileName">&lt;group&gt;</span> element
+					within the <span class="fileName">&lt;groups&gt;</span> element in the databank.
+				   A valid <span class="fileName">&lt;group&gt;</span> element requires the specification of the name of the group by setting the <span class="fileName">name</span> attribute to a valid string, 
+					whereby each compound must have a unique name. Each <span class="fileName">&lt;group&gt;</span> element  can contain any of the elements presented
+								   in the table below, where each element can be of single occurrence. Note that these elements  can be of two types, as listed in the <span class="fileName">Element Type</span> column. <span class="fileName">Simple</span> elements are elements simply contain a value (e.g., <span class="fileName">&lt;mw&gt;18.015&lt;/mw&gt;</span>) and have no attributes and/or child elements.
+							Any other element is listed as <span class="fileName">Complex</span>; the exact structure of these elements will be discussed in more detail.
+                </p>
+                <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <caption>Contents of the &lt;group&gt; element</caption><a name="Group_Element_GC_Mie"></a>
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Element name</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Description</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Required</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Element Type</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Value Type</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                <p>Units</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>&lt;mw&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Group's molecular weight</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Yes</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Simple</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Real</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>[Kg kmol<sup>-1</sup>]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>&lt;charge&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Charge of the group</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>No</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Simple</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p> Integer </p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p> - </p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>&lt;heatCapacity&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Coefficients of the polynomial for the ideal gas heat capacity of the group</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Yes</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Complex</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p> - </p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p> - </p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>&lt;enthalpyOfFormation&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Group's enthalpy of formation at 298.15 K and 1 bar</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Yes</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Simple</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Real</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>[J mol<sup>-1</sup>]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>&lt;entropyOfFormation&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Group's entropy of formation at 298.15 K and 1 bar</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Yes</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Simple</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Real</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>[J mol<sup>-1</sup> K<sup>-1</sup>]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>&lt;numberOfSegments&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>The number of segments each group comprises (parameter <span style="font-family: Symbol;">n</span><sup>*</sup> in SAFT-<span style="font-family: Symbol;">g</span> Mie)</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Yes</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Simple</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Integer</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>dimensionless</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>&lt;shapeFactor&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>The shape factor of the group (parameter S<sub>k</sub> in SAFT-<span style="font-family: Symbol;">g</span> Mie)</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Yes</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Simple</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Real</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>dimensionless</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>&lt;associationSites&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>SAFT-<span style="font-family: Symbol;">g</span> Mie association site type declaration</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>No</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>Complex</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p> - </p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p> - </p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p>&lt;selfInteraction&gt;</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p>SAFT-<span style="font-family: Symbol;">g</span> Mie group interaction parameters</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p>Yes</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p>Complex</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p> - </p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">
+                                <p> - </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Note that the group-specific <span class="fileName">&lt;enthalpyOfFormation&gt;</span> and <span class="fileName">&lt;entropyOfFormation&gt;</span> elements
+				contain the values of the Joback and Reid group-contribution approach.<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span> For more details and parameter values see: 
+				Joback K.G., Reid R.C., "Estimation of Pure-Component Properties from Group-Contributions", Chem. Eng. Commun., 57, 233–243, (1987)</span></a>
+				The compound-specific values are then calculated based on the value for each group type and the group multiplicity using the corresponding equations
+				of the Joback and Reid method.</p>
+                <p>The elements of complex type that a <span class="fileName">&lt;group&gt;</span> element can contain are:</p>
+                <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />The <span class="fileName">&lt;heatCapacity&gt;</span> element</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>This element contains the values of the contribution of each group type to the ideal gas heat capacity, which is calculated for each compound
+							based on the Joback and Reid group contribution approach. The values of four coefficients need to be provided (<i class="emphasis">a, b, c, d</i>)
+						    as separate elements within the <span class="fileName">&lt;heatCapacity&gt;</span> element, 
+						    as shown below for the case of the <span class="fileName">CH3</span> and <span class="fileName">CH2</span> groups.</p><pre class="programlisting" xml:space="preserve">
+&lt;gsaft theory = "gc_mie"&gt;
+  &lt;compounds&gt;
+    ...							
+  &lt;/compounds&gt;
+  &lt;groups&gt;
+    &lt;group name = "CH3"&gt;
+      ...
+      &lt;heatCapacity&gt;
+        &lt;a&gt;19.5&lt;/a&gt;
+        &lt;b&gt;-0.00808&lt;/b&gt;
+        &lt;c&gt;0.000153&lt;/c&gt;
+        &lt;d&gt;-0.0000000967&lt;/d&gt;
+      &lt;/heatCapacity&gt;
+      ...
+    &lt;/group&gt;
+    &lt;group name = "CH2"&gt;
+      ...
+      &lt;heatCapacity&gt;
+        &lt;a&gt;-0.909&lt;/a&gt;
+        &lt;b&gt;0.095&lt;/b&gt;
+        &lt;c&gt;-0.0000544&lt;/c&gt;
+        &lt;d&gt;0.0000000119&lt;/d&gt;
+      &lt;/heatCapacity&gt;
+      ...
+    &lt;/group&gt;	
+  &lt;/groups&gt;
+&lt;/gsaft&gt;</pre>
+                        <p>Given the values of the four coefficients <i class="emphasis">a, b, c, d</i>, the ideal gas heat capacity of a compound
+							is then calculated in units of [J mol<sup>-1</sup> K<sup>-1</sup>] as a function of temperature (<i class="emphasis">T</i>) 
+							based on the following fourth-order polynomial expression.</p>
+                        <p>
+                            <img src="../GeneratedImages/Equations/Equation10.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </p>
+                        <p>In the equation above, <i class="emphasis">N<sub>G</sub></i> is the number of group types and <i class="emphasis">ν<sub>k</sub></i> is the
+						   multiplicity of group of type <i class="emphasis">k</i> of the compound.
+						</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />The <span class="fileName">&lt;associationSites&gt;</span> element</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>This element is optional and is used in the case of associating (hydrogen-bonding) groups for defining the different types of association sites on a group, as well as the multiplicity of each association site type.
+							The element can contain multiple <span class="fileName">&lt;siteMultiplicity&gt;</span> elements, with each element used for the specification of each site type.
+							The site type is specified as the value of the <span class="fileName">name</span> attribute of each <span class="fileName">&lt;siteMultiplicity&gt;</span> element and is required to be a valid string. The multiplicity of each association site type is then 
+							specified by setting the value of the <span class="fileName">&lt;siteMultiplicity&gt;</span> element accordingly, which is required to be a positive integer. Looking at the example of the hydroxyl
+						(<span class="fileName">OH</span>) group, the association scheme specified is summarised in the table below.</p>
+                        <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                            <caption>Association scheme for the hydroxyl group</caption>
+                            <thead>
+                                <tr class="TableStyle-GeneralTable-Head-Header1">
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>Association site type</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                        <p>Site multiplicity</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="TableStyle-GeneralTable-Body-Body1">
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>H</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                        <p>1</p>
+                                    </td>
+                                </tr>
+                                <tr class="TableStyle-GeneralTable-Body-Body2">
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>e</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">
+                                        <p>2</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>The corresponding declaration in the databank is as follows:</p><pre class="programlisting" xml:space="preserve">
+&lt;gsaft theory = "gc_mie"&gt;
+  &lt;compounds&gt;
+    ...
+  &lt;/compounds&gt;
+  &lt;groups&gt;
+    &lt;group name = "OH"&gt;
+      ...
+      &lt;associationSites&gt;
+        &lt;siteMultiplicity <span style="color: #ff0000;">name = "e"</span>&gt;2&lt;/siteMultiplicity&gt;
+        &lt;siteMultiplicity <span style="color: #ff0000;">name = "H"</span>&gt;1&lt;/siteMultiplicity&gt;
+      &lt;/associationSites&gt;	
+      ...
+    &lt;/group&gt;
+  &lt;/groups&gt;
+&lt;/gsaft&gt;</pre>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" /></a><a name="Self_Interaction_GcMie"></a><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_">The <span class="fileName">&lt;selfInteraction&gt;</span> element</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>The <span class="fileName">&lt;selfInteraction&gt;</span> element contains the parameters that describe the self interactions between a given group. These are grouped in two different elements,
+							with the <span class="fileName">&lt;dispersion&gt;</span> element containing the parameters that describe the dispersion interactions, and the <span class="fileName">&lt;association&gt;</span> element, 
+							where the parameters that describe the association interactions are placed. Note that the <span class="fileName">&lt;dispersion&gt;</span> element is required within a <span class="fileName">&lt;selfInteraction&gt;</span> element, whereas
+						the <span class="fileName">&lt;association&gt;</span> element is optional and can only be declared for associating groups.</p>
+                        <p>The <span class="fileName">&lt;dispersion&gt;</span> element contains the parameters of the Mie interaction potential for the self-interaction of the group. Together with the <span class="fileName">&lt;numberOfSegments&gt;</span> 
+							and <span class="fileName">&lt;shapeFactor&gt;</span> elements, the <span class="fileName">&lt;dispersion&gt;</span> element provides the set of parameters that are required by 
+							SAFT-<span style="font-family: Symbol;">g</span> Mie. The parameters that are specified within the <span class="fileName">&lt;dispersion&gt;</span> element
+							are listed in the table below.</p>
+                        <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                            <caption>Elements of the &lt;dispersion&gt; element</caption>
+                            <thead>
+                                <tr class="TableStyle-GeneralTable-Head-Header1">
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>Parameter Type</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>Name in Databank</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>Description</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                        <p>Units</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="TableStyle-GeneralTable-Body-Body1">
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>ε/k<sub>B</sub></p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>epsilon</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>Dispersion energy of the Mie interaction potential divided by the Boltzmann constant</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                        <p>[K]</p>
+                                    </td>
+                                </tr>
+                                <tr class="TableStyle-GeneralTable-Body-Body2">
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                        <p>λ<sup>R</sup></p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                        <p>lambdaRepulsive</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                        <p>Repulsive exponent of the Mie interaction potential</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                        <p>dimensionless</p>
+                                    </td>
+                                </tr>
+                                <tr class="TableStyle-GeneralTable-Body-Body1">
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>λ<sup>A</sup></p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>lambdaAttractive</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>Attractive exponent of the Mie interaction potential</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                        <p>dimensionless</p>
+                                    </td>
+                                </tr>
+                                <tr class="TableStyle-GeneralTable-Body-Body2">
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>σ</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>sigma</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>Diameter of each spherical segment of the group</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">
+                                        <p>[m]</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>The values of the interaction parameters are specified as elements of the corresponding name (as listed in the table above) within the 
+							<span class="fileName">&lt;dispersion&gt;</span> element. Taking the CH3 and CH2 groups as examples, for which the interaction parameters together with the 
+							shape factor (<i class="emphasis">S<sub>k</sub></i>) and number of semgents (<i class="emphasis">ν*<sub>k</sub></i>) are as follows:</p>
+                        <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                            <thead>
+                                <tr class="TableStyle-GeneralTable-Head-Header1">
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>Parameter</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>CH3</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                        <p>CH2</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="TableStyle-GeneralTable-Body-Body1">
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>numberOfSegments</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>1.0</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                        <p>1.0</p>
+                                    </td>
+                                </tr>
+                                <tr class="TableStyle-GeneralTable-Body-Body2">
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                        <p>shapeFactor</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                        <p>0.5725512</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                        <p>0.2293202</p>
+                                    </td>
+                                </tr>
+                                <tr class="TableStyle-GeneralTable-Body-Body1">
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>epsilon</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>256.7662</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                        <p>473.3893</p>
+                                    </td>
+                                </tr>
+                                <tr class="TableStyle-GeneralTable-Body-Body2">
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                        <p>lambdaRepulsive</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                        <p>15.04982</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                        <p>19.87107</p>
+                                    </td>
+                                </tr>
+                                <tr class="TableStyle-GeneralTable-Body-Body1">
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>lambdaAttractive</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>6.0</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                        <p>6.0</p>
+                                    </td>
+                                </tr>
+                                <tr class="TableStyle-GeneralTable-Body-Body2">
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>sigma</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>4.077257e-10</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">
+                                        <p>4.880081e-10</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>the specification of these parameters in the databank would be as shown below.</p><pre class="programlisting" xml:space="preserve">
+&lt;gsaft theory = "gc_mie"&gt;
+  &lt;compounds&gt;
+    ...
+  &lt;/compounds&gt;
+  &lt;groups&gt;
+    &lt;group name = "CH3"&gt;
+      ...
+      &lt;numberOfSegments&gt;1&lt;/numberOfSegments&gt;
+      &lt;shapeFactor&gt;0.5725512&lt;/shapeFactor&gt;
+      &lt;selfInteraction&gt;
+        &lt;dispersion&gt;
+          &lt;epsilon&gt;256.7662&lt;/epsilon&gt;
+          &lt;lambdaRepulsive&gt;15.04982&lt;/lambdaRepulsive&gt;
+          &lt;lambdaAttractive&gt;6.0&lt;/lambdaAttractive&gt;
+          &lt;sigma&gt;4.077257e-10&lt;/sigma&gt;
+        &lt;/dispersion&gt;
+      &lt;/selfInteraction&gt;
+      ...
+    &lt;/group&gt;
+    &lt;group name = "CH2"&gt;
+      ...
+      &lt;numberOfSegments&gt;1&lt;/numberOfSegments&gt;
+      &lt;shapeFactor&gt;0.2293202&lt;/shapeFactor&gt;
+      &lt;selfInteraction&gt;
+        &lt;dispersion&gt;
+          &lt;epsilon&gt;473.3893&lt;/epsilon&gt;
+          &lt;lambdaRepulsive&gt;19.87107&lt;/lambdaRepulsive&gt;
+          &lt;lambdaAttractive&gt;6.0&lt;/lambdaAttractive&gt;
+          &lt;sigma&gt;4.880081e-10&lt;/sigma&gt;
+        &lt;/dispersion&gt;
+      &lt;/selfInteraction&gt;
+      ...
+    &lt;/group&gt;
+  &lt;/groups&gt;
+&lt;/gsaft&gt;</pre>
+                        <p>The <span class="fileName">&lt;association&gt;</span> element is used for the specification of the parameters that describe the association interaction (modelled by the square-well potential) between 
+							site types of a group. Each site-site interaction is described by an <span class="fileName">&lt;interaction&gt;</span> element, whereby the site types to which the interaction refers are declared as the values of the <span class="fileName">site1</span> and 
+							<span class="fileName">site2</span> attributes of the <span class="fileName">&lt;interaction&gt;</span> element. Note that the specified site types
+							must have been previously declared in the <span class="fileName">&lt;associationSites&gt;</span> element of the group, as discussed above.</p>
+                        <p>The association interaction requires the specification of two parameters per interaction, which are summarised in the table below.</p>
+                        <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                            <caption>Elements of the &lt;interaction&gt; element</caption>
+                            <thead>
+                                <tr class="TableStyle-GeneralTable-Head-Header1">
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>Parameter Type</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>Name in Databank</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>Description</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                        <p>Units</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="TableStyle-GeneralTable-Body-Body1">
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>ε<sup>HB</sup>/k<sub>B</sub></p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>epsilonAssoc</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>Depth of the square-well association interaction potential divided by the Boltzmann constant</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                        <p>[K]</p>
+                                    </td>
+                                </tr>
+                                <tr class="TableStyle-GeneralTable-Body-Body2">
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>K</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>bondingVolume</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>Volume available for association interactions</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">
+                                        <p>[m<sup>3</sup>]</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>The values of the interaction parameters are specified as elements of the corresponding name (as listed in the table above) within the 
+											<span class="fileName">&lt;interaction&gt;</span> element. Multiple <span class="fileName">&lt;interaction&gt;</span> elements can be declared within 
+											a <span class="fileName">&lt;group&gt;</span> element, with each <span class="fileName">&lt;interaction&gt;</span> element describing the interaction
+											between sites of the same and/or different types.</p>
+                        <p>Taking the hydroxyl (<span class="fileName">OH</span>) group as an example, the association interaction parameters for the interaction 
+										between sites of type <span class="fileName">H</span> and sites of type <span class="fileName">e</span> are as follows</p>
+                        <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                            <col class="TableStyle-GeneralTable-Column-Column1" />
+                            <col class="TableStyle-GeneralTable-Column-Column1" />
+                            <col class="TableStyle-GeneralTable-Column-Column1" />
+                            <col style="width: 93px;" class="TableStyle-GeneralTable-Column-Column1" />
+                            <thead>
+                                <tr class="TableStyle-GeneralTable-Head-Header1">
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>Parameter</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>Site 1</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                        <p>Site 2</p>
+                                    </th>
+                                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                        <p>Value</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="TableStyle-GeneralTable-Body-Body1">
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>epsilonAssoc</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>H</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                        <p>e</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                        <p>2160.996</p>
+                                    </td>
+                                </tr>
+                                <tr class="TableStyle-GeneralTable-Body-Body2">
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>bondingVolume</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>H</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                        <p>e</p>
+                                    </td>
+                                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">
+                                        <p>54.398e-30</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>The specification of the association interaction parameters in the databank in this case would be as shown below (note that the
+						<span class="fileName">&lt;associationSites&gt;</span> element for the OH group are also displayed for completeness).</p><pre class="programlisting" xml:space="preserve">
+&lt;gsaft theory = "gc_mie"&gt;
+  &lt;compounds&gt;
+    ...
+  &lt;/compounds&gt;
+  &lt;groups&gt;
+    &lt;group name = "OH"&gt;
+      ...
+      &lt;associationSites&gt;
+        &lt;siteMultiplicity name = "e"&gt;2&lt;/siteMultiplicity&gt;
+        &lt;siteMultiplicity name = "H"&gt;1&lt;/siteMultiplicity&gt;
+      &lt;/associationSites&gt;
+      &lt;selfInteraction&gt;
+        &lt;dispersion&gt;
+          ...
+        &lt;/dispersion&gt;
+        &lt;association&gt;
+          &lt;interaction <span style="color: #ff0000;">site1 = "e"</span> <span style="color: #ff0000;">site2 = "H"</span>&gt;
+            &lt;epsilonAssoc&gt;2160.996&lt;/epsilonAssoc&gt;
+            &lt;bondingVolume&gt;54.398e-30&lt;/bondingVolume&gt;
+          &lt;/interaction&gt;
+        &lt;/association&gt;
+      &lt;/selfInteraction&gt;
+    &lt;/group&gt;
+  &lt;groups&gt;
+&lt;/gsaft&gt;</pre>
+                        <p>Notes:</p>
+                        <ul>
+                            <li value="1">In the example presented above the <span class="fileName">&lt;interaction&gt;</span> element describes the association interaction 
+										    between sites of different type. Association interactions between sites of the same type can also be declared in the same fashion,
+											simply by assigning the same value to both the <span class="fileName">site1</span> and <span class="fileName">site2</span> attributes
+											of the <span class="fileName">&lt;interaction&gt;</span> element.</li>
+                            <li value="2">Site types can be assigned to the <span class="fileName">site1</span> and <span class="fileName">site2</span>
+											attributes of the <span class="fileName">&lt;interaction&gt;</span> element in any order; the association interactions for site types
+											of the same group are symmetric, i.e., either of the elements <span class="fileName">&lt;interaction site1="e" site2="H"&gt;</span> and 
+											<span class="fileName">&lt;interaction site1="H" site2="e"&gt;</span> can be used to specify the same interaction.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Cross-interaction specification</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>The specification of cross interactions between groups is optional, and each <span class="fileName">&lt;crossInteraction&gt;</span> element is used to
+								   specify the interaction between two groups. The groups to which each <span class="fileName">&lt;crossInteraction&gt;</span> element refers to
+									are specified by assigning the corresponding compound names to the <span class="fileName">group1</span> and <span class="fileName">group2</span> attributes 
+									of the <span class="fileName">&lt;crossInteraction&gt;</span> element. Note that:</p>
+                <ul>
+                    <li value="1">The values (i.e. group names) assigned to the <span class="fileName">group1</span> and <span class="fileName">group2</span> attributes must be 
+										valid strings and must correspond to names of groups previously declared in the databank within the <span class="fileName">&lt;groups&gt;</span> element
+									</li>
+                    <li value="2">A cross interaction between two groups can be specified by assigning the corresponding group names to the <span class="fileName">group1</span> and <span class="fileName">group2</span> attributes
+										in any order. However, each cross interaction must have a unique definition, i.e., only one <span class="fileName">&lt;crossInteraction&gt;</span> element that refers to two specific groups is allowed in the 
+										databank.
+									</li>
+                </ul>
+                <p>The structure of a <span class="fileName">&lt;crossInteraction&gt;</span> element follows closely the case of the <a href="#Self_Interaction_GcMie" class="selected"><span class="fileName">&lt;selfInteraction&gt;</span> element</a>.</p>
+                <p>The specification of the cross dispersion interactions is done within a <span class="fileName">&lt;dispersion&gt;</span> element. As for the case of self interactions, the <span class="fileName">&lt;dispersion&gt;</span> element can contain single
+					<span class="fileName">&lt;epsilon&gt;</span>, <span class="fileName">&lt;sigma&gt;</span>, <span class="fileName">&lt;lambdaAttractive&gt;</span>, or <span class="fileName">&lt;lambdaRepulsive&gt;</span> elements.
+					The specification of the parameters is optional, and if they are not specified the corresponding parameter values are calculated by means of the appropriate combining rules.
+                                <a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span> For more details on the combining rules employed see: V. Papaioannou, T. Lafitte, C. Avendaño, C. S. Adjiman, 
+					G. Jackson, E. A. Müller, and A. Galindo, "Group contribution methodology based on the statistical associating fluid theory for heteronuclear molecules formed from Mie segments", 
+					The Journal of chemical physics, 140(5), 054107, (2014).</span></a></p>
+                <p>Each of the parameters can be specified by adding an element with the corresponding parameter type as name, and the parameter value as the value of the element. For the unlike interaction
+									between the <span class="fileName">CH3</span> and <span class="fileName">CH3COCH3</span> groups, where the cross dispersion parameters are as shown in the table below</p>
+                <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <caption>CH3 / CH3COCH3 cross dispersive interaction parameters</caption>
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Parameter Type</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Name in databank</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Value</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                <p>Units</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>ε/k<sub>B</sub></p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>epsilon</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>233.48</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>[K]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>λ<sup>R</sup></p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>lambdaRepulsive</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>14.449</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>dimensionless</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>λ<sup>A</sup></p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>lambdaAttractive</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>combining rule</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>dimensionless</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                <p>σ</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                <p>sigma</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                <p>combining rule</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">
+                                <p>[m]</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>the corresponding <span class="fileName">&lt;crossInteraction&gt;</span> element is as follows.</p><pre class="programlisting" xml:space="preserve">
+&lt;gsaft theory="gc_mie"&gt;
+  &lt;compounds&gt;
+    ...
+  &lt;/compounds&gt;
+  &lt;groups&gt;
+    &lt;group name = "CH3"&gt;
+      ...
+    &lt;/group&gt;
+    &lt;group name = "CH3COCH3"&gt;
+      ...
+    &lt;/group&gt;
+  &lt;/groups&gt;
+  &lt;crossInteractions&gt;
+    &lt;crossInteraction <span style="color: #ff0000;">group1</span>="CH3" <span style="color: #ff0000;">group2</span>="CH3COCH3"&gt;
+      &lt;dispersion&gt;
+        &lt;epsilon&gt;233.48&lt;/epsilon&gt;
+        &lt;lambdaRepulsive&gt;14.449&lt;/lambdaRepulsive&gt;
+      &lt;/dispersion&gt;
+    &lt;/crossInteraction&gt;
+  &lt;/crossInteractions&gt;
+&lt;/gsaft&gt;</pre>
+                <p>The specification of cross association interactions is done within the <span class="fileName">&lt;association&gt;</span> element, where a single <span class="fileName">&lt;interaction&gt;</span> element is needed for the interaction between two site types. For the specification of the association interaction between site types on different compounds the order in which the 
+					site types are declared in the <span class="fileName">site1</span> and <span class="fileName">site2</span> attributes of the <span class="fileName">&lt;interaction&gt;</span>
+					element needs to follow the specification of the groups (<span class="fileName">group1</span> and <span class="fileName">group2</span> attributes) in 
+					the <span class="fileName">&lt;crossInteraction&gt;</span> element. Namely, the site type specified in the <span class="fileName">site1</span> attribute, must
+					be a site type declared within the group referenced in the <span class="fileName">group1</span> attribute of the <span class="fileName">&lt;crossInteraction&gt;</span> element.
+					The same holds for the <span class="fileName">site2</span> and <span class="fileName">group2</span> attributes. Note that within each <span class="fileName">&lt;interaction&gt;</span> element
+					the specification of both parameters (<span class="fileName">epsilonAssoc</span>, and <span class="fileName">bondingVolume</span>) within the corresponding elements is required; no combining rules
+					apply in this case and any parameter not declared is assigned the value 0.</p>
+                <p>Let us examine as an example the cross interaction between the <span class="fileName">CH3COCH3</span> and <span class="fileName">H2O</span> groups, both of which have association sites of different types.
+					 More specifically the <span class="fileName">CH3COCH3</span> group has one site of type <span class="fileName">H</span> and 
+									one site of types <span class="fileName">e1</span> and <span class="fileName">e2</span>, respectively, wheres the <span class="fileName">H2O</span> group
+					               has two sites of type <span class="fileName">H</span> and
+									two sites of type <span class="fileName">e</span>.
+									The association scheme for both compounds is summarised in the table below.</p>
+                <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <caption>Association scheme for the <span class="fileName">CH3COCH3</span> and <span class="fileName">H2O</span> groups</caption>
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Group</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Association site type</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                <p>Site multiplicity</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>H2O</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>H</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>2</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p> </p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>e</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>2</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>CH3COCH3</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>H</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>1</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p> </p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>e1</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>1</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p> </p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p>e2</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">
+                                <p>1</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The cross interaction parameters for the dispersive and association interactions are listed
+									(omitting the parameter values that are calculated by combining rules for brevity) in the following table.</p>
+                <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <caption>CH3COCH3 / H2O cross group interaction parameters</caption>
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Parameter Type</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Name in databank</p>
+                            </th>
+                            <th colspan="2" class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Association sites</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                <p>Value</p>
+                            </th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                <p>Units</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>ε/k<sub>B</sub></p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>epsilon</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p> - </p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p> - </p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>287.26</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>[K]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>ε<sup>HB</sup>/k<sub>B </sub></p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>epsilonAssoc</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>CH3COCH3:H</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>H2O:e</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>1386.8</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>[K]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>K</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>bondingVolume</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>CH3COCH3:H</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>H2O:e</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>188.83e-30</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>[m<sup>3</sup>]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>ε<sup>HB</sup>/k<sub>B </sub></p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>epsilonAssoc</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>CH3COCH3:e1</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>H2O:H</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>1588.7</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>[K]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>K</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>bondingVolume</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>CH3COCH3:e1</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>H2O:H</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>772.77e-30</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>[m<sup>3</sup>]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>ε<sup>HB</sup>/k<sub>B </sub></p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>epsilonAssoc</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>CH3COCH3:e2</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>H2O:H</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                <p>417.24</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>[K]</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p>K</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p>bondingVolume</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p>CH3COCH3:e2</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p>H2O:H</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                <p>1304.3e-30</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">
+                                <p>[m<sup>3</sup>]</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>In this case, the corresponding specification in the databank, including the specification of the <span class="fileName">&lt;associationSites&gt;</span> element for each group for 
+									completeness, is as follows.</p><pre class="programlisting" xml:space="preserve">
+&lt;gsaft theory="gc_mie"&gt;
+  &lt;compounds&gt;
+    ...
+  &lt;/compounds&gt;
+  &lt;groups&gt;
+    &lt;group name = "CH3COCH3"&gt;
+      ...
+      &lt;associationSites&gt;
+        &lt;siteMultiplicity name = "H" &gt;1&lt;/siteMultiplicity&gt;									
+        &lt;siteMultiplicity name = "e1"&gt;1&lt;/siteMultiplicity&gt;
+        &lt;siteMultiplicity name = "e2"&gt;1&lt;/siteMultiplicity&gt;
+      &lt;/associationSites&gt;
+      ...								
+    &lt;/group&gt;
+    &lt;group name = "H2O"&gt;
+      ...
+      &lt;associationSites&gt;
+        &lt;siteMultiplicity name = "H"&gt;2&lt;/siteMultiplicity&gt;
+        &lt;siteMultiplicity name = "e"&gt;2&lt;/siteMultiplicity&gt;
+      &lt;/associationSites&gt;
+      ...								
+    &lt;/group&gt;
+  &lt;/groups&gt;
+  &lt;crossInteractions&gt;
+    &lt;crossInteraction <span style="color: #ff0000;">group1</span>="CH3COCH3" <span style="color: #ff0000;">group2</span>="H2O"&gt;
+      &lt;dispersion&gt;
+        &lt;epsilon&gt;287.26&lt;/epsilon&gt;
+      &lt;/dispersion&gt;
+      &lt;association&gt;
+        &lt;interaction <span style="color: #ff0000;">site1</span>="H" <span style="color: #ff0000;">site2</span>="e"&gt;									  
+          &lt;epsilonAssoc&gt;1386.8&lt;/epsilonAssoc&gt;							
+          &lt;bondingVolume&gt;188.83e-30&lt;/bondingVolume&gt;
+        &lt;/interaction&gt;    																											
+        &lt;interaction <span style="color: #ff0000;">site1</span>="e1" <span style="color: #ff0000;">site2</span>="H"&gt;									
+          &lt;epsilonAssoc&gt;1588.7&lt;/epsilonAssoc&gt;									
+          &lt;bondingVolume&gt;772.77e-30&lt;/bondingVolume&gt;
+        &lt;/interaction&gt;
+        &lt;interaction <span style="color: #ff0000;">site1</span>="e2" <span style="color: #ff0000;">site2</span>="H"&gt;									
+          &lt;epsilonAssoc&gt;417.24&lt;/epsilonAssoc&gt;									
+          &lt;bondingVolume&gt;1304.4e-30&lt;/bondingVolume&gt;
+        &lt;/interaction&gt;	
+      &lt;/association&gt;																										
+    &lt;/crossInteraction&gt;
+  &lt;/crossInteractions&gt;
+&lt;/gsaft&gt;</pre>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

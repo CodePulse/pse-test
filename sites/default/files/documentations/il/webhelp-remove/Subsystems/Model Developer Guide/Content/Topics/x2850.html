@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Composite Models">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Instances of lower-level Models: Units</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x2850.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2799.html">Composite Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Instances of lower-level Models: Units</span>
+            </div>
+        </div>
+        <h1><a name="mdg_instances_units"></a>Instances of lower-level Models: <i class="emphasis">Units</i></h1>
+        <p>In gPROMS, an instance of a Model is called a Unit. Consequently, if we wish to insert one or more instances of one or more Models within
+ another (higher-level) Model, we have to introduce a Unit section within the latter.</p>
+        <p>Consider, for instance, the declaration of a distillation column Model that is outlined in the figure below.</p>
+        <div class="figure"><a name="MDG_Units_DistillationColumnModel"></a><pre class="programlisting"># MODEL DistillationColumn 
+
+PARAMETER 
+ # Number of trays
+ NoTrays AS INTEGER 
+
+ # Feed tray position
+ FeedPosition AS INTEGER 
+
+UNIT
+ Condenser AS TotalCondenser
+ Reboiler AS PartialReboiler
+ TopSection AS LinkedTrays
+ BottomSection AS LinkedTrays
+ Feed AS FeedTray
+
+VARIABLE
+ ColumnEnergyRequirement AS Energy_Flowrate
+
+EQUATION 
+
+ #Definition of column energy requirement
+ Reboiler.HeatingLoad - Condenser.CoolingLoad = ColumnEnergyRequirement 
+ 
+</pre>
+            <p class="FigureCaption"> Distillation Column Model</p>
+        </div>The PARAMETER and VARIABLE sections of this composite Model are very similar to those of simple (primitive) Models – see <a href="x887.html">Defining Models</a>. However, the UNIT section, above specifies that the Model also comprises a number of instances of
+ other Models, namely:<ul><li value="1"><p>Condenser. This is an instance of Model TotalCondenser.</p></li></ul><ul><li value="1"><p>Reboiler. This is an instance of Model PartialReboiler.</p></li></ul><ul><li value="1"><p>TopSection, BottomSection. These are both instances of Model LinkedTrays.</p></li></ul><ul><li value="1"><p>Feed. This is an instance of Model FeedTray.</p></li></ul><p>Each of the lower-level Models may either be primitive or include a UNIT section themselves. For instance, TotalCondenser, PartialReboiler
+ and FeedTray are likely to be primitive Models. In contrast, LinkedTrays is most probably a composite Model. In any case, there is no limitation
+ with respect to the number of levels in this hierarchical decomposition.</p><p>Finally, the EQUATION section introduces an Equation that determines the net energy requirement for the entire column:</p><pre class="programlisting">Reboiler.HeatingLoad - Condenser.CoolingLoad = ColumnEnergyRequirement ; </pre><p>The equation involves three Variables. One of these (ColumnEnergyRequirement) belongs directly to the DistillationColumn Model having been
+ declared explicitly in its Variable section. The other two Variables (Reboiler.HeatingLoad and Condenser.CoolingLoad) belong to the Units Reboiler
+ and Condenser , respectively. Of course, for this to be correct, Models PartialReboiler and TotalCondenser must contain Variables
+ Reboiler.HeatingLoad and Condenser.CoolingLoad respectively.</p><p>The above equation illustrates a <i class="emphasis">general</i> property of higher-level Models. This is their ability to refer to entities
+ (e.g. Parameters and Variables) that are declared within the Units that they contain - as well, of course, as their own entities. Furthermore, as
+ we have seen, this reference is done using a <i class="emphasis">pathname</i> construct. The latter can be arbitrarily long. For example, suppose
+ that the TotalCondenser Model is not primitive but comprises instances of several lower-level Models; then the following may be a valid
+ pathname:</p><pre class="programlisting">Condenser.RefluxDrum.LevelController.Gain</pre>referring to the gain of the controller used to control the
+ liquid level in the reflux drum of the condenser.<p>Finally note that the DistillationColumn Model does not yet express how the flows of material and energy between the sub-units are equated;
+ this could be done directly with Equations. For example:</p><pre class="programlisting">...
+
+EQUATION 
+
+ #Definition of column energy requirement
+ Reboiler.HeatingLoad - Condenser.CoolingLoad = ColumnEnergyRequirement 
+ 
+ # Connectivity for rebolier/Bottom Section
+ Reboiler.Vapour_out = BottomSection.Vapour_in;
+ Reboiler.y_vapour_out = BottomSection.y_vapour_in;
+ Reboiler.T_vapour_out = BottomSection.T_vapour_in;
+ 
+ ...
+</pre>Of course, Equations need to be provided for all the connections between all of the Units.<p>However, in practice it is usually more convenient to connect Units using topology connections to Model Ports (assuming that they have been
+ defined of course) – see <a href="x2883.html">Topology connectivity using the gPROMS Language.</a></p><div><p class="Footer">&#160;</p><p class="Footer">&#160;</p><hr width="100%" size="0" align="center" /><p class="Footer">Commercial in confidence</p><p class="Footer">© 2016 Process Systems Enterprise Limited</p></div></body>
+</html>

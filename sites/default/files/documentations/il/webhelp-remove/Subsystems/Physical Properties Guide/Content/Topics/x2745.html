@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties Guide|Using Physical Properties for Simple Materials|The CAPE-OPEN physical property interface (COThermoFO)">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The COThermoFO Test Tool</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/x2745.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Physical Properties Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c257.html">Using Physical Properties for Simple Materials</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1680.html">The CAPE-OPEN physical property interface (COThermoFO)</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The COThermoFO Test Tool</span>
+            </div>
+        </div>
+        <h1><a name="cothermofotesttool"></a>The COThermoFO Test Tool</h1>
+        <p>To help users and PSE support staff diagnose interoperability issues between <tt class="application">COThermoFO</tt> and CAPE-OPEN compliant
+ property packages/systems the Windows version of <tt class="application">gPROMS</tt> comes with a command-line utility called
+      <tt class="application">COThermoFOTestTool.exe</tt>.</p>
+        <p>This utility uses the <tt class="application">COThermoFO</tt> to perform a set of physical property calculations on a CAPE-OPEN property
+ package/system and generates a report of the successes and failures. The calculations to perform, and the expected results are described by an XML
+ text file.</p>
+        <p><b class="command">COThermoFOTestTool.exe</b> [<code class="option">-ignoreresults</code>]  <tt class="replaceable"><i>xmlFile</i></tt></p>
+        <div class="variablelist">
+            <dl>
+                <dt><code class="option">-ignoreresults</code>
+                </dt>
+                <dd>
+                    <p>only test that the FO method calls are succeeding, not that they are returning the expected value</p>
+                </dd>
+                <dt><tt class="replaceable"><i>xmlFile</i></tt>
+                </dt>
+                <dd>
+                    <p>file containing an XML description of the tests to perform, the format of which is described below</p>
+                </dd>
+            </dl>
+        </div>
+        <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span><a name="AEN2770"></a>
+            <p><b>Example 1. Example COThermoFOTestTool XML file</b>
+            </p><pre class="programlisting">&lt;?xml version="1.0"?&gt;
+&lt;ForeignObject id='COThermoFO::MFCOThermoSys.MFCOSys&amp;lt;methanolwater.mfl&amp;gt;&gt;  <a name="co.cothermofotesttool.1"></a><b>(1)</b>
+&lt;Method name="TPFLASH" checkmethod="true" evalmethod="true"&gt; <a name="co.cothermofotesttool.2"></a><b>(2)</b>
+  &lt;Inputs&gt; <a name="co.cothermofotesttool.3"></a><b>(3)</b>
+    &lt;Input type="real" name="temperature"&gt;
+ &lt;Value&gt;347&lt;/Value&gt;
+ &lt;/Input&gt;
+ &lt;Input type="real" name="pressure"&gt;
+ &lt;Value&gt;100000&lt;/Value&gt;
+ &lt;/Input&gt;
+ &lt;Input type="real" name="amount"&gt;
+ &lt;Value&gt;0.7&lt;/Value&gt;
+ &lt;Value&gt;0.3&lt;/Value&gt;
+ &lt;/Input&gt;
+ &lt;/Inputs&gt;
+ &lt;Output type="real"&gt; <a name="co.cothermofotesttool.4"></a><b>(4)</b>
+    &lt;Value delta="0.1"&gt;347&lt;/Value&gt;
+ &lt;Value delta="1"&gt;100000&lt;/Value&gt;
+ &lt;Value delta="1e-005"&gt;0.761842&lt;/Value&gt;
+ &lt;Value delta="1e-005"&gt;0.238158&lt;/Value&gt;
+ &lt;Value delta="0.01"&gt;1562.04&lt;/Value&gt;
+ &lt;Value delta="1e-005"&gt;0.797261&lt;/Value&gt;
+ &lt;Value delta="1e-007"&gt;0.0226528&lt;/Value&gt;
+ &lt;Value delta="1e-005"&gt;0.456811&lt;/Value&gt;
+ &lt;Value delta="1e-005"&gt;0.543189&lt;/Value&gt;
+ &lt;Value delta="0.1"&gt;-7416.28&lt;/Value&gt;
+ &lt;Value delta="1e-005"&gt;0.202739&lt;/Value&gt;
+ &lt;Value delta="1e-009"&gt;6.05012e-006&lt;/Value&gt;
+ &lt;Value delta="1e-006"&gt;0&lt;/Value&gt;
+ &lt;Value delta="1e-006"&gt;0&lt;/Value&gt;
+ &lt;Value delta="1e-006"&gt;0&lt;/Value&gt;
+ &lt;Value delta="1e-006"&gt;0&lt;/Value&gt;
+ &lt;Value delta="1e-006"&gt;0&lt;/Value&gt;
+ &lt;/Output&gt;
+&lt;/Method&gt;
+&lt;Method name="NUMBEROFCOMPONENTS" checkmethod="true" evalmethod="true"&gt;
+ &lt;Inputs&gt; <a name="co.cothermofotesttool.5"></a><b>(5)</b>
+  &lt;/Inputs&gt;
+ &lt;Output type="real"&gt;
+ &lt;Value delta="1e-006"&gt;2&lt;/Value&gt;
+ &lt;/Output&gt;
+&lt;/Method&gt;
+&lt;!-- Not implemented by Multiflash --&gt;
+&lt;Method name="STANDARDFORMATIONENTHALPYSOLID" checkmethod="false" evalmethod="false"&gt;  <a name="co.cothermofotesttool.6"></a><b>(6)</b>
+  &lt;Inputs&gt;
+ &lt;/Inputs&gt;
+ &lt;Output type="real"&gt;
+ &lt;/Output&gt;
+&lt;/Method&gt;
+&lt;/ForeignObject&gt;</pre>
+        </div>
+        <div class="calloutlist">
+            <dl compact="COMPACT">
+                <dt><a href="#"><b>(1)</b></a>
+                </dt>
+                <dd>The <tt class="application">COThermoFO</tt> initialisation string; the format is the same as when using <tt class="application">COThermoFO</tt>
+          within <tt class="application">gPROMS</tt> except the &lt; and &gt; symbols are replaced by &amp;lt; and &amp;gt;.</dd>
+                <dt><a href="#"><b>(2)</b></a>
+                </dt>
+                <dd>The name of the method and whether to test the method signature (checkmethod) and/or the method evaluation (evalmethod).</dd>
+                <dt><a href="#"><b>(3)</b></a>
+                </dt>
+                <dd>The methods inputs; each input has a name, type (always real) and one or more values.</dd>
+                <dt><a href="#"><b>(4)</b></a>
+                </dt>
+                <dd>The method output; this has a type (always real) and one or more values. Each value includes a delta by which the returned value is allowed
+ to differ from the expected value without an error being reported.</dd>
+                <dt><a href="#"><b>(5)</b></a>
+                </dt>
+                <dd>Methods such as NUMBEROFCOMPONENTS() have no inputs and so an empty &lt;Inputs&gt; element is specified.</dd>
+                <dt><a href="#"><b>(6)</b></a>
+                </dt>
+                <dd>Tests can also be included for methods/properties which you do not expect the property package/system to support. An error is then reported
+ if the call succeeds.</dd>
+            </dl>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

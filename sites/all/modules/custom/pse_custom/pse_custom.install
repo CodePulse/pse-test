@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * Update file type for application/x-redhat-package-manager
+ */
+function pse_custom_update_7000(){
+  db_update('file_managed')
+  ->fields(array(
+    'type' => 'software',
+  ))
+    ->condition('filemime', 'application/x-redhat-package-manager')
+    ->execute();
+
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS Release Notes v4.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Overview of the new version</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS Release Notes v4.htm#Topics/Overview of the new version.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><span class="MCBreadcrumbs">Overview of the new version</span>
+            </div>
+        </div>
+        <h1>Overview of the new version</h1>
+        <p class="PSEProductName"> <span class="ProductName" data-mc-conditions="gPRODUCT.ModelBuilder">gPROMS ModelBuilder</span> version 4.2 contains improvements and enhancements in the following areas:</p>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Flowsheeting</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <ul>
+                    <li value="1">The responsiveness of the GUI has been improved in several areas, particularly within the opening of large flowsheets, launching of gPROMS activities, consistency checking and live propagation after edit operations.</li>
+                    <li value="2">The tool for <a href="PMA Chooser.htm">choosing user-friendly names</a> (PMA&#160;Chooser) have been extended to cover the graphical editors for schedules and tasks.</li>
+                    <li value="3"><span class="concept">Case files</span> (also known as 'Result cases') have become much smaller, leading to significantly reduced loading times, an effect which is particularly noticeable for very large case files. </li>
+                    <li value="4">
+                        <p>A new project property, ‘Store creation and modification timestamps’, has been introduced.  This property allows for timestamps to be turned off or on, at project level. If turned off, it facilitates, together with a number of other internal changes, to more easily trace content changes between different versions of gPROMS&#160;project files. The new property is accessible from the properties tab of a project (see the screenshot below) and it should be unchecked to avoid all creation and modification timestamps.</p>
+                        <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Screenshots/Project property - time stamps.PNG"><img class="MCPopupThumbnail img imgMaxWidth75Percent" data-mc-width="654" data-mc-height="141" src="../Resources/Images/Screenshots/Project property - time stamps_thumb_0_48.png" tabindex="" /></a>
+                            <br />
+                        </p>
+                    </li>
+                    <li value="5">The layout and structure for the definition of <span class="concept">user preferences</span> have been improved.</li>
+                    <li value="6">Units on a topology can be moved by using the keyboard with the Alt-&lt;direction&gt; key combination.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Solution power</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <ul>
+                    <li value="1">A new <span class="concept">DAE&#160;solver</span>, <a href="DAEBDF.htm">DAEBDF</a>, has been introduced for simulation activities. It offers improved robustness and increased performance for many models.</li>
+                    <li value="2">The kernel performance has been increased by making the residual and Jacobian evaluation more efficient. This performance improvement can reduce CPU&#160;time by up to 30% for certain models at a small cost of slightly increased memory usage.</li>
+                    <li value="3"><span class="concept">Automatic model pruning</span> has been extended to remove time-invariant sub-systems.</li>
+                    <li value="4">A number of issues related to <span class="concept">model initialisation procedures</span> have been resolved.</li>
+                    <li value="5">The termination criteria for <span class="concept">mixed integer optimisation</span> have been improved to allow for a <a href="MIO termination criterion.htm">distinction between convex and non-convex problems</a>.</li>
+                    <li value="6">Effectiveness of <span class="concept">Saved Variable Sets</span> (SVS):<ul><li value="1">Restoring data for continuous domains is more flexible when the domains have been changed between saving and restoring an SVS. In such a case, the restoration will attempt to interpolate as much as is mathematically meaningful.</li><li value="2">Stored values of continuous domains now can be used directly in assign or initial sections of a process.</li><li value="3">Values distributed over <span class="concept">ordered sets</span>, for example a set of chemical components, are now correctly restored if the set is changed between saving and restoring an SVS.</li></ul><p>This set of improvements applies to SVS&#160;that are created with gPROMS&#160;v4.2.</p></li>
+                </ul>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Physical properties</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <ul>
+                    <li value="1"><a href="Multiflash.htm">Multiflash</a> has been upgraded to version 4.3.52. The performance and robustness of the interface have been enhanced, and new methods have been added.</li>
+                    <li value="2"><a href="gSAFT.htm">gSAFT</a> has been upgraded to v3.1.0 with more methods and components.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Software components</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <ul>
+                    <li value="1">gO:MATLAB&#160;is now included in all gPROMS-based products.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown" style="margin-top: 1em;padding-top: 1em;border-top-style: solid;border-top-width: 1px;"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Subsequent changes in version 4.2.1</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <ul>
+                    <li value="1"><a href="Multiflash 4.2.1.htm">Multiflash</a> has been upgraded to version 4.3.54 and new methods have been added.</li>
+                    <li value="2">Certain models have failed a structural check although they should have passed. This issue has been resolved.</li>
+                    <li value="3">In model reports, PMA_VALUE tags now correctly use the global preferences for number format specifications.</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

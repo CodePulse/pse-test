@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Common options</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Basics/Material_adapter/Common options.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Common options</h1>
+        <p>The menus at the top of the specification dialog are used to select outlet material and calculation type specifications. </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">
+                        <p>Outlet material</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">
+                        <p>Selector</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dl>
+                            <dt>Same as inlet material</dt>
+                            <dd>The same physical property package is used in the inlet and the outlet material streams of the model.</dd>
+                            <dt>Different from inlet material</dt>
+                            <dd>The physical property  package for the outlet material stream is specified in this dialog and may differ from the inlet physical property package.</dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Outlet components</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Same as inlet components (including components order)</dt>
+                        <dd>The outlet material stream components are identical to the inlet material stream components and ordered in the same manner. </dd>
+                        <dt>Fewer than inlet components</dt>
+                        <dd>The outlet material stream components are a subset of the inlet material stream components. The inlet components that do not belong to the subset of outlet components are assigned a component flowrate in the side outlet material stream equal to the component flowrate in the inlet material stream.</dd>
+                        <dt>More than inlet components (no flow)</dt>
+                        <dd>The outlet material stream components are a superset of the inlet material stream components. The  outlet components that do not belong to the subset of inlet  components are assigned a zero component flowrate in the outlet material stream.</dd>
+                        <dt>More than inlet components (from port)</dt>
+                        <dd>The outlet material stream components are a superset of the inlet material stream components. The  outlet components that do not belong to the subset of inlet  components are assigned a component flowrate in the outlet material stream equal to the component flowrate in the side inlet material stream.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1">Calculation type</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1">
+                        <dt>Isothermal</dt>
+                        <dd>Sets the temperature in the outlet material stream and in the side outlet material stream equal to the temperature of the inlet material stream.</dd>
+                        <dt>Adiabatic</dt>
+                        <dd>The temperature of the outlet and side outlet material streams is equal to the temperature determined by an energy balance that assumes adiabatic mixing.</dd>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>
