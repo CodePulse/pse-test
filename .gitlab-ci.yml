@@ -11,4 +11,4 @@ deploy_test:
   only:
     - develop
   script:
-    - rsync -a --no-group --no-times --no-perms -e "ssh -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_PATH --delete
+    - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_PATH --delete
