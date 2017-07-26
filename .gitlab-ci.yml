@@ -1,5 +1,5 @@
 variables:
-  DEPLOY_PATH: devcms.psenterprise.com:/var/www/virtual/website
+  DEPLOY_PATH: gitlabrunner@devcms.psenterprise.com:/var/www/virtual/website
 
 deploy_test:
   stage: deploy
@@ -11,4 +11,4 @@ deploy_test:
   only:
     - develop
   script:
-    - rsync -avzh --no-group --no-times --no-perms --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_PATH --delete --log-file=/tmp/rsync.log
+    - rsync -avzh --no-group --no-times --no-perms --exclude -e ssh '.git' $CI_PROJECT_DIR'/' $DEPLOY_PATH --delete --log-file=/tmp/rsync.log
