@@ -11,4 +11,4 @@ deploy_test:
   only:
     - develop
   script:
-    - rsync -avzh --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_PATH --delete
+    - rsync -avzh --no-owner --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_PATH --delete
