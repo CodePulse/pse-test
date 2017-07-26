@@ -1,5 +1,5 @@
 variables:
-  DEPLOY_PATH: gitlabrunner@devcms.psenterprise.com:/var/www/virtual/website
+  DEPLOY_PATH: gitlabrunner@devcms:/var/www/virtual/website
 
 deploy_test:
   stage: deploy
