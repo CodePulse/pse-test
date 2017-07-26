@@ -3,8 +3,8 @@ variables:
 
 deploy_test:
   stage: deploy
-    variables:
-      GIT_STRATEGY: fetch
+  variables:
+    GIT_STRATEGY: fetch
   environment:
     name: test
     url: https://devcms.psenterprise.com
