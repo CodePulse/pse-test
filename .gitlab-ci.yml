@@ -11,5 +11,4 @@ deploy_test:
   only:
     - develop
   script:
-    - whoami
-    - rsync -avzh --no-group --no-times --no-perms -e "ssh -i /homelocal/gitlabrunner/.ssh/devcms" --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_PATH --delete --log-file=/tmp/rsync.log
+    - rsync -avzh --no-group --no-times --no-perms -e "ssh -i /homelocal/gitlab-runner/.ssh/devcms" --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_PATH --delete --log-file=/tmp/rsync.log
