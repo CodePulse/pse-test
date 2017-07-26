@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/c2136.html'],s:['$','into','valu'],p:[['$',36],['be',18],['discuss',17],['get',54],['linear',38],['one',10],['session',62],['the',55],['will',26]]});

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=Product.Name%] Guide|Executing simulations|Interacting with executing simulations">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Execution output</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x1995.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">gPROMS ModelBuilder Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c1813.html">Executing simulations</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1982.html">Interacting with executing simulations</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Execution output</span>
+            </div>
+        </div>
+        <h1><a name="executionoutput"></a>Execution output</h1>
+        <p>Once the necessary license is obtained, <span class="ProductName">gPROMS ModelBuilder</span> creates an execution output window which displays all the messages relating to the
+ solution of the Model-based activity. During this execution, the user can interact with the executing activity by right clicking on this window,
+ which causes the execution interaction menu to appear. While the execution is actually proceeding, the menu has two main options that are
+ enabled:</p>
+        <ul>
+            <li value="1">
+                <p>The <b class="guimenuitem">Abort immediately</b> option stops the execution at the earliest convenient stage and releases the
+ license. No further interaction with this Model-based activity is possible.</p>
+            </li>
+            <li value="2">
+                <p>The <b class="guimenuitem">Stop execution, retain model</b> option also stops the execution at the earliest convenient stage. However, the
+ license is retained, and this allows the user to interact further with the executing activity via additional options in the execution interaction
+ menu that become enabled at this stage, including:</p>
+                <ul>
+                    <li value="1">
+                        <p><b class="guimenuitem">Query variable</b> allows the examination of the information available on a particular variable specified by its
+ number as this is reported during the numerical solution;</p>
+                    </li>
+                    <li value="2">
+                        <p><b class="guimenuitem">Query block</b> allows the examination of the information available on a particular block specified by its
+ number as this is reported during the numerical solution. This option is only available when BDNLSOL is used as the non-linear solver and the
+ block reported corresponds to the block in last initialisation/re-initialisation of the activity before it is stopped;</p>
+                    </li>
+                    <li value="3">
+                        <p><b class="guimenuitem">Query equation</b> allows the examination of the information available on a particular equation specified by its
+ number as this is reported during the numerical solution;</p>
+                    </li>
+                    <li value="4">
+                        <p><b class="guimenuitem">Query unit</b> allows the examination of the information available on a particular UNIT specified by its
+ complete pathname;</p>
+                    </li>
+                    <li value="5">
+                        <p><b class="guimenuitem">Create problem report</b> creates a report on all parameters, variables and equations in the Model, including their values, and
+ incorporates this under the "Results" category of the current Case for later inspection or archiving;</p>
+                    </li>
+                    <li value="6">
+                        <p><b class="guimenuitem">Create saved variable</b> set creates a gPROMS saved variable set using the current values of all variables; it
+ then incorporates this under the "Results" category of the current Case.</p>
+                    </li>
+                    <li value="7">
+                        <p><b class="guimenuitem">Release license</b> releases the license and essentially aborts the activity execution; no further interaction
+ is possible with it.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>All the options listed above available after <b class="guimenuitem">stop execution, retain model</b> can also be performed once the activity
+ has stopped automatically (whether it has failed or completed successfully) if the <tt class="guilabel"><b>Release model after execution</b></tt> option was not
+ selected in the case configuration dialog at the start of the activity.</p>
+        <p>It is worth noting that (when in multiple windows mode) closing the execution output window by clicking on the X button at its top right corner
+ does not cause the activity execution to be aborted or interrupted. In fact, the activity proceeds as before and all messages issued by it continue
+ to be recorded within the Case. The execution output window can be made to re-appear at any time simply by double-clicking on the <tt class="guilabel"><b>Execution
+ Output</b></tt> entry in the Case sub-tree.</p>
+        <div class="figure"><a name="AEN2032"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_CasesAndActivityExecution2.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Cases and activity execution</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

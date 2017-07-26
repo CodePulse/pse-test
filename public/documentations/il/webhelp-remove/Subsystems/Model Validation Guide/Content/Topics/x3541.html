@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation Guide|Experiment Design in gPROMS|Execution of Experiment Design activities|Experiment SCHEDULE files">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Example Experiment Schedule</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x3541.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Model Validation Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2640.html">Experiment Design in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3342.html">Execution of Experiment Design activities</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3520.html">Experiment SCHEDULE files</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Example Experiment Schedule</span>
+            </div>
+        </div>
+        <h1><a name="expdestextschedule"></a>Example Experiment Schedule</h1><pre class="programlisting">#
+# Schedule generated from experiment design for parameter precision 
+# for experiment FEDBATCH_DES
+#
+# Final Optimisation Status : Optimal Solution Found
+# Design Criterion : E-optimal
+# Value of Design Criterion : 0.0886671
+#
+
+INITIAL
+ # NOTE: Only Initial Conditions specified in the experiment are listed.
+ Flowsheet.Ferment.y1 = 9.66765;
+
+SCHEDULE
+
+ SEQUENCE
+
+ RESET
+ Flowsheet.Ferment.u1 := 0.05;
+ Flowsheet.Ferment.u2 := 5.0571;
+ END
+
+ CONTINUE FOR 1.69073
+
+ RESET
+ Flowsheet.Ferment.u1 := 0.175686;
+ Flowsheet.Ferment.u2 := 33.7452;
+ END
+
+ CONTINUE FOR 1.39902
+
+ RESET
+ Flowsheet.Ferment.u1 := 0.2;
+ Flowsheet.Ferment.u2 := 34.0207;
+ END
+
+ CONTINUE FOR 2.69382
+
+ RESET
+ Flowsheet.Ferment.u1 := 0.05;
+ Flowsheet.Ferment.u2 := 18.6692;
+ END
+
+ CONTINUE FOR 2.83572
+
+ RESET
+ Flowsheet.Ferment.u1 := 0.0971262;
+ Flowsheet.Ferment.u2 := 24.8752;
+ END
+
+ CONTINUE FOR 1.38071
+
+ END
+</pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

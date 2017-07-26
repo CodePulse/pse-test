@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Solving the unit models</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Help.htm#Topics/Workflow Guides/Troubleshooting/Solving the unit models.htm">Open topic with navigation</a>
+        </p>
+        <div>
+        </div>
+        <h1>Solving the unit models</h1>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Initialisation procedure</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>When the system of equations that defines the flowsheet model is correctly posed, an attempt can be made to determine the values of the unknown variables from the equations in the system. This is typically referred to as "converging" the flowsheet model. </p>
+                <p>The first stage in this process is to converge the equations for each unit. When the flowsheet model has no recycles or specification trade-offs this is also the only strage in solving the flowsheet model. The following message is shown at the start of this stage:</p><pre xml:space="preserve" class="executionOutput">Performing Initialisation Procedure.</pre>
+                <p>When the following message is shown the unit models have successfully been solved:</p><pre xml:space="preserve" class="executionOutput">Initialisation Procedure with recycle(s) open performed successfully.</pre>
+                <p>Or, when there are no recycles or specification trade-offs in the flowsheet models:</p><pre xml:space="preserve" class="executionOutput">Initialisation Procedure performed successfully.</pre>
+                <p>It is possible that instead of one of the messages above there is a message indicating a failure in this stage.</p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Ensuring recycle breakers and specifications trade-offs have been inserted properly</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>When there is a failure, during the unit model initialisation, the first thing to check is that  recycle breakers and specifications trade-offs have been inserted properly.</p>
+                <p>Many steady-state simulation problems are flow-driven (i.e. material flowrate is specified in the source model(s) and flows throughout the flowsheet) and depend on source flowrates and how unit operations distribute incoming flows over their outlets. For this type of simulation <span class="ProductName">gPROMS ProcessBuilder</span> uses a sequential algorithm. This means that each unit model on the flowsheet is solved in sequence. </p>
+                <p>If the flowsheet contains one or more material recycle streams (<a href="../Flowsheeting/Flowsheets with recycles.htm" class="MCXref xref" xrefformat="'{paratext}'">'Flowsheets with recycles'</a>) or specification trade-offs (<a href="../Trading off degrees of freedom/Trading off degrees of freedom.htm" class="MCXref xref" xrefformat="'{paratext}'">'Trading off degrees of freedom'</a>), it is important to determine first whether the recycle breakers  have been correctly placed and adjust models have been used correctly. To do this, inspect the order in which unit models are initialised. This order is shown in the section "Constructing the system" in the execution output under the expandable heading "Computational sequence". The sequence is shown as a series of numbered "Partitions". When every partition contains a single unit model, recycle breakers and adjust models have been placed correctly.</p>
+                <div class="programlisting"><pre xml:space="preserve" class="executionOutput" style="text-align: left;">Computational sequence
+Partition #1
+  Flowsheet.PC1 [Init_Robust_revert_at_FINISH]
+Partition #2
+  Flowsheet.Feed [Init]
+Partition #3
+  Flowsheet.V_Feed []
+Partition #4
+  Flowsheet.Junction_gML001 [Init_SS_IC]
+Partition #5
+  Flowsheet.V_Liquid []
+Partition #6
+  Flowsheet.Sink_liquid [Init]</pre>
+                    <p class="programlistingCaption">In this instance each partition contains a single unit model.</p>
+                </div>
+                <p>When a partition contains more than one unit model, this indicates that the unit models and streams that are in that partition involve one or more recycles for which no recycle breaker models have been inserted. Problems in converging this part of the flowsheet may be prevented by inserting one or more recycle breakers at the appropriate locations. </p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Setting up the simulation to produce partial results</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>When recycle breakers have been inserted correctly and a failure still occurs, this means that the equations for a single unit model cannot be converged. To identify and solve these types of problems, change the simulation setting that controls whether results will be generated during the convergence of equations. To do this either go to the "Solution parameters"&#160;of the PROCESS and select the Execution - InitialisationProcedure parameter to 'ONLY'. This will generate partial output for any subsequent simulations of that process. Then repeat the failed simulation. </p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Troubleshooting/initialisation_procedure_only_simulation_settings.png" />
+                    </p>
+                    <p class="FigureCaption">Setting the Execution - InitialisationProcedure to 'ONLY 'in the simulation settings of the PROCESS</p>
+                </div>
+                <p>Alternatively, just before starting a simulation, the "Initialisation Procedure" selector on the "Simulation settings" dialog can be set to "Run only (not the main activity)". The will generate partial output for only the simulation that is about to be started. To be able to trace problems by the values of variables, it is also useful to retain the simulation license after the execution. To do this, uncheck the "Release license after execution" option in the simulation dialog:</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Troubleshooting/troubleshooting_unchecked_filed1.png" />
+                    </p>
+                    <p class="FigureCaption">Setting 'Initialisation Procedure' to "Run only (not the main activity)" and unchecking the "Release license after execution" option on the 'Simulation settings' dialog </p>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Solving unit models</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <h3>Determining which unit model fails to solve</h3>
+                <p>When a failure occurs, during the solution of the model equations in a particular partition, firstly determine which model unit is solved in that partition. Once the simulation has been set up to produce partial results, this can be done in two ways.</p>
+                <h4>Inspecting the execution output</h4>
+                <p>The unit model that fails to solve can be identified by locating the partition number of the partition that fails to solve or by inspecting the variables that are shown when a unit model fails to solve. If recycle breakers and specification trade-offs have been implemented correctly, the partition number is associated with a single unit model. This single unit model can be found by looking at the partition sequence.</p>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>A failure occurs during the solution of the unit models. The execution output shows that the failure occurs during the solution of partition 2.</p>
+                    <div class="programlisting"><pre xml:space="preserve" class="executionOutput" style="text-align: left;">Starting execution of Initialisation Procedure "Flowsheet" for unit "Flowsheet"
+  
+Start constructing equations of flowsheet partitions
+  
+Starting execution of NEXT step 1 for unit "Flowsheet"[Flowsheet]
+  
+Starting execution of NEXT step 2 for unit "Flowsheet"[Flowsheet]
+An error occurred while performing Initialisation Procedure<span style="color: #ff0000;">
+Cannot initialise the partition 2.</span>
+Execution of Troubleshooting_6_parameter_resolution fails prematurely.
+Block 4:
+Equations occurring in block 4:
+Equation Residual
+   5      [ 1 ]
+
+Symbolic form of this block's equations
+Equation 5 (in UNIT Flowsheet):
+
+Variables in this block
+ID  Name                                Value    Units  Bounds                Info
+11  <span style="color: #ff0000;">s1.SP_F_w.mass_flowrate</span>             10       kg/s   Within range          
+33  <span style="color: #ff0000;">sink2.F</span>                             -1E-010  kg/s   Stuck on lower bound  Determined in this block
+62  <span style="color: #ff0000;">sp1.ms.SP_split(1).F_i_out_spec(1)</span>  11       kg/s   Within range          </pre>
+                        <p class="programlistingCaption">The partition number is listed as well as the variables in the equations that fail to solve.</p>
+                    </div>
+                    <p>By examining at the partition sequence shown earlier in the execution output, during the "Constructing the system"&#160;phase, it can be found that partition 2 corresponds to the unit model "sp1".</p>
+                    <div class="programlisting"><pre xml:space="preserve" class="executionOutput">Computational sequence
+Partition #1
+  Flowsheet.s1 [Warning_only]<span style="color: #ff0000;">
+Partition #2
+  Flowsheet.sp1 [Warning_only]</span>
+Partition #3
+  Flowsheet.sink2 [Warning_only]
+Partition #4
+  Flowsheet.sink1 [Warning_only]       </pre>
+                        <p class="programlistingCaption">Find the unit model by looking at the list of partitions with associated units models shown during the 'System construction' stage.</p>
+                    </div>
+                </div>
+                <h4>Inspecting the flowsheet topology view on in the execution output window</h4>
+                <p>Alternatively, the flowsheet model topology view on the execution output will also give an indication regarding which unit is being solved.The units that have been solved are indicated by filled-in icons, the ones still to be solved are partially transparent with a black outline. In some cases, the unit that was being solved when the failure occurred may be indicated with a yellow hue.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Troubleshooting/flowsheet_initialisation_unit_colour.png" />
+                    </p>
+                    <p class="FigureCaption">Topology tab in the execution output window indicating which unit have been solved. In this case "s1" has been solved and during the solution of "sp1" an error has occurred. </p>
+                </div>
+                <h3>Initial solution</h3>
+                <p>Each partition, containing a single model, is solved in sequence. When a unit model is being solved, the inlets are known. The solution procedure involves determining the unknown variables of the model. These include the model outlet variables. When the unit model fails to converge, in many cases the problem is related to single equation:</p>
+                <div class="programlisting"><pre xml:space="preserve" class="executionOutput">Block 4:
+Equations occurring in block 4:
+Equation Residual
+   5      [ 1 ]
+
+Symbolic form of this block's equations
+Equation 5 (in UNIT Flowsheet):
+    [Residual = 1]
+  sp1.ms.MB.F_out(1) + sp1.ms.MB.F_out(2) = sp1.ms.MB.F_in(1);
+  With embedded values:
+  (sp1.ms.MB.F_out(1){11} + sp1.ms.MB.F_out(2){-1e-010}){11} = sp1.ms.MB.F_in(1){10}
+Variables in this equation:
+
+Variables in this block
+ID  Name                                Value    Units  Bounds                Info
+11  s1.SP_F_w.mass_flowrate             10       kg/s   Within range          
+33  sink2.F                             -1E-010  kg/s   Stuck on lower bound  Determined in this block
+62  sp1.ms.SP_split(1).F_i_out_spec(1)  11       kg/s   Within range                </pre>
+                    <p class="programlistingCaption">Single equation associated with a failure to initialise.</p>
+                </div>
+                <p>The equation has failed to converge because a solution could not be found within the limits of the variables. Usually, the reason for this is one of the following:</p>
+                <ol>
+                    <li value="1">An unrealistic specification in the unit model that is being solved.</li>
+                    <li value="2">An unrealistic specification in a unit model upstream of the unit model being solved.</li>
+                    <li value="3">An unrealistic initial guess for either a recycle breaker or a adjust or controller unit upstream of the unit model being solved.</li>
+                </ol>
+                <p>To determine which of these is the cause, inspect the values of the inlets of the unit operation model that fails. To achieve this either:</p>
+                <ul>
+                    <li value="1">Switch to the Topology tab of the execution output, right-click on an inlet stream that enters the unit that fails to converge to generate a stream table. Inspect the values in the generated stream table.</li>
+                    <li value="2">
+                        <p>Use the debug functionality for the execution output to query the values of variables in the inlet stream. To do this, right-click in the execution output window to open the debug menu, and select "Query variable". Enter the path to the variable of interest to query its value. </p>
+                        <div class="figure">
+                            <p>
+                                <img src="../../../Resources/Images/Workflow guides/Troubleshooting/debug_console.png" />
+                            </p>
+                            <p class="FigureCaption">The debug menu, accessible by right-clicking in the execution output.</p>
+                        </div>
+                    </li>
+                </ul>
+                <p>If the inputs to the unit model seem reasonable, it is likely that an infeasible specification in the unit model that fails to converge is to blame. In that case, check the specifications made in the dialog for that unit model. If any of the inputs are unrealistic for the given unit model, determine from which upstream unit model these originate. For that unit model repeat the procedure described above until the source of the unrealistic values is determined.</p>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>In the flowsheet the model "sp1" splits an inlet stream into two outlet streams. The source "s1" has been specified to have mass flowrate of 10kg/s. For "sp1" an outlet mass flowrate of 11kg/s has been be specified for outlet stream 1. This is infeasible as there is not enough inlet flow to satisfy the outlet flowrate specification. To resolve this error, either increase the flowrate out of the source "s1" of reduce the specified outlet flowrate for stream 1 out of the splitter "sp1".</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/dialog_source_mixing_example2.png" />
+                        </p>
+                        <p class="FigureCaption">Flowsheet model to split a single stream into two streams</p>
+                    </div>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Troubleshooting/flowsheet_initialisation_unit_colour1.png" />
+                        </p>
+                        <p class="FigureCaption">Infeasible specification of an outlet mass flowrate of 11kg/s has been made for the unit "sp1" as the inlet mass flowrate is only 10kg/s</p>
+                    </div>
+                </div>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>In a number of cases values specified in the fields of the model dialog are not consistent with the selected units of measurement. Verify that for the unit model that fails to converge and any unit models upstream of that unit, that the correct units of measurement have been selected.</p>
+                </div>
+                <h3>Model initialisation procedure</h3>
+                <p>Most unit operation models have a model initialisation procedure. This procedure is used to aid in converging models. It involves solving a simplified set of equations first and changing these equations in a number of sequential steps until the equations that are solved represent the true model behaviour. At each step a more complex problem is solved. Failure to converge the model equations can occur during any step.</p>
+                <p>When a failure occurs during a step of the model initialisation procedure, a set of multiple equations and variables, together, cannot be solved. This is referred to as a "block"&#160;of equations.</p>
+                <p>For this type of failure, first assess whether either the specifications in the unit model itself are infeasible or the input values unrealistic. If it has been determined that this is not the case, another option is to chose a different model initialisation procedure for that particular model. To do this, go to the unit model on the flowsheet topology, open its dialog, go to the 'Numerics' tab and select the Initialisation procedure to be 'Automatic&#160;(Robust)' as opposed to 'Automatic (Fast)'. This means that the flowsheet may require more time to solve but in a number of cases it can aid in solving more complex unit models successfully.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Troubleshooting/dialog_initialisation_procedure_robust.png" />
+                    </p>
+                    <p class="FigureCaption">Choosing a 'Robust' initialisation procedure</p>
+                </div>
+                <p>For complex unit operation, such as distillation columns, it may be required to select a different initialisation procedure for different types of problems.</p>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

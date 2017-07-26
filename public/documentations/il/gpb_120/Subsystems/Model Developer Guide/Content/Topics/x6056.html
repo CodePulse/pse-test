@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Defining Schedules|Elementary tasks|The Replace elementary task">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The Replace Task configuration dialog</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x6056.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="AEN6056"></a>The Replace Task configuration dialog</h1>
+        <p>When inserting or modifying a Replace Task using the graphical Schedule interface, the following Task configuration dialog is used.</p>
+        <div class="figure"><a name="AEN6059"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_ScheduleTab_TaskConfig_Replace.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Replace Task configuration dialog</p>
+        </div>
+        <p>This dialog contains a list of all of the Assigned Variables that are to be Replaced by the Task and a list of replacement Assignments. To
+ add a new Assigned Variable to the list, left click on the cell in the top half of the dialog containing <code class="varname">&lt;new&gt;</code> and enter
+ the full path of an already-Assigned Variable. Pathname completion can be used at this stage, just as when typing gPROMS language into a Model or a
+ Process. Press <b class="keycap">RETURN</b> when done. Add more Variables by repeating this process until all of the Variables that need to be Replaced
+ have been entered.</p>
+        <p>The bottom half of the dialog contains a list of Variables that are to be Assigned in replacement of the Variables listed above. This part of
+ the dialog behaves exactly the same as the <a href="x5920.html">Reassign dialog</a>. The only restriction is that this part of the dialog
+ must contain exactly the same number of Variable Assignments as Variables listed in the top half (otherwise the problem will be under or over
+ specified, and gPROMS will report an error.).</p>
+        <p>To delete a Variable from the either of the lists, simply select it by left clicking on its row and then press the appropriate
+        <b class="guibutton">Delete</b> button.</p>
+        <p>Once complete, press the <b class="guibutton">OK</b> button.</p>
+        <p>The <b class="guibutton">Cancel</b> button will close the dialog and discard any changes made to the Task. If the dialog was activated due to
+ the addition of a new Task, then no Task will be added.</p>
+        <p>The <b class="guibutton">Advanced</b> button can be used to enter gPROMS language. For a new Task, the dialog will contain an empty
+        <code class="methodname">REPLACE</code> statement:</p><pre class="programlisting">REPLACE
+WITH
+END</pre>
+        <p>The <code class="methodname">WITHIN</code> statement may be used in the Advanced view (just as it can be in the gPROMS language tab) if many
+ Variables within the same Unit are to be Switched. The Advanced view also supports pathname completion and copy/paste functionality.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

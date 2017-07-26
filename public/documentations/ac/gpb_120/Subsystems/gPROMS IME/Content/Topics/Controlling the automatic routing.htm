@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=Product.Name%] Guide|Constructing flowsheet Models|Constructing the flowsheet">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Controlling the automatic routing</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/Controlling the automatic routing.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Controlling the automatic routing</h1>
+        <p>By default, connections between Units on the topology are routed automatically in an orthogonal layout that avoids connections overlapping with Units and Flowsheet Annotations. The automatic routing is usually efficient enough and allows the continued editing of a topology while running in the background. For the incremental build-up or the modification of very large flowsheets, routing may still take more time or resources than desired and it is possible to interrupt it while it is running: the grey square next to the routing menu turns red after some time, <img src="../Resources/Images/debug_stop.png" />, and pressing it will cancel the routing. By choosing <span class="guimenuitem">Route all connections</span>, <img src="../Resources/Images/FlowsheetRouteAll.png" />, from the routing menu, it is then possible to route all connections in their entirety. </p>
+        <p>It is also possible to turn the automatic routing off entirely for a certain period and to turn it back on again. This can be achieved using the routing drop-down menu of the <a href="x1232.html">Topology editor tool bar</a>. This flag is specific for a flowsheet and does not affect any other from the same Project. The setting is stored persistently upon saving a Project.</p>
+        <div class="figure">
+            <p>
+                <img src="../Resources/Images/Routing_dropdown.png" style="vertical-align: top;" />
+                <img src="../Resources/Images/Manual routing.png" style="vertical-align: top;" />
+            </p>
+            <p class="FigureCaption">Automatic routing enabled or disabled</p>
+        </div>
+        <p>If automatic routing is turned off, it is possible that skewed, non-orthogonal connections are generated, for instance by moving Units or when creating new connections. In such a case, it is possible to fix only selected skewed connection, <img src="../Resources/Images/FlowsheetFixRouteSelected.png" />, or all of them <img src="../Resources/Images/FlowsheetFixRouteAll.png" />.</p>
+        <p>In all modes it is possible to route only selected connections by using the <span class="guimenuitem">Route selected connections</span> command, <img src="../Resources/Images/FlowsheetRouteSelected.png" />, performs the same orthogonal routing algorithm, but only on the selected connections.</p>
+        <p>Further options for controlling the routing behaviour are available in the <a href="x3204.html">user preferences</a>.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

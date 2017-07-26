@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Arrays">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>General rules for array expressions</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x1359.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c1185.html">Arrays</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">General rules for array expressions</span>
+            </div>
+        </div>
+        <h1><a name="arrayexpressions"></a>General rules for array expressions</h1>
+        <p>A powerful concept in gPROMS is that of array expressions. Consider, for example, the algebraic expression:</p><pre class="programlisting">x * y + w * z</pre>
+        <p>If <code class="methodname">x</code>, <code class="methodname">y</code>, <code class="methodname">w</code> and <code class="methodname">z</code> are scalar Variables,
+ then the above also corresponds to a scalar. However, in gPROMS, the expression <code class="methodname">x * y + w * z</code> is valid even if
+    <code class="methodname">x</code>, <code class="methodname">y</code> and <code class="methodname">z</code> are arrays provided they have the same dimensionality and
+ size. For example, if we have the declarations:</p><pre class="programlisting">PARAMETER
+ n, m AS INTEGER
+
+VARIABLE
+ x, y, z AS ARRAY (n,m) OF SomeQuantity
+ w AS SomeQuantity</pre>
+        <p>then the expression <code class="methodname">x * y + w * z</code> also represents a two-dimensional array of size <i class="emphasis">n × m</i>, the
+    <i class="emphasis">(i,j)</i><i class="emphasis"><i class="emphasis">th</i></i> element of which is equal to <span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_xijyijpluswzij.png" data-mc-conditions="Default.ScreenOnly" /></span> for <i class="emphasis">i=1,..,n</i> and <i class="emphasis">j=1,..,m</i>.</p>
+        <p>Although in the above examples, the gPROMS interpretation of the array expression coincided with the standard mathematical one, this is not
+ always the case. For example, the expressions <code class="methodname">x * y / z</code> and <code class="methodname">w / x + z ^ y</code> are also valid in
+ gPROMS, representing two-dimensional arrays of size <i class="emphasis">n × m</i>, the
+    <i class="emphasis">(i,j)</i><i class="emphasis"><i class="emphasis">th</i></i> elements of which are equal to <span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_xijyijzij.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inlineqn_wxijpluszijyij.png" data-mc-conditions="Default.ScreenOnly" /></span> respectively.</p>
+        <p>In general, consider an expression <i class="emphasis">x</i> âŠ• <i class="emphasis">y</i> where <i class="emphasis">x</i> and <i class="emphasis">y</i>
+    are scalar or array expressions, and âŠ• is a binary arithmetic operator (<code class="methodname">+</code>, <code class="methodname">-</code>,
+    <code class="methodname">*</code>, <code class="methodname">/</code>, <code class="methodname">^</code>). This is a valid gPROMS expression if and only if it conforms
+ to one of the four cases listed below:</p>
+        <div class="informaltable"><a name="AEN1416"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Case</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1"><i class="emphasis">x</i>
+                        </th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1"><i class="emphasis">y</i>
+                        </th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Dimensionality of <i class="emphasis">x</i> âŠ• <i class="emphasis">y</i></th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Interpretation of <i class="emphasis">x</i> âŠ• <i class="emphasis">y</i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">1</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scalar</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scalar</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scalar</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><i class="emphasis">x</i> âŠ• <i class="emphasis">y</i></td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">2</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Array</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Scalar</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Same as <i class="emphasis">x</i></td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><i class="emphasis">x<sub>ijk...</sub></i> âŠ• <i class="emphasis">y</i></td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">3</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scalar</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Array</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Same as <i class="emphasis">y</i></td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><i class="emphasis">x</i> âŠ• <i class="emphasis">y<sub>ijk...</sub></i></td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">4</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Array</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Array</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Same as <i class="emphasis">x</i><i class="emphasis">and</i><i class="emphasis">y</i></td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2"><i class="emphasis">x<sub>ijk...</sub></i> âŠ• <i class="emphasis">y<sub>ijk...</sub></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Clearly, case 4 is valid only if both <i class="emphasis">x</i> and <i class="emphasis">y</i> have exactly the same dimensionality and
+ size.</p>
+        <p>The above rules can be applied recursively to check the validity and to interpret expressions of arbitrary complexity. At the lowest level,
+    <i class="emphasis">x</i> and <i class="emphasis">y</i> will be (scalar) constants, scalar Parameters or Variables, or arrays of Parameters or
+ Variables, or slices of arrays of Parameters or Variables. For example, it can be verified that the following is a valid two-dimensional
+ expression of size 3 × 2:</p><pre class="programlisting">3.23 / x(1:3, 4:5) * z(5:7, 1:2) + w(10:12, 2:3) + 4.13</pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

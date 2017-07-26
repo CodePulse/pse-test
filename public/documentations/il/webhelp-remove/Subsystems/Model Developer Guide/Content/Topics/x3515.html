@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Ordered Sets">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Examples of the Use of Ordered Sets</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x3515.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c3318.html">Ordered Sets</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Examples of the Use of Ordered Sets</span>
+            </div>
+        </div>
+        <h1><a name="md_odered_set_examples"></a>Examples of the Use of Ordered Sets</h1>
+        <p>Here, we have a database of molecular weights from which we will copy some into a smaller list of components:</p><pre class="programlisting">PARAMETER 
+ ReagentSpecies, ProcessSpecies, AllSpecies AS ORDERED_SET
+ 
+VARIABLE
+ MW AS ARRAY(AllSpecies) OF MolWt
+ MWsub AS ARRAY(ReagentSpecies) OF MolWt
+
+SET 
+ ReagentSpecies := ['HNO3', 'H2O', 'NaOH', 'tbp/ok'] ;
+ ProcessSpecies := ['HNO3', 'H2O', 'Uranium'] ;
+ AllSpecies := ReagentSpecies + ProcessSpecies ;
+
+EQUATION
+ MW('HNO3') = 1 + 14 + 3*16 ;
+ MW('H2O') = 2*1 + 16 ;
+ MW('NaOH') = 23 + 16 + 1 ;
+ MW('tbp/ok') = 10*12 + 22 ; # approx
+ MW('Uranium') = 238 ;
+
+ FOR i IN ReagentSpecies DO
+ MWsub(i) = MW(i) ;
+ END
+ </pre>
+        <p>(Note that it would not be legal to shorten the names of the Ordered Sets to <code class="varname">Reagent</code>, <code class="varname">Process</code> and
+    <code class="varname">All</code> because Process is a reserved word in gPROMS.)</p>
+        <p>Equations can be written that use streams with identical species lists:</p><pre class="programlisting">VARIABLE
+ MassIn AS ARRAY(ProcessSpecies) OF MassFlow
+ MassOut AS ARRAY(ProcessSpecies) OF MassFlow
+ Losses AS ARRAY(ProcessSpecies) OF MassFlow
+
+SET 
+ ProcessSpecies := ['HNO3', 'H2O', 'Uranium'] ;
+
+EQUATION
+ FOR i IN ProcessSpecies DO
+ MassOut(i) = MassIn(i) - Losses(i) ;
+ END
+ </pre>
+        <p>The equation can also be written as</p><pre class="programlisting">MassOut = MassIn - Losses; </pre>Care needs to be taken when combining streams with
+ different species lists:<pre class="programlisting">VARIABLE
+ MassInR AS ARRAY(ReagentSpecies) OF MassFlow
+ MassInP AS ARRAY(ProcessSpecies) OF MassFlow
+ MassOut AS ARRAY(AllSpecies) OF MassFlow
+
+SET 
+ ReagentSpecies := ['HNO3', 'H2O', 'NaOH', 'tbp/ok'] ;
+ ProcessSpecies := ['HNO3', 'H2O', 'Uranium'] ;
+ AllSpecies := ReagentSpecies + ProcessSpecies ;
+ 
+EQUATION
+ #...for the species common to all streams
+ FOR i IN ReagentSpecies*ProcessSpecies DO
+ MassOut(i) = MassInR(i) + MassInP(i);
+ END
+ #...for the species only in the Reagent stream
+ FOR i IN ReagentSpecies - ProcessSpecies DO
+ MassOut(i) = MassInR(i);
+ END
+ #...for the species only in the Process stream
+ FOR i IN ProcessSpecies - ReagentSpecies DO
+ MassOut(i) = MassInP(i);
+ END
+ </pre><p>A mixer might mix streams with different species into a single output. This therefore combines three species lists that may be disjoint sets.
+ Care needs to be taken in writing the material-balance equations:</p><pre class="programlisting">VARIABLE
+ MassInR AS ARRAY(Reagents) OF MassFlow
+ MassInI AS ARRAY(Inerts) OF MassFlow
+ MassInS AS ARRAY(Solids) OF MassFlow
+ MassOut AS ARRAY(AllSpecies) OF MassFlow
+ 
+SET 
+ ReagentSpecies := ['HNO3', 'H2O'] ;
+ Inerts := ['tbp/ok'] ;
+ Solids := ['Uranium'] ;
+ AllSpecies := Reagents + Inerts + Solids ;
+ 
+EQUATION
+ FOR i IN Reagents DO
+ MassOut(i) = MassInR(i) ;
+ END
+ FOR i IN Inerts DO
+ MassOut(i) = MassInI(i) ;
+ END
+ FOR i IN Solids DO
+ MassOut(i) = MassInS(i) ;
+ END
+ </pre><p>Combining three species lists with common entries</p><pre class="programlisting">VARIABLE
+ MassInR AS ARRAY(ProcessSpecies) OF MassFlow
+ MassInI AS ARRAY(Inerts) OF MassFlow
+ MassInS AS ARRAY(Solids) OF MassFlow
+ MassOut AS ARRAY(AllSpecies) OF MassFlow
+
+SET 
+ ProcessSpecies := ['HNO3','H2O','Uranium','tbp/ok'] ;
+ Inerts := ['tbp/ok', 'Unknown'] ;
+ Solids := ['Uranium', 'Unknown'] ;
+ AllSpecies := ProcessSpecies + Inerts + Solids ;
+
+EQUATION
+ #..for the components common to all streams
+ FOR i IN ProcessSpecies*Inerts*Solids DO
+ MassOut(i) = MassInP(i) + MassInI(i) + MassInS(i) ;
+ END
+ #..for the componets in Process and Inert streams only
+ FOR i IN ProcessSpecies*Inerts - ProcessSpecies*Inerts*Solids DO
+ MassOut(i) = MassInP(i) + MassInI(i) ;
+ END
+ #..for the components in Process and Solids streams only
+ FOR i IN ProcessSpecies*Solids - ProcessSpecies*Inerts*Solids DO
+ MassOut(i) = MassInP(i) + MassInS(i) ;
+ END
+ #..for the components in the Solids and Inert streams only
+ FOR i IN Solids*Inerts - ProcessSpecies*Inerts*Solids DO
+ MassOut(i) = MassInS(i) + MassInI(i) ;
+ END
+ #... and so on
+ </pre><p>Summation over a subset of an Ordered_Set</p><pre class="programlisting">VARIABLE 
+ MassIn AS ARRAY(ReagentSpecies) OF MassFlow
+ TotalProcessFlow AS MassFlow 
+
+SET 
+ ReagentSpecies := ['HNO3','NaOH','tbp/ok','H2O'] ;
+ ProcessSpecies := ['HNO3','H2O'] ;
+
+EQUATION 
+ TotalProcessFlow = SIGMA(MassIn(ProcessSpecies)) ; 
+ </pre><p>As with other Arrays, we can have multiple dimensions. For example, a solid liquid separation process described by a recovery factor (RF) might
+ be modelled as:</p><pre class="programlisting">VARIABLE
+ InFlow AS ARRAY(Species, Phase) OF MassFlow
+ OutFlow AS ARRAY(Species, Phase) OF MassFlow 
+ RF AS ARRAY(Species, Phase) OF MassFlow 
+
+SET
+ Species := ['Cs134', 'Cs137', 'Sr90'] ; 
+ Phase := ['Liquid', 'Solid'] ;
+
+EQUATION
+ FOR i IN Species DO 
+ OutFlow(i,'Liquid') = InFlow(i,'Liquid')*(1 - RF(i,'Liquid')) 
+ + InFlow(i,'Solid')*RF(i,'Solid') ; 
+ OutFlow(i,'Solid') = InFlow(i,'Solid')*(1 - RF(i,'Solid')) 
+ + InFlow(i,'Liquid')*RF(i,'Liquid') ; 
+ END
+ </pre><div><p class="Footer">&#160;</p><p class="Footer">&#160;</p><hr width="100%" size="0" align="center" /><p class="Footer">Commercial in confidence</p><p class="Footer">© 2016 Process Systems Enterprise Limited</p></div></body>
+</html>

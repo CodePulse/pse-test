@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation|Parameter Estimation in gPROMS">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>What is Parameter Estimation?</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x594.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Model Validation</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c570.html">Parameter Estimation in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">What is Parameter Estimation?</span>
+            </div>
+        </div>
+        <h1><a name="whatisparamest"></a>What is Parameter Estimation?</h1>
+        <p>A detailed gPROMS process model is constructed from equations describing the physical and chemical phenomena that take place in the system. These
+ equations usually involve parameters that can be adjusted to make the model predictions match observed reality. Examples of model parameters include
+ reaction kinetic constants, heat transfer coefficients, distillation stage efficiencies, constants within physical property correlations, and so on.
+ The more accurate these parameters are, the closer the model response is to reality.</p>
+        <p>The process of fitting these parameters to laboratory or plant data is called Parameter Estimation. gPROMS contains powerful, state-of-the art
+ Parameter Estimation capabilities that have been applied successfully to a wide range of problems. Key features are:</p>
+        <ul>
+            <li value="1">
+                <p>Multiple parameters occurring in dynamic or steady-state models may be estimated simultaneously. Nonlinear models of arbitrary size and
+ complexity – including multi-unit flowsheets – may be used.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Data from both dynamic and steady-state experiments may be used.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>The results of the estimation are subjected to extensive statistical analysis.</p>
+            </li>
+        </ul>
+        <p>Parameter Estimation in gPROMS is based on the Maximum Likelihood formulation which provides simultaneous estimation of parameters in
+ both:</p>
+        <ul>
+            <li value="1">
+                <p>the physical model of the process</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>the <a href="x304.html">variance model of the measuring instruments - the <span class="InlineEquation">Sensor</span></a>, which
+ can be:</p>
+                <ul>
+                    <li value="1">
+                        <p>constant variance (e.g. a thermocouple with an accuracy of +/- 1 K)</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li value="1">
+                        <p>constant relative variance (e.g. a composition analyser with an error of +/- 2 %)</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li value="1">
+                        <p>heteroscedastic variance, combining both of the above.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>When solving a Maximum Likelihood Parameter Estimation problem, gPROMS attempts to determine values for the uncertain physical and variance model
+ parameters, <span style="font-family: 'Symbol'" class="InlineEquation">q</span>, that maximise the probability that the mathematical model will predict the measurement values obtained from the experiments.
+ Assuming independent, normally distributed measurement errors, <span class="InlineEquation"><span style="font-family: 'Symbol'">e</span></span><sub>ijk</sub>, with zero means and standard deviations, <span class="InlineEquation"><span style="font-family: 'Symbol'">s</span></span><sub>ijk</sub>, this maximum likelihood goal can be captured through the following objective function:</p>
+        <table style="width: 100%;">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="../GeneratedImages/Equations/Equation6.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td>&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>where the symbols have the following definitions:</p>
+        <div class="table"><a name="AEN652"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Objective function symbol definitions.</caption>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><span class="InlineEquation">N</span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Total number of measurements taken during all the experiments.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><span style="font-family: 'Symbol'" class="InlineEquation">q</span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Set of model parameters to be estimated. The acceptable values may be subject to given lower and upper bounds, i.e. <span style="font-family: 'Symbol'" class="InlineEquation">q</span><span class="InlineEquation" style="vertical-align: super;">l</span><span style="font-family: 'Symbol'" class="InlineEquation"> £ q £ q</span><span class="InlineEquation" style="vertical-align: super;">u</span></td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><span class="InlineEquation">NE</span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Number of experiments performed.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2"><span class="InlineEquation">NV<sub>i</sub></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Number of variables measured in the <span class="InlineEquation">i </span><sup>th</sup> experiment.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><span class="InlineEquation">NM<sub>ij</sub></span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Number of measurements of the <span class="InlineEquation">j</span><sup>th</sup> variable in the <span class="InlineEquation">i</span><sup>th</sup> experiment.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                            <img src="../GeneratedImages/Equations/Equation7.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Variance of the <span class="InlineEquation">k</span><sup>th</sup> measurement of variable <span class="InlineEquation">j</span> in experiment <span class="InlineEquation">i</span>. This is
+ determined by the measured variable's <a href="x304.html">variance model</a>.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                            <img src="../GeneratedImages/Equations/Equation8.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><span class="InlineEquation">k</span><sup>th</sup> measured value of variable <span class="InlineEquation">j</span> in experiment <span class="InlineEquation">i</span>.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                            <img src="../GeneratedImages/Equations/Equation9.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2"><span class="InlineEquation">k</span><sup>th</sup> (model-)predicted value of variable <span class="InlineEquation">j</span> in experiment <span class="InlineEquation">i</span>.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

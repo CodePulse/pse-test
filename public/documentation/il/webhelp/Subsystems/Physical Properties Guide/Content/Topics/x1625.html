@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties Guide|Using Physical Properties for Simple Materials|The Multiflash physical property interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using Multiflash stream types</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/x1625.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Physical Properties Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c257.html">Using Physical Properties for Simple Materials</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x866.html">The Multiflash physical property interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Using Multiflash stream types</span>
+            </div>
+        </div>
+        <h1><a name="AEN1625"></a>Using Multiflash stream types</h1>
+        <p>A Multiflash input file, of the kind described in: <a href="x1417.html">Constructing a Multiflash input
+ file</a>, specifies the information that is necessary for the computation of the thermophysical and transport properties of a particular type of
+ material.</p>
+        <p>However, many processes involve more than one type of material. For instance, in addition to the main material being processed (which, say, is
+ generally a mixture of several components), the process may also involve other materials used in auxiliary functions (e.g. cooling water).</p>
+        <p>Even when the set of components appears everywhere in the process, large variations in operating conditions may mean that it is expedient to
+ use different thermodynamic and transport models in different sections of the plant - thereby, at least from the modelling point of view, treating
+ the matter in each of those sections as a different material.</p>
+        <p>For all these reasons, we need to be able to handle more than one type of material in our model. One way of doing this is by using separate
+ Multiflash input files, one for each material, and creating a different instance for each one of them using the mechanisms described in: <a href="x815.html">Models that involve Physical Property calculations</a>.</p>
+        <p>A different, and computationally more efficient way, is by making use of a single Multiflash input file containing multiple "stream
+ types''<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>These have no direct relationship with the concept of gPROMS stream types - refer to the gPROMS ModelDeveloper User Guide.</span></a></p>
+        <p>A stream type is a collection of components and phase descriptors, typically corresponding to the chemical species and the phases that may be
+ present in a particular part of the plant being studied. Thus, these are generally subsets of, respectively, all the components and all the phase
+ descriptors that are defined in a Multiflash input file.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

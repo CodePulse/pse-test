@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Fluid (mass transfer) </title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Separations Adsorption/Adsorption_bed/Tab Fluid (mass transfer).htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Fluid (mass transfer) <a name="Tab_main"></a></h1>
+        <p>The Fluid&#160;(mass transfer) tab is used to specify the mass transfer properties for the fluid phase.</p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Mass transfer from fluid to adsorbent(s)</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>LDF&#160;(Linear Driving Force)</dt>
+                        <dd>Mass transfer from the fluid to the adsorbents is governed by a linear driving force model.</dd>
+                        <dt>Custom</dt>
+                        <dd>Custom mass transfer driving force relation is provided. Use the custom model in gML Templates to code the custom correlation using the <span class="ProductName">gPROMS ProcessBuilder</span> Custom Modelling feature.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Mass transfer coefficient calculation</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Constant</dt>
+                        <dd>Mass transfer coefficient is constant and does not depend on fluid properties and flowrate.</dd>
+                        <dt>Bulk</dt>
+                        <dd>Mass transfer limitation is assumed to be in the bulk fluid phase. </dd>
+                        <dt>Knudsen</dt>
+                        <dd>Mass transfer is assumed to be limited by Knudsen diffusion in the adsorbent particles.</dd>
+                        <dt>Custom</dt>
+                        <dd>Custom mass transfer coefficient correlation. Use the custom model in gML Templates to code the custom correlation using the <span class="ProductName">gPROMS ProcessBuilder</span> Custom Modelling feature.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">
+                        <p>Mass transfer driving force basis</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">
+                        <p>Selector</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Solid concentration</dt>
+                        <dd>Driving force for mass transfer from the fluid phase to the solid phase calculated based on the difference between the actual solid concentration and the solid concentration in equilibrium with the fluid partial pressure as predicted by the isotherm model.</dd>
+                        <dt>Bulk phase molar concentration</dt>
+                        <dd>Driving force for mass transfer from the fluid phase to the solid phase calculated based on the difference between the actual bulk phase molar concentration and the molar concentration in equilibrium with the solid phase concentration as predicted by the isotherm model.</dd>
+                        <dt>Bulk phase partial pressure</dt>
+                        <dd>Driving force for mass transfer from the fluid phase to the solid phase calculated based on the difference between the actual partial pressure and the partial pressure in equilibrium with the solid phase concentration as predicted by the isotherm model.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">
+                        <p>Dispersion coefficient</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Specified</dt>
+                        <dd>Directly specify an overall dispersion coefficient.</dd>
+                        <dt>Calculated (Wakao, T.Funazkri, 1978)</dt>
+                        <dd>Calculate from the component molecular diffusivities.</dd>
+                        <dt>Custom</dt>
+                        <dd>Custom dispersion coefficient correlation. Use the custom model in gML Templates to code the custom correlation using the <span class="ProductName">gPROMS ProcessBuilder</span> Custom Modelling feature.</dd>
+                        <dt>No dispersion</dt>
+                        <dd>Assume there is no dispersion in the flow direction.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">
+                        <p>Mass transfer coefficient</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">&lt;units depend on mass transfer driving force basis&gt;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <p>Value of the mass transfer coefficient.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Dispersion coefficient</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">m<sup>2</sup>/s</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Dispersion coefficient for dispersion in the flow direction for the fluid phase.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1">Molecular diffusivity</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1">m<sup>2</sup>/s</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1">Molecular diffusivity per component</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

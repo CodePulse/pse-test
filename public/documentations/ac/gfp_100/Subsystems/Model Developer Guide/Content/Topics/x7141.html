@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Controlling the Execution of Model-based Activities">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The PRESET section</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x7141.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c7114.html">Controlling the Execution of Model-based Activities</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The PRESET section</span>
+            </div>
+        </div>
+        <h1><a name="preset"></a>The PRESET section</h1>
+        <p>At the start of each simulation, gPROMS has to solve a problem known as <i class="emphasis">initialisation</i>. For both steady-state and dynamic
+ simulations, gPROMS must first solve a system of algebraic equations (usually nonlinear). This naturally requires initial guesses for all of the
+ variables in order to provide the solution algorithm with a starting point. These initial guesses (and appropriate bounds on the variables) are
+ specified in the <a href="x292.html">Variable Type</a> entities. Usually, specifying the initial guesses in this manner i.e. the same
+ initial guess and bounds for variables of the same type) is sufficient for gPROMS to solve the initialisation problem. Larger, more complex problems,
+ however, may not be suited to this approach and therefore a more flexible method is needed specifying the initial guesses. This is catered for through
+ the Preset section, which allows the default initial guess and bounds of a variable to be overridden.</p>
+        <p>The syntax for the Preset section is:</p><pre class="programlisting">PRESET    <i class="emphasis">VariablePath</i>  := <i class="emphasis">InitialValue</i> ;</pre>
+        <p>or</p><pre class="programlisting">PRESET    <i class="emphasis">VariablePath</i>  := <i class="emphasis">InitialValue</i> : <i class="emphasis">LowerBound</i> : <i class="emphasis">UpperBound</i> ;</pre>
+        <p>Within and For statements may also be used in the PRESET section. The PRESET section is usually found within the Process entity, but it may also
+ be included inside a model entity.</p>
+        <p>Even once a set of suitable initial guesses are found, some problems may take a considerable length of time to solve. This can often be greatly
+ reduced if the solution of the initialisation problem is used to provide the initial guesses. This can be done in gPROMS using <i class="emphasis"><a href="x515.html">Saved Variable Sets</a></i> by SAVEing the values of all variables after the initialisation and restoring them in the
+ Preset section as shown in the gPROMS code below. In the first Process, a set of initial guesses is used that is sufficient for the initialisation to
+ be solved. The second Process then uses the data in the save file to solve the initialisation more quickly. Note that the second Process may also save
+ the result of the initialisation problem, so that changes can be made to the problem without having to run the first Process again.</p>
+        <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span><a name="restorecode"></a>
+            <p><b>Example 1. Process used to solve the initialisation problem only</b>
+            </p><pre class="programlisting"># PROCESS InitSim1
+
+ ...
+
+ PRESET
+ WITHIN aaa DO
+ x(1) := 1 ;
+ x(2) := 1 ;
+ x(3:10) := 0 ;
+ y() := 5 ;
+ z := 10 : 5 : 100 ;
+ ...
+ END
+
+ ...
+
+ SCHEDULE
+ SAVE "InitialisationData"</pre>
+        </div>
+        <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span><a name="AEN7163"></a>
+            <p><b>Example 2. Full Process restoring data from the successful initialisation</b>
+            </p><pre class="programlisting"># PROCESS FullSim
+
+ ...
+
+ PRESET
+ RESTORE "InitialisationData"
+ ...
+
+ SCHEDULE
+ SEQUENCE
+ SAVE "InitialisationData"
+ ...
+ END # sequence</pre>
+        </div>
+        <p>Note that <i class="emphasis"><a href="x515.html">Saved Variable Sets</a></i> restored in a RESTORE section do not overwrite the values of
+ any Selector Variables. This is because their values, specified in the INITIALSELECTOR section, are part of the problem definition and therefore must
+ not be modified by a RESTORE.</p>
+        <p>Multiple <i class="emphasis"><a href="x515.html">Saved Variable Sets</a></i> can be Restored in the PRESET section, along with manually
+ specified initial guesses, as shown in the example below. In all cases, any initial guess provided for a particular variable, either via an explicit
+ specification or via a Restore, will override all earlier initial guesses for the same variable. <i class="emphasis">Please note</i> that bounds defined
+ by a variable type will not be overwritten by the bounds in a Saved Variable Set. This means that any Variables that are not included in the
+    <i class="emphasis"><a href="x515.html">Saved Variable Sets</a></i> will have initial guesses and bounds specified by their Variable Types.</p><pre class="programlisting">PRESET
+ RESTORE "v_set1", "v_set2" ;
+ RESTORE "v_set3" ;
+ VariablePath := InitialValue ;
+ VariablePath := InitialValue : LowerBound : UpperBound ;
+ RESTORE "v_set4", "v_set5" ;
+ RESTORE "v_set6" ;</pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

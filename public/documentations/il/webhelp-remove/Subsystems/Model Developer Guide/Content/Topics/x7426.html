@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Controlling the Execution of Model-based Activities|The SOLUTIONPARAMETERS section">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Specifying default linear and nonlinear equation solvers</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x7426.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c7114.html">Controlling the Execution of Model-based Activities</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x7176.html">The SOLUTIONPARAMETERS section</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Specifying default linear and nonlinear equation solvers</span>
+            </div>
+        </div>
+        <h1><a name="AEN7426"></a>Specifying default linear and nonlinear equation solvers</h1>
+        <p>Most mathematical solvers for simulation, optimisation and parameter estimation need to make use of sub-solvers for the solution of sets of
+ linear and nonlinear algebraic equations. In order to avoid having to specify and configure these low level solvers repeatedly within the same
+ SOLUTION PARAMETERS section, gPROMS provides two solution parameters that can be used to specify and configure <i class="emphasis">default</i> linear
+ and nonlinear algebraic equation solvers. Thus, in addition to the four main solver parameters DASolver, DOSolver , EDSolver and PESolver described
+ in section on <a href="x7792.html">DAE solvers</a>, gPROMS recognises the following two parameters:</p>
+        <ul>
+            <li value="1">
+                <p>LASolver specifies the default sub-solver for sets of linear algebraic equations;</p>
+            </li>
+            <li value="2">
+                <p>NLSolver specifies the default sub-solver for sets of nonlinear algebraic equations.</p>
+            </li>
+        </ul>
+        <p>Consider, for example, the specification:</p><pre class="programlisting"># default linear algebraic equation solver configuration
+ LASolver := "MA28" ["PivotStabilityFactor" := 0.2;
+ "ExpansionFactor" := 3;
+ "MaxStructures" := 4] ;
+
+ # default nonlinear algebraic equation solver configuration
+ NLSolver := "SPARSE" [ "OutputLevel" := 3;
+ "MaxFuncs" := 1000;
+ "MaxIterNoImprove" := 5;
+ "NStepReductions" := 10;
+ "MaxIterations" := 1000;
+ "ConvergenceTolerance" := 1E-8] ;
+
+ DASolver := "DASOLV" ["OutputLevel" := 1;
+ "AbsoluteTolerance" := 1E-8] ;
+
+ DOSolver := "CVP_SS";</pre>
+        <p>This specifies that, whenever the <a href="x7876.html"><code class="methodname">DASOLV</code></a> solver needs to solve sets of linear or
+ nonlinear algebraic equations, it should use, respectively, the <code class="methodname">MA28</code> and <code class="methodname">SPARSE</code> solvers configured
+ as shown above. Also, whenever <code class="methodname">SPARSE</code> itself requires the solution of a set of linear equations, it should also use
+      <code class="methodname">MA28</code> in the same configuration. The above also specifies that the CVP_SS solver should be used for the execution of dynamic
+ optimisation activities. This solver will also make use of the specified sub-solver choices and configurations for linear and nonlinear algebraic
+ equations. Interestingly, CVP_SS also requires a differential-algebraic equation solver for its operation. This could be achieved by specifying the
+ value of a solver-type algorithmic parameter called <code class="methodname">DASolver</code>, e.g. <code class="methodname">DOSolver := "CVP_SS" ["DASolver" :=
+ "SuperDAE"];</code> where <code class="methodname">SuperDAE</code> is a (hypothetical) third-party solver for differential-algebraic equations.
+ However, since no such explicit specification is made above, <code class="methodname">CVP_SS</code> will actually use the <code class="methodname">DASolver</code>
+      choice and configuration shown above for this purpose. In conclusion, specifying the <code class="methodname">DASolver</code> parameter in
+ Solutionparameters fulfils a dual function as it defines:</p>
+        <ul>
+            <li value="1">
+                <p>the mathematical solver to be used for simulation activities;</p>
+            </li>
+            <li value="2">
+                <p>the default sub-solver to be used by the optimisation and parameter estimation activity solvers whenever they need to solve sets of
+ differential and algebraic equations.</p>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation Guide|Parameter Estimation in gPROMS|Analysing the Parameter Estimation results|Statistical analysis in Excel">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Data spreadsheets</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x1777.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Model Validation Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c570.html">Parameter Estimation in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1593.html">Analysing the Parameter Estimation results</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1758.html">Statistical analysis in Excel</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Data spreadsheets</span>
+            </div>
+        </div>
+        <h1><a name="pe_exceldatasheets"></a>Data spreadsheets</h1>
+        <p>A number of spreadsheets are created automatically when the statistics data file is loaded in Excel.</p>
+        <ul>
+            <li value="1">
+                <p><i class="emphasis">Summary.</i> This sheet summarises the contributions to the objective function of the constant, variance and
+ residual terms, as well as the types of variance models used for each measured variable in each experiment and their respective contributions
+ to the objective function. It also shows the estimated parameters. Parameters in red colour indicate either that the estimated value is at one
+ of its bounds or that the confidence intervals are very large (see also the "Statistical significance" sheet). A sample summary sheet for the
+ batch reactor example can be found in the next chapter.</p>
+            </li>
+            <li value="2">
+                <p><i class="emphasis">Parameter estimates.</i> This sheet summarises the estimated values of the model parameters and the
+ parameters of the different statistical variance models used, together with their initial guesses, and lower and upper bounds (see next
+ chapter).</p>
+            </li>
+            <li value="3">
+                <p><i class="emphasis">Variance matrix</i>. This sheet prints the variance-covariance matrix,
+            <i class="emphasis">V</i>. This matrix contains the variances and covariances of the estimated process model and variance model parameters. The
+ square root of each diagonal element, <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_82.png" data-mc-conditions="Default.ScreenOnly" /> </span>, is the approximated standard deviation of the respective estimated parameter.</p>
+                <p>The following approximation to the variance-covariance matrix is used:</p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_peiproms_83.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                </p>
+                <p>where</p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_peiproms_84.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                </p>
+                <p>and <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_85.png" data-mc-conditions="Default.ScreenOnly" /> </span> denotes the variance-covariance matrix of the measurement errors. The variance-covariance matrix of the estimated
+ parameters, <i class="emphasis">V</i>, is of size <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_86.png" data-mc-conditions="Default.ScreenOnly" /> </span>, where <i class="emphasis">N<sub>p</sub></i> is the number of all estimated parameters (process model parameters
+            <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_87.png" data-mc-conditions="Default.ScreenOnly" /> </span> and variance model parameters <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_88.png" data-mc-conditions="Default.ScreenOnly" /> </span>) whose values do not lie at one of their respective lower or upper bounds.</p>
+            </li>
+            <li value="4">
+                <p><i class="emphasis">Correlation matrix.</i> This sheet prints the correlation matrix,
+            <i class="emphasis">R</i>, which is calculated from the variance-covariance matrix,</p>
+                <p>where <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_89.png" data-mc-conditions="Default.ScreenOnly" /> </span></p>
+                <p>Values with absolute value close to one in the off-diagonals indicate a high correlation of the corresponding parameters
+            <i class="emphasis">i</i> and <i class="emphasis">j</i>, and vice versa. The high correlation of these parameters can also be seen in the
+ corresponding confidence ellipsoid plots (see below).</p>
+            </li>
+            <li value="5">
+                <p><i class="emphasis">Information matrix</i>. This sheet prints the Fischer information matrix, <i class="emphasis">M</i>, which is
+ equal to the inverse of the variance-covariance matrix <i class="emphasis">V</i>. It also prints the <i class="emphasis">90%</i>,
+            <i class="emphasis">95%</i> and <i class="emphasis">99%</i> F-values for this matrix (calculated using internal statistical functions).</p>
+                <p>An approximate <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_90.png" data-mc-conditions="Default.ScreenOnly" /> </span> highest posterior density region for the parameters <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_91.png" data-mc-conditions="Default.ScreenOnly" /> </span> is given by</p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_peiproms_92.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                </p>
+                <p>with</p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_peiproms_93.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                </p>
+                <p>which forms an ellipsoid in the <i class="emphasis">N<sub>p</sub></i>-dimensional parameter space.<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Again only those parameters whose values are not at one of their bounds are considered.</span></a> An <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_94.png" data-mc-conditions="Default.ScreenOnly" /> </span> confidence region means that if we repeat the experiments (which produces nearly the same measurements, but with slightly
+ different observation values and therefore a different distribution of the measurement errors), and estimate the parameters out of the repeated
+ experimental data, the values of the estimated parameters will lie in this confidence region with <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_95.png" data-mc-conditions="Default.ScreenOnly" /> </span> probability.<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Note that the confidence ellipsoid is only a linear approximation of the non-linear confidence region and may not be very accurate
+ for models which are highly non-linear in the parameters.</span></a>Confidence ellipsoids for any chosen pair of parameters can be plotted by selecting the Plot option (see below).</p>
+            </li>
+            <li value="6">
+                <p><i class="emphasis">Statistical significance.</i> This sheet prints:</p>
+                <ul>
+                    <li value="1">
+                        <p>the estimated values of the process model and variance model parameters;</p>
+                    </li>
+                    <li value="2">
+                        <p>the <i class="emphasis">90%, 95%</i>and <i class="emphasis">99%</i> confidence intervals for the estimated model and variance model
+ parameters. The confidence ellipsoid is bounded by the box</p>
+                        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_peiproms_96.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                        </p>
+                        <p>The sides of the box, <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_97.png" data-mc-conditions="Default.ScreenOnly" /> </span>, are called the two-sided joint <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_98.png" data-mc-conditions="Default.ScreenOnly" /> </span> confidence intervals.</p>
+                        <p>These are calculated from <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_99.png" data-mc-conditions="Default.ScreenOnly" /> </span></p>
+                    </li>
+                    <li value="3">
+                        <p><i class="emphasis">95%</i> t-values for the estimated parameters. These are calculated from:</p>
+                        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_peiproms_100.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                        </p>
+                        <p>The t-values show the percentage accuracy of the estimated parameters with respect to the <i class="emphasis">95%</i> confidence
+ intervals.</p>
+                        <p>The associated t-values, <i class="emphasis">t<sub>i</sub></i>, are compared with the reference <i class="emphasis">95%</i>
+                t-value, <i class="emphasis">t(0.95,N-N<sub>p</sub>)</i>, which is again calculated using internal statistical functions. A
+ t-value larger than the reference t-value indicates that the corresponding parameter has been accurately estimated (the standard deviation
+ and the confidence interval are small compared to the value of the estimated parameter); a smaller value indicates a poor estimate of the
+ corresponding parameter.</p>
+                    </li>
+                    <li value="4">
+                        <p>the standard deviations <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_peiproms_101.png" data-mc-conditions="Default.ScreenOnly" /> </span> of the estimated parameters.</p>
+                    </li>
+                </ul>
+            </li>
+            <li value="7">
+                <p><i class="emphasis">Measured variable information</i>. For each measured variable in each experiment, a sheet is produced with
+ the measured and predicted values, the standard deviations and the absolute, relative and weighted deviations. One such sheet for the variable
+            <code class="methodname">R101.C(1)</code> in the batch reactor experiment C13T1 is shown in the <a href="x2008.html">section on graphical
+ analysis</a>.</p>
+            </li>
+        </ul>
+        <div class="figure"><a name="AEN1978"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_SampleSummarySheet.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Sample summary sheet.</p>
+        </div>
+        <div class="figure"><a name="AEN1983"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_SampleParameterEstimatesSheet.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Sample parameter estimates sheet</p>
+        </div>
+        <div class="figure"><a name="AEN1988"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_SampleCorrelationMatrixSheet.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Sample correlation matrix sheet</p>
+        </div>
+        <div class="figure"><a name="AEN1993"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_SampleInformationMatrixSheet.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Sample information matrix sheet</p>
+        </div>
+        <div class="figure"><a name="AEN1998"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_SampleStatisticalSignificanceSheet.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Sample statistical significance sheet</p>
+        </div>
+        <div class="figure"><a name="AEN2003"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_SampleMeasuredVariableSheet.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Sample measured variable sheet</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Key equations</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Nomenclature_dropdown.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Equation.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Control/PID_controller/Key equations.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Key equations</h1>
+        <h2>Ideal PID control algorithm</h2>
+        <p>The PID controller implements practical forms of the ideal PID&#160;algorithm. The ideal PID control algorithm determines the relationship between the Process Variable (PV), (or "measurement" / "controller input"), and the Manipulated Variable (MV) (or "controller output"). This relation is given by:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation300.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(1)"><span class="autonumber"><span>(1)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_1"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_1">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation320.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Manipulated variable (or "controller output")</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../GeneratedImages/Equations/Equation321.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Bias (manipulated variable value when there is no error)</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../GeneratedImages/Equations/Equation322.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Proportional term</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../GeneratedImages/Equations/Equation323.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Integral term</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <img src="../../../../GeneratedImages/Equations/Equation324.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">
+                        <p>Derivative term</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The proportional, integral and derivative terms all depend on the error signal. This signal is defined as:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation301.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(2)"><span class="autonumber"><span>(2)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_2"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_2">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation325.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Controller error signal</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../GeneratedImages/Equations/Equation326.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Controller setpoint</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation327.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">
+                        <p>Process variable</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Proportional term</h3>
+        <p>The proportional term is the error signal multiplied by a proportional gain:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation302.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(3)"><span class="autonumber"><span>(3)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_3"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_3">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation328.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">
+                        <p>Controller gain</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Integral term</h3>
+        <p>The integral term integrates the error signal:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation303.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(4)"><span class="autonumber"><span>(4)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_4"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_4">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation329.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">
+                        <p>Integral time constant</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>In the Laplace domain this is given by:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation304.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(5)"><span class="autonumber"><span>(5)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_4"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_4">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation330.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">
+                        <p>Laplace operator</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Derivative term</h3>
+        <p>The derivative term acts on the derivative of the errors signal:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation305.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(6)"><span class="autonumber"><span>(6)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_5"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_5">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation331.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">
+                        <p>Derivative time constant</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>In the Laplace domain this is given by:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation306.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(7)"><span class="autonumber"><span>(7)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Ideal PID&#160;control algorithm transfer function</h3>
+        <p>In the Laplace domain the transfer function of the idea PID&#160;control algorithm is given by:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation307.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(8)"><span class="autonumber"><span>(8)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Direct and reverse-acting control</h2>
+        <p>The PID controller can be put into two modes: direct mode (or "forward&#160;mode") or reverse mode (or "indirect mode"). For a  direct-acting controller an increase in the process variable measurement generates an increase in the manipulated variable. In this case, the controller gain is negative and the value that is specified for the gain is inverted before use in the algorithm:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation308.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(9)"><span class="autonumber"><span>(9)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_6"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_6">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation332.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">
+                        <p>Specified controller gain</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Conversely, for a reverse-acting controller an increase in the process variable measurement generates a decrease in the manipulated variable and in this case we have:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation309.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(10)"><span class="autonumber"><span>(10)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>PID controller implementation</h2>
+        <p>The algorithm implemented in the PID&#160;controller model is different from the ideal PID algorithm. These differences in part depend on configuration options chosen in the dialog.</p>
+        <h3>Filtering for derivative action</h3>
+        <p>The derivative term of the ideal algorithm cannot be realized as it is non-proper and has a infinite response to input step changes.&#160;A proper realisation is be obtained by limiting the high-frequency gain using a low-pass filter:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation310.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(11)"><span class="autonumber"><span>(11)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_5"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_5">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation333.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">
+                        <p>High frequency gain</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Non-interactive and interactive formulations</h3>
+        <p>In the ideal PID&#160;algorithm, the integral (I) and derivative (D) act on the input signal and their outputs are added to obtain the response. This is referred to as the non-interactive formulation. In many implementations the integral (I) and derivative (D) are realized in sequence. This is referred to as the interactive formulation of the PID&#160;algorithm. Both formulations have a different response for the same tuning parameters. In the configuration dialog a selection can be made between the two, with the non-interactive algorithm being the default option. In the Laplace domain the interactive algorithm (with filtering for the derivative term) can be written as:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation311.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(12)"><span class="autonumber"><span>(12)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>In this formulation, the low-pass filtering is applied both to the derivative (D) as well as to the proportional term.</p>
+        <h3>Terms acting on error of process variable</h3>
+        <p>In the ideal PID control algorithm all terms (P,I,D) act on the error signal. To limit the magnitude of PID&#160;responses which setpoints are changed, in the configuration dialog terms can be chosen to act on the process variable (PV) instead of on the the error signal.</p>
+        <h3>Scaling</h3>
+        <p>When the proportional gain is assumed to apply to scaled controller inputs (PV) and outputs (MV), the inputs and outputs are first scaled before being used in the PID control algorithm:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyE-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation312.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyD-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(13)"><span class="autonumber"><span>(13)</span></span>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation313.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(14)"><span class="autonumber"><span>(14)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_8"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_8">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation334.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Minimum Process&#160;Variable</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../GeneratedImages/Equations/Equation335.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Maximum Process&#160;Variable</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation336.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Mimimum Manipulated Variable</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation337.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">
+                        <p>Maximum Manipulated Variable</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Limiting controller output and anti-windup</h3>
+        <p>When the Manipulated Variable (MV) as predicted by the PID&#160;control algorithm exceeds the minimum and maximum limits for the Manipulated Variable, the output is clipped to fall within these limits:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyE-Column1-Body2">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation314.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Equation-BodyD-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(15)"><span class="autonumber"><span>(15)</span></span>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation315.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(16)"><span class="autonumber"><span>(16)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_9"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_9">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation338.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">
+                        <p>Manipulated Variable controller output</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>An anti-windup reset algorithm is included in the model. This ensures that the when the controller can not achieve its set point due to being limited in terms of the range of the Manipulated Variable (MV), the integral gain will not keep increasing or decreasing in time. This is important to obtain a good controller response when either the set point or the process variable changes such that the set point can be achieved again.</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyE-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation316.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyD-Column2-Body2">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation317.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(17)"><span class="autonumber"><span>(17)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_10"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_10">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation339.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">
+                        <p>Controller output anti-windup margin</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>To prevent excessive gains for sudden steps in setpoints and Process Variables, the PID control algorithm also has rate-limiting implementation for the derivative term. The bandwidth limit for the derivative response can be specified, with smaller values leading to a larger response for sudden changes.</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyE-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation318.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyD-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(18)"><span class="autonumber"><span>(18)</span></span>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../GeneratedImages/Equations/Equation319.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(19)"><span class="autonumber"><span>(19)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Key equations_11"><img class="MCToggler_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Key equations_11">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <p>
+                            <img src="../../../../GeneratedImages/Equations/Equation340.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">
+                        <p>Auxiliary term for the implementation of rate-limiting</p>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <img src="../../../../GeneratedImages/Equations/Equation341.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">Bandwidth limit</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

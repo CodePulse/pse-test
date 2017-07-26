@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation|Experiment Design in gPROMS|Execution of Experiment Design activities|The Experiment Design text report and statistics files">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Example Experiment Design text statistics file</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x3516.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Model Validation</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2640.html">Experiment Design in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3342.html">Execution of Experiment Design activities</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3479.html">The Experiment Design text report and statistics files</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Example Experiment Design text statistics file</span>
+            </div>
+        </div>
+        <h1><a name="expdesstatreport"></a>Example Experiment Design text statistics file</h1><pre class="programlisting">Parameters to Be Estimated: Nominal Values (fixed) Scaling factor
+-------------------------- ====================== ==============
+Flowsheet.Ferment.theta(1) 0.1 0.1
+Flowsheet.Ferment.theta(2) 0.1 0.1
+Flowsheet.Ferment.theta(3) 0.1 0.1
+Flowsheet.Ferment.theta(4) 0.1 0.1
+Variance Models:
+----------------
+Sensor Group 1 CONSTANT_VARIANCE ( 0.2)
+
+Experiment 1: FEDBATCH_DES
+---------------
+
+
+Measurements:
+-------------
+Flowsheet.Ferment.y1 Sensor Group 1 
+Flowsheet.Ferment.y2 Sensor Group 1 
+ (OPTIMISED)
+Measured Variable Time Predicted Value Standard Deviation
+================= ==== =============== ==================
+Flowsheet.Ferment.y1 1.6938 7.53326 0.2
+Flowsheet.Ferment.y2 1.6938 0.0194794 0.2
+Flowsheet.Ferment.y1 2.8808 5.96486 0.2
+Flowsheet.Ferment.y2 2.8808 0.72187 0.2
+Flowsheet.Ferment.y1 3.1308 5.68698 0.2
+Flowsheet.Ferment.y2 3.1308 0.909819 0.2
+Flowsheet.Ferment.y1 3.3808 5.39825 0.2
+Flowsheet.Ferment.y2 3.3808 1.28748 0.2
+Flowsheet.Ferment.y1 6.902 3.12444 0.2
+Flowsheet.Ferment.y2 6.902 3.32092 0.2
+Flowsheet.Ferment.y1 7.152 3.08317 0.2
+Flowsheet.Ferment.y2 7.152 2.76509 0.2
+Flowsheet.Ferment.y1 7.402 3.04192 0.2
+Flowsheet.Ferment.y2 7.402 2.23121 0.2
+Flowsheet.Ferment.y1 9.5 2.53466 0.2
+Flowsheet.Ferment.y2 9.5 0.471863 0.2
+Flowsheet.Ferment.y1 9.75 2.46368 0.2
+Flowsheet.Ferment.y2 9.75 0.541938 0.2
+Flowsheet.Ferment.y1 10 2.39571 0.2
+Flowsheet.Ferment.y2 10 0.614262 0.2
+
+Variance-covariance matrix:
+---------------------------
+ 
+ 0.0002384
+ -1.632E-005 0.000871
+ 0.0002337 -6.257E-005 0.0002344
+ 0.000155 -3.986E-005 0.0001495 0.0001104
+
+Correlation matrix:
+-------------------
+ 
+ 1
+ -0.03582 1
+ 0.9886 -0.1385 1
+ 0.9559 -0.1286 0.9294 1
+
+Information matrix:
+-------------------
+ 
+ 1.979E+006
+ -1.067E+005 6921
+ -1.497E+006 8.101E+004 1.164E+006
+ -7.914E+005 4.265E+004 5.562E+005 3.83E+005
+
+Parameters to Be Estimated: Nominal Values (fixed) Standard Deviation % Standard Deviation
+-------------------------- ====================== ================== ====================
+Flowsheet.Ferment.theta(1) 0.1 0.015439 647.7
+Flowsheet.Ferment.theta(2) 0.1 0.029512 338.85
+Flowsheet.Ferment.theta(3) 0.1 0.015309 653.2
+Flowsheet.Ferment.theta(4) 0.1 0.010506 951.88
+       </pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

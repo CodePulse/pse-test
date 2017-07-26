@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/NLPSQP.html'],s:['$','ordinari'],p:[['$',28],['capabilities',3],['found',33],['name',32],['reportinginterval',44],['time',15]]});

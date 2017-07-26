@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation Guide|Experiment Design in gPROMS">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>An Experiment Design example</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x3622.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Model Validation Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2640.html">Experiment Design in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">An Experiment Design example</span>
+            </div>
+        </div>
+        <h1><a name="ed_fedbatch"></a>An Experiment Design example</h1>
+        <p>The gPROMS installation includes a simple Experiment Design example - it is highly recommended that you take a look at this. You can access this
+ by clicking on the browse examples button on the gPROMS Tool bar and then navigating to <tt class="filename">General capabilities\Model
+ Validation\DesignFedbatch.gPJ</tt> (as shown below). This section explains the features of the model.</p>
+        <div class="figure"><a name="AEN3626"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/XD_BrowsingExperimentDesignExample.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Browsing for the Experiment Design example in the gPROMS distribution directory.</p>
+        </div>
+        <p>The example considers the fed-batch fermentation process shown in the figure below.</p>
+        <div class="figure"><a name="AEN3632"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/XD_FedbatchFermentation.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Fed-batch fermentation</p>
+        </div>
+        <p>The mathematical model for the process is as follows:</p>
+        <ul>
+            <li value="1">
+                <p><i class="emphasis">Biomass concentration</i>
+                </p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_edfwproms_1.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                </p>
+            </li>
+            <li value="2">
+                <p><i class="emphasis">Substrate concentration</i>
+                </p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_edfwproms_2.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                </p>
+            </li>
+            <li value="3">
+                <p><i class="emphasis">Reaction rate</i>
+                </p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_edfwproms_3.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                </p>
+            </li>
+        </ul>
+        <p>The table below summarises the parameters to be estimated and the design variables that appear in this model.</p>
+        <div class="table"><a name="AEN3670"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Parameters and design variables in fed-batch fermentation model.</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Model Variables</th>
+                        <td class="TableStyle-GeneralTable-HeadD-Column1-Header1">&#160;</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1"><span class="inlinemediaobject"><img src="../Resources/Images/eqn_edfwproms_4.png" data-mc-conditions="Default.ScreenOnly" /> </span>
+                        </td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Parameters to be estimated</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">u<sub>1</sub></td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Dilution factor</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">u<sub>2</sub></td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Feed substrate concentration</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">y<sub>1</sub></td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Biomass concentration</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">y<sub>2</sub></td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Substrate concentration</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">r<sub>m</sub></td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">Reaction rate</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Before this model can be used to simulate or optimise the fermentation process, all parameters that appear in it must be given values. Imagine,
+ however, a situation where the kinetic parameters are unknown. That is, we do not know the values of <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_edfwproms_5.png" data-mc-conditions="Default.ScreenOnly" /> </span>. To determine these, we can perform a number of experiments, measure the values of some or all process variables, and estimate the
+ kinetic parameters that best fit the measured data (see <a href="c570.html">Parameter Estimation in gPROMS</a> for a more
+ detailed description).</p>
+        <p>In the example, it is assumed that we design one new experiment, take up to 10 samples at different times and measure the biomass and substrate
+ concentration, y<sub>1</sub> and y<sub>2</sub>, in each sample using a High Pressure Liquid Chromatograph (HPLC). The duration
+ of the experiment should be between 5 and 10 hours. The dilution factor u<sub>1</sub> and the feed substrate concentration
+ u<sub>2</sub> may be varied over time. We may also change the initial value of the biomass concentration y<sub>1</sub>(0) in
+ the reactor.</p>
+        <p>Resource availability may impose an upper limit on the feed substrate concentration.</p>
+        <p>The Experiment Design problem seeks to provide answers to the following questions</p>
+        <ul>
+            <li value="1">
+                <p>What initial biomass concentration y<sub>1</sub>(0) should we use?</p>
+            </li>
+            <li value="2">
+                <p>How long should we run the experiment for?</p>
+            </li>
+            <li value="3">
+                <p>How should we vary the feed flowrate for the dilution factor u<sub>1</sub>(t) and the feed substrate concentration
+ u<sub>2</sub>(t) over the duration of the experiment?</p>
+            </li>
+            <li value="4">
+                <p>When should we take the measurement samples?</p>
+            </li>
+        </ul>
+        <p>The unknown parameters to be estimated are <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_edfwproms_103.png" data-mc-conditions="Default.ScreenOnly" /> </span> (gPROMS pathname FERMENT.theta(1)) to <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_edfwproms_104.png" data-mc-conditions="Default.ScreenOnly" /> </span> (gPROMS pathname FERMENT.<span class="inlinemediaobject"> <img src="../Resources/Images/eqn_edfwproms_105.png" data-mc-conditions="Default.ScreenOnly" /> </span>). We use the estimated value of each of the parameters as the SCALING_FACTOR so that the scaled values of all parameters are
+ one.</p>
+        <p>An HPLC is used to measure both y<sub>1</sub> and y<sub>2</sub>. The variance model is described as CONSTANT_VARIANCE
+ with <span class="inlinemediaobject"> <img src="../Resources/Images/eqn_edfwproms_106.png" data-mc-conditions="Default.ScreenOnly" /> </span> equal to<i class="emphasis"> 0.5</i>.</p>
+        <p>The table below contains the above information for the fed-batch fermentation experiment.</p>
+        <div class="table"><a name="AEN3764"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Conditions for the fed-batch fermentation experiment</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Type of Decision Variable</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Variable</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Initial Guess</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Lower Bound</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Upper Bound</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Experiment Duration</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">t<sub>f</sub></td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">10.0</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">5.0</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">10.0</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Initial Condition</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">y<sub>1</sub>(0)</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">7.0</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">1.0</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">10.0</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Time-varying control (piecewise-constant)</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">u<sub>1</sub>(t)</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">0.2</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">0.05</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">0.2</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Time-varying control (piecewise-constant)</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">u<sub>2</sub>(t)</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">15.0</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">5.0</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">35.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

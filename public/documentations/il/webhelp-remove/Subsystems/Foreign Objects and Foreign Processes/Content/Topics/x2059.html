@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Foreign Objects and Foreign Processes.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Foreign Objects and Foreign Processes|Using Foreign Processes|Using the FPI|Using non-standard FPI implementations">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Specifying the FPI implementation to be used</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Foreign Objects and Foreign Processes.htm#Topics/x2059.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Foreign Objects and Foreign Processes</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x593.html">Using Foreign Processes</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1908.html">Using the FPI</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2047.html">Using non-standard FPI implementations</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Specifying the FPI implementation to be used</span>
+            </div>
+        </div>
+        <h1><a name="specifyingtheFPIimplementationtobeused"></a>Specifying the FPI implementation to be used</h1>
+        <p>The FPI implementation to be used by a given simulation must be
+ specified in the Solutionparameters section of the corresponding
+ Process entity. The parameter that needs to be specified is called
+ FPI, and the name of the FPI implementation is enclosed in quotes. For
+ instance, the specification:</p><pre class="programlisting">SOLUTIONPARAMETERS
+ FPI := "MyFPI" ;</pre>
+        <p>indicates that an FPI implementation called MyFPI<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>This would be implemented as either MyFPI.so under UNIX or
+ MyFPI.dll under MS Windows NT.</span></a></p>
+        <p>should be used for the current simulation.</p>
+        <p>Some FPI implementations may require additional data that
+ determine their precise behaviour. Typically, such data will be held
+ in an input file but this is not necessarily so. In any case, the
+ additional data define a specific "instance'' of an FPI
+ implementation. The name of this instance must be appended to that of
+ the FPI implementation<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>In object-oriented programming terminology, the FPI
+ implementation is called the "class'' of all its instances.</span></a> and the two must be separated with a double colon (::)
+ separator.</p>
+        <p>For instance, suppose that the FPI implementation MyFPI needs to
+ operate at some constant factor to real-time, and that this factor
+ (together with, perhaps, other parameters) must be specified in a text
+ file that you need to provide. Now, suppose that you have prepared
+ such a file and you have called it /home/user01/MyFPI.dat. In this
+ case, the FPI specification will take the form:</p><pre class="programlisting">SOLUTIONPARAMETERS
+ FPI := "MyFPI::/home/user01/MyFPI.dat" ;</pre>
+        <p>We note that gPROMS always passes the complete FPI specification
+ string to the FPI implementation. It is up to the FPI implementation
+ to break down this string into its class and instance names (if
+ appropriate), and to decide what to do with them.</p>
+        <p>A typical application of this facility is in the case of the
+ ExcelFP FPI implementation that provides a link between gPROMS
+ simulations and user interfaces implemented in Microsoft Excel
+ spreadsheets (see also: <a href="c2136.html">Microsoft Excel
+ Foreign Object and Foreign Process Interfaces</a>). In such cases,
+ the above instance name is simply the name of the Excel spreadsheet to
+ be used for this purpose.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

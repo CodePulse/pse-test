@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation Guide">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>gPROMS Model requirements</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x412.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="mv_model_requirements"></a>gPROMS Model requirements</h1>
+        <p>Both Parameter Estimation and Experiment Design problems in gPROMS require a working gPROMS process model that runs robustly for steady-state
+ and/or dynamic simulation.</p>
+        <p>Particular focus should be given to the following parts of the Process Entity:</p>
+        <ul>
+            <li value="1">
+                <p>The <i class="emphasis">Assign</i> specifications mark certain system variables as fixed for the purposes of dynamic simulation. As
+ far as Parameter Estimation and Experiment Design is concerned, some of these variables will belong to one of the following categories:</p>
+                <ul>
+                    <li value="1">
+                        <p>time-varying control variables;</p>
+                    </li>
+                    <li value="2">
+                        <p>time-invariant control parameters; or</p>
+                    </li>
+                    <li value="3">
+                        <p>unknown parameters to be estimated.</p>
+                    </li>
+                </ul>
+                <p>It is very important to note that, for the purposes of model validation, unknown parameters are declared as Variables in gPROMS Model
+ entities, and <i class="emphasis">not</i> as Parameters<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>This is consistent with the general gPROMS rule that Parameters can never be the result of any gPROMS calculation.
+ Of course, once the model validation problem has been solved successfully and their values have been found, they can either be declared as
+ Parameters (Set to the estimated value) or be left as Variables (Assigned to the estimated value)</span></a></p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>The <i class="emphasis">Initial</i> specifications in the Process will be used as the <i class="emphasis">default</i>
+        initial conditions for the experiments. Some or all of the Initial specifications may then be overridden by specifying a value in an
+ experiment.</p>
+                <p>In the Process Entity, Initial specifications can be given in the form of a general equation. However to specify Initial conditions in your
+ experiments, corresponding Initial specifications must appear in the Process in the restricted form:</p>
+                <p><code class="varname"><tt class="replaceable"><i>VariableName</i></tt></code> =
+        <code class="varname"><tt class="replaceable"><i>ConstantExpression</i></tt></code>;
+                </p>
+                <p>where <code class="varname"><tt class="replaceable"><i>VariableName</i></tt></code> is the name of a differential or algebraic variable, and
+        <code class="varname"><tt class="replaceable"><i>ConstantExpression</i></tt></code> is either a numerical value or an expression consisting of only parameters and
+ numerical values.</p>
+            </li>
+            <li value="2">
+                <p>The gPROMS solvers for Parameter Estimation and Experiment Design are configured in the SOLUTIONPARAMETERS section of a Process entity -
+ refer to <a href="x1290.html">Controlling the Execution of Parameter Estimation activities</a> and <a href="x3557.html">Controlling the Execution of Experiment activities</a></p>
+            </li>
+            <li value="3">
+                <p>Any <i class="emphasis">Schedule</i> specification in the Process is ignored for the purposes of Parameter Estimation and Experiment
+ Design. This also means that any Intrinsic Tasks<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>See the section "Defining Tasks" in the Model Developer Guidei</span></a> used by your Models will not be executed.</p>
+            </li>
+        </ul>
+        <p>Experience indicates that most of the effort in defining Parameter Estimation and Experiment Design problems is, in fact, incurred in the
+ construction of a robust model of your process. This will probably be exactly the same model as that used for dynamic simulations within gPROMS.</p>
+        <p>Therefore, it is worth investing some effort in ensuring that the model behaves properly over the <i class="emphasis">entire</i> range of possible
+ parameter values. In particular, you should check that the differential and algebraic variables <i class="emphasis">x</i> and <i class="emphasis">y</i>
+    remain within any specified bounds even for extreme values of the control variables and the parameters to be estimated.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

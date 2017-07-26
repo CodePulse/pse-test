@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation Guide|Parameter Estimation in gPROMS|Analysing the Parameter Estimation results|Statistical analysis in Excel">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Graphical analysis</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/Equation.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x2008.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="pe_excelplotting"></a>Graphical analysis</h1>
+        <p>In addition to the spreadsheets, the user can also create three types of statistical plots by choosing the Plot option from the
+        <b class="guimenu">Parameter Estimation</b> menu on the MS Excel tool bar. Each of these is described below:</p>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Overlay plot</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>This overlays the measured and predicted values for whichever variable is chosen from a
+ specified experiment. The user has the option of showing error bars by checking the <b class="guibutton">Show standard deviations</b> dialog box
+ (see appropriate figure in the next chapter). These error bars correspond to <img src="../GeneratedImages/Equations/Equation25.svg" alt="" class="_Inline_MCEquation_0 mcReset" />. The user selects one or more variables (choose <b class="guibutton">Flat list</b>, if you want to select more than one
+ variable). The charts can be plotted on the respective variable data worksheets, on a new sheet for each chart or all charts on one new sheet.
+ A figure showing a plot of the batch reactor variable <code class="methodname">R101.C(1)</code> in experiment C13T1 can be found in the following
+ chapter. It can be seen that the agreement between the predicted values using the estimated parameters and the measured values is very
+ close.</p>
+                <div class="figure"><a name="AEN2068"></a>
+                    <p>
+                        <img src="../Resources/Images/PE_OverlayPlotDialogWindow.png" />
+                    </p>
+                    <p class="FigureCaption"> Overlay Plot Dialog Window</p>
+                </div>
+                <div class="figure"><a name="AEN2073"></a>
+                    <p>
+                        <img src="../Resources/Images/PE_SampleOverlayPlot.png" />
+                    </p>
+                    <p class="FigureCaption"> Sample Overlay Plot</p>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Residual plot</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>This allows the user to plot the absolute deviation, relative deviation and/or weighted
+ (scaled) residual for each measured variable in each experiment. As for the "Overlay chart", the user may select one or more variables and plot
+ the charts on the respective data worksheets, on a new sheet for each chart or all the charts on one new sheet. Figures in the following
+ chapter show the dialog window and weighted residual plot, respectively, for the batch reactor variable <code class="methodname">R101.C(1)</code> in
+ experiment C13T1.</p>
+                <div class="figure"><a name="AEN2078"></a>
+                    <p>
+                        <img src="../Resources/Images/PE_ResidualPlotDialogWindow.png" />
+                    </p>
+                    <p class="FigureCaption"> Residual Plot Dialog Window</p>
+                </div>
+                <div class="figure"><a name="AEN2083"></a>
+                    <p>
+                        <img src="../Resources/Images/PE_SampleWeightedResidualPlot.png" />
+                    </p>
+                    <p class="FigureCaption"> Sample Weighted Residual Plot</p>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Confidence ellipsoids</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>This option gives the confidence ellipsoids in two-dimensional space for any pair of parameters <img src="../GeneratedImages/Equations/Equation26.svg" alt="" class="_Inline_MCEquation_0 mcReset" /> according to the joint confidence region:</p>
+                <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+                    <col class="TableStyle-Equation-Column-Column1" />
+                    <col class="TableStyle-Equation-Column-Column2" />
+                    <tbody>
+                        <tr class="TableStyle-Equation-Body-Body2">
+                            <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                                <img src="../GeneratedImages/Equations/Equation27.svg" alt="" class="_MCEquation_0 mcReset" />
+                            </td>
+                            <td class="TableStyle-Equation-BodyA-Column2-Body2">&#160;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The parameters can be plotted against each other using different confidence levels (90%, 95% or 99%). The user may
+ select any pair of parameters or plot the confidence ellipsoids for all pairs. An example of a confidence ellipsoid is shown in the next
+ chapter.</p>
+                <div class="figure"><a name="AEN2088"></a>
+                    <p>
+                        <img src="../Resources/Images/PE_ConfidenceEllipsoidDialogWindow.png" />
+                    </p>
+                    <p class="FigureCaption"> Confidence Ellipsoid Dialog Window</p>
+                </div>
+                <div class="figure"><a name="AEN2093"></a>
+                    <p>
+                        <img src="../Resources/Images/PE_SampleConfidenceEllipsoidPlot.png" />
+                    </p>
+                    <p class="FigureCaption"> Sample Confidence Ellipsoid Plotty.</p>
+                </div>
+            </div>
+        </div>
+        <div class="note" data-mc-autonum="&lt;b&gt;Note&lt;/b&gt;"><span class="autonumber"><span><b>Note</b></span></span>
+            <p>Although the variance model parameters have uncertainties, it may be desired to exclude these
+ uncertainties from the calculations. In this case the vector <img src="../GeneratedImages/Equations/Equation28.svg" alt="" class="_Inline_MCEquation_0 mcReset" />does not contain the parameters <img src="../GeneratedImages/Equations/Equation29.svg" alt="" class="_Inline_MCEquation_0 mcReset" />and is defined as <img src="../GeneratedImages/Equations/Equation30.svg" alt="" class="_Inline_MCEquation_0 mcReset" />.</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Composite Models">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Setting Parameter values in Composite Models</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x3199.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2799.html">Composite Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Setting Parameter values in Composite Models</span>
+            </div>
+        </div>
+        <h1><a name="AEN3199"></a>Setting Parameter values in Composite Models</h1>
+        <p>Before any Model based activity is executed in gPROMS the values of all Parameters (even if not used) must be resolved. A Parameter's value
+ must have been determined in one of the following ways:</p>
+        <ul>
+            <li value="1">
+                <p><a href="x3144.html">Explicit Parameter specification</a>: to Set a Parameter to either to a literal value or to another
+ Parameter value (or even some expression involving the two)</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p><a href="x3220.html">From topology connections</a> : for Connection Type Parameters only</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p><a href="x3283.html">From implicit <i class="emphasis">Parameter Propagation in Composite Models</i></a><i class="emphasis">: top down
+ propagation from higher level Models to lower level models</i>
+                </p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>From a Default specification: only if the Parameter is not given a value directly by any of the three previous approaches</p>
+            </li>
+        </ul>
+        <p>Any Parameter that does not have a value following the above four steps will result in an error that causes the Model based activity to
+ fail. Giving a Parameter the exactly same value more than once does not cause an error; however, clearly, giving a Parameter different values is
+ an error.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

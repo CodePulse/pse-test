@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Model Analysis and Diagnosis|High-index DAEs, initialisation and integration">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Integration of high-index DAE systems</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x9818.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="MDG_Diag_HighIndex_Details_Integration"></a>Integration of high-index DAE systems</h1>
+        <p>A further complication with DAE systems of high index is that the usual numerical algorithms are generally incapable of controlling the
+ error of integration, and this very often leads to failure, or, even worse, spurious solutions!</p>
+        <p>For these reasons, DAE systems of index higher than 1 are usually solved by reducing their index to 1 via differentiation with respect
+ to time. For instance, the index-2 system <a href="x8799.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2.png" data-mc-conditions="Default.ScreenOnly" /></span></a> can be reduced to the index-1 system:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_23.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>by differentiating <a href="x8799.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_a1.png" data-mc-conditions="Default.ScreenOnly" /></span></a> with respect to time. Note that it is not necessary to combine <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2p_d3.png" data-mc-conditions="Default.ScreenOnly" /></span> with <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2p_d1.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2p_d2.png" data-mc-conditions="Default.ScreenOnly" /></span> to obtain a purely algebraic equation. System <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2p.png" data-mc-conditions="Default.ScreenOnly" /></span> can then be solved using standard algorithms and codes.</p>
+        <p>Of course, one immediate question is: "Will the solution of <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2p.png" data-mc-conditions="Default.ScreenOnly" /></span> be the same as the solution of <a href="x8799.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2.png" data-mc-conditions="Default.ScreenOnly" /></span></a>? More specifically, will the solution of <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2p.png" data-mc-conditions="Default.ScreenOnly" /></span> satisfy equation <a href="x8799.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_a1.png" data-mc-conditions="Default.ScreenOnly" /></span></a>, which has now been replaced by its time differential <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2p_d3.png" data-mc-conditions="Default.ScreenOnly" /></span>?". The answer is: "Yes, provided the initial conditions satisfy the consistency relations <a href="x8799.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_con.png" data-mc-conditions="Default.ScreenOnly" /></span></a>."; in this case,</p>
+        <ul>
+            <li value="1">
+                <p>the initial value of the quantity <span class="inlinemediaobject"><img src="../Resources/Images/inline_expression_x1+x2.png" data-mc-conditions="Default.ScreenOnly" /></span> is zero</p>
+            </li>
+            <li value="2">
+                <p>the time gradient of <span class="inlinemediaobject"><img src="../Resources/Images/inline_expression_x1t+x2t.png" data-mc-conditions="Default.ScreenOnly" /></span> is zero for all times <span class="inlinemediaobject"><img src="../Resources/Images/inline_expression_t_ge_0.png" data-mc-conditions="Default.ScreenOnly" /></span> (<i class="emphasis">cf.</i> equation <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2p_d3.png" data-mc-conditions="Default.ScreenOnly" /></span>)</p>
+            </li>
+        </ul>
+        <p>and, therefore, <span class="inlinemediaobject"><img src="../Resources/Images/inline_equation_x1t+x2t=0.png" data-mc-conditions="Default.ScreenOnly" /></span> for all <span class="inlinemediaobject"><img src="../Resources/Images/inline_expression_t_ge_0.png" data-mc-conditions="Default.ScreenOnly" /></span> – hence <a href="x8799.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_a1.png" data-mc-conditions="Default.ScreenOnly" /></span></a> is satisfied – at least in the exact mathematical sense.</p>
+        <p>A complication arises from the fact that, if system <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2p.png" data-mc-conditions="Default.ScreenOnly" /></span> is solved <i class="emphasis">numerically</i> (rather than exactly), then equation <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2p_d3.png" data-mc-conditions="Default.ScreenOnly" /></span> will be satisfied only within a certain specified accuracy and not exactly. Over long time horizons, this may allow
+        <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_1_t.png" data-mc-conditions="Default.ScreenOnly" /></span> + <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_2_t.png" data-mc-conditions="Default.ScreenOnly" /></span> to deviate significantly from its correct value of 0. A way of avoiding this "drift" is to include both <a href="x8799.html"><span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2_a1.png" data-mc-conditions="Default.ScreenOnly" /></span></a> and <span class="inlinemediaobject"><img src="../Resources/Images/ref_eqn_index2p_d3.png" data-mc-conditions="Default.ScreenOnly" /></span> in the set of equations being integrated, thereby making sure that both of them are satisfied to the required accuracy.
+ However, this leads to redundancy since now we have 4 equations in the 3 unknowns <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_1_t.png" data-mc-conditions="Default.ScreenOnly" /></span>, <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_2_t.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_y_t.png" data-mc-conditions="Default.ScreenOnly" /></span>. One way of resolving this redundancy is to treat <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_xdot_1.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_1.png" data-mc-conditions="Default.ScreenOnly" /></span> as completely distinct variables – effectively introducing an extra variable in the system:</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_24.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>Here <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_xbar_1.png" data-mc-conditions="Default.ScreenOnly" /></span> is a new variable bearing no relation to <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_x_1.png" data-mc-conditions="Default.ScreenOnly" /></span> as far as the numerical solution is concerned. This is now an index-1 system that can be solved to arbitrary accuracy
+ using standard codes.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

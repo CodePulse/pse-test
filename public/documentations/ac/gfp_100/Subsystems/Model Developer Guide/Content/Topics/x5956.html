@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Defining Schedules|Elementary tasks|The Reassign (Reset) elementary task">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using the TIME function in a Reassign</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x5956.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c5411.html">Defining Schedules</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x5897.html">Elementary tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x5920.html">The Reassign (Reset) elementary task</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Using the TIME function in a Reassign</span>
+            </div>
+        </div>
+        <h1><a name="reset_time"></a>Using the <code class="methodname">TIME</code> function in a Reassign</h1>
+        <p>In the <a href="x1105.html">Assign section of a Process</a> a Variable value can be made dependent on the simulation time by using the
+        <code class="methodname">TIME</code> function</p><pre class="programlisting">ASSIGN 
+ T101.Fin := 20 + 1.2*TIME ; </pre>
+        <p>The Reassign elementary task can be used to change this Assignment in a Schedule in the same way as for all other Assignments. In particular,
+ the built-in function <code class="methodname">OLD</code> can also be used with <code class="methodname">TIME</code> which is useful in order to avoid
+ discontinuities in input variables. In the following example, a Variable has been Assigned a constant value which is subsequently changed in the
+ Schedule to form a ramp</p><pre class="programlisting">ASSIGN 
+ T101.Fin := 20;
+ ... 
+
+ SCHEDULE
+ ...
+ REASSIGN
+ T101.Fin := OLD(T101.Fin) + 1.2*(TIME - OLD(TIME));
+ END</pre>
+        <p>It is important to note the difference between using <code class="methodname">TIME </code>and<code class="methodname"> OLD(TIME)</code>. In the example
+ below, the value of Variable <code class="varname">A</code> will vary with the simulation time after the Reassign whereas the value of <code class="varname">B</code>
+        will remain constant at the value of the simulation time immediately before the Reassign task.</p><pre class="programlisting">REASSIGN
+ A := TIME;
+ B := OLD(TIME);
+ END
+ CONTINUE FOR 100</pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

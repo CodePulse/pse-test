@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=Product.Name%] Guide|gRMS Output Channel|Plotting 2D graphs">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Adding lines to a plot</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x4424.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="AEN4424"></a>Adding lines to a plot</h1>
+        <p>To add a new line to a plot select the <i class="emphasis">Line -&gt; Add...</i> menu-item. The <i class="emphasis">Add Line
+ Dialog</i> is displayed which allows you to navigate the model hierarchy and choose a variable to be plotted. When a line is added to a
+ plot, a <i class="emphasis">Line Properties Dialog</i> will be displayed so that the line can be formatted. The line will be drawn on
+ the plot only if it has a single free domain i.e. the corresponding variable is a function of a single independent variable (usually
+ Time).</p>
+        <p>On Windows, navigation of the model hierarchy is achieved using a tree-style mechanism. To add a line corresponding to a certain
+ variable:</p>
+        <ul>
+            <li value="1">
+                <p><i class="emphasis">either</i> double-click on the variable,</p>
+            </li>
+            <li value="2">
+                <p><i class="emphasis">or</i> click on the variable to select it and then click <b class="keycap">OK</b>.</p>
+            </li>
+        </ul>
+        <div class="figure"><a name="AEN4439"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_AddLineDialog.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Add line</p>
+        </div>
+        <p>On Linux, navigation of the model hierarchy is achieved using a list. Selecting (single-clicking) an item in the list causes it to be
+ listed in the <i class="emphasis">Selection</i> field. The action of the <i class="emphasis">OK</i> button depends on what
+ type of item is in the <i class="emphasis">Selection</i> field:</p>
+        <div class="table"><a name="AEN4450"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption><i class="emphasis">Selection</i> field items</caption>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">&lt;UP&gt;</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Moves up the hierarchy by one level.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">xxx*</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Moves down the hierarchy into model instance xxx.</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">xxx</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Adds a line to the plot using the variable xxx.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>The behaviour of this dialog can be altered by the three toggle buttons which, by default, are all set off.</p>
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td><i class="emphasis">Show variables as flat list</i> - setting this toggle flattens the model hierarchy and activates the
+        <i class="emphasis">Filter</i> field which can then be used to filter the contents of the list using standard Linux wild-cards ("?" to
+ represent one character, "*" to represent any number of characters.)</td>
+                </tr>
+                <tr>
+                    <td><i class="emphasis">Show all descendants</i> - by default, the list only displays the models/variables at the current level
+ of the hierarchy. With this toggle set, the list also includes the names of all models/variables deeper in the hierarchy.</td>
+                </tr>
+                <tr>
+                    <td><i class="emphasis">Show full variable names</i> - by default, the list only displays the next element in the name of each
+ model/variable. Setting this toggle causes the full names to be listed.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

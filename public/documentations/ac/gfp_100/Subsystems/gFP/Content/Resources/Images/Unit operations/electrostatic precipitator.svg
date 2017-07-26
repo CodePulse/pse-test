@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="95.5px"
+	 height="75.2px" viewBox="0 0 95.5 75.2" style="enable-background:new 0 0 95.5 75.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;fill:#7676E2;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:#6F6F6F;}
+	.st4{fill:#D2D2D2;}
+	.st5{fill:none;stroke:#1D1D1B;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<g id="Layer_2" class="st0">
+	<rect x="-10.9" y="-3.5" class="st1" width="121.1" height="86"/>
+</g>
+<g id="Layer_1">
+	<polygon class="st2" points="49.9,13.4 49.9,3 40.4,3 40.4,13.4 26.2,13.4 26.2,25 14.6,25 14.6,38.6 3,38.6 3,67.9 28.8,67.9 
+		28.8,72.2 38.2,72.2 38.2,67.9 69.2,67.9 69.2,54.3 80.9,54.3 80.9,42.6 92.5,42.6 92.5,13.4 	"/>
+	<polygon class="st3" points="92.4,13.4 49.8,13.4 49.8,3 40.4,3 40.4,13.4 26.2,13.4 26.2,25 14.5,25 14.5,38.6 2.9,38.6 2.9,67.9 
+		28.8,67.9 28.8,72.2 38.2,72.2 38.2,67.9 69.2,67.9 69.2,54.3 80.8,54.3 80.8,42.6 92.4,42.6 	"/>
+	<g>
+		<polygon class="st4" points="89.7,18.3 87.6,18.3 87.6,16.3 85.4,16.3 85.4,18.3 83.4,18.3 83.4,20.5 85.4,20.5 85.4,22.5 
+			87.6,22.5 87.6,20.5 89.7,20.5 		"/>
+	</g>
+	<g>
+		<rect x="42.1" y="5.6" class="st4" width="6.3" height="2.3"/>
+		<polygon class="st4" points="78.1,29.9 76,29.9 76,27.9 73.8,27.9 73.8,29.9 71.8,29.9 71.8,32.1 73.8,32.1 73.8,34.2 76,34.2 
+			76,32.1 78.1,32.1 		"/>
+	</g>
+	<g>
+		<rect x="30.5" y="19.3" class="st4" width="6.3" height="2.3"/>
+		<polygon class="st4" points="66.4,43.5 64.4,43.5 64.4,41.5 62.1,41.5 62.1,43.5 60.2,43.5 60.2,45.8 62.1,45.8 62.1,47.8 
+			64.4,47.8 64.4,45.8 66.4,45.8 		"/>
+	</g>
+	<polygon class="st5" points="49.9,13.4 49.9,3 40.4,3 40.4,13.4 26.2,13.4 26.2,25 14.6,25 14.6,38.6 3,38.6 3,67.9 28.8,67.9 
+		28.8,72.2 38.2,72.2 38.2,67.9 69.2,67.9 69.2,54.3 80.9,54.3 80.9,42.6 92.5,42.6 92.5,13.4 	"/>
+	<polyline class="st5" points="69.2,53.8 69.2,38.6 12.8,38.6 	"/>
+	<polyline class="st5" points="81,42.6 81.2,25 38.2,25 	"/>
+	<line class="st5" x1="49.9" y1="13.3" x2="49.9" y2="24.9"/>
+	<polyline class="st5" points="28.8,38 28.8,15.8 38.2,15.8 38.2,38 	"/>
+	<line class="st5" x1="40.4" y1="24.9" x2="40.4" y2="13.2"/>
+	<line class="st5" x1="26.2" y1="25" x2="28.7" y2="25"/>
+</g>
+</svg>

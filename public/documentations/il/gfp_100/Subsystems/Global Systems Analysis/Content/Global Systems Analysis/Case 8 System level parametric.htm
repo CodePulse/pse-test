@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-gb" lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Global Systems Analysis.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/TableStyles/Equation.css" rel="stylesheet" data-mc-stylesheet-type="table" />
+        <link href="../Resources/TableStyles/Nomenclature_dropdown.css" rel="stylesheet" data-mc-stylesheet-type="table" /><title>Case 8: System level parametric case study&#160; </title>
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Global Systems Analysis.htm#Global Systems Analysis/Case 8 System level parametric.htm">Open topic with navigation</a>
+        </p>
+        <h1>Case 8: System level parametric case study&#160; </h1>
+        <p>A system level parametric analysis can be performed to gain insight and provide support for system level decisions. For example, it is possible to perform a system level parametric analysis to determine how coolant water affects the total cost of a system, or how equipment sizes affect profit. Usually, multiple simulations with different parameter values sets are required but GSA  makes it possible to   perform a parametric analysis at system level  with a single GSA execution. </p>
+        <p>The purpose of this example is to investigate the effects of cross section area, pipe height and inlet molar flow  rate on yield and temperature. </p>
+        <p>Create a GSA entity named 'Case8_SystemParametric'. The settings for the General tab are shown in the figure below. In this example, uncertainty analysis is performed with the quasi-random Sobol sample generation method.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 8 System level parametric.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="735" data-mc-height="513" src="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 8: General tab</p>
+        </div>
+        <p>Specify the system level parameters of interest as factors in the Factors tab. Either use the 'Select...' button or enter the full variable path into the 'Variable in model' column, pressing Control+Space to use autocompletion. Note that, since only variables are eligible as factors, all parameters of interest must be moved from the <span style="font-family: monospace;">PARAMETER</span> section to the <span style="font-family: monospace;">VARIABLE</span> section of the model before the GSA entity is set up.</p>
+        <p>Select each factor and click on the 'Edit...' button to specify all other factor settings. Note that, in a 'Gridded set' distribution, the number of intervals does not equal the total number of sample points of the factor (number of sample points = number of intervals + 1). </p>
+        <p>In practice, since  the size of a CSTR is limited to a particular set of options due to manufacturing constraints, it is more appropriate to specify the distribution of factor 'cross_section_area' as 'Enumerated set' in reality. However, 'Gridded set' is specified in this example for the sake of simplicity. </p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_1.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="790" data-mc-height="542" src="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_1_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 8: Factors tab</p>
+        </div>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_2.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="600" data-mc-height="774" src="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_2_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 8: Editing factors</p>
+        </div>
+        <p>As there are no sampling restrictions in this example, leave the 'Sampling restrictions'  section blank.</p>
+        <p>Specify the number of uncertainty scenarios in the 'Number of samples' section. In the absence of uncertainty scenarios, leave it at the default value of one. The total number of realisations of the base activity to be calculated is given by:&#160; </p>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../GeneratedImages/Equations/Equation77.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2" />
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Equation_1"><img class="MCToggler_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Equation_1">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><span class="InlineEquation">Nd</span>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column3-Body1">Number of deterministic cases </td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1"><span class="InlineEquation">N</span>
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column3-Body1">Number of uncertainty scenarios (user defined)&#160; </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Specify the responses in the Responses tab. Similar to factors, either use the 'Select...' button or enter the full variable path directly into the 'Variable in model' column, pressing Control+Space to use autocompletion. </p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_3.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="791" data-mc-height="226" src="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_3_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 8: Responses tab</p>
+        </div>
+        <p>The 'GSA language' tab is automatically updated once the General, Factors and Responses  tabs are set up. Launch the execution by right-clicking on the GSA entity and selecting 'Analyse system' or pressing icon <a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_5.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="36" data-mc-height="22" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_5_thumb_0_264.png" tabindex="" /></a> in the toolbar.&#160; </p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_4.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="834" data-mc-height="340" src="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_4_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 8: Executing GSA</p>
+        </div>
+        <p>The 'Analyse System' dialog box will appear. Change the Case name and select the desired number of workers for parallel computation. Note that this number should not exceed the total number of logical cores on the machine. </p>
+        <p>Once execution completes successfully, right-click on the 'System Analysis Group' folder and select 'New result element...' to create result elements. Alternatively, copy and paste result elements from other Cases. Note that the 'Factor Sensitivity Table' is not applicable in the context of uncertainty analysis and will not be populated with results.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 2 Determining parameter_6.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="320" data-mc-height="197" src="../Resources/Images/Global Systems Analysis/Case 2 Determining parameter_6_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 8: Creating a result element</p>
+        </div>
+        <p> The 'Scatter 2d' result element can be used to illustrate the relationship between any two factors, responses or a factor and a response. Select which variables to show on the X and Y axes via the Attributes, shown in the figure below.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_5.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="1007" data-mc-height="515" src="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_5_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 8: 'Scatter 2d' plot of yield against cross section area</p>
+        </div>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_6.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="691" data-mc-height="430" src="../Resources/Images/Global Systems Analysis/Case 8 System level parametric_6_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 8: 'Scatter 2d' plot of yield against inlet molar flow rate</p>
+        </div>
+        <p>From observation of the plots it can be inferred that while yield tends to increase as the cross section area increases, the inlet molar flow  rate has the opposite  effect on yield.</p>
+        <p>If the Attributes panel is not automatically displayed, expand the View  menu and select Attributes to enable it.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_10.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="202" data-mc-height="245" src="../Resources/Images/Global Systems Analysis/Case 1 Get a feel for the_10_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Case 8: Enabling the Attributes panel</p>
+        </div>
+    </body>
+</html>

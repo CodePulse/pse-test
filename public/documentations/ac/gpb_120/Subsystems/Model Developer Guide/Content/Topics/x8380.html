@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Model Analysis and Diagnosis|Well-posed models and degrees-of-freedom">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Case I: over-specified systems</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x8380.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="overspecified"></a>Case I: over-specified systems</h1>
+        <p>An over-specified system is one which either itself consists of more equations than unknown variables, or involves an over-specified
+ sub-set of equations and unknowns. Mathematically, it can be shown that <i class="emphasis">any</i> over-specified system will contain at least one
+ sub-system involving <i class="emphasis">k</i> equations in only <i class="emphasis">(k-1)</i> distinct unknowns. gPROMS identifies this sub-system
+ and, where appropriate, offers informed suggestions on which Assignments may be responsible for the over-specification. As a simple example of
+ this, consider the gPROMS input shown in the gPROMS code below:</p>
+        <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span><a name="AEN8386"></a>
+            <p><b>Example 1. Illustrative example: over-specified system</b>
+            </p><pre class="programlisting">#===============================================================
+#MODEL mod1
+
+ VARIABLE
+ x1, x2, y1, y2 AS NoType
+
+ EQUATION
+
+ $x1 = x1*y1 ;
+ 
+ $x2 = x1 + x2*y1 + y2 ;
+
+ x1^2 = y2 ;
+
+ 0 = y1 - y2 ;
+
+#===============================================================
+#PROCESS proc
+
+ UNIT
+ mymod AS mod1
+
+ ASSIGN
+ WITHIN mymod DO
+ y2 := 3 ;
+ END #within
+
+ INITIAL
+ WITHIN mymod DO
+ x1 = 0 ;
+ x2 = 0 ;
+ END #within
+
+ SOLUTIONPARAMETERS
+ ReportingInterval := 1 ;
+
+ SCHEDULE
+ CONTINUE FOR 10</pre>
+        </div>
+        <p>It is easy to see that <code class="methodname">MODEL mod1</code> consists of 4 equations in 4 variables, one of which,
+      <code class="methodname">y2</code>, is Assigned in the <code class="methodname">PROCESS proc</code>. Execution of the <code class="methodname">PROCESS proc</code>
+      leads to the following diagnostic message:</p><pre class="programlisting">Executing process PROC...
+
+All 4 variables will be monitored during this simulation!
+
+Building mathematical problem description took 0.014 seconds.
+
+Loaded MA48 library
+Execution begins....
+
+ Variables 
+ Known : 1
+ Unknown : 3
+ Differential : 2
+ Algebraic : 1
+
+ Model equations : 4
+ Initial conditions : 2
+
+
+Checking consistency of model equations and ASSIGN specifications... 
+
+ ERROR: Part of your problem is over-specified.
+ The following 3 equation(s) involve only 2 unknown variable(s).
+ Model Equation 1: MYMOD.$X1 = MYMOD.X1 * MYMOD.Y1 ;
+ Model Equation 3: MYMOD.X1^2 = MYMOD.Y2 ;
+ Model Equation 4: 0 = MYMOD.Y1 - MYMOD.Y2 ;
+
+ The 2 unknown(s) occuring in these 3 equations are:
+
+ MYMOD.Y1 (ALGEBRAIC)
+ MYMOD.X1 (STATE)
+
+ The problem may have been caused because you ASSIGNed the
+ following variable(s):
+ MYMOD.Y2 (INPUT)
+Initialisation calculation failed.
+
+Execution of PROC fails prematurely.</pre>
+        <p>gPROMS identifies the over-specified sub-system of 3 equations in 2 unknown variables and suggests that the Assignment of the variable
+      <code class="methodname">y2</code> is causing the problem. UnAssigning this variable leads to a working simulation.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

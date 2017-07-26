@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="System Programmer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="System Programmer Guide|Developing New Foreign Processes|Implementation of Foreign Processes">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Writing Foreign Processes in FORTRAN and C</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../System Programmer Guide.htm#Topics/x2017.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">System Programmer Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c1218.html">Developing New Foreign Processes</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2014.html">Implementation of Foreign Processes</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Writing Foreign Processes in FORTRAN and C</span>
+            </div>
+        </div>
+        <h1><a name="AEN2017"></a>Writing Foreign Processes in FORTRAN and C</h1>
+        <p>As mentioned in the section on the <a href="x1261.html">FPI communication protocol</a>, any Foreign Process
+ implementation has to provide five communication procedures and two procedures for initialisation and termination of Foreign Processes.</p>
+        <p>In order to demonstrate the implementation of these procedures, examples are provided for both FORTRAN and C, <i class="emphasis">cf.</i> <tt class="filename">fpi_demo_c.c</tt> and <tt class="filename">fpi_demo_f.f</tt>.<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>All the provided example code can be found in the src/examples/fpi subdirectory of the gPROMS installation
+ directory.</span></a>The various routines simply print out messages to the screen. gFPGET and gFPPAUSE also expect to read some input from the terminal. The
+ example code is accompanied by a gPROMS input file, <tt class="filename">fpi_demo.gPJ</tt>. The C version also relies on the header files
+      <tt class="filename">gFPInterface.h</tt> and <tt class="filename">gTypes.h</tt> which:</p>
+        <ul>
+            <li value="1">
+                <p>provide prototype definitions for the six Foreign Process Interface routines,</p>
+            </li>
+            <li value="2">
+                <p>define a macro which ensures that the function prototypes are exported when compiling for Windows and</p>
+            </li>
+            <li value="3">
+                <p>define their own versions of the basic types for ease of portability.</p>
+            </li>
+        </ul>
+        <p>It is strongly recommended that you do not change the prototypes and type definitions because they ensure that the function calls follow the
+ conventions gPROMS uses internally.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

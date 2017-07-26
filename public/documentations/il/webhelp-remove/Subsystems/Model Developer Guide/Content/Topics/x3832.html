@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Defining a Public Model Interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Defining a Specification dialog and Model Reports</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x3832.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c3572.html">Defining a Public Model Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Defining a Specification dialog and Model Reports</span>
+            </div>
+        </div>
+        <h1><a name="mdg_def_specdialog"></a>Defining a Specification dialog and Model Reports</h1>
+        <p>A Model is defined both by its Equations <i class="emphasis">and</i> the specifications that must be provided to satisfy its <a href="x1105.html">degrees of freedom</a>. In gPROMS, the required set of specifications and the initial conditions for a Model can be stored
+ with that Model. These are then accessed via its Specification dialog, as shown below.</p>
+        <div class="mediaobject">
+            <p>
+                <img src="../Resources/Images/MDG_CreatingSpecificationDialogs7.png" />
+            </p>
+        </div>
+        <p>The Specification dialog makes it easy to share the Model with other users and makes it faster and easier to re-use the Model:</p>
+        <ul>
+            <li value="1">
+                <p>Specification dialogs are accessed from a flowsheet Model's <i class="emphasis">topology</i> tab. (see also: Constructing flowsheet Models).</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Specification dialogs allow:</p>
+                <ul>
+                    <li value="1">
+                        <p>Parameters to be Set values,</p>
+                    </li>
+                    <li value="2">
+                        <p>Variables to be Assigned values,</p>
+                    </li>
+                    <li value="3">
+                        <p>Selectors to be given initial values,</p>
+                    </li>
+                    <li value="4">
+                        <p>and Initial conditions to be defined.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>The specifications made using Specification dialogs in a flowsheet Model are displayed as read-only text in the Process entity that
+ includes the flowsheet Model.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>In the associated Process entity the user has the option to <b class="guimenuitem">include unit dialog specifications</b> or not. This
+ option is accessed</p>
+                <ul>
+                    <li value="1">
+                        <p><i class="emphasis">either</i> from the <b class="guimenu">Entity</b> menu when the Process entity is selected</p>
+                    </li>
+                    <li value="2">
+                        <p><i class="emphasis">or</i> from the short-cut menu accessed by right-clicking on the appropriate Process entity.</p>
+                        <p>When removing dialog specifications; the existing specifications can be left for manual modification or removed completely.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>Specification dialogs are configured from a Model's <i class="emphasis">interface</i> tab by clicking the<b class="guibutton"> Edit specification ...
+    </b>button. This will also give you the opportunity to define a Model report. Model reports are used to present key results in a clear
+ format following a <i class="emphasis">Simulation</i> activity (see also: Viewing Model
+ reports).</p>
+        <p>After clicking the <b class="guibutton">Edit specification ...</b> button you are guided through the following five steps:</p>
+        <ul>
+            <li value="1">
+                <p><a href="x3907.html">Public Model Attributes</a>
+                </p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p><a href="x3974.html">Define tabs in Dialog</a>
+                </p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p><a href="x3995.html">Configure Specification Dialog</a>
+                </p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p><a href="x4090.html">Define Model Help</a>
+                </p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p><a href="x4152.html">Configure report</a>
+                </p>
+            </li>
+        </ul>
+        <p>To move between the steps use the <b class="guibutton">Next</b> and <b class="guibutton">Previous</b> buttons; when the Specification is
+ complete click the <b class="guibutton">Finish</b> button. At any point it is possible to Preview the specification dialog and the Model reports
+ using the <b class="guibutton">Preview specification</b> and <b class="guibutton">Preview report</b> buttons:</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Controlling the Execution of Model-based Activities">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Standard solvers for nonlinear algebraic equations</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x7560.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="nonlinearalgebraicequations"></a>Standard solvers for nonlinear algebraic equations</h1>
+        <p>There are two standard mathematical solvers for the solution of sets of nonlinear algebraic equations in gPROMS, namely <a href="x7585.html">BDNLSOL</a> and <a href="x7626.html">SPARSE</a>:</p>
+        <ul>
+            <li value="1">
+                <p><a href="x7585.html">BDNLSOL</a> stands for 'Block Decomposition NonLinear SOLver'. It is a new implementation of a general solver for
+ solving sets of nonlinear equations rearranged to block triangular form, and employs a novel algorithm for the handling of equations with
+ reversible symmetric discontinuities (IF equations). As a modular solver component, <a href="x7585.html">BDNLSOL</a> can in principle make
+ use of any other nonlinear solver component to solve its individual blocks.</p>
+            </li>
+            <li value="2">
+                <p><a href="x7626.html">SPARSE</a> is a true solver component for solution of nonlinear algebraic systems without block decomposition. It
+ provides a sophisticated implementation of a Newton-type method.</p>
+            </li>
+        </ul>
+        <p>The above solvers are designed to deal with large, sparse systems of equations in which the variable values are restricted to lie within
+ specified lower and upper bounds. Moreover, they can handle situations in which some of the partial derivatives of the equations with respect to the
+ variables are available analytically while the rest have to approximated. In gPROMS models, almost all partial derivatives are computed analytically
+ from expressions derived using symbolic manipulations. The main exception is partial derivatives of equations involving any Foreign Object methods that
+ are not capable of returning partial derivatives.</p>
+        <p>An efficient combination of finite difference approximations and least-change secant updates is used for the latter purpose.</p>
+        <p>The NLSolver solution parameter may be used to change and/or configure the default nonlinear algebra sub-solver used by all higher-level solvers.
+ If this parameter is not specified, then all activities make use of the <a href="x7585.html">BDNLSOL</a> solver with the default configuration
+ shown in the corresponding section</p>
+        <ul>
+            <li value="1">
+                <p>simulation;</p>
+            </li>
+            <li value="2">
+                <p>optimisation and parameter estimation activities make use of the <a href="x7585.html">BDNLSOL</a> solver with the default configuration
+ shown in the corresponding section.</p>
+            </li>
+        </ul>
+        <p>Note that NLSOL is no longer available as its functionality has been entirely been replaced by <a href="x7585.html">BDNLSOL</a>.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

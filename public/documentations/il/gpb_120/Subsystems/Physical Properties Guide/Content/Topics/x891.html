@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties Guide|Using Physical Properties for Simple Materials|The Multiflash physical property interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Error handling in the gPROMS/Multiflash interface</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/x891.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="AEN891"></a>Error handling in the gPROMS/Multiflash interface</h1>
+        <p>Errors may occur at two different two stages when using Multiflash in gPROMS:</p>
+        <ul>
+            <li value="1">
+                <p><i class="emphasis">During the creation of the Multiflash instance at the start of the simulation</i>
+                </p>
+                <p>This type of failure will almost always be caused by a mistake (e.g. syntax error) in the Multiflash input file. Any error at this stage
+ will lead to an immediate termination of the simulation. Specific attention should be given to the syntax of component names according to the
+ specifications described in the Multiflash manual.</p>
+                <p>At least one message and an error number will be reported on the screen and a line-by-line analysis of the input file(s) will be dumped in
+ the file MultiflashCommandFileErrors.txt residing in the Results sub-directory of the Case. Please view this file to detect the source of the
+ errors. In some cases, you may need to consult the Multiflash manual (using the number of the error reported) for more information. Note that the
+ error message:</p><pre class="programlisting">No information available under this error number</pre>
+                <p>very often indicates that the configfile (i.e. the file which tells Multiflash where to locate its databanks and error files) could not be
+ found. In such cases, you should check the path specification for the configfile as described in the Multiflash manual.</p>
+                <p>If the creation of the Multiflash instance is successful, a message will appear on the screen to confirm this. gPROMS will then proceed
+ with the numerical solution.</p>
+            </li>
+            <li value="2">
+                <p><i class="emphasis">During the numerical solution</i>
+                </p>
+                <p>Errors reported by Multiflash as a result of calls issued to it by gPROMS during the numerical solution phase are captured by the
+ interface. If a <i class="emphasis">fatal</i> error occurs:</p>
+                <ul>
+                    <li value="1">
+                        <p>A message will be printed on the screen pointing out:</p>
+                        <ul>
+                            <li value="1">
+                                <p>the particular method that was being called (e.g. the enthalpy calculation routine);</p>
+                            </li>
+                            <li value="2">
+                                <p>the values of the inputs (e.g. temperature, pressure, composition) of this method;</p>
+                            </li>
+                            <li value="3">
+                                <p>the number used by Multiflash to identify this type of error; use this to consult the Multiflash manual for more details.</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li value="2">
+                        <p>An error file will automatically be generated. The name of the error file will be xxx-multiflash.error, where xxx is the name of the
+ .mfl file, and it will be located in the Results directory of the Case. For instance, if the name of the error file is AlkaneMixture.mfl,
+ then the name of the error file will be AlkaneMixture-multiflash.error. The error file will contain details of the input and output values of
+ the Multiflash routine called as well as the full listing of the command file. A screen message also appears confirming the creation of the
+ error file. The error file should be included in all correspondence with support.gPROMS@psenterprise.com.</p>
+                    </li>
+                </ul>
+                <p>Any non-fatal errors reported by Multiflash are ignored. For example, during a particular iteration in gPROMS, the values of inputs may
+ temporary go outside the recommended bounds of a correlation or the simulation may enter supercritical regions. The numerical solution continues
+ and, when appropriate, screen messages are printed.</p>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

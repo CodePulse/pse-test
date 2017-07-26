@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=Product.Name%] Guide|Viewing results">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Inspecting results for an individual variable</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x2356.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="mbg_results_individualvariable"></a>Inspecting results for an individual variable</h1>
+        <p><span class="ProductName">gPROMS ProcessBuilder</span> stores the results of a simulation activity in the Case<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>If enabled from the Execution Control dialog</span></a>.</p>
+        <div class="figure"><a name="AEN2362"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_FindingSingleVariableProjectTree.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Finding a single variable in the project tree</p>
+        </div>
+        <p>To access the results for a particular Variable:</p>
+        <ul>
+            <li value="1">
+                <p>Expand the <i class="emphasis">Trajectories</i> entity group in the desired Case</p>
+            </li>
+            <li value="2">
+                <p>Expand the Unit tree</p>
+            </li>
+            <li value="3">
+                <p>Expand the Variables folder under the desired unit</p>
+            </li>
+            <li value="4">
+                <p>Open the desired Variable by double-clicking it</p>
+            </li>
+            <li value="5">
+                <p>Results may be viewed in tabular form or as simple 2D/3D graphs by choosing the appropriate tab.</p>
+            </li>
+        </ul>
+        <div class="figure"><a name="AEN2382"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_SimulationResults1.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Simulation results: table</p>
+        </div>
+        <p>The figure above shows the Variable Results in tabular form for a one-dimensional array. In this case, there are many rows due to the large
+ number of values reported during the simulation. One can easily navigate through this table by left clicking on a cell and then using the cursor keys
+ to move the selected cell. The table will scroll automatically when you move the selection outside the visible part of the table. You can also use the
+ mouse wheel to scroll the table more quickly and easily.</p>
+        <p>The value of a particular element of a Variable can be copied to the clipboard (and therefore pasted into another application) by right-clicking
+ on the desired cell and selecting <b class="guimenuitem">Copy</b> from the context menu. You can also copy a value by moving the selection with the
+ cursor keys, then pressing <b class="keycap">CTRL</b>-<b class="keycap">c</b>. Ranges of cells can also be copied. Either:</p>
+        <ul>
+            <li value="1">
+                <p>Select the first cell by using the cursor keys, then hold down the <b class="keycap">SHIFT</b> key and move the cursor to the last cell of the
+ range. Finally, with all of the cells in the range selected, press <b class="keycap">CTRL</b>-<b class="keycap">c</b>.</p>
+            </li>
+            <li value="2">
+                <p>Left click on the first cell and drag the mouse pointer (keeping the left mouse button pressed) to the last cell of the range. Then right
+ click and select <b class="guimenuitem">Copy</b> from the context menu.</p>
+            </li>
+        </ul>
+        <p>Ranges are indicated by the grey box, as can be seen in the image above. The current cursor position is also highlighted in dark grey.</p>
+        <p>When there are variables that depend on more than 2 domains, all but 2 of the domains must be fixed in order to show the data in the table. The
+ values of fixed variables can be specified in the box to the right of the domain. Values can be typed directly into the box or selected from the set of
+ available values using three methods:</p>
+        <ul>
+            <li value="1">
+                <p>left click on either of the spinner buttons (indicated by the mouse pointer in the image below) to move up or down in the list (holding the
+ left mouse button down cycles quickly through)</p>
+            </li>
+            <li value="2">
+                <p>left click on the text in the box and</p>
+                <ul>
+                    <li value="1">
+                        <p>use the up and down cursor keys to change the selected value</p>
+                    </li>
+                    <li value="2">
+                        <p>use the mouse wheel to change the selected value</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>When there are many possible values (such as a Distribution Domain with a large number of intervals), cycling through all of the
+ values can take some time. The process can be sped up by holding down the <b class="keycap">SHIFT</b> and or <b class="keycap">CTRL</b> keys. When the
+    <b class="keycap">SHIFT</b> key is held down, one press of a cursor key or one click of the mouse wheel will move the selection by 10 points. The
+    <b class="keycap">CTRL</b> key skips 100 points, and holding down both keys skips 1000 points.<p>This method also applies to the fixed values of graphs.</p><div class="figure"><a name="AEN2425"></a><div class="mediaobject"><p><img src="../Resources/Images/MBG_SimulationResults2.png" /></p></div><p class="FigureCaption"> Simulation results: graph</p></div>Note that this capability is complementary to the other gPROMS output channels. These include <a href="c4347.html">gRMS</a>
+    (gPROMS Result Management System - used for more advanced plotting capability)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Sending results to gRMS can also be configured from the Execution Control dialog.</span></a> and the <a href="c5245.html">gPROMS Excel Output Channel</a> which provide additional ways of viewing the
+ results of a Simulation activity.<div><p class="Footer">&#160;</p><p class="Footer">&#160;</p><hr width="100%" size="0" align="center" /><p class="Footer">Commercial in confidence</p><p class="Footer">© 2017 Process Systems Enterprise Limited</p></div></body>
+</html>

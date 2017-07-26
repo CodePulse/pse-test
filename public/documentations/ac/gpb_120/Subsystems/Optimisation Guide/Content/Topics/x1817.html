@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Optimisation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Optimisation Guide|Standard solvers for optimisation">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The SRQPD solver</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Optimisation Guide.htm#Topics/x1817.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="SRQPD"></a>The SRQPD solver</h1>
+        <p>The solver SRQPD is a deprecated solver since the release of gPROMS&#160;v4.0 and is replaced by <a href="NLPSQP.html">NLPSQP</a>&#160;as the standard solver for non-linear problems. SRQPD is only provided for backward-compatibility reasons and will be removed from the gPROMS&#160;distribution in a future release. It is strongly recommended to remove any explicit solver specifications using SRQPD and to replace them by <a href="NLPSQP.html">NLPSQP</a>.</p>
+        <p>The SRQPD solver employs a sequential quadratic programming (SQP) method for the solution of the non-linear programming (NLP) problem. The
+ algorithmic parameters used by SRQPD along with their default values are shown below. This is followed by a detailed description of each
+ parameter.</p><pre class="programlisting">"SRQPD" [
+ "ConvergenceCriterion" := "ImprovementEstimateBased",
+ "HandleDiscreteVariables" := FALSE,
+ "InitialHessian" := 0,
+ "InitialLineSearchStepLength" := 1.0,
+ "MaxFun" := 10000,
+ "MaximumLineSearchSteps" := 20,
+ "MaxLineSearchStepLength" := 1.0,
+ "MinimumLineSearchStepLength" := 1.0E-5,
+ "NoImprovementTolerance" := 1.0E-12,
+ "OptimisationTolerance" := 0.0010,
+ "OutputLevel" := 0,
+ "Scaling" := 0
+ ]</pre>
+        <p>ConvergenceCriterion - Either "ImprovementEstimateBased" or "OptimalityBased"; default "ImprovementEstimateBased".</p>
+        <ul>
+            <li value="1">
+                <p>The "ImprovementEstimateBased" convergence criterion is:</p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation16.svg" alt="" class="_MCEquation_0 mcReset" />
+                </p>
+                <p>where:</p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation17.svg" alt="" class="_MCEquation_0 mcReset" />
+                </p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation18.svg" alt="" class="_MCEquation_0 mcReset" />
+                </p>
+                <p><span class="InlineEquation">ε<sub>o</sub></span> is the optimisation tolerance given by the Solution Parameter OptimisationTolerance;</p>
+                <p><span class="InlineEquation">f</span> is the objective function;</p>
+                <p><span class="InlineEquation">c</span> is the constraint vector (right-hand side);</p>
+                <p><span class="InlineEquation">m<sub>eq</sub></span> is the number of equality constraints;</p>
+                <p><span class="InlineEquation">m</span> is the total number of constraints;</p>
+                <p><span class="InlineEquation">n</span> is the size of the variable vector <i class="emphasis">x</i> (i.e. the number of variables);</p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation19.svg" alt="" class="_Inline_MCEquation_0 mcReset" /> and <img src="../GeneratedImages/Equations/Equation20.svg" alt="" class="_Inline_MCEquation_0 mcReset" />are the lower and upper bounds of variable <span class="InlineEquation">x<sub>i</sub></span>;</p>
+                <p><span class="InlineEquation">d</span> is the vector of corrections to <span class="InlineEquation">x</span> (i.e. the change in <span class="InlineEquation">x</span> during the current
+ step);</p>
+                <p><span class="InlineEquation">λ<sub>i</sub></span>is the Lagrange multiplier that corresponds to the <span class="InlineEquation">i</span>-th constraint imposed on variable
+          <i class="emphasis">x<sub>i</sub></i>;</p>
+                <p><span class="InlineEquation">μ<sup style="vertical-align: sub;">i</sup></span> is the Lagrange multiplier that corresponds to the bound constraints imposed on variable
+         <i class="emphasis">x<sub>i</sub></i>.</p>
+            </li>
+            <li value="2">
+                <p>The "OptimalityBased" convergence criterion uses two tolerances: <span class="InlineEquation">ε<sub>o</sub></span>, specified by the
+ OptimisationTolerance Solution Parameter and <span class="InlineEquation">ε<sub>i</sub></span>, specified by NoImprovement Tolerance. Given the
+ following definitions:</p><a name="AEN1904"></a>
+                <blockquote class="BLOCKQUOTE">
+                    <p>
+                        <img src="../GeneratedImages/Equations/Equation21.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </p>
+                    <p>
+                        <img src="../GeneratedImages/Equations/Equation22.svg" alt="" class="_Inline_MCEquation_0 mcReset" />, where <span class="InlineEquation">k</span> is the current iteration number;</p>
+                    <p>
+                        <img src="../GeneratedImages/Equations/Equation23.svg" alt="" class="_Inline_MCEquation_0 mcReset" />, where <span class="InlineEquation">dx<sub>j</sub></span> is the step calculated for
+            <span class="InlineEquation">x<sub>j</sub></span> in the latest line-search step;</p>
+                    <p>
+                        <img src="../GeneratedImages/Equations/Equation24.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </p>
+                    <p>
+                        <img src="../GeneratedImages/Equations/Equation25.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </p>
+                    <p>
+                        <img src="../GeneratedImages/Equations/Equation26.svg" alt="" class="_Inline_MCEquation_0 mcReset" />is the Lagrange function,</p>
+                    <p><span class="InlineEquation">λ<sub>i</sub></span>the Lagrange multipliers for the equality and inequality constraints <span class="InlineEquation">h<sub>i</sub>(x)</span>; </p>
+                    <p><span class="InlineEquation">μ<sup style="vertical-align: sub;">i</sup><sup>U</sup></span> and <span class="InlineEquation">μ<sup style="vertical-align: sub;">i</sup><sup>L</sup></span> the Lagrange multipliers for the upper and lower bound constraints;</p>
+                </blockquote>
+                <p>the following tests are applied:</p>
+                <div class="variablelist">
+                    <dl>
+                        <dt>At the end of each major iteration:</dt>
+                        <dd>
+                            <p><span style="color: RED;">If</span> <span class="InlineEquation">τ<sub>1</sub></span> +<span class="InlineEquation">τ<sub>3</sub></span>+<span class="InlineEquation">τ<sub>4</sub></span>≤ <span class="InlineEquation">ε<sub>0</sub></span>, <span style="color: RED;">then</span> terminate due to optimality;</p>
+                            <p><span style="color: RED;">Else if</span> <span class="InlineEquation">τ<sub>2a</sub></span> ≤ <span class="InlineEquation">ε<sub>i</sub></span> and <span class="InlineEquation">τ<sub>1</sub></span> ≤ <span class="InlineEquation">ε<sub>0</sub></span>, <span style="color: RED;">then</span> terminate due to no-improvement in the objective function.</p>
+                        </dd>
+                        <dt>At the end of each line-search step:</dt>
+                        <dd>
+                            <p><span style="color: RED;">If</span> <span class="InlineEquation">τ<sub>2b</sub></span> ≤ <span class="InlineEquation">ε<sub>i</sub></span> and
+                <span class="InlineEquation">τ<sub>1</sub></span> +<span class="InlineEquation">τ<sub>3</sub></span>+<span class="InlineEquation">τ<sub>4</sub></span>≤ <span class="InlineEquation">ε<sub>0</sub></span>, <span style="color: RED;">then</span> terminate due to optimality;</p>
+                            <p><span style="color: RED;">Else if</span> <span class="InlineEquation">τ<sub>1</sub></span> ≤ <span class="InlineEquation">ε<sub>0</sub></span>,
+                <span style="color: RED;">then</span> terminate due to no improvement in the decision variables.</p>
+                        </dd>
+                    </dl>
+                </div>
+            </li>
+        </ul>
+        <p>HandleDiscreteVariables - TRUE or FALSE; default FALSE.</p>
+        <ul>
+            <li value="1">
+                <p>This parameter determines whether the solver handles mixed-integer non-linear optimisation problems by transforming discrete decision variables into
+ continuous ones.</p>
+            </li>
+        </ul>
+        <p>InitialHessian - An integer in the range [0, 2]; default 0.</p>
+        <ul>
+            <li value="1">
+                <p>By default, the initial hessian matrix is assumed to be a diagonal matrix of the form</p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation27.svg" alt="" class="_MCEquation_0 mcReset" />
+                </p>
+                <p>with <span class="InlineEquation">x<sup>0</sup></span> as the vector of initial guesses for <span class="InlineEquation">x</span>.</p>
+            </li>
+            <li value="2">
+                <p>No other options are available.</p>
+            </li>
+        </ul>
+        <p>InitialLineSearchStepLength - A real number in the range [10<sup>-10</sup>, 1.0]; default 1.0.</p>
+        <ul>
+            <li value="1">
+                <p>The length of the line search step for the first optimisation iteration. An initial line search step length less than 1 is recommended when
+ the initial approximation of the Hessian (i.e. identity matrix) is very different to the actual values in the Hessian. This could result in a
+ very large initial step and therefore several line search trials before the optimiser finds a better point.</p>
+            </li>
+        </ul>
+        <p>MaxFun - An integer in the range [0, 100000]; default 10000.</p>
+        <ul>
+            <li value="1">
+                <p>The maximum number of  function evaluations (i.e. solutions of the underlying steady-state or dynamic model)
+ to perform before halting the solution process (if no optimum has been found by that point).</p>
+            </li>
+        </ul>
+        <p>MaximumLineSearchSteps - An integer in the range [1, 100]; default 20.</p>
+        <ul>
+            <li value="1">
+                <p>The maximum number of line search steps in one optimisation iteration.</p>
+            </li>
+        </ul>
+        <p>MaxLineSearchStepLength - A real number in the range [10<sup>-10</sup>, 1.0]; default 1.</p>
+        <ul>
+            <li value="1">
+                <p>The maximum length of a line search step.</p>
+            </li>
+        </ul>
+        <p>MinimumLineSearchStepLength - A real number in the range [10<sup>-10</sup>, 1.0]; default
+ 10<sup>-5</sup>.</p>
+        <ul>
+            <li value="1">
+                <p>The minimum length of a line search step.</p>
+            </li>
+        </ul>
+        <p>NoImprovementTolerance - A real number in the range [10<sup>-20</sup>, 1.0]; default 10<sup>-12</sup>.</p>
+        <ul>
+            <li value="1">
+                <p>The solution tolerance for non-improving objective function or decision variables. Only used when ConvergenceCriterion :=
+ "OptimalityBased" (see above).</p>
+            </li>
+        </ul>
+        <p>OptimisationTolerance - A real number in the range [10<sup>-20</sup>, 1.0]; default 0.001.</p>
+        <ul>
+            <li value="1">
+                <p>The solution tolerance for the optimisation. This solution parameter sets the value of <span class="InlineEquation">ε<sub>0</sub></span>.</p>
+            </li>
+        </ul>
+        <p>OutputLevel - An integer in the range [-1, 3]; default 0.</p>
+        <ul>
+            <li value="1">
+                <p>The amount of information generated by the solver. The following table indicates the lowest level at which different types of information
+ are produced:</p>
+                <div class="informaltable"><a name="AEN2075"></a>
+                    <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                        <tbody>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-1</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">(None)</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body2">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">0</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Failed integrations and initialisations, optimisation failure,<p>summary information from the SRQPD nonlinear programming
+ code,</p><p>final solution point and constraint values,</p><p>best available point after failure</p></td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">1</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Values of optimisation decision variables, objective function and constraints in each major optimisation iteration</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body2">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">2</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Start and end times of each interval of integration,<p>optimisation decision variables and objective function at each line
+ search trial</p></td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">3</td>
+                                <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">
+                                    <p>Derivatives of objective function and constraints at the initial and each accepted step</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        </ul>
+        <p>Scaling - An integer in the range [0, 3]; default 0.</p>
+        <ul>
+            <li value="1">
+                <p>The form of scaling to be applied to the decision variables (including control variables, time-invariant parameters, the
+ length of the time horizon and the lengths of individual control intervals). These decision variables may vary significantly in magnitude, which
+ may adversely affect the performance of the optimisation algorithms. Consequently, appropriate scaling of the optimisation decision variables is
+ strongly recommended<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>A useful indication as to whether scaling is necessary is the condition number estimate that is printed out at each iteration of the
+ optimisation calculation. It is recommended that scaling be undertaken for problems with condition numbers exceeding
+ 1010.</span></a></p>
+                <p>The scaling performed is of the general mathematical form:</p>
+                <p>
+                    <img src="../GeneratedImages/Equations/Equation28.svg" alt="" class="_MCEquation_0 mcReset" />
+                </p>
+                <p>where <span class="InlineEquation">q<sub>j</sub></span> is the <span class="InlineEquation">j</span>-th original optimisation decision variable and <img src="../GeneratedImages/Equations/Equation29.svg" alt="" class="_Inline_MCEquation_0 mcReset" /> is the corresponding scaled decision variable. The constants <span class="InlineEquation">c<sub>j</sub></span> and <span class="InlineEquation">d<sub>j</sub></span> are
+ determined automatically depending on the value of Scaling, as described below:</p>
+                <ul>
+                    <li value="1">
+                        <p><i class="emphasis">Scaling = 0</i>: No scaling (default).</p>
+                        <p>
+                            <img src="../GeneratedImages/Equations/Equation30.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </p>
+                    </li>
+                    <li value="2">
+                        <p><i class="emphasis">Scaling = 1:</i> Scaling according to the ranges of the optimisation decision variables so that the scaled
+ variables vary between -1 and 1.</p>
+                        <p>
+                            <img src="../GeneratedImages/Equations/Equation31.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </p>
+                    </li>
+                    <li value="3">
+                        <p><i class="emphasis">Scaling = 2: </i>Scaling according to the initial guesses of the optimisation variables.</p>
+                        <p>
+                            <img src="../GeneratedImages/Equations/Equation32.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </p>
+                        <p>where <img src="../GeneratedImages/Equations/Equation33.svg" alt="" class="_Inline_MCEquation_0 mcReset" />is the initial guess for the <span class="InlineEquation">j</span>-th optimisation variable and <span class="InlineEquation">ε</span> is a small constant with the value of 10<sup>-8</sup>.</p>
+                    </li>
+                    <li value="4">
+                        <p><i class="emphasis">Scaling = 3:</i> Scaling according to the value and the gradients of the objective function <span class="InlineEquation">Φ</span>
+               at the initial guess.</p>
+                        <p>
+                            <img src="../GeneratedImages/Equations/Equation34.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </p>
+                        <p>where <span class="InlineEquation">q<sub>0</sub></span> is the vector of initial guesses of the optimisation decision variables and <span class="InlineEquation">ε</span> is a small constant with the value of 10<sup>-8</sup>.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

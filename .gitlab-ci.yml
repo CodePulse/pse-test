@@ -12,4 +12,3 @@ deploy_test:
     - develop
   script:
     - rsync -a --no-group --no-times --no-perms -e "ssh -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_PATH --delete
-    - ssh gitlabrunner@devcms "cd /var/www/virtual/website; ln -s sites/default/files/ public"

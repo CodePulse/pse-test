@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Defining a Public Model Interface|Defining a Specification dialog and Model Reports|Advanced Report Configuration">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>x-y Plots</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x4433.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c3572.html">Defining a Public Model Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3832.html">Defining a Specification dialog and Model Reports</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x4188.html">Advanced Report Configuration</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">x-y Plots</span>
+            </div>
+        </div>
+        <h1><a name="modelreports_advanced_xyPlots"></a>x-y Plots</h1>
+        <p>x-y plots are essentially a special case of the <a href="x4373.html">2D Plot</a>. The difference
+ is simply that a 2D Plot displays the values of one or more Variables against one of the independent domains; whereas an x-y plot displays
+ the values of one Variable against another Variable. (As with 2D plots, you could display more than one relationship per graph, but this
+ might be rather confusing.)</p>
+        <p>An x-y plot is easily defined by using an appropriate <code class="varname">&lt;Line/&gt;</code> tag in a normal <a href="x4373.html"><code class="varname">&lt;Plot2D&gt;</code></a> construct. This is best illustrated with an example.
+ Consider the following Variable definitions.</p><pre class="programlisting">VARIABLE
+ VapourMoleFraction AS DISTRIBUTION(NoComp, X_Domain) OF MoleFraction
+ LiquidMoleFraction AS DISTRIBUTION(NoComp, X_Domain) OF MoleFraction</pre>
+        <p>In a normal 2D plot, we could plot either (or both) of these variables as functions of time, the x domain or indeed the number of
+ components; but it may be useful to be able to plot the vapour mole fraction as a function of the liquid mole fraction, to produce an
+ equilibrium diagram. This is achieved with the following xml commands.</p><pre class="programlisting">&lt;Plot2D version="1"&gt;
+ &lt;Line idY="VapourMoleFraction(TIME=#,1,0)" idX="LiquidMoleFraction(TIME=#,1,0)"/&gt;
+&lt;/Plot2D&gt;</pre>
+        <p>This essentially produces a plot of vapour mole fraction against liquid mole fraction of component 1 at x = 0, parameterised by time.
+ One could equally parameterise using the x domain:</p><pre class="programlisting">&lt;Plot2D version="1"&gt;
+ &lt;Line idY="VapourMoleFraction(TIME=0,1,#)" idX="LiquidMoleFraction(TIME=0,1,#)"/&gt;
+&lt;/Plot2D&gt;</pre>
+        <p>One may parameterise using any of the independent domains, with the only restriction being that the <i class="emphasis">same domain must be
+ free</i> in both of the <code class="varname">id</code> attributes in each <code class="varname">&lt;Line/&gt;</code> tag. Of course, having to fix all
+ of the other independent domains can be a bit restrictive, but one can include more points in the x-y plot by including more
+          <code class="varname">&lt;Line/&gt;</code> tags, for example:</p><pre class="programlisting">&lt;Plot2D version="1"&gt;
+ &lt;Line idY="VapourMoleFraction(TIME=#,1,0)" idX="LiquidMoleFraction(TIME=#,1,0)"/&gt;
+ &lt;Line idY="VapourMoleFraction(TIME=#,1,1)" idX="LiquidMoleFraction(TIME=#,1,1)"/&gt;
+ &lt;Line idY="VapourMoleFraction(TIME=0,1,#)" idX="LiquidMoleFraction(TIME=0,1,#)"/&gt;
+ &lt;Line idY="VapourMoleFraction(TIME=10,1,#)" idX="LiquidMoleFraction(TIME=10,1,#)"/&gt;
+&lt;/Plot2D&gt;</pre>
+        <p>Similarly, we may want to generate a phase diagram by plotting, say, <code class="varname">Temperature</code> as a function of both the liquid
+ and vapour mole fractions. Assuming the appropriate definition of <code class="varname">Temperature</code>, this can be done by:</p><pre class="programlisting">&lt;Plot2D version="1"&gt;
+ &lt;Line idY="Temperature(TIME=#,0)" idX="LiquidMoleFraction(TIME=#,1,0)"/&gt;
+ &lt;Line idY="Temperature(TIME=#,0)" idX="VapourMoleFraction(TIME=#,1,0)"/&gt;
+&lt;/Plot2D&gt;</pre>
+        <p>Note that it is not necessary that the variables have the same number of dimensions; only that they are defined over the same domain
+ that is specified to be free in the <code class="varname">&lt;Line/&gt;</code> tag. That is, the # symbol should specify the <i class="emphasis">same</i>
+          domain in each <code class="varname">&lt;Line/&gt;</code> tag.</p>
+        <p>Note also that gPROMS does not check that the values of the fixed domains are identical in each &lt;Line/&gt; tag. If they are
+ specified different values, it is almost certain that the graph produced will be physically meaningless.</p>
+        <p>Note that all of the tags and attributes described above are <i class="emphasis">case senstitive</i>: if they are not typed exactly as
+ shown above, then the report will not be generated and an error message will be displayed instead.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

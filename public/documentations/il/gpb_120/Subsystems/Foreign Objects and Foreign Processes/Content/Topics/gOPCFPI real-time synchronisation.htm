@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Foreign Objects and Foreign Processes.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Foreign Objects and Foreign Processes|The gPROMS OPC FPI Interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>gOPCFPI real-time synchronisation</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/Equation.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Foreign Objects and Foreign Processes.htm#Topics/gOPCFPI real-time synchronisation.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>gOPCFPI real-time synchronisation</h1>
+        <p>In applications such as operator training or model predictive control, the pseudo time of a gPROMS&#160;simulation must be synchronised with the real time of operation – which can be faster or slower. Evidently, synchronisation is only possible when the pseudo time of a gPROMS&#160;simulation is faster than real time, and is performed at discrete events in which data are exchanged between gPROMS&#160;and the external application controlling the gPROMS execution. </p>
+        <p>The FPI&#160;protocol provides the means for implementing a synchronisation, as explained in detail in the <a href="../../../../Help.htm#CSHID=REAL_TIME_FPI_IMPLEMENTATION" target="_top">System Programmer Guide for the FPI.</a> Fortunately, gOPCFPI already implements all potentially required synchronisation scenarios and no programming effort is required at all.</p>
+        <p>Time synchronisation is automatically performed for any</p>
+        <ul>
+            <li value="1">Get</li>
+            <li value="2">Send</li>
+        </ul>
+        <p>elementary tasks by waiting until real time catches up with gPROMS pseudo time<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>This implies that the simulation is executed faster than real  time. </span></a>. Other synchronisation mechanisms facilitate listening for <a href="gOPCFPI event synchronisation.htm">changes in OPC tags</a>.</p>
+        <p>Two aspects affect real time synchronisation:</p>
+        <dl>
+            <dt>The time units specified in the gPROMS&#160;model. </dt>
+            <dd>These are not automatically determined and must be configured using the <a href="gOPCFPI configuration file.htm#GOPCFPI_MODELTIMEUOM">optional 'modelTimeUoM' parameter</a> .</dd>
+            <dt>Real-time acceleration. </dt>
+            <dd>An application such as an operator training environment may choose to speed up 'real' time to ensure that the system is responsive enough for the purposes of the training. For such cases, the <a href="gOPCFPI configuration file.htm#GOPCFPI_REALTIMESPEEDUP">'realTimeSpeedUp' factor</a> is used.</dd>
+        </dl>
+        <p>The effective pseudo time is calculated by the following relationship<a href="gOPCFPI configuration file.htm#GOPCFPI_MODELTIMEUOM">:</a></p>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../GeneratedImages/Equations/Equation1.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Which branch of the formula to use depends on whether seconds, minutes or hours are chosen as units of measurement of time. If time is specified in seconds, the effective time equals the simulation time. In contrast,  external real time is always assumed to be in seconds. In the simple Schedule below, the simulation is executed until the first 'Get' statement is reached, at which point  10 seconds of gPROMS pseudo time have elapsed. If this calculation takes 0.1 real time seconds, gPROMS&#160;will wait for 9.9 seconds before executing the 'Get' statement.</p>
+        <p>Similarly, if executing the 'Get' statement <em>and </em>simulating for 10 gPROMS&#160;pseudo seconds takes 2.6 real time seconds, gPROMS&#160;will wait 7.4 seconds before executing the 'Send' statement.</p><pre class="programlisting" xml:space="preserve">
+SCHEDULE
+  SEQUENCE
+    PAUSE SIGNALID "ZEROTIME"
+
+    CONTINUE FOR 10
+
+    GET
+      R.Fin := "FeedFlowrate" ;
+      R.Tin := "FeedTemperature" ;
+    END
+
+    CONTINUE FOR 10
+
+    SEND
+      "Conversion"      := R.Conv ;
+      "ExitTemperature" := R.Tout;
+    END
+  END
+END</pre>
+        <p>Another important aspect is when to set the simulation time to zero. By default, the beginning of the gPROMS&#160;simulation defines the origin of time but it is possible to adjust it. The 'Pause' elementary task can be used with this purpose at any place in a Schedule:</p>
+        <dl>
+            <dt><span class="gPROMSLanguage">PAUSE SIGNALID “ZeroTime”</span>
+            </dt>
+            <dd>This statement resets the simulation pseudo time to zero upon execution.</dd>
+            <dt><span class="gPROMSLanguage">PAUSE SIGNALID “ZeroTime: At &lt;YYYY-MM-DD hh:mm:ss&gt;”</span>
+            </dt>
+            <dd>When executed, the simulation pseudo time is reset to zero at the specified time in the past. This effectively activates the <a href="gOPCFPI historian access.htm">historian</a> access of the OPC server.</dd>
+        </dl>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

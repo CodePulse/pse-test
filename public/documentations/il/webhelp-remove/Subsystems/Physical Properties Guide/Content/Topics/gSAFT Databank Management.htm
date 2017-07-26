@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties Guide|Using Physical Properties for Simple Materials|The gSAFT physical properties interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>gSAFT Databank Management</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/gSAFT Databank Management.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Physical Properties Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c257.html">Using Physical Properties for Simple Materials</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="gSAFT introduction.htm">The gSAFT physical properties interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">gSAFT Databank Management</span>
+            </div>
+        </div>
+        <h1>gSAFT Databank Management</h1>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Using a custom databank</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>The distributed databanks (<span class="fileName">VR_SW_databank.dtb</span> and <span class="fileName">GC_Mie_databank.dtb</span>) are provided in encrypted form, and their contents can neither be viewed nor modified. A separately licensed feature for databank management allows users to use the gSAFT foreign object with non-encrypted custom databanks. A non-encrypted databank can be used to initialise the gSAFT foreign object in the same fashion as an encrypted one.</p><pre class="programlisting">gSAFT::non_encrypted_databank.xml&lt;component1,component2,component3,…&gt;</pre>
+                <p>Note that the <span class="fileName">.xml</span> extension is used for non-encrypted databanks.</p>
+                <p>When a custom databank is to be used for initialising the gSAFT foreign object, it needs to be attached to the project. This can be done by importing the file, by selecting <span class="guimenuitem">Import files…</span> from the <span class="guimenu">Tools</span> menu, as shown in the image below.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management.png" style="visibility: visible;mso-wrap-style: square;" />
+                    </p>
+                    <p class="FigureCaption">Importing a custom databank</p>
+                </div>
+                <p>Note that the option <span class="guilabel">All Files</span> in the file selection dialog needs to be selected to view all the available files that can be imported from a given location.</p>
+                <p>Once imported the file should appear under the Miscellaneous Files in the project tree, as shown below.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_1.png" style="visibility: visible;mso-wrap-style: square;" />
+                    </p>
+                    <p class="FigureCaption">The imported custom databank appears under the Miscellaneous Files entity of the project tree</p>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Creating a custom gSAFT databank</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />SAFT-VR SW</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Selecting the equation of state</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The first required entry in the databank is the specification of the equation of state (EoS). The SAFT-VR SW EoS is selected by the following entry: </p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_2.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Compound definition</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The definition of compounds in a VR_SW_Databank starts with the declaration of the &lt;compounds&gt; field as shown below.</p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_3.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                                <p>Within the &lt;compounds&gt; field the following information needs to be provided:</p>
+                                <ul>
+                                    <li value="1">The name of the compound</li>
+                                    <li value="2">The molecular weight of the compound in units of [kg/kmol]</li>
+                                    <li value="3">The coefficients for the ideal gas heat capacity of the compound. Four coefficients <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_4.png" style="width: 67px;height: 19px;" /><img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_4.png" style="width: 67px;height: 19px;" /> need to be defined so that the ideal gas heat capacity is calculated as a function of temperature based on the formula: <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_5.png" style="width: 191px;height: 19px;" /><img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_5.png" style="width: 191px;height: 19px;" />.The heat capacity is calculated in units of [J / mol / K], with the temperature in units of [K].</li>
+                                    <li value="4">The ideal gas enthalpy and entropy of formation of the compound in units of [J/mol] and [J/mol K], respectively</li>
+                                    <li value="5">The SAFT-VR SW parameters of the compound:<ul><li value="1">The number of spheres (m parameter in SAFT-VR SW)</li><li value="2">The segment diameter (σ [sigma] parameter in SAFT-VR SW)</li><li value="3">The well-depth of the potential (ε/k<sub>B</sub> [epsilon] parameter in SAFT-VR SW)</li><li value="4">The range of the interaction potential (λ [lambda] parameter in SAFT-VR SW)</li></ul><p>In the case of associating compounds the following additional information is required:
+			</p><ul><li value="1">The number and type of each site</li><li value="2">The energy of the association interaction (ε<sup>HB</sup>/k<sub>B</sub> [crossEpsilon] parameter in SAFT-VR SW)</li><li value="3">The range of the association interaction (r<sup>C</sup> [rc] parameter in SAFT-VR SW)</li></ul></li>
+                                </ul>
+                                <p>An example of how to add water and n-decane to a VR_SW_Databank is shown in the figure below:</p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_6.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                                <p>In the example shown above the SAFT-VR SW parameters for n-decane and water are</p>
+                                <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                                    <thead>
+                                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                                <p>Parameter Type</p>
+                                            </th>
+                                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                                <p>Name in Databank</p>
+                                            </th>
+                                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                                <p>Water</p>
+                                            </th>
+                                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                                <p>n-decane</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>m [-]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>numberOfSpheres</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>1.0</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                                <p>4.0</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>σ [m]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>sigma</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>3.0342e-10</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                                <p>3.9675e-10</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>λ [-]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>lambda</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>1.7889</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                                <p>1.5925</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                                <p>ε/k<sub>B </sub>[K]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                                <p>epsilon</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                                <p>250.00</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">
+                                                <p>247.08</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>Note that the σ, λ, and ε/k<sub>B </sub>are specified within a &lt;compoundInteraction&gt; field. In the above example water is modelled as an associating compound, featuring two sites of type O and two sites of type H. The energy and range of the interaction between the sites are defined in the &lt;interaction&gt; field. In this case the following values are specified:</p>
+                                <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                                    <thead>
+                                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                                <p>Parameter Type</p>
+                                            </th>
+                                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                                <p>Name in Databank</p>
+                                            </th>
+                                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                                <p>Water:O – Water:H</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>ε<sup>HB</sup>/k<sub>B </sub>[K]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>crossEpsilon</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                                <p>1400.00</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                                <p>r<sup>C</sup> [m]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                                                <p>rc</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">
+                                                <p>2.10822e-10</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Cross-interaction specification</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>Specifying the cross interactions between compounds is optional. If this section is not provided, the cross dispersive interactions parameters (σ, λ, and ε/k<sub>B</sub>) will be calculated by means of combining rules<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span> For more details on the combining rules employed see: A. Galindo, L. A. Davies, A. Gil-Villegas, and G. Jackson, “The thermodynamics of mixtures and the corresponding mixing rules in the SAFT-VR approach for potentials of variable range”, Molecular Physics, 93, 241-252 (1998)</span></a>. Alternatively, any cross association interaction that is not explicitly assigned will be set to zero.</p>
+                                <p>The specification of the unlike (cross) interaction for the dispersive energy (ε/k<sub>B </sub>[K]) is illustrated below:</p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_7.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                                <p>Other cross dispersive parameters can be specified in the following way, e.g. the range of interaction, λ:</p><pre class="programlisting">&lt;lambda&gt;1.5&lt;/lambda&gt;</pre>
+                                <p>Within the same &lt;crossInteraction&gt; field between two compounds, the cross interaction between association sites can also be specified. Keeping methanol-water as an example, the interactions may be defined as follows: </p>
+                                <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                                    <thead>
+                                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                                <p>Parameter type</p>
+                                            </th>
+                                            <th colspan="2" class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                                <p>Association Sites</p>
+                                            </th>
+                                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                                <p>Parameter Value</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>ε/k<sub>B </sub>[K]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>-</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>-</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                                <p>250.063</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>ε<sup>HB</sup>/k<sub>B </sub>[K]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>Methanol:O</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>Water:H</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                                <p>1784.657</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>r<sup>C</sup> [m]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>Methanol:O</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>Water:H</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                                <p>2.151495e-10</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>ε<sup>HB</sup>/k<sub>B </sub>[K]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>Water:O</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>Methanol:H</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                                <p>1784.657</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                                <p>r<sup>C</sup> [m]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                                <p>Water:O</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                                <p>Methanol:H</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">
+                                                <p>2.151495e-10</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>The specification of the above cross interactions would appear as:</p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_8.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />SAFT-γ Mie </a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Selecting the equation of state</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The first required entry in the databank is the specification of the equation of state (EoS). The SAFT-<span style="font-family: Symbol;">g</span> Mie EoS is selected through the following entry: </p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_9.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Compound definition</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The definition of compounds in a GC_Mie_Databank starts with the declaration of the compounds field as shown below.</p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_10.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                                <p>Since SAFT-γ Mie is a group contribution approach, the compound declaration only requires the following two entries:</p>
+                                <ol style="list-style-type: decimal;margin-left: 36pt;" start="1">
+                                    <p>The name of the compound</p>
+                                    <p>The composition of the compound in terms of functional groups</p>
+                                </ol>
+                                <p>The definition of n-hexane in terms of two methyl (CH<sub>3</sub>) and four methylene (CH<sub>2</sub>) groups is illustrated below:</p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_11.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Group definition</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The entire set of group types need to be declared inside the field &lt;groups&gt;, as shown below:</p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_12.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                                <p>Each group entry requires the following information:</p>
+                                <ul>
+                                    <li value="1">The name of the group</li>
+                                    <li value="2">The molecular weight of the group in units of [kg/kmol]</li>
+                                    <li value="3">The coefficients for the contribution of the group to the ideal gas heat capacity. Four coefficients <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_4.png" style="width: 67px;height: 19px;" /><img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_4.png" style="width: 67px;height: 19px;" /> need to be defined following the Joback group contribution method<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span> For more information on the expressions used and a table of the group-contribution method’s parameters see: https://en.wikipedia.org/wiki/Joback_method.</span></a>. The heat capacity is calculated in units of [J / mol K], with the temperature in units of [K].</li>
+                                    <li value="4">The coefficients for the contribution of the group to the ideal gas enthalpy and entropy of formation following the Joback method in units of [J/mol] and [J/mol K], respectively.</li>
+                                    <li value="5">The SAFT-γ Mie parameters of the group:<ul><li value="1">The number of segments (ν* parameter in SAFT-γ Mie)</li><li value="2">The shape factor (S [shapeFactor] parameter in SAFT-γ Mie)</li><li value="3">The segment diameter (σ [sigma] parameter in SAFT-γ Mie)</li><li value="4">The well-depth of the potential (ε/k<sub>B</sub> [epsilon] parameter in SAFT-γ Mie)</li><li value="5">The attractive exponent of the interaction potential (λ<sup>a</sup> [lambdaAttractive] parameter in SAFT-γ Mie)</li><li value="6">The repulsive exponent of the interaction potential (λ<sup>r</sup> [lambdaRepulsive] parameter in SAFT-γ Mie)</li></ul><p>In the case of associating groups the following additional information is required:</p><ul><li value="1">The number and type of each site</li><li value="2">The energy of the association interaction (ε<sup>HB</sup>/k<sub>B</sub> [crossEpsilon] parameter in SAFT-γ Mie)</li><li value="3">The bonding volume of the association interaction (K [bondingVolume] parameter in SAFT-γ Mie)</li></ul></li>
+                                </ul>
+                                <p>An example of the definition of the CH3 and CH2 groups is shown below.</p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_13.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                                <p>Note that in the databank, the numberOfSegments and shapeFactor parameters are declared as direct entries of the group field, but the rest of the SAFT-γ Mie parameters are declared within the &lt;groupInteraction&gt; field.</p>
+                                <p>For groups that comprise associating sites, it is necessary to specify the multiplicity of each site type, as well as the energy and bonding volume between different association site types. These can be specified within the group field, as shown below for the case of the H2O group:</p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_14.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                                <p>In the above example, the CH<sub>2</sub>OH group is modelled with two association sites of type H and two association sites of type e.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Cross-interaction specification</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>Specifying the cross interactions between groups is optional. If this section is not provided, the cross interactions between the dispersive interaction parameters (σ, λ<sup>r</sup>, λ<sup>a</sup>, and ε/k<sub>B</sub>) are calculated by means of standard combining rules<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">3<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span> For more details on the combining rules employed see: Papaioannou, V., Lafitte, T., Avendaño, C., Adjiman, C. S., Jackson, G., Müller, E. A., &amp; Galindo, A. (2014). “Group contribution methodology based on the statistical associating fluid theory for heteronuclear molecules formed from Mie segments”. The Journal of chemical physics, 140(5), 054107.</span></a>. On the other hand, any cross association interaction that is not explicitly assigned will be set to zero.</p>
+                                <p>The specification of the unlike (cross) interaction for the dispersive energy (ε/k<sub>B </sub>[K]) between groups is illustrated below:</p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_15.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                                <p>Other cross dispersive parameters can be specified in the following way, e.g. the repulsive exponent of the interaction potential, λ<sup>r</sup>:</p><pre class="programlisting">&lt;lambdaRepulsive&gt;18.566&lt;/ lambdaRepulsive &gt;</pre>
+                                <p>Within the same &lt;crossInteraction&gt; field between two compounds, the cross interaction between association sites can also be specified. Taking the COOH and H2O groups as example, we might want to define the following interactions:</p>
+                                <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                                    <thead>
+                                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                                <p>Parameter type</p>
+                                            </th>
+                                            <th colspan="2" class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                                                <p>Association Sites</p>
+                                            </th>
+                                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                                                <p>Parameter Value</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>ε/k<sub>B </sub>[K]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>-</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>-</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                                <p>399.00</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>ε<sup>HB</sup>/k<sub>B </sub>[K]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>COOH:e1</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>H<sub>2</sub>O:H</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                                <p>2450.1</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>K [m<sup>3</sup>]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>COOH:e1</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>H<sub>2</sub>O:H</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                                <p>11.141e-30</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>ε<sup>HB</sup>/k<sub>B </sub>[K]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>COOH:e2</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>H<sub>2</sub>O:H</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                                <p>214.55</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>K [m<sup>3</sup>]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>COOH:e2</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                                <p>H<sub>2</sub>O:H</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                                <p>1159.4e-30</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>ε<sup>HB</sup>/k<sub>B </sub>[K]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>COOH:H</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                                                <p>H<sub>2</sub>O:e</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                                <p>188.61</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                                <p>K [m<sup>3</sup>]</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                                <p>COOH:H</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                                                <p>H<sub>2</sub>O:e</p>
+                                            </td>
+                                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">
+                                                <p>3075.5e-30</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>The specification of the above cross interaction in a GC_Mie_Databank would appear as:</p>
+                                <p>
+                                    <img src="../Resources/Images/gSAFT_3.1.0_documentation2/gSAFT Databank Management_16.png" style="visibility: visible;mso-wrap-style: square;" />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

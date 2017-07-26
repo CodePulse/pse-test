@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Initialisation Procedures|Initialisation Procedures for Composite Models">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The USE Section for Composite Models</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x12997.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c12654.html">Initialisation Procedures</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x12981.html">Initialisation Procedures for Composite Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The USE Section for Composite Models</span>
+            </div>
+        </div>
+        <h1><a name="MDG_IP_USE"></a>The USE Section for Composite Models</h1>
+        <p>The syntax of the USE section in composite Models is similar to that for Processes (see <a href="x12953.html">Specifying which
+ Initialisation Procedures to use in the Process</a>). There are some additional features needed for composite Models that contain more than one
+ sub Model. In this case, the USE section may contain a list of specifications: one for each instance. That is:</p><pre class="programlisting">USE
+    <i class="emphasis">unitname1</i> : <i class="emphasis">ipname1</i> ;
+    <i class="emphasis">unitname2</i> : <i class="emphasis">ipname2</i> ;
+    <i class="emphasis">unitname3</i> : <i class="emphasis">ipname3</i> ;
+ # etc.
+ END</pre>
+        <p>If there are lots of Model instances (e.g. if there is an array), then there are some short cuts to save typing many lines of
+ specifications.</p>
+        <p>First, if all Model instances are to use the default Initialisation Procedure, then the following specification can be made:</p><pre class="programlisting" xml:space="preserve">USE
+  : DEFAULT ;
+END</pre>
+        <p>If all Model instances apart from a few are to use the default Initialisation Procedure, then it is usually more efficient to specify the above
+ and then to override it with specific Unit specifications:</p><pre class="programlisting" xml:space="preserve">USE
+  # Use default ip for all units
+  : DEFAULT ;
+  # Override ip for Unit U1: use no ip
+    <i class="emphasis">U1</i> : NONE ;
+  # Override ip for Unit U2: use specified ip
+    <i class="emphasis">U2</i> : <i class="emphasis">ipname</i> ;
+END</pre>
+        <p>Second, arrays and slices of arrays can be used in place of single Unit names:</p><pre class="programlisting" xml:space="preserve">USE
+  # Specification for the whole array of Units
+  # (both lines are acceptable syntax)
+    <i class="emphasis">ArrayUnit1</i> : <i class="emphasis">ipname1</i> ;
+    <i class="emphasis">ArrayUnit2</i>() : <i class="emphasis">ipname2</i> ;
+  # Specification for a slice of an array of Units
+    <i class="emphasis">ArrayUnit3</i>(2:3) : <i class="emphasis">ipname3</i> ;
+END</pre>
+        <p>Another useful option is to specify the Initialisation Procedure to be used by all Model instances (Units) of the same Model. This is done
+ by:</p><pre class="programlisting" xml:space="preserve">USE
+  [<i class="emphasis">modelname</i>] : <i class="emphasis">ipname</i> ;
+END</pre>
+        <p>where <i class="emphasis">modelname</i> is the name of a <i class="emphasis">Model</i> and <i class="emphasis">ipname</i> is the name of one of its
+ Initialisation Procedures (the brackets are part of the syntax and must be typed – this distinguishes between a Model specification and a Unit
+ specification, since gPROMS allows the name of a Unit to be the same as a Model name). Just as with Unit specifications, the NONE and DEFAULT
+ keywords can be used.</p>
+        <p>Finally, one might want to specify a particular Initialisation Procedure for all Units of the same Model type apart from a certain number of
+ specific Units. This can be done by combining Model specifications with Unit specifications as follows.</p><pre class="programlisting">USE
+    <i class="emphasis">unitname</i> : <i class="emphasis">ipname</i> ;
+ [<i class="emphasis">modelname</i>] : <i class="emphasis">ipname</i> ;
+END</pre>
+        <p>In this case, all Unit specifications override the Model specifications, regardless of the order in which they are made. As an example,
+ consider a Model with 3 instances of Model Tank, called <code class="varname">T101</code>, <code class="varname">T102</code> and <code class="varname">T103</code>. If
+      <code class="varname">T101</code> and <code class="varname">T102</code> are to use the default Initialisation Procedure, and <code class="varname">T103</code> is to use none, then
+ this can be done as follows.</p><pre class="programlisting" xml:space="preserve">USE
+  [Tank] : DEFAULT ;
+  T103 : NONE ;
+END</pre>
+        <p>Even if the <code class="varname">T103</code> specification appears before the <code class="varname">[Tank]</code> one, it will override the
+      <code class="varname">[Tank]</code> specification for <code class="varname">T103</code>.</p>
+        <p>Lastly, gPROMS will issue a warning if there are duplicate Unit specifications but will continue with the simulations using the last
+ specification in the list to override all previous ones.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

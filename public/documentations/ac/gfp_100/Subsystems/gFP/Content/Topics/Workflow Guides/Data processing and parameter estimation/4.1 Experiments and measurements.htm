@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gFP.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Workflows|Data processing and parameter estimation|Parameter estimation">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Experiments and measurements</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../gFP.htm#Topics/Workflow Guides/Data processing and parameter estimation/4.1 Experiments and measurements.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../Workflow Guides.htm">Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Data processing and parameter estimation.htm">Data processing and parameter estimation</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="4 Parameter estimation.htm">Parameter estimation</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Experiments and measurements</span>
+            </div>
+        </div>
+        <h2>Experiments and measurements</h2>
+        <p>To define the experiments that will be used in the Parameter Estimation problem, click on the Experiments and measurements tab and then click the “Add…” button at the top right of the window.&#160; This will open a new window that includes a project tree with all the experiment entities that have been defined in this project or a cross-referenced project.&#160; In the Add experiments dialog, check the boxes of the experiments that you wish to include and select OK.&#160; After all the experiments have been added you may want to consider the order of the experiments in the table which can be adjusted using the Move up and Move down buttons.&#160; The order of the experiments in the table corresponds to the order in which they will be processed during the parameter estimation calculation.</p>
+        <p>&#160;</p>
+        <p style="text-align: center;">
+            <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements.png" style="visibility: visible;mso-wrap-style: square;width: 464px;height: 325px;" />
+        </p>
+        <p class="FigureCaption">After adding experiments to parameter estimation entity.</p>
+        <p>Once the experiments are selected, a list of the measured variables associated with those experiments is formed in the “measurements” window of the “experiments and measurements” tab.&#160; See above for an example. Experimental measurements are taken using sensors: the uncertainty of the measurement is a property of the measurement technique associated with the sensor. When solving a Model Validation problem all measured Variables are associated with a sensor.&#160; Some of the variables can also be grouped under the same sensor.&#160; In order to do this, select the measured variables from the “measurements” list and group them to form sensor groups.&#160; Each sensor group can have one or more measured variables.&#160; Each sensor group is associated with a variance model.&#160; The variance model of a given sensor comprises information associated with the variance of the error of the measurement produced by the sensor.&#160; The errors of the measurements are assumed to be statistically independent and normally distributed with zero mean.&#160; There are several types of sensor variance models.&#160; These can be considered to take the general form:</p>
+        <p>
+            <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements_1.png" style="width: 92px;height: 24px;" />
+        </p>
+        <p>where, z is the model prediction of the measured quantity and B is a set of parameters.&#160; The table below shows the variance models supported by gPROMS FormulatedProducts.</p>
+        <p>Table 1 : Variance models for parameter estimation, supported by gPROMS FormulatedProducts</p>
+        <table>
+            <tr>
+                <td>
+                    <p>Variance model</p>
+                </td>
+                <td>
+                    <p>Mathematical description</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Constant variance (CONSTANT_VARIANCE)</p>
+                </td>
+                <td>
+                    <p>
+                        <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements_2.png" style="width: 55px;height: 21px;" />
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Constant relative variance (CONSTANT_RELATIVE_VARIANCE)</p>
+                </td>
+                <td>
+                    <p>
+                        <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements_3.png" style="width: 105px;height: 24px;" />
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Heteroscedastic variance (HETEROSCEDASTIC)</p>
+                </td>
+                <td>
+                    <p>
+                        <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements_4.png" style="width: 111px;height: 24px;" />
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Linear variance (LINEAR_VARIANCE)</p>
+                </td>
+                <td>
+                    <p>
+                        <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements_5.png" style="width: 123px;height: 24px;" />
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <p>&#160;</p>
+        <p>The following points should be noted:</p>
+        <ul style="list-style-type: disc;margin-left: 36pt;">
+            <li style="list-style-type: disc;" value="1">The set of parameters, B , in the general statistical variance model comprises the parameters <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements_6.png" style="width: 16px;height: 15px;" />and <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements_7.png" style="width: 13px;height: 17px;" />, as appropriate.</li>
+            <li style="list-style-type: disc;" value="2">
+                <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements_8.png" style="width: 13px;height: 15px;" /> is a small but non-zero constant that ensures that the variance is still defined for predicted values that are equal to zero or very small.</li>
+            <li style="list-style-type: disc;" value="3">If <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements_9.png" style="width: 37px;height: 21px;" /> in the HETEROSCEDASTIC variance model, then this reduces to the CONSTANT_VARIANCE model.</li>
+            <li style="list-style-type: disc;" value="4">If <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements_10.png" style="width: 35px;height: 21px;" /> in the HETEROSCEDASTIC variance model, then this reduces to the CONSTANT_RELATIVE_VARIANCE model.</li>
+        </ul>
+        <p>It is possible to group measured variables from different experiments that have the same variance model by highlighting them in the measurements table and clicking “Group selected”.&#160; A new window will appear prompting you to select a variance model.&#160; Once all measurements have been assigned a sensor model the tab should look similar to that below. </p>
+        <p style="text-align: center;">
+            <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Experiments and measurements_11.png" style="visibility: visible;mso-wrap-style: square;width: 409px;height: 286px;" />
+        </p>
+        <p class="FigureCaption">Experiments &amp; Measurements tab after adding sensor models.</p>
+        <p class="example"><b>Best practice&gt; Measurement weighting due to variance.</b> The parameter estimation objective function (maximum likelihood) attributes weight according to the variance of a measurement. For measurements that may take very small values or span a large range, it is recommended to use the linear variance model rather than the constant relative variance model. This is because this model will ensure that very low measurements are not given an unnecessary high weight, thus biasing the results of the parameter estimation.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

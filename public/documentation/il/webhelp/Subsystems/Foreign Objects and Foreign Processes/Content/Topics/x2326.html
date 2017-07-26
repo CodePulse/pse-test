@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Foreign Objects and Foreign Processes.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Foreign Objects and Foreign Processes|Microsoft Excel Foreign Object and Foreign Process Interfaces|Creating Microsoft Excel Foreign Objects">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>A simple example</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Foreign Objects and Foreign Processes.htm#Topics/x2326.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Foreign Objects and Foreign Processes</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2139.html">Microsoft Excel Foreign Object and Foreign Process Interfaces</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2178.html">Creating Microsoft Excel Foreign Objects</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">A simple example</span>
+            </div>
+        </div>
+        <h1><a name="AEN2326"></a>A simple example</h1>
+        <p>To illustrate many of the features described above, we consider the trivial example of calculating the Reynold's Number for fluid flow in a
+ pipe. The listing below shows excerpts from a Model where the Reynolds number is calculated using the <i class="emphasis">ExcelFO</i> Foreign Object
+ interface. The physical properties of the fluid are also obtained from the Microsoft Excel Foreign Object.</p><pre class="programlisting">PARAMETER
+ FO AS FOREIGN_OBJECT "ExcelFO"
+ Diameter AS REAL
+ Viscosity AS REAL
+ Density AS REAL
+ ...
+
+ VARIABLE
+ Velocity AS Flow
+ Re AS Dimensionless
+ ...
+
+ SET
+ FO := "FlowCalc.xls" ;
+ Diameter := 0.1 ;
+ Viscosity := FO.Viscosity ;
+ Density := FO.Density ;
+
+ EQUATION
+ ...
+
+ Re = FO.ReNumber(Velocity,Diameter) ;
+
+ ...</pre>
+        <p>To make the Foreign Object, we need to open a new file called FlowCalc.xls in Microsoft Excel and enter the Reynold's Number calculation and
+ the method definitions. The worksheet, named Sheet1, containing the Reynold's Number calculation is shown in the figure below.</p>
+        <div class="figure"><a name="AEN2332"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/sheet1.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Worksheet containing the calculation of the Reynold's Number.</p>
+        </div>
+        <p>The method-definition sheet shown in the figure below is easily created using the method definition macro. Simply run the macro (press ALT-F8),
+ add a new method-definition worksheet (call it "methods''), add the three methods and add two inputs to the ReNumber method, selecting variable type
+ "Real'' for each. Return to the worksheet by pressing "OK'' then "Exit'' and complete the "gFO-methods'' worksheet by adding the cross references and
+ filling out the dimensions of the inputs and outputs (this last part is not necessary with the current version of gPROMS).</p>
+        <div class="figure"><a name="AEN2338"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/reynoldfoi.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Macro-definition worksheet for the Reynold's Number example.</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

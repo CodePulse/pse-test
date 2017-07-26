@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Controlling the Execution of Model-based Activities|The SOLUTIONPARAMETERS section">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Configuring model validation and diagnosis</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x7353.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="AEN7353"></a>Configuring mathematical formulation and validation</h1>
+        <p>Before executing a model-based activity, gPROMS can perform various checks and modifications to the mathematical formulation of the problem.
+         These are summarised below.</p>
+        <dl>
+            <dt>IdentityElimination: ON (default) or OFF</dt>
+            <dd>If set to ON, the solver will attempt to reduce the size of the problem internally by removing equations of the form <span class="inlinemediaobject"><img src="../Resources/Images/eqn_cteomba_32.png" data-mc-conditions="Default.ScreenOnly" /></span>, and substituting all occurrences of one of these variables with the other. Such equations are often introduced in gPROMS
+             models by stream connectivity equations. This may result in a faster solution although at the current stage of development the costs of
+             creating and using the reduced system sometimes outweigh the benefits, particularly when many IF and CASE conditions are present.</dd>
+            <dt>IgnoreDAEIndexAnalysis: ON or OFF (default)</dt>
+            <dd>Determines whether or not gPROMS attempts to (re)initialise a system if the index is determined to be greater than 1.</dd>
+            <dt>IndexReduction: ON or OFF (default)</dt>
+            <dd>Specifies whether or not gPROMS will perform automatic index reduction for high-index models. This Solution Parameter applies to all four
+             activities. See <a href="x8408.html">High-Index DAE systems</a> for more details.</dd>
+            <dt>PerformStrictDAEStructuralChecks: ON or OFF (default)</dt>
+            <dd>
+                <p>If set to ON, gPROMS performs a check of the structure of the DAE system following the first initialisation and following each
+                 reinitialisation.</p>
+                <p>This option is useful because unchecked structural errors can lead to different symptoms (such as an error reported by the Linear Algebra
+                 solver) which can be hard to diagnose. It can be switched on during Model development in order to detect Modelling errors before they result in
+                 (harder to diagnose) numerical errors. It is particularly useful for Models containing IF or CASE statements.</p>
+                <p>Once the Model has been well tested, this option can be turned off, as it may have some computational overhead for complex models,
+                 particularly those that contain IF or CASE statements that change branch frequently during simulation. When a (re)initialisation fails a strict
+                 DAE structural check will be performed even if PerformStrictDAEStructuralChecks := OFF.</p>
+            </dd>
+            <dt>ModelPruning: ON (default) or OFF</dt>
+            <dd>
+                <p>Determines if gPROMS&#160;automatically reduces the model to the minimum required to produce the information requested by the gPROMS&#160;Activity specification. As a result of the reduction, the smallest possible mathematical problem is posed to the numerical solvers.</p>
+                <p>Using this option usually results in a shorter computation time, although the effort of reducing the model may outweigh the gains, particularly for short horizons in dynamic models.</p>
+                <p>As a common benefit across all Activities, general purpose models do not need to be pruned manually depending on the Activity for maximum performance gain; this is automatically taken care of.</p>
+                <p>The table below lists the effects of model pruning for each gPROMS&#160;Activity.</p>
+                <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">gPROMS&#160;Activity</th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Effects of model pruning
+                    </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Simulation</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>Variables that can be pre-calculated are computed only once at the beginning of execution.</p>
+                                <p>Variables that can be post-calculated are taken into account only at the end of successful time-steps.
+                </p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Optimisation</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>Variables or decision variables that affect neither the objective function nor constraints are automatically eliminated.</p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                                <p>Parameter Estimation</p>
+                            </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                                <p>Variables or estimated parameters that do not affect the measured variables are automatically eliminated.
+                </p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Design of experiments
+        </td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                                <p>Variables or experimental controls that do not affect the measured variables are automatically eliminated.
+        </p>
+                            </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">All</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Equations are not generated for which all variables have been eliminated.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

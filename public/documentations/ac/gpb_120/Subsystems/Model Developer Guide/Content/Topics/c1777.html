@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Conditional Equations</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/c1777.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="ConditionalEquations"></a>Conditional Equations</h1>
+        <p>The physical behaviour of many process operations is described in terms of <i class="emphasis">discontinuous</i> equations, the form of which
+ depends on the current variable values and, in certain cases (e.g. involving hysteresis effects), also some aspects of the past history of the
+ system.</p>
+        <p>gPROMS provides <i class="emphasis">two</i> powerful facilities for describing discontinuous equations in Model Entities. As
+ background it helps to understand <a href="x1799.html">State-Transition Networks</a> (STNs which form a general basis for modelling
+ discontinuities:</p>
+        <ul>
+            <li value="1">
+                <p>The <a href="x1924.html">CASE</a> construct: this provides a direct description of general STNs in the gPROMS language. For
+ example:</p>
+            </li>
+        </ul><pre class="programlisting"># An example of the CASE conditional construct - for flow over a weir.
+ SELECTOR
+ WeirFlag AS (Above, Below)
+ ...
+ EQUATION
+ ...
+ CASE WeirFlag OF
+ WHEN Above : FlowOut = 1.84 * (Rho/MolecularWeight)
+ * WeirLength * ABS(Height-WeirHeight)^1.5 ;
+ SWITCH TO Below IF Height &lt; WeirHeight ;
+ WHEN Below : FlowOut = 0 ;
+ SWITCH TO Above IF Height &gt; WeirHeight ;
+ END # Case
+ ...</pre>
+        <ul>
+            <li value="1">
+                <p>The <a href="x1984.html">IF</a> construct may be used to described a special form of reversible symmetric STNs that occur very frequently
+ in practical applications. For example:</p>
+            </li>
+        </ul><pre class="programlisting"># An example of the IF conditional construct - for flow over a weir.
+ IF Height &gt; WeirHeight THEN
+ FlowOut = 1.84 * (Rho/MolecularWeight)
+ * WeirLength * ABS(Height-WeirHeight)^1.5 ;
+ ELSE
+ FlowOut = 0 ;
+ END # If</pre>
+        <p>It should be noted that, in Model entites, we are interested in discontinuities that arise because of the intrinsic behaviour of the system
+ and not as a result of external discrete actions imposed on the system by its environment or its operators (e.g. the opening and closing of manual
+ valves).<i class="emphasis"><a href="c5411.html">See: Defining Schedules </a>.</i></p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

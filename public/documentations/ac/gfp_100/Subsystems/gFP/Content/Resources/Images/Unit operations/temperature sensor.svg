@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?gproms path="Liquid_species_concentration_sensor_block.is_temperature_within_range"?>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="50.5px"
+   height="59.8px"
+   viewBox="0 0 50.5 59.8"
+   style="enable-background:new 0 0 50.5 59.8;"
+   xml:space="preserve"
+   id="svg4276"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="temperature sensor.svg"><metadata
+     id="metadata4309"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs4307" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="742"
+     inkscape:window-height="480"
+     id="namedview4305"
+     showgrid="false"
+     inkscape:zoom="3.9464883"
+     inkscape:cx="25.25"
+     inkscape:cy="29.9"
+     inkscape:window-x="9"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_1" /><style
+     type="text/css"
+     id="style4278">
+	.st0{display:none;}
+	.st1{display:inline;fill:#6AADFF;stroke:#000000;stroke-miterlimit:10;}
+	.st2{display:inline;fill:#EEE52F;}
+	.st3{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st4{fill:#6F6F6F;}
+	.st5{fill:none;}
+	.st6{fill:#FFFFFF;}
+	.st7{fill:#717070;}
+	.st8{fill:none;stroke:#2D2D2E;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style><g
+     id="Layer_2_1_"
+     class="st0"><rect
+       x="-10.5"
+       y="-4.1"
+       class="st1"
+       width="66.9"
+       height="70.1"
+       id="rect4281" /></g><g
+     id="Layer_1"><g
+       id="Layer_2"
+       class="st0"><rect
+         x="-70.1"
+         y="-60.3"
+         class="st2"
+         width="242"
+         height="197.7"
+         id="rect4285" /></g><line
+       class="st3"
+       x1="25.4"
+       y1="45.1"
+       x2="25.4"
+       y2="56.4"
+       id="line4287" /><circle
+       class="st3"
+       cx="25.4"
+       cy="25.1"
+       r="21.7"
+       id="circle4289"
+	   	   style="stroke:#ff0000;stroke-opacity:1;stroke-width:0;stroke-miterlimit:10;stroke-dasharray:none"><animate
+         attributeName="stroke-width"
+         attributeType="XML"
+         begin="0s"
+         dur="1s"
+         fill="freeze"
+         from="6"
+         to="0" /></circle>
+	   <line
+       class="st4"
+       x1="25.4"
+       y1="45.1"
+       x2="25.4"
+       y2="56.4"
+       id="line4291" /><circle
+       class="st5"
+       cx="25.4"
+       cy="25.1"
+       r="21.7"
+       id="circle4293" /><circle
+       class="st6"
+       cx="25.4"
+       cy="25.1"
+       r="21.7"
+       id="circle4295" /><g
+       id="g4297"
+       transformBehaviour="pinned"><path
+         class="st7"
+         d="m 28.7,16.5 c 0.3,0 0.6,0.1 0.9,0.4 0.2,0.2 0.4,0.5 0.4,0.9 0,0.3 -0.1,0.6 -0.4,0.9 C 29.3,18.8 29,19 28.7,19 l -2.1,0 0,13.4 c 0,0.3 -0.1,0.6 -0.4,0.9 -0.2,0.2 -0.5,0.4 -0.9,0.4 -0.3,0 -0.6,-0.1 -0.9,-0.4 C 24.1,33 24,32.8 24,32.4 L 24,19 22,19 c -0.3,0 -0.6,-0.1 -0.9,-0.4 -0.2,-0.2 -0.4,-0.5 -0.4,-0.9 0,-0.3 0.1,-0.6 0.4,-0.9 0.2,-0.2 0.5,-0.4 0.9,-0.4 l 6.7,0 z"
+         id="path4299"
+         inkscape:connector-curvature="0"
+         style="fill:#717070" /></g><line
+       class="st8"
+       x1="25.4"
+       y1="47.3"
+       x2="25.4"
+       y2="56.4"
+       id="line4301" /><circle
+       class="st8"
+       cx="25.4"
+       cy="25.1"
+       r="21.7"
+       id="circle4303" /></g></svg>

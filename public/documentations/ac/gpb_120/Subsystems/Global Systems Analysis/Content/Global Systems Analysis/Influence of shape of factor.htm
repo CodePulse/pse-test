@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-gb" lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Global Systems Analysis.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Creating and running an analysis|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" /><title>Influence of factor space shape</title>
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Global Systems Analysis.htm#Global Systems Analysis/Influence of shape of factor.htm">Open topic with navigation</a>
+        </p>
+        <h1><a name="_Toc478315915"></a>Influence of factor space shape</h1>
+        <p>Typically, the shape of the factor space is only of interest for uncertainty and sensitivity analyses, and not for scenario or parametric analysis.</p>
+        <p>The shape and size of the factor space from which samples are drawn is determined by:</p>
+        <ul>
+            <li value="1">The lower and upper bounds of each factor</li>
+            <li value="2">The type of distribution of  each factor</li>
+            <li value="3">Correlations between factors</li>
+            <li value="4">Sampling restrictions.</li>
+        </ul>
+        <p>For example:</p>
+        <ul>
+            <li value="1">Uniform distributions for factors with no correlations or sampling restrictions return hyper-cube shapes, that is, a square for two dimensions, a cube for three dimensions, and so forth.</li>
+            <li value="2">Normal distributions for factors with no correlations or sampling restrictions return hyper-sphere shapes, that is, a circle for two dimensions, a sphere for three dimensions, and so forth.</li>
+        </ul>
+        <p>Although these attributes are easy to specify, other shapes may be more appropriate, depending on the circumstances. For example, consider the flash separation of a mixture of pentane and heptane. A typical scenario would be where there is both vapour and liquid in the system. Using a uniform distribution for both temperature and pressure, it is possible to sample from the rectangle outlined in the figure below whereas, ideally, sampling should only be  from within the ellipsoid.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Influence of shape of factor.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="625" data-mc-height="407" src="../Resources/Images/Global Systems Analysis/Influence of shape of factor_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Rectangular and ellipsoidal factor spaces for flash separation example</p>
+        </div>
+        <p>Specify the objective function as a response and define it as the amount of valuable product coming out of the flash, that is, the sum of the mole fraction of hexane multiplied by the output vapour flow rate plus the mole fraction of heptane multiplied by the output liquid flow rate. Since the inlet flow rate is 2 kg/s and the mass composition is 50% hexane, the flash separation only  produces both vapour and liquid streams when the value of the response is larger than one. The figures below illustrate that the histograms of the responses are very different for the rectangular and ellipsoidal factor spaces.</p>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Influence of shape of factor_1.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="691" data-mc-height="430" src="../Resources/Images/Global Systems Analysis/Influence of shape of factor_1_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Histogram obtained with the rectangular factor space</p>
+        </div>
+        <div class="figure">
+            <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="../Resources/Images/Global Systems Analysis/Influence of shape of factor_2.png"><img class="MCPopupThumbnail img imgPopUp" data-mc-width="991" data-mc-height="728" src="../Resources/Images/Global Systems Analysis/Influence of shape of factor_2_thumb_0_264.png" tabindex="" /></a>
+            </p>
+            <p class="FigureCaption">Histogram obtained with the ellipsoidal factor space</p>
+        </div>
+        <div class="note" data-mc-autonum="&lt;b&gt;Note&lt;/b&gt;"><span class="autonumber"><span><b>Note</b></span></span>
+            <p>In principle, it is possible to use coordinate transformations to include correlations in sensitivity based activities, but the sensitivities returned are be based on the transformed coordinates and sampling. See <a href="Coordinate transformation.htm" class="MCXref xref" xrefformat="'{paratext}'">'Coordinate transformation – ellipsoid'</a></p>
+        </div>
+    </body>
+</html>

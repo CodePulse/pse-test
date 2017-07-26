@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Composite Models">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Model specifications</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x3144.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c2799.html">Composite Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Model specifications</span>
+            </div>
+        </div>
+        <h1><a name="CompositeExplicit"></a>Model specifications</h1>
+        <p>It is usually recommended that the values of all unknown Model quantities are provided in Process entities (<i class="emphasis">See also</i>:
+    <a href="x1004.html">Defining Process Entities</a>), where:</p>
+        <ul>
+            <li value="1">
+                <p>Parameter values are fixed in the SET section</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Variables are specified in the ASSIGN section</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Initial conditions are provided in the INITIAL section</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>The initial values of <a href="x1924.html">Selectors</a> are provided in the INITIALSELECTOR section</p>
+            </li>
+        </ul>
+        <p>However, the same sections exist in Model entities. So it is equally possibly to provide a specification directly in the Model that declares
+ the quantity to be specified or any composite Model that includes the Model. <i class="emphasis">See also</i>: <a href="x374.html">gPROMS language for Models.</a></p>
+        <p>Care should be taken to remember that making a specification in a Model can greatly reduce the generality of such a Model. In general a
+ quantity may be given a value <i class="emphasis">at most once</i> and it is not possible to overwrite a specification given at a lower level.
+ However, giving a Parameter the exactly same value more than once does not cause an error.</p>
+        <p>Consider, for instance, the following situation:</p>
+        <ul>
+            <li value="1">
+                <p>Model X declares a Parameter <i class="emphasis">S</i> to be of type REAL.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Model Y contains a unit XX which is an instance of X.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Model Z contains a unit YY which is an instance of Y.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Process P contains a unit ZZ which is an instance of Z.</p>
+            </li>
+        </ul>
+        <p>Then, the value of Parameter <i class="emphasis">S</i> can be explicitly set in of the following ways:</p>
+        <ol type="1">
+            <li value="1">
+                <p>In X:</p><pre class="programlisting">SET 
+ S := 1.5 ;</pre>
+            </li>
+            <li value="2">
+                <p>In Y: </p><pre class="programlisting">SET 
+ XX.S := 1.5 ; </pre>
+            </li>
+            <li value="3">
+                <p>In Z: </p><pre class="programlisting">SET 
+ YY.XX.S := 1.5 ; </pre>
+            </li>
+            <li value="4">
+                <p>In P: </p><pre class="programlisting">SET 
+ ZZ.YY.XX.S := 1.5 ; </pre>
+            </li>
+        </ol>
+        <p>If a Parameter is explicitly SET in a Model, it will have that value in <i class="emphasis">all</i> instances of that Model. For example, if we
+ use option 2 above, XX.S will have a value of 1.5 in all subsequent instances of Model Y anywhere in the problem. It is usually advisable that
+ Parameters be explicitly set at the Process level. This practice maximises the reusability of the underlying Models and minimises the probability
+ of error.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

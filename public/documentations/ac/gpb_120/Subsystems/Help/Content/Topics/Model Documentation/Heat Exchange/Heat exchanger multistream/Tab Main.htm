@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Main</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Heat Exchange/Heat exchanger multistream/Tab Main.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Main</h1>
+        <p>The Main tab is used to specify data relating to the thermal operation of the heat exchanger.</p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Outlet specification types</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>All specifications of the same type</dt>
+                        <dd>All output specifications are of the same type (e.g. all are temperatures).</dd>
+                        <dt>Different types for each specification</dt>
+                        <dd>Each specification may be of a different type (e.g. for some outputs temperatures are specified and for other the vapour fraction is specified).</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">
+                        <p>Outlet thermal specification</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">
+                        <p>Selector</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Temperature</dt>
+                        <dd>Specify the temperature of the outlet stream.</dd>
+                        <dt>Vapour fraction</dt>
+                        <dd>Specify the vapour mass fraction of the outlet stream.</dd>
+                        <dt>Enthalpy</dt>
+                        <dd>Specify the mass specific enthalpy of the outlet stream directly.</dd>
+                        <dt>Saturated liquid (Vapour fraction = 0)</dt>
+                        <dd>When selecting this option, the outlet stream
+			 will consist of a saturated liquid (i.e. the outlet stream temperature is the bubble temperature of the mixture).</dd>
+                        <dt>Saturated vapour (Vapour fraction = 1)</dt>
+                        <dd>When selecting this option, the outlet stream
+			 will consist of a saturated vapour (i.e. the outlet stream temperature is the dew temperature of the mixture).</dd>
+                        <dt>Subcooled liquid </dt>
+                        <dd>When selecting this option, the outlet stream
+			 will consist of a subcooled liquid. The delta temperature of subcooling is specified.</dd>
+                        <dt>Superheated vapour </dt>
+                        <dd>When selecting this option, the outlet stream
+			 will consist of a superheated vapour. The delta temperature of superheating is specified.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Stream to be determined from energy balance</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">One stream outlet temperature is determined from the global energy balance over all the streams. </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Specification type</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">For each outlet stream, select which type of specification (Temperature, Vapour fraction, Enthalpy, etc) will be used for that particular outlet stream.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Outlet temperatures</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Temperatures for all the outlet streams except one</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Outlet vapour fraction</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Vapour fractions for all the outlet streams except one.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Enthalpy</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kJ/kg</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Mass specific enthalpies for all the outlet streams except one.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Outlet degree of subcooling</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">The number of degrees the outlet temperature is below the bubblepoint.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1">Outlet degree of superheating</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1">The number of degrees the outlet temperature is above the dewpoint.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

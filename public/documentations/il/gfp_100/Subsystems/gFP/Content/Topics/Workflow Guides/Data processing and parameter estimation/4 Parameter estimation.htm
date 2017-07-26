@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gFP.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Workflows|Data processing and parameter estimation">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Parameter estimation</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../gFP.htm#Topics/Workflow Guides/Data processing and parameter estimation/4 Parameter estimation.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../Workflow Guides.htm">Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Data processing and parameter estimation.htm">Data processing and parameter estimation</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Parameter estimation</span>
+            </div>
+        </div>
+        <h1>Parameter estimation</h1>
+        <p class="example"><b>Concept &gt; Parameter estimation entity.</b> gPROMS FormulatedProducts contains parameter estimation entities that can estimate multiple parameters using measurements from multiple experiments.&#160; Each measurement is associated with a Sensor which is given a variance (through a variance model). Measurements in different experiments using the same sensor or same type of sensors may further be grouped into Sensor Groups.</p>
+        <p>&#160;</p>
+        <p>Once you have set up all the required performed experiment entities that you wish to include in a parameter estimation, you must create a new “Parameter estimation” entity.&#160; The complete specification of a Parameter Estimation problem requires some additional information which is not provided in the Process or Performed experiment entities, viz.</p>
+        <ul style="list-style-type: disc;margin-left: 36pt;">
+            <li style="list-style-type: disc;" value="1">Information on the unknown parameters to be estimated.</li>
+            <li style="list-style-type: disc;" value="2">The performed experiments to be used.</li>
+            <li style="list-style-type: disc;" value="3">Sensor specifications (if they have not already been defined in the Performed experiment entity).&#160; </li>
+        </ul>
+        <p>&#160;</p>
+        <p>Similarly to creating a “Performed experiment” entity, right-click on the project in the project tree and select “Parameter estimation”, naming the item before clicking “Ok”.&#160; The new entity will appear, see for example figure below. </p>
+        <p>&#160;</p>
+        <p style="text-align: center;">
+            <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Parameter estimation.png" style="visibility: visible;mso-wrap-style: square;width: 521px;height: 364px;" />
+        </p>
+        <p class="FigureCaption">Parameter estimation entity on creation.</p>
+        <p>This section contains the following topics:</p>
+        <div class="MCMiniTocBox_0">
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="4.1 Experiments and measurements.htm">Experiments and measurements</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="4.2 Parameters to be estimated.htm">Parameters to be estimated</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="4.3 Solution parameters.htm">Solution parameters</a>
+            </p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

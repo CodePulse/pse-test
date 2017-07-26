@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Defining a Public Model Interface|Defining a Specification dialog and Model Reports">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Defining Model help</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x4090.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="modelhelp"></a>Defining Model help</h1>
+        <p><i class="emphasis">Step 4</i>
+        </p>
+        <p>A Help button can be added to the public Model interface. Help can be provided in two different ways or disabled according to the
+ selection made using the listbox in step 4 of the Public Model Interface Builder dialog:</p>
+        <div class="mediaobject">
+            <p>
+                <img src="../Resources/Images/MDG_PublicModelInterface_Help1_cropped.png" />
+            </p>
+        </div>
+        <p>When <b class="guimenuitem">Opens a help window</b> is selected, the dialog changes to include a text box and a preview pane. The help
+ page must be defined using XHTML and can include links to external web pages and documents, as shown below.</p>
+        <div class="mediaobject">
+            <p>
+                <img src="../Resources/Images/MDG_PublicModelInterface_Help2_populated.png" />
+            </p>
+        </div>
+        <p>The preview pane is updated in real time, as the XHTML is edited above. Any links in the help page are active in the preview pane and can
+ be followed by left clicking on them. Links to external web sites will open a new browser window or tab (depending on your browser settings);
+ links to files will launch the appropriate reader.</p>
+        <p>When providing links to documents, the <b class="guibutton">Insert macro</b> button provides a quick way to refer to common
+ directories:</p>
+        <div class="mediaobject">
+            <p>
+                <img src="../Resources/Images/MDG_PublicModelInterface_InsertMacro.png" />
+            </p>
+        </div>
+        <p>When typing in the path to an external document, selecting one of the options from the list box above will result in the macro being
+ inserted into the text. See the previous screen shot for an example.</p>
+        <p>The simplest way to provide Model help is to link directly to an external document. This is done by selecting <b class="guimenuitem">Launches an
+ external document</b> from the <tt class="guilabel"><b>Help button:</b></tt> list box. The Public Model Interface Builder dialog will then change
+ to:</p>
+        <div class="mediaobject">
+            <p>
+                <img src="../Resources/Images/MDG_PublicModelInterface_Help3_cropped.png" />
+            </p>
+        </div>
+        <p>There are two ways to specify the location of the external document:</p>
+        <ul>
+            <li value="1">
+                <p>Type the location into the <tt class="guilabel"><b>URL:</b></tt> text box</p>
+                <ul>
+                    <li value="1">
+                        <p>The <b class="guibutton">Insert macro</b> button can be used as before</p>
+                    </li>
+                </ul>
+            </li>
+            <li value="2">
+                <p>Locate the document using the <b class="guibutton">Browse for file...</b> button</p>
+            </li>
+        </ul>When using the file browser, navigate to the desired document and press <b class="guibutton">Select</b>:<div class="mediaobject"><p><img src="../Resources/Images/MDG_PublicModelInterface_BrowseFile.png" /></p></div><p>If the document is contained in the same directory as the project file (or is contained in one of its sub directories), then another
+ dialog will appear. This allows you to choose whether to specify the location of the document as an absolute path or a relative one.</p><div class="mediaobject"><p><img src="../Resources/Images/MDG_PublicModelInterface_RelativePath.png" /></p></div><p>If documentation is always kept in the same location, then select an absolute path: this way, the project file can be moved to a different
+ location without breaking the link. This would be useful if, for example, a Model developer released a project file to a number of different
+ users but wanted to keep one copy of the documentation in a single public directory. If the documentation is to be kept in the same folder as
+ the project file (or one of its subfolders), then select a relative path so that the project folder can be moved to a different location without
+ breaking the link.</p><div><p class="Footer">&#160;</p><p class="Footer">&#160;</p><hr width="100%" size="0" align="center" /><p class="Footer">Commercial in confidence</p><p class="Footer">© 2017 Process Systems Enterprise Limited</p></div></body>
+</html>

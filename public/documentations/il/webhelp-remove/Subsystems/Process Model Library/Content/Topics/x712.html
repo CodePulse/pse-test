@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Process Model Library.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Process Model Library|PML Model specifications">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Material property specification</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Process Model Library.htm#Topics/x712.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Process Model Library</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c641.html">PML Model specifications</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Material property specification</span>
+            </div>
+        </div>
+        <h1><a name="PML_Source"></a>Material property specification</h1>
+        <p>Apart from process control Models all PML models contain a declaration of (at least) one physical property foreign object; typically defined
+ as:</p><pre class="programlisting">phys_prop AS FOREIGN_OBJECT "PhysProp"</pre>
+        <p><i class="emphasis">To use the PML you only need to specify the Foreign Object to use for physical property calculations in Material Source
+ dialogs (shown below):</i> gPROMS will automatically propagate all relevant property parameters associated with the Source Unit (i.e. the
+ number of components, foreign object etc.) along the flow path.</p>
+        <div class="figure">
+            <img src="../Resources/Images/pml_SpecificationFeedMaterialProperties.png" />
+        </div>
+        <p>An example of such a foreign object class would be Multiflash or IPPFO. However, the PML can be used with any gPROMS-compliant physical
+ property package including CAPE-OPEN enabled physical properties packages.</p>
+        <div class="note" data-mc-autonum="&lt;b&gt;Note&lt;/b&gt;"><span class="autonumber"><span><b>Note</b></span></span>
+            <p>If the physical property foreign object supports mass and molar basis – mass basis must be selected.</p>
+            <p>If using Multiflash the physical property parameter setting might look as shown below (refer to the examples in the gPROMS distribution for
+ further details):</p><pre class="programlisting">myunit.phys_prop := "Multiflash::mass:myfluid.mfl";</pre>
+        </div>
+        <p>If multiple flow paths come into <i class="emphasis">indirect contact </i>with each other (e.g. in a heat exchanger), then gPROMS will simply use
+ the properties of the mixture in each stream for the relevant energy balance calculations.</p>
+        <p>If multiple flow paths come into <i class="emphasis">direct contact </i>with each other, then it is vital that each stream has the same mixture
+ specification (i.e. the type of components, their order, and the physical property calculation foreign object associated with each stream).</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

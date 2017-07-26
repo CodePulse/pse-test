@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gFP_releasenotes.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Converting custom models for kinetics and properties</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../gFP_releasenotes.htm#Topics/Release notes/1.0.0/x2s6.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="gFP intro.htm">Release notes</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x2.htm">Updating flowsheets from gCRYSTAL, gSOLIDS and gCOAS</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Converting custom models for kinetics and properties</span>
+            </div>
+        </div>
+        <h1>Converting custom models for kinetics and properties</h1>
+        <p>Custom modelling kernels built for inclusion with previous versions of gPROMS platform software will need to be migrated to the new Custom model templates provided in gFP 1.0 for access by the gFP 1.0 library models</p>
+        <ul>
+            <li value="1">First, load both the new gFP 1.0 libraries and the legacy model libraries, you should close all other editor and flowsheet windows by selecting Window&gt;Close all</li>
+            <li value="2">Close the gFORMULATE&#160;Custom library in the project tree. The custom kernel project can be found under "Examples" -&gt; "Custom modelling templates" -&gt; "Kinetic and property model templates" -&gt; "0 gFORMULATE&#160;Custom.gPJ-FP". Open the project and copy the new gFP 1.0 custom kernel model template (actual name dependent on kernel of interest) to your project. </li>
+            <li value="3">Next, load only the legacy custom model kernel</li>
+            <li value="4">Select Window&gt;Show side by side<ul><li value="1">You can also select both the new template and legacy custom kernel and utilize the Compare function to ascertain the extent of the differences</li></ul></li>
+            <li value="5">You can use copy/paste to migrate the user defined portions of the code from old to new<ul><li value="1">In some cases, the complete path or variable/parameter names may have changed<ul><li value="1">Many times these changes are obvious and should be corrected by you</li><li value="2">When these changes are not obvious, or if reasonable efforts to affect the desired changes have failed, you can email the project in question to the Formulated Products support queue - <span class="ProductSupportEmail">support.formulatedproducts@psenterprise.com</span></li></ul></li></ul></li>
+            <li value="6">Once the changes have been made to the custom kernel templates, you should open the affected unit operations in the project via the flowsheet to determine if the desired changes have been effected in the unit operation GUIs and that the correct user defined parameters have been entered</li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

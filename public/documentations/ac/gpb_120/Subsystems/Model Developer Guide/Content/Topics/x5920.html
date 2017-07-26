@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Defining Schedules|Elementary tasks">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The Reassign (Reset) elementary task</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x5920.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="MDG_Reset"></a>The Reassign elementary task</h1>
+        <p>Model Variables can be Assigned values which can be either fixed or dependent on the simulation time using expressions containing the Time
+ statement. Such Assignments can be changed using the Reassign<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Prior to gPROMS v3.3, the Reassign elementary Task was called Reset but it was decided that Reassign has a better link to Assign.
+Full backward compatibility is maintained and all existing and new models using the Reset elementary Task continue to work; they
+ are also properly displayed in the new editor for Graphical Schedules and Tasks.</span></a> elementary Task. </p>
+        <p>The syntax for the Reassign task is:</p><pre class="programlisting">REASSIGN
+  <i class="emphasis">VariablePath</i> := <i class="emphasis">Expression</i> ;
+END</pre>
+        <p>where <i class="emphasis"><code class="varname">VariablePath</code></i> is the full path to any Variable in the Process and
+      <i class="emphasis"><code class="varname">Expression</code></i> is any expression involving constant numerical quantities and the keyword <code class="varname">TIME</code>
+      (which represents the simulation time). This means that the expression may involve numbers and Parameters (or functions thereof) but not Variables
+ because they are not inherrently constant. When gPROMS refers to a Variable, it refers to the <i class="emphasis">whole trajectory</i> of it, so in
+ order to include Variables in a Reassign statement, the <code class="methodname">OLD()</code> function must be used. This function can only be used in a
+ Schedule and it returns the value of a Variable (or a function involving Variables) at the time immediately before it is used; it has no meaning
+ within Models, because no well-defined values for the variables exist before the simulation commences.</p>
+        <p>Within statements can be used inside a Reassign task in order to avoid repeating long pathnames.</p>
+        <p>The examples below demonstrate some applications of the Reassign task.</p>
+        <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span><a name="resettask"></a>
+            <p><b>Example 1. Applications of the Reassign task</b>
+            </p><pre class="programlisting">REASSIGN
+ V101.Position := 1.0 ;
+END</pre><pre class="programlisting" xml:space="preserve">REASSIGN
+ WITHIN C101 DO
+   Signal := OLD( Bias + Gain * ( Error + IntegralError/ResetTime ) ) ;
+ END
+END</pre><pre class="programlisting">REASSIGN
+ T101.FlowIn := OLD(T101.FlowIn) + 0.1 ;
+END</pre>
+        </div>
+        <p>In the first example, a <code class="methodname">Reassign</code> task is used to model the instantaneous opening of a manual valve by a process
+ operator. The Model that corresponds to unit <code class="methodname">V101</code> contains a variable called <code class="methodname">Position</code>, which
+ represents the position of the valve stem, and an equation that relates the flowrate through the valve to the pressure drop across it according to
+ the position of the stem and the inherent characteristics of the valve. The initial position of the valve stem is specified in the Assign section of
+ the corresponding Process. During the simulation, the Reassign task 'reaches' into the model and changes the value of this input variable, just as an
+ operator would walk into the plant and manipulate the valve. The action is considered to occur in such a small time interval relative to the length
+ of the entire simulation, that it can be modelled as an instantaneous change.</p>
+        <p>The second example demonstrates how the action of a digital controller at the end of its sampling interval might be modelled. Here, the
+ expression on the right hand side of the assignment is evaluated at the time of execution of the Reassign task. The value of the expression is used
+ to update the value of the control signal instantaneously and according to a proportional-integral control law. This example illustrates the use of
+ the <code class="methodname">OLD</code> built-in function to refer to the value of the Variables <i class="emphasis">immediately before</i> the execution of
+ the Reassign task.</p>
+        <p>Finally, in the third example the Reassign task is used to impose a step change of magnitude 0.1 on variable
+      <code class="methodname">T101.FlowIn</code>, representing the input flowrate to a vessel. The <code class="methodname">OLD</code> function must be used here
+ because the time at which the Reassign Task occurs may not be known <i class="emphasis">a priori</i>, so the Value of <code class="varname">T101.FlowIn</code> may
+ not be known and cannot be replaced with a literal value.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

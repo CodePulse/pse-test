@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Initialisation Procedures|Initialisation Procedures for Non-Composite Models|Specifying Initialisation Procedures in the Model">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Changing the Choice of a Degree of Freedom</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x12778.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c12654.html">Initialisation Procedures</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x12659.html">Initialisation Procedures for Non-Composite Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x12670.html">Specifying Initialisation Procedures in the Model</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Changing the Choice of a Degree of Freedom</span>
+            </div>
+        </div>
+        <h1><a name="MDG_IP_REPLACE"></a>Changing the Choice of a Degree of Freedom</h1>
+        <p>In some cases, simply changing the values of ASSIGNed variables may not be sufficient to guarantee successful initialisation. The Model user
+ may have chosen a particular set of Variables to ASSIGN that could cause difficulty or failure during initialisation. To avoid such possibilities,
+ initialisation procedures can define which degrees of freedom should be specified to guarantee initialisation. The initialisation procedure then
+ also specifies how the choice of degrees of freedom can be reverted to the one specified in the Process by the user.</p>
+        <p>One possible use of this feature can be seen in the following example. Consider a model of a tubular reactor in which the length of the
+ reaction is a variable, L, to be specified (a degree of freedom) and in which there is an equation that defines the fractional conversion
+        <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_xi.png" data-mc-conditions="Default.ScreenOnly" /></span> of one of the reactants. <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_xi.png" data-mc-conditions="Default.ScreenOnly" /></span> might then be defined as follows.</p>
+        <p><span class="inlinemediaobject"><img src="../Resources/Images/IP_eqn_2.png" data-mc-conditions="Default.ScreenOnly" /></span>
+        </p>
+        <p>where the perfect gas law has been used to calculate the inlet concentration of component 1, using the partial pressure of component 1 in the
+ feed and the feed temperature (<span class="inlinemediaobject"><img src="../Resources/Images/inline_var_Pfeedi.png" data-mc-conditions="Default.ScreenOnly" /></span> and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_Tfeed.png" data-mc-conditions="Default.ScreenOnly" /></span>, respectively) and <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_Ci(z).png" data-mc-conditions="Default.ScreenOnly" /></span> is the concentration of component i at axial position z in the reactor.</p>
+        <p>It is usual to specify the value of L and calculate the conversion <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_xi.png" data-mc-conditions="Default.ScreenOnly" /></span>, but it is also possible to specify <span class="inlinemediaobject"><img src="../Resources/Images/inline_var_xi.png" data-mc-conditions="Default.ScreenOnly" /></span> as a degree of freedom, which would then determine the value of L. The latter specification may present problems during
+ initialisation, however, so a suitable initialisation procedure for this model would be to replace any choice of degree of freedom with a
+ specification on the length of the reactor, L. This (maybe combined with a suitable value for L) would then result in a more robust model.</p>
+        <p>This can be achieved in gPROMS using the following.</p><pre class="programlisting" xml:space="preserve">DISTRIBUTION_DOMAIN
+  Axial AS [0:1]   
+  # normalised as ReactorLength is a Variable ( PARTIAL(,Axial)
+  # becomes 1/ReactorLength * PARTIAL(,Axial) etc. )
+
+VARIABLE
+  ...
+  ReactorLength AS Length
+  C AS DISTRIBUTION(NoComp,Axial) OF MolarConcentration
+  Conversion AS NoType
+
+EQUATION
+  ...
+  Conversion = (Pfeed(1) / (Rg * Tfeed) - C(1,1)) /
+  (Pfeed(1) / (Rg * Tfeed)) ;
+
+INITIALISATION_PROCEDURE IP_ReplaceConversion
+  START
+    REPLACE 
+      Conversion
+    WITH 
+      ReactorLength := 5 ;
+      # this value of L guarantees successful initialisation
+    END
+  END
+ 
+  NEXT
+    MOVE_TO
+      REVERT Conversion ;
+	END
+  END
+END</pre>
+        <p>In this example, the conversion must be specified in the Process as follows.</p><pre class="programlisting" xml:space="preserve">ASSIGN
+  R101.Conversion := 0.95 ;</pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

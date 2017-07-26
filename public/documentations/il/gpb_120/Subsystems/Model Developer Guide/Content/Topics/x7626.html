@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Controlling the Execution of Model-based Activities|Standard solvers for nonlinear algebraic equations">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The SPARSE solver</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x7626.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="sparse"></a>The SPARSE solver</h1>
+        <p>The algorithmic parameters used by SPARSE along with their default values are shown below. This is followed by a detailed description of each
+ parameter.</p><pre class="programlisting">"SPARSE" ["LASolver" := "MA48";
+ "BoundsTightening" := 0;
+ "ConvergenceTolerance" := 1E-5;
+ "EffectiveZero" := 1E-5;
+ "FDPerturbation" := 1E-5;
+ "IterationsWithoutNewJacobian" := 0;
+ "MaxFuncs" := 1000000;
+ "MaxIterations" := 1000;
+ "MaxIterNoImprove" := 10;
+ "MaxStructureSwitches" := 100;
+ "NStepReductions" := 10;
+ "OutputLevel" := 0;
+ "SingPertFactor" := 1E-2;
+ "SLRFactor" := 50;] ;</pre>
+        <ul>
+            <li value="1">
+                <p>LASolver: A quoted string specifying a linear algebraic equation solver.</p>
+                <p>The solver to be used for the solution of linear algebraic equations at every iteration. This can be either one of the standard gPROMS
+ linear algebraic equation solvers or a third-party linear algebraic equation solver (see the gPROMS System Programmer Guide). The default is
+ MA48. This parameter can be followed by further specifications aimed at configuring the particular solver by setting values to its own
+ algorithmic parameters.</p>
+            </li>
+            <li value="2">
+                <p>BoundsTightening: A real number in the range [0.0, 1.0].</p>
+                <p>If this parameter is set to a non-zero value, then at each iteration, after applying its usual logic to impose the true variable bounds on
+ the step taken, <a href="#" class="selected">SPARSE</a> will impose "tightened bounds". The exact value of the bounds used is dependent on the
+ previous guess for each variable: if the <i class="emphasis">i</i>th variable has true lower bound <i class="emphasis">x<sub>il</sub></i>,
+ and previous guess <i class="emphasis">x<sub>i</sub><sup>(k)</sup></i>, the tightened lower bound will be
+          <i class="emphasis">x<sub>il</sub>+ p (x<sub>i</sub><sup>(k)</sup> - x<sub>il</sub>)</i>, where
+          <i class="emphasis">p</i> is the value of this parameter. Similar logic is applied to the tightened upper bound.</p>
+            </li>
+            <li value="3">
+                <p>ConvergenceTolerance: A real number in the range [10<sup>-20</sup>, 10<sup>10</sup>].</p>
+                <p>The tolerance used in testing for convergence of the nonlinear system <i class="emphasis">f(x)=0</i> being solved. A system of
+          <i class="emphasis">n</i> equations <i class="emphasis">f(x)</i> in <i class="emphasis">n</i> unknowns <i class="emphasis">x</i> is assumed to have converged
+ when the norm of the equations:</p>
+                <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_cteomba_17.png" data-mc-conditions="Default.ScreenOnly" /></span>
+                </p>
+                <p>falls below the ConvergenceTolerance. This is equivalent to the absolute value of the difference between the left and right hand sides of
+ each and every equation in the system being below this tolerance. Note that no automatic scaling is applied by the solver.</p>
+            </li>
+            <li value="4">
+                <p>EffectiveZero: A real number in the range [10<sup>-20</sup>, 10<sup>10</sup>].</p>
+                <p>The magnitude of a variable below which absolute rather than relative perturbations are used -- see parameters FDPerturbation,
+ SingPertFactor and SLRFactor below.</p>
+            </li>
+            <li value="5">
+                <p>FDPerturbation: A real number in the range [10<sup>-20</sup>, 10<sup>10</sup>].</p>
+                <p>Finite difference perturbation factor. If finite difference calculation of partial derivatives with respect to a variable
+          <i class="emphasis">x</i> is required, <i class="emphasis">x</i> is perturbed by:</p>
+                <p><code class="methodname">FDPerturbation</code> × |<i class="emphasis">x</i>|</p>
+                <p>unless <code class="methodname">FDPerturbation</code> × |<i class="emphasis">x</i>| is less than EffectiveZero (see above), in which case it is
+ perturbed by FDPerturbation.</p>
+            </li>
+            <li value="6">
+                <p>IterationsWithoutNewJacobian: An integer in the range [0, 1000000].</p>
+                <p>If set to 0 <a href="#" class="selected">SPARSE</a> computes the Jacobian at every iteration. Otherwise, <a href="#" class="selected">SPARSE</a>
+          will use a simple form of Modified Newton keeping the Jacobian for a set number of iterations. In some cases this can be used to speed up the
+ solution.</p>
+            </li>
+            <li value="7">
+                <p>MaxIterations: An integer in the range [1, 1000000].</p>
+                <p>The maximum number of iterations that the solver is allowed to take. Note that, unlike MaxFuncs (see above), this does not include any
+ evaluations of the equations for the purpose of estimating elements of the Jacobian matrix using finite difference perturbations.</p>
+            </li>
+            <li value="8">
+                <p>MaxFuncs: An integer in the range [1, 1000000].</p>
+                <p>The maximum number of evaluations of the vector of equations <i class="emphasis">f</i>(<i class="emphasis">x</i>) that is permitted during
+ solution. This includes the equation evaluations required for approximating any elements of the Jacobian matrix
+ âˆ‚<i class="emphasis">f</i>/âˆ‚<i class="emphasis">x</i> that are not available analytically, using finite difference perturbations.</p>
+            </li>
+            <li value="9">
+                <p>MaxIterNoImprove: An integer in the range [1, 1000000].</p>
+                <p>The maximum number of iterations without a reduction in the norm of the equation vector (see above) before the solver takes corrective
+ action. For convergence to be achieved, this norm must eventually decrease to below the ConvergenceTolerance. However, it may actually increase
+ between two consecutive iterations.</p>
+                <p>The solver monitors the norm at each iteration. It also keeps a record of the best (i.e. lowest) norm obtained so far in the solution, the
+ values of the unknowns <i class="emphasis">x<sup>best</sup></i> at this point, and the step
+ Î”<i class="emphasis">x<sup>best</sup></i> taken from this point <i class="emphasis">x<sup>best</sup></i>. If no
+ improvement over this best norm is observed within MaxIterNoImprove consecutive iterations, then the solver attempts to take corrective action,
+ as follows:</p>
+                <ul>
+                    <li value="1">
+                        <p>the unknowns are reset to <i class="emphasis">x<sup>best</sup></i> +
+ Î”<i class="emphasis">x<sup>best</sup></i>/2;</p>
+                    </li>
+                    <li value="2">
+                        <p>the Jacobian matrix is recomputed, using finite differences for any elements not available analytically.</p>
+                    </li>
+                </ul>
+            </li>
+            <li value="10">
+                <p>MaxStructureSwitches: An integer in the range [0, 1000000]</p>
+                <p>The maximum number of successive switches of conditional equations before the solution iterations will stop.</p>
+            </li>
+            <li value="11">
+                <p>NStepReductions: An integer in the range [1, 1000000].</p>
+                <p>The maximum number of consecutive corrective actions that the solver is allowed to attempt. As explained in the context of parameter
+ MaxIterNoImprove above, the solver attempts to take certain corrective actions if no improvement in the equation norm is achieved within a
+ certain number of consecutive iterations. If such corrective action is attempted more than NStepReductions times in a row (i.e. having to return
+ to the same <i class="emphasis">x<sup>best</sup></i> in all cases), then the solver terminates its operation unsuccessfully.</p>
+            </li>
+            <li value="12">
+                <p>OutputLevel: An integer in the range [-1, 10].</p>
+                <p>The amount of information generated by the solver. The following table indicates the lowest level at which different types of information
+ are produced:</p>
+                <div class="informaltable"><a name="AEN7731"></a>
+                    <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                        <tbody>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">-1</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">(None)</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body2">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">0</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Halving of step due to unsatisfactory progress, initial point out of bounds</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">1</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Solution parameters on first use, variables hitting bounds</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body2">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">2</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Method and scaling information, residual and call number on convergence, failure to improve in MaxIterNoImprove iterations,
+ residual and worst equation number at each call to driver, variables stuck on bounds, number of variables reset to bounds</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">3</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Variable and equation names of each nonlinear system, call number and condition on each call to driver, step reduction factors,
+ various measures of the largest steps taken at each iteration</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body2">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">4</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Residuals at every evaluation, variables at each iteration, lists of variables being perturbed</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">5</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Variable values before solution, workspace information, solutions of linear systems (i.e. steps)</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body2">
+                                <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">6</td>
+                                <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Complete Jacobian at each factorisation</td>
+                            </tr>
+                            <tr class="TableStyle-GeneralTable-Body-Body1">
+                                <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">10</td>
+                                <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">Solution parameters on every use</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+            <li value="13">
+                <p>SingPertFactor: A real number in the range [10<sup>-20</sup>, 10<sup>10</sup>].</p>
+                <p>The perturbation factor used for escaping from local singularities. If, at a certain iteration, the Jacobian matrix is found to be singular
+ (with a rank <i class="emphasis">r</i> that is less than the size of the system <i class="emphasis">n</i>), the solver attempts to escape from such a
+ point by applying a perturbation to <i class="emphasis">n-r</i> of the system variables. For a variable <i class="emphasis">x</i>, the size of this
+ perturbation is:</p>
+                <p><code class="methodname">SingPertFactor</code> × |<i class="emphasis">x</i>|</p>
+                <p>unless |<i class="emphasis">x</i>| is less than EffectiveZero (see above), in which case it is perturbed by SingPertFactor.</p>
+            </li>
+            <li value="14">
+                <p>SLRFactor: A real number in the range [10<sup>-20</sup>, 10<sup>10</sup>].</p>
+                <p>The step length restriction factor, <i class="emphasis">Î²</i>. In the interests of improving convergence from poor initial guesses, the solver
+ automatically limits the step taken in any iteration by a fraction <i class="emphasis">Î±</i> âˆŠ (0,1] so that the magnitude of the change in any
+ variable <i class="emphasis">x</i> does not exceed:</p>
+                <ul>
+                    <li value="1">
+                        <p><i class="emphasis">Î²</i>|<i class="emphasis">x</i>| if <i class="emphasis">x</i> is equal to, or exceeds the EffectiveZero (see above);</p>
+                    </li>
+                    <li value="2">
+                        <p><i class="emphasis">Î²</i> otherwise.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

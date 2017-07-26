@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/Release notes/1.0.0/gFP intro.htm'],s:['0','tech'],p:[['0',1],['evolution',45],['mill',43],['tablet',55]]});

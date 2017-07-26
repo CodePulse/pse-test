@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Modelling in the gPROMS Language</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/Modelling in the gPROMS Language.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Modelling in the gPROMS Language</span>
+            </div>
+        </div>
+        <h1>Modelling in the gPROMS Language</h1>
+        <p>This section contains a guide to modelling in gPROMS including syntax of the gPROMS language.</p>
+        <p>This section contains the following topics:</p>
+        <div class="MCMiniTocBox_0">
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c251.html">gPROMS Fundamentals</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x292.html">Variables and Variable Types</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x325.html">Connection Types</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x358.html">Models</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x431.html">Tasks</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x472.html">Processes</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x515.html">Saved Variable Sets</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c551.html">Declaring Variable and Connection types</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x568.html">Declaring Variable Types</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x601.html">Declaring Connection Types</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c775.html">Defining Models and Processes</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x828.html">An illustrative buffer tank example</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x887.html">Defining a gPROMS Model</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x1004.html">Defining a gPROMS Process</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c1185.html">Arrays</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x1225.html">Declaring arrays in Models</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x1323.html">Referring to array elements</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x1359.html">General rules for array expressions</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x1480.html">Using arrays in equations</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x1588.html">Zero-Length Arrays</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c1602.html">Intrinsic gPROMS Functions</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x1613.html">Vector intrinsic functions</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x1711.html">Scalar intrinsic functions</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c1777.html">Conditional Equations</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x1799.html">Using State-Transition Networks to model discontinuities</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x1924.html">The Case conditional construct</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x1984.html">The If conditional construct</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c2003.html">Distributed Models</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2054.html">Declaring Distribution Domains</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2073.html">Declaring Distributed Variables</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2121.html">Defining Distributed Equations</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2268.html">Introducing Partial Differential Equations</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2401.html">Introducing Integral Expressions</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2505.html">Explicit and Implicit Distributed Equations</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2549.html">Providing Boundary Conditions</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2564.html">Specifying Discretisation Methods</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c2799.html">Composite Models</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2834.html">Motivation for Model Decomposition</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2850.html">Instances of lower-level Models: Units</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2883.html">Topology connectivity using the gPROMS Language</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2909.html">Arrays of Units</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2924.html">Variable pathnames and WITHIN</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x2957.html">Expressions involving arrays of Units</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x3144.html">Model specifications</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x3199.html">Setting Parameter values in Composite Models</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c3318.html">Ordered Sets</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x3354.html">Declaring Ordered Sets</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x3371.html">Declaring Arrays of Parameters, Variables and Units</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x3391.html">Ordered Set Operations and Referencing Rules</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x3515.html">Examples of the Use of Ordered Sets</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x3543.html">Ordered Sets in Model Specification Dialogs</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c3572.html">Defining a Public Model Interface</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x3598.html">Defining a Model icon</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x3634.html">Defining Model Ports</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x3832.html">Defining a Specification dialog and Model Reports</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c5411.html">Defining Schedules</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x5454.html">Building a Schedule</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x5897.html">Elementary tasks</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x6199.html">Specifying the relative timing of multiple tasks</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x6368.html">Result control elementary tasks</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x6505.html">The Save and Restore elementary tasks</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c6586.html">Defining Tasks</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x6596.html">The Variable and Schedule sections of a Task</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x6626.html">The Parameter section of a Task</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x6671.html">Hierarchical Task Construction</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x6701.html">Building Tasks using the graphical interface</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x6829.html">Intrinsic Tasks</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c6927.html">Stochastic Simulation in gPROMS</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x6955.html">Assigning random numbers to Parameters and Variables</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x7030.html">Plotting results of multiple stochastic simulations</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x7055.html">Stochastic Simulation Example</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c7114.html">Controlling the Execution of Model-based Activities</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x7141.html">The PRESET section</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x7176.html">The SOLUTIONPARAMETERS section</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x7456.html">Standard solvers for linear algebraic equations</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x7560.html">Standard solvers for nonlinear algebraic equations</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x7792.html">Standard solvers for differential-algebraic equations</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c8364.html">Model Analysis and Diagnosis</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x8375.html">Well-posed models and degrees-of-freedom</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x8408.html">High-index DAE systems</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x8614.html">High-index DAEs, initialisation and integration</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x12621.html">Inconsistent initial conditions</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="c12654.html">Initialisation Procedures</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x12659.html">Initialisation Procedures for Non-Composite Models</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x12981.html">Initialisation Procedures for Composite Models</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="x13175.html">Reference</a>
+            </p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

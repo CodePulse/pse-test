@@ -6,6 +6,6 @@
 # sites/*/private
 
 # PDC used these folders for user content
-public
+# public
 # private
 .idea

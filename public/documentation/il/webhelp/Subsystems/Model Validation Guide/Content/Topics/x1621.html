@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Validation Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Model Validation Guide|Parameter Estimation in gPROMS|Analysing the Parameter Estimation results">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Variable Trajectories</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Validation Guide.htm#Topics/x1621.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Model Validation Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c570.html">Parameter Estimation in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1593.html">Analysing the Parameter Estimation results</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Variable Trajectories</span>
+            </div>
+        </div>
+        <h1><a name="paramestresultstraj"></a>Variable Trajectories</h1>
+        <p>In the Execution Case results Trajectories are stored for all of the control and measured variables in each of the experiments. Note that from
+ the <a href="x1235.html">execution dialog</a> you have the option to choose whether to store only the results from the final solution or
+ whether to record them for all of the major steps or even all of the steps during the solution of the Parameter Estimation problem.</p>
+        <p>To view the results for a particular variable:-</p>
+        <ul>
+            <li value="1">
+                <p>open the <span class="gPROMS_entity">Trajectories</span> folder in the Case</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>select the desired Experiment and navigate to the desired Unit by expanding the results tree.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>double click on the desired variable. This will open up a results window for that variable. There are three tabs, corresponding to
+ tabulated results, graphical results and a properties tab that summarises when the execution was carried out.</p>
+            </li>
+        </ul>
+        <p>The figure below shows an example of a 2D plot of a measured variable. The model predictions for all variables are shown in red. In the 2D
+ plots of a measured variable, the measured values (taken from data in the performed experiment) are also shown in blue, with error bars indicating
+ the standard deviation of the measurements.</p>
+        <div class="note" data-mc-autonum="&lt;b&gt;Note&lt;/b&gt;"><span class="autonumber"><span><b>Note</b></span></span>
+            <p>The standard deviations here are indicative only, based on the <i class="emphasis">initial guess</i> of the variance model parameters. If the
+ variance model parameters themselves are being estimated (and therefore may change during the parameter estimation activity), then see the <a href="x1657.html">comprehensive report</a> for the calculated standard deviations.</p>
+        </div>
+        <div class="figure"><a name="AEN1641"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/PE_PredictedTrajectoryMeasuredVariable.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Predicted trajectory of a measured variable in an experiment.</p>
+        </div>
+        <h2>Selecting variables to monitor. </h2>
+        <p>If no <span class="gPROMSLanguage">MONITOR</span> section has been specified in the Process, then a default subset of the variables are recorded in the Trajectory.
+ This subset consists of: the measured variables, the control variables, and the parameters being estimated.</p>
+        <p>To customise which variables are recorded, you can create a <span class="gPROMSLanguage">MONITOR</span> section in the Process, as shown in the example below.</p><pre class="programlisting">UNIT
+ TheReactor AS Reactor
+
+MONITOR
+ TheReactor.Reactor.*;
+ TheReactor.Pump_*.mass_flowrate;
+
+...</pre>
+        <p>The <span class="gPROMSLanguage">MONITOR</span> section will replace the default subset of variables being recorded.</p>
+        <div class="caution" data-mc-autonum="&lt;b&gt;Caution &lt;/b&gt;"><span class="autonumber"><span><b>Caution </b></span></span>
+            <p>Be aware that the amount of data being logged will increase if you monitor extra variables. The storage requirements for the variables will
+ be multiplied by both the number of experiments and the number of iterations reported, which it could result in a large amount of data being stored
+ in the Case project, or sent to gRMS.</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

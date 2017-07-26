@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Initialisation Procedures|Initialisation Procedures for Non-Composite Models|Specifying Initialisation Procedures in the Model|Specifying the sequence of Actions in Initialisations Procedures">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Making more than one change to a Variable/Parameter before reverting it:</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x12916.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c12654.html">Initialisation Procedures</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x12659.html">Initialisation Procedures for Non-Composite Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x12670.html">Specifying Initialisation Procedures in the Model</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x12891.html">Specifying the sequence of Actions in Initialisations Procedures</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Making more than one change to a Variable/Parameter before reverting it</span>
+            </div>
+        </div>
+        <h1><a name="AEN12916"></a>Making more than one change to a Variable/Parameter before reverting it</h1><pre class="programlisting" xml:space="preserve">INITIALISATION_PROCEDURE IP_Example2
+  START
+    aParameter := 0 ;
+    aVariable := 0 ;
+    REPLACE
+      anotherVariable
+    WITH
+      aThirdVariable := 0 ;
+    END
+    aSelector := Simple ;
+  END
+
+  NEXT
+    MOVE_TO
+      aParameter := 1 ;
+    END
+  END
+END</pre>
+        <p>In this example, the value of <code class="varname">aParameter</code> is changed continuously from 0 to 1 (with <code class="varname">aVariable</code> and
+          <code class="varname">aThirdVariable</code> still equal to 0, and <code class="varname">aSelector</code> still equal to <code class="varname">Simple</code>). The implicit
+ final step then will revert <code class="varname">aParameter</code>, the Variables and Selector Variable to their values specified in the Process. Implicit
+ final steps always revert the changes smoothly (in an implicit MOVE_TO section).</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Defining Schedules|Elementary tasks|The Continue elementary task">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The Continue Task configuration dialog</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x6165.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c5411.html">Defining Schedules</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x5897.html">Elementary tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x6130.html">The Continue elementary task</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The Continue Task configuration dialog</span>
+            </div>
+        </div>
+        <h1><a name="AEN6165"></a>The Continue Task configuration dialog</h1>
+        <p>When inserting or modifying a Continue Task using the graphical Schedule interface, the following Task configuration dialog is used.</p>
+        <div class="figure"><a name="AEN6168"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_ScheduleTab_TaskConfig_Continue.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Continue Task configuration dialog</p>
+        </div>
+        <p>This dialog contains two text boxes, at least one of which must contain a valid entry.</p>
+        <p>The first box may contain a number or an expression that results in a number . This is used to provide the amount of simulation time the
+ Continue Task will use to advance the simulation. The gPROMS language produced is:</p><pre class="programlisting">CONTINUE FOR <i class="emphasis">contents of first box</i></pre>
+        <p>The second box may contain any logical expression and is the equivalent of:</p><pre class="programlisting">CONTINUE UNTIL <i class="emphasis">contents of second box</i></pre>
+        <p>which causes the simulation to advance until the value of the expression becomes <code class="varname">FALSE</code>.</p>
+        <p>If both boxes contain valid expressions, then they will be combined into one statement using the value determined by the radio button in the
+ middle (which is only enabled when both boxes are complete). If the AND button is selected, the following language is generated.</p><pre class="programlisting">CONTINUE FOR <i class="emphasis">contents of first box</i> AND UNTIL <i class="emphasis">contents of second box</i></pre>
+        <p>There is no Advanced view for the Continue Task. To enter gPROMS language directly, use the gPROMS language tab for the Process or right
+ click on the Continue Task and select <b class="guimenuitem">Go to language</b> from the context menu.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

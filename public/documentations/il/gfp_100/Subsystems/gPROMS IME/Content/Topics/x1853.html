@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Software Environment|Executing simulations|Cases">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The Case configuration and execution control dialog</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x1853.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Software Environment</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c1813.html">Executing simulations</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x1850.html">Cases</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The Case configuration and execution control dialog</span>
+            </div>
+        </div>
+        <h1><a name="executioncontroldialog"></a>The Case configuration and execution control dialog</h1>
+        <p>A Case is created automatically by <span class="ProductName">gPROMS FormulatedProducts</span> at the start of the execution of any Model-based activity. An execution control dialog is
+ presented to allow the user to configure various aspects of the Case including the following:</p>
+        <div class="figure"><a name="AEN1856"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_ExecutionControlDialog.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> The execution control dialog</p>
+        </div>
+        <ul>
+            <li value="1">
+                <p>Case configuration</p>
+                <ul>
+                    <li value="1">
+                        <p><i class="emphasis">Case name</i>: <span class="ProductName">gPROMS FormulatedProducts</span> creates a default name for the Case. This comprises the name of the Process Entity
+ defining the simulation followed by the date and the time, the three parts being separated by underscore characters. The user may overwrite
+ this name by editing the corresponding field in the Case dialog.</p>
+                    </li>
+                    <li value="2">
+                        <p><i class="emphasis">Delete previous cases from the same Activity Entity</i>: during Model development, one typically executes the same
+ Model-based activity (based on the same Process Entity) time and time again. In such situations, it is usually both unnecessary and
+ undesirable for <span class="ProductName">gPROMS FormulatedProducts</span> to keep the Case corresponding to each and every execution. By enabling this check-box, the user instructs
+ <span class="ProductName">gPROMS FormulatedProducts</span> to retain only the last Case arising from any particular Process Entity.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Initialisation Procedures</p>
+                <p>Initialisation Procedures provide a set of initial guesses for the initialisation of a Process. There are three settings how to execute
+ them in gPROMS:</p>
+                <ul>
+                    <li value="1">
+                        <p><i class="emphasis">Ignore.</i> do not execute Initialisation Procedures at all.</p>
+                    </li>
+                    <li value="2">
+                        <p><i class="emphasis">Execute</i>: generate the initial guesses using the Initialisation Procedure, then immediately perform an
+ initialisation using them. If a Schedule is present, and the <i class="emphasis">Ignore schedule</i> option is unchecked, then gPROMS will
+ complete the simulation according to what is specified in the Schedule. If the Initialisation Procedure specifies that a <i class="emphasis">Saved
+ Variable Set</i> should be generated, then this is done too.</p>
+                    </li>
+                    <li value="3">
+                        <p><i class="emphasis">Run only</i>: only perform the Initialisation Procedure to generate the initial guesses but do not continue to
+ initialise the problem or execute the Schedule. This is useful if you only want to generate the initial guesses and save them in a
+              <i class="emphasis">Saved Variable Set</i> . (The generation of the <i class="emphasis">Saved Variable Set</i> is specified as part of the
+ Initialisation Procedure.)</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Dynamic or steady-state simulation</p>
+                <ul>
+                    <li value="1">
+                        <p><i class="emphasis">Use steady-state initial conditions</i>: When this is selected, the initial conditions specified in the Process will
+ be ignored and the Flowsheet will be initialised at steady-state.</p>
+                    </li>
+                    <li value="2">
+                        <p><i class="emphasis">Ignore schedule</i>: When selected, the Schedule which is specified in the Process will be ignored and only an
+ initialisation will be performed. The initialisation is either steady-state or dynamic as specified by the user.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Results configuration</p>
+                <ul>
+                    <li value="1">
+                        <p><i class="emphasis">Include results trajectory in Case</i>: incorporate results generated from the simulation natively into the Case in
+ the form of tables and graphs for individual quantities, Stream Tables and Model Reports.</p>
+                    </li>
+                    <li value="2">
+                        <p><i class="emphasis">Send results trajectory to gRMS</i>: send simulation results to the gPROMS Results Management System for more advanced
+ display capability.</p>
+                    </li>
+                    <li value="3">
+                        <p><i class="emphasis">Reporting interval</i>: the interval at which the values of time-varying Model quantities are reported.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Output configuration</p>
+                <ul>
+                    <li value="1">
+                        <p><i class="emphasis">Include entities</i>: copy each and every Entity that has been used for defining this Model-based activity, including
+ any Entities that reside in <a href="x386.html">cross referenced Project</a> (e.g. libraries).</p>
+                    </li>
+                    <li value="2">
+                        <p><i class="emphasis">Include complete problem description</i>: contain a complete definition of the activity in the gPROMS language
+ comprising of the above Entities in the correct reference order - the first line of each Entity is annotated with a comment naming the
+ Project from which the Entity was obtained.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Miscellaneous execution controls</p>
+                <ul>
+                    <li value="1">
+                        <p><i class="emphasis">Release license after execution</i>: whether the license required by the simulation should be retained at the end of
+ the execution<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Retaining the license allows some interaction with the Model at the end
+ of the execution. The license can always be released manually at any time.</span></a>.</p>
+                    </li>
+                    <li value="2">
+                        <p><i class="emphasis">Retain execution directory</i>: keep the temporary folder in which the "execution files" are stored.</p>
+                    </li>
+                    <li value="3">
+                        <p><i class="emphasis">Auto-update saved variable sets in source project</i>: whether any Saved Variable Sets that are used by the activity and which are modified by its execution should automatically
+ be updated at the end of the execution.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>The user may specify that one or more of the items above may be omitted from the Case by un-checking the corresponding check boxes.</p>
+        <p>Finally, the execution control dialog provides a <b class="guibutton">Cancel</b> button that allows the user not to go ahead with the execution
+ of the simulation. On the other hand, pressing the <b class="guibutton">OK</b> button instructs the <span class="ProductName">gPROMS FormulatedProducts</span> to proceed with the execution.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS IME.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="[%=Product.Name%] Guide|Constructing flowsheet Models|Constructing the flowsheet|Defining the connectivity of a composite Model">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The connection shortcut menu</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS IME.htm#Topics/x966.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="MBG_ConnectionShortcutMenu"></a>The connection shortcut menu</h1>
+        <p>The appearance of connections on the Flowsheet can be customised using the Connection shortcut menu. As with the <a href="x821.html">Unit short cut menu</a>, the connection shortcut menu can be activated by left clicking on a connection to select it
+ and then right clicking anywhere within the Flowsheets window.</p>
+        <div class="figure"><a name="AEN970"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MBG_ConnectionShortcutMenu.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Connection shortcut menu</p>
+        </div>
+        <p>The sections of the shortcut menu relevant to connections are:</p>
+        <dl>
+            <dt>Edit connection</dt>
+            <dd>
+                <p>The edit command launches a dialog that allows you to edit the connection properties. For a connection that links two Models with scalar
+ Ports, the only property that can be modified is the connection name. For more complicated connections, the Connection details dialog also
+ allows the index of any array Ports to be modified.</p>
+                <p>The connection name is subject to the same restrictions as other names in the gPROMS language (i.e. the same restrictions as names for
+ Models, Parameters etc. - see <a href="x609.html">Allowable entity names</a>) is used to label and sort columns in stream
+ tables.</p>
+                <p>On a second tab, <span class="guimenuitem">Style</span>, visual properties such as thickness or colour can be specified.</p>
+            </dd>
+            <dt>Find...</dt>
+            <dd>
+                <p>Selecting this option launches the Topology Quick Find Dialog, shown in the figure below. This dialog allows one to find (and select, if
+ desired) a particular unit or connection by typing a search string into the box provided. All entities in the Topology whose name or type
+ matches the search string will be listed at the bottom (if no string is entered then all entities are listed). The <b class="guibutton">Find
+ by</b> listbox is used to specify whether the search lists the entity types or names matching the search string.</p>
+                <p>The search string may contain <code class="varname">*</code> characters, which will match any string, or <code class="varname">?</code> characters, which
+ will match any single character. CamelCase allows you to search for words starting with the search letters, e.g., typing <code class="varname">SL</code>
+            as the search string would match the unit names <code class="varname">Sink_liquid</code> and <code class="varname">Source_liquid</code>; word boundaries are also given by capital letters, as in <code>SourceLiquid</code>.</p>
+                <p>Left clicking on one of the search results then selects that unit in the Topology. Multiple selections can be made by using the <b class="keycap">CTRL</b> and <b class="keycap">SHIFT</b> keys (individually or in combinations, as in Windows) or by pressing the Select all button to select all of the matching
+ units.</p>
+                <div class="mediaobject">
+                    <p>
+                        <img src="../Resources/Images/MBG_TopologyQuickFindDialog.png" />
+                    </p>
+                </div>
+            </dd>
+            <dt>Connection style...</dt>
+            <dd>The connection style dialog allows setting visual properties of a connection and is identical to the tab <span class="guimenuitem">Style</span>&#160;on the <span class="guimenuitem">Edit connection</span> dialog.</dd>
+            <dt>Straighten</dt>
+            <dd>
+                <p>The <b class="guimenuitem">Straighten...</b> menu item is used to make the selected connection a straight line; it is only available if straightening is possible, for instance if the orientation of the ports matches and the connection is not already straight. gPROMS will need to
+ move one of the two Units attached to the connection in order to make it straight. The secondary menu lets you choose which of the units to
+ move. In the example above, the secondary menu contains <b class="guimenuitem">Move unit on the left</b> and <b class="guimenuitem">Move unit on the
+ right</b>. For vertical connections, the menu items are <b class="guimenuitem">Move unit at the top</b> and <b class="guimenuitem">Move
+ unit at the bottom</b>.</p>
+            </dd>
+            <dt>Add line segment</dt>
+            <dd>
+                <p>When two Units are connected together, <span class="ProductName">gPROMS ProcessBuilder</span> uses an algorithm to determine the best line routing between them using a number
+ of straight-line segments, typically 1 to 3. These arrangements can be overridden by adding or removing line segments. If you want to add
+ more line segments to the connection, place the mouse pointer where you want the connection to be rerouted, right click to enable the
+ shortcut menu and select <b class="guimenuitem">Add line segment</b>. <span class="ProductName">gPROMS ProcessBuilder</span> will then add extra line segments to route the
+ connection via that position on the Flowsheet. The connection can be further customised by left-dragging the handles on the lines, in a
+ similar manner to resizing objects.</p>
+                <p>This function may only be performed on a single connection, and is therefore greyed out if more than one connection is
+ selected.</p>
+            </dd>
+            <dt>Remove line segment</dt>
+            <dd>
+                <p>Connections between Units can also be simplified by removing line segments. Right click on the part of the selected connection that
+ needs to be removed and select <b class="guimenuitem">Remove line segment</b>. <span class="ProductName">gPROMS ProcessBuilder</span> will then remove nearby line segments to give a
+ more direct connection between the two Units.</p>
+                <p>This function may only be performed on a single connection, and is therefore greyed out if more than one connection is
+ selected.</p>
+            </dd>
+            <dt>Delete</dt>
+            <dd>
+                <p>Of the commands in the standard <b class="guimenu">Edit</b> menu, only <b class="guimenuitem">Delete</b> has any relevance to connections.
+ The <b class="guimenuitem">Cut</b>, <b class="guimenuitem">Copy</b> and <b class="guimenuitem">Paste</b> commands are all disabled. The
+ selected connection(s) can be deleted either by left clicking on <b class="guimenuitem">Delete</b> or by pressing the <b class="keycap">Delete</b>
+            key.</p>
+            </dd>
+        </dl>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

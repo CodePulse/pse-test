@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties Guide">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using Physical Properties for Simple Materials</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/c257.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="usingphysicalpropertiesforsimplematerials"></a>Using Physical Properties for Simple Materials</h1>
+        <p>Most non-trivial process models make use of physical properties, such as density, enthalpy and fugacity, all of which are typically functions of
+ temperature, pressure and composition. The accuracy of estimation of these physical properties is one of the most critical factors in determining the
+ accuracy of the model predictions.</p>
+        <p>In principle, physical property calculations may be coded as Equations within gPROMS Models. However, this is not practical for all but the
+ simplest methods of computing physical properties. It may also be unnecessary in view of the wide range of general and reliable physical property
+ calculation packages that are currently available.</p>
+        <p>This chapter describes how you can incorporate physical properties within your Models. The actual computation of these physical properties is
+ performed by external physical property software that is interfaced to gPROMS.</p>
+        <p>gPROMS defines a minimal set of physical properties that any external package interfaced to it should provide, as well as the precise form of these
+ properties. These are listed in: <a href="x280.html">The set of physical properties supported by gPROMS</a>. We
+ strongly recommend that you use these and, if possible, <i class="emphasis">only</i> these physical properties in any Models that you write. In this way,
+ you will be able to use your Models with any physical property package that adheres to the standard gPROMS protocol.</p>
+        <p><a href="x755.html">Incorporating physical properties in Models</a> describes how precisely you can refer to
+ the above physical properties in any Models that you write. This is done by treating the external physical property software as a Foreign Object
+ interfaced to gPROMS and providing services to it. You will find that a basic understanding of Foreign Object concepts is very helpful in making the most out of incorporating physical properties in Models.</p>
+        <p>Then a description is given on how one can use <a href="x815.html">Models that involve physical property
+ calculations</a>. The Models can be written by yourself or by others.</p>
+        <p>In addition to defining a standard protocol for interacting with physical property packages, interfaces to two such packages are already available
+ to be licensed and used with gPROMS. The special characteristics of these interfaces are described in: <a href="x866.html">Multiflash physical property interface</a> and <a href="gSAFT introduction.htm">gSAFT
+ physical property interface</a>.</p>
+        <p>gPROMS supports the <a href="x1680.html">CAPE-OPEN thermodynamics standard</a>. This allows the use of external
+ physical properties software complying to this standard within gPROMS Model entities.</p>
+        <p>This chapter is concerned with physical property calculations of simple mixtures of molecular species existing in liquid and vapour phases.
+ Physical properties for more complex materials (such as electrolytic systems) are considered in the next chapter on <a href="c2796.html">using physical properties for complex materials</a>. However, we recommend that you read and
+ understand the present chapter <i class="emphasis">before</i> proceeding to the next chapter.</p>
+        <p>If you are interested in interfacing a different physical property package to gPROMS, then you need to read the chapter entitled "Interfacing
+ Physical Property Packages to gPROMS" in the "gPROMS System Programmer Guide" <i class="emphasis">after</i> you have read and thoroughly understood this
+ chapter.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

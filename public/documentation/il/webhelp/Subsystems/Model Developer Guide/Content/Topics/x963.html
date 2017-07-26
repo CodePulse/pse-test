@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Defining Models and Processes|Defining a gPROMS Model">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The EQUATION section</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x963.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c775.html">Defining Models and Processes</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x887.html">Defining a gPROMS Model</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The EQUATION section</span>
+            </div>
+        </div>
+        <h1><a name="AEN963"></a>The EQUATION section</h1>
+        <p>The <code class="methodname">EQUATION</code> section is used to declare the equations that determine the time trajectories of the variables
+ already declared in the <code class="methodname">VARIABLE</code> section.</p>
+        <p>The gPROMS language is purely declarative. That is, the order in which the equations are declared is of no importance. Simple equations
+ are equalities between two real expressions (see the figure below). These expressions may comprise:</p>
+        <ul>
+            <li value="1">
+                <p>Integer or real constants (e.g. 2, 3.14159, etc.).</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Parameters that have been declared in the <code class="methodname">PARAMETER</code> section (e.g. <code class="methodname">Rho</code>,
+            <code class="methodname">Alpha</code>, <code class="methodname">PI</code>, etc.).</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>Variables that have been declared in the <code class="methodname">VARIABLE</code> section (e.g. <code class="methodname">HoldUp</code>,
+            <code class="methodname">Height</code>, <code class="methodname">FlowOut</code>, etc.). The special symbol <code class="methodname">$</code> preceding a
+ variable name denotes the derivative with respect to time of that variable (e.g. <code class="methodname">$HoldUp</code> etc.).</p>
+                <div class="figure"><a name="AEN988"></a>
+                    <div class="mediaobject">
+                        <p>
+                            <img src="../Resources/Images/MDG_ModelEquationsBufferTank.png" />
+                        </p>
+                    </div>
+                    <p class="FigureCaption"> Buffer tank Model</p>
+                </div>
+            </li>
+        </ul>Similarly to most programming languages, expressions are formed by combining the above operands with the arithmetic operators
+      <code class="methodname">+</code> (addition), <code class="methodname">-</code> (subtraction), <code class="methodname">*</code> (multiplication),
+      <code class="methodname">/</code> (division) and ^ (exponentiation), as well as built-in intrinsic functions (e.g. square root:
+      <code class="methodname">SQRT()</code> ). The latter are described in greater detail in <a href="c1602.html">Intrinsic
+ Functions</a> in gPROMS.<p>Intrinsic functions have the highest precedence priority, followed by the ^ operator and then the division and multiplication operators.
+ The addition and subtraction operators have the lowest precedence. Naturally, parentheses may be used to alter these precedence rules as
+ required.</p><p>Finally, note that comments can be added to clarify the contents of the Model where needed. As shown in the figure above, gPROMS accepts
+ two types of comments. One type begins with <code class="methodname">#</code> and extends to the end of the current line. The other type starts with
+      <code class="methodname">{</code> and ends with <code class="methodname">}</code> and may span multiple lines. Moreover, comments of this type may be nested
+ within one another.</p><div><p class="Footer">&#160;</p><p class="Footer">&#160;</p><hr width="100%" size="0" align="center" /><p class="Footer">Commercial in confidence</p><p class="Footer">© 2016 Process Systems Enterprise Limited</p></div></body>
+</html>

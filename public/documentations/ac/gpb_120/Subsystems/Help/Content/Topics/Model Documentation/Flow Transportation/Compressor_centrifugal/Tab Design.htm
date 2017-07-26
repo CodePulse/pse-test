@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Design</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Flow Transportation/Compressor_centrifugal/Tab Design.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Design</h1>
+        <p>The Design tab is used to specify performance data. This tab is only used when performance mode is selected.</p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Compressor curve specification</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>1D (Head and efficiency based on flowrate)</dt>
+                        <dd>User-specified 1D performance maps where the polytropic head and efficiency are given at design speed. The model uses affinity laws to determine performance at other rotational speeds. </dd>
+                        <dt>1D dimensionless (Dimensionless)</dt>
+                        <dd>User-specified 1D dimensionless performance maps with curves based on dimensionless flow and head coefficients.</dd>
+                        <dt>2D (Head and efficiency based on flowrate and compressor speed)</dt>
+                        <dd>User-specified 2D performance maps where the polytropic head and efficiency are calculated by interpolation and as a function of the inlet volumetric flowrate and the rotational speed. </dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Compressor curve flowrate basis</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Volumetric (m<sup>3</sup>/s)</dt>
+                        <dd>This option should be selected if the compressor characteristic curve is based on a volumetric <i>m</i><sup style="font-style: italic;">3</sup><i>/s</i> flowrate.</dd>
+                        <dt>Volumetric (m<sup>3</sup>/hr)</dt>
+                        <dd>This option should be selected if the compressor characteristic curve is based on a volumetric <i>m</i><sup style="font-style: italic;">3</sup><i>/hr</i> flowrate.</dd>
+                        <dt>Volumetric (gpm)</dt>
+                        <dd>This option should be selected if the compressor characteristic curve is based on a gallons per minute flowrate.</dd>
+                        <dt>Mass (kg/s)</dt>
+                        <dd>This option should be selected if the compressor characteristic curve is based on a mass <i>kg/s</i> flowrate.</dd>
+                        <dt>Molar (kmol/hr)</dt>
+                        <dd>This option should be selected if the compressor characteristic curve is based on a molar <i>kmol/hr</i> flowrate.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Compressor curve head basis</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Head (m)</dt>
+                        <dd>This option should be selected if the head in the compressor characteristic curve is available in <i>m</i>.</dd>
+                        <dt>Head (J/kg)</dt>
+                        <dd>This option should be selected if the head in the compressor characteristic curve is available in <i>J/kg</i>.</dd>
+                        <dt>Pressure ratio</dt>
+                        <dd>This option should be selected if the head in the compressor characteristic curve is available in a pressure ratio between outlet and inlet pressures.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Compressor curve speed basis</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Revolutions per minute (RPM)</dt>
+                        <dd>This option should be selected if the compressor characteristic curve is based on a <i>RPM</i> speed unit.</dd>
+                        <dt>Revolutions per second (RPS or Hz)</dt>
+                        <dd>This option should be selected if the compressor characteristic curve is based on <i>RPS</i> or <i>Hz</i> speed units.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Design</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Total moment of inertia</dt>
+                        <dd>Specifies the total moment of inertia of the rotating parts of the compressor directly.</dd>
+                        <dt>Blade dimensions</dt>
+                        <dd>Determines the moment of inertia from the blade dimensions.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Performance map</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Defines the required compressor map.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Total moment of inertia</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kg m<sup>2</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Total moment of inertia of the rotating parts.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Impeller diameter</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">m</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Diameter of the impeller.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Material density</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">kg/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Density of the blade material.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2">Stage impeller thickness</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2">m</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body2">Thickness of the impeller.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

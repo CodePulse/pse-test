@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Water|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>ASM1</title>
+        <link href="../../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../../Help.htm#Topics/Model Documentation/Water/Activated Sludge Models/ASM1/ASM1.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>ASM1</h1>
+        <p>The Activated Sludge Model N°1 essentially predicts carbon oxidation, nitrification, and de-nitrification phenomena by heterotroph and autotroph groups of bacteria, present in activated sludge basins. All model details can be found in the International Water Association scientific and technical report n°9. The gML Water implementation is similar to the original published model, with the following three differences:</p>
+        <ul style="list-style-type: circle;">
+            <li value="1">The component S<sub>nd</sub> is expressed as gCOD/m<sup>3</sup> rather than gN/m<sup>3</sup>. An equivalent quantity of nitrogen can be easily deduced from the component atomic composition and its nitrogen content.</li>
+            <li value="2"> The component X<sub>nd</sub> is expressed as gCOD/m<sup>3</sup> rather than gN/m<sup>3</sup>. An equivalent quantity of nitrogen can be easily deduced from the component atomic composition and its nitrogen content.</li>
+            <li value="3">An additional group of bacteria is considered in the default model : the methylotrophs group. Including this group of bacteria allows prediction of methanol consumption and associated phenomena in the default ASM1 model. This group of bacteria is modelled using the inherent structure of ASM1 model for describing growth and decay processes.</li>
+        </ul>
+        <p>(Henze et al., 2000)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Mogens, Henze; Gujer Willi; Mino Takashi; van Loosdrecht Mark (2000). Activated sludge models ASM1, ASM2, ASM2d and ASM3,. London: IWA publishing.</span></a></p>
+        <h2>Components</h2>
+        <p>The components considered in this model are listed in the following table. There are 12 dissolved components (S) and 6 particulate (non-dissolved) components (X). Note that all compounds are expressed by their stochiometric units in the stream connectors.</p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Component</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">Description</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1" style="text-align: center;">Stochiometric unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>S<sub>o2</sub></p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">Oxygen</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;vertical-align: super;">gO2/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">S<sub>meth</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">Methanol</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>S<sub>s</sub></p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">Readily biodegradable substrate</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">S<sub>nd</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">Soluble biodegradable organic nitrogen</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">S<sub>NOx</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">Nitrate plus nitrite nitrogen</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">gN/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">S<sub>tiP</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">Total inorganic phosphorous</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">gP/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">S<sub>tiN</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">Total inorganic nitrogen</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">gN/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">S<sub>N2</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">Nitrogen gas</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">gN/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">S<sub>tiC</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">Total inorganic carbon</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">gC/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">S<sub>i</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">Soluble inert organic matter</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">X<sub>s</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">Slowly biodegradable substrate</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">X<sub>nd</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">Particulate biodegradable organic nitrogen</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">X<sub>h</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">Active heterotrophic biomass</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">X<sub>a</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">Active autotrophic biomass</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">X<sub>meth</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">Active methylotrophic biomass</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">X<sub>i</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">Particulate inert organic matter</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">X<sub>p</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1" style="text-align: center;">Particulate products from biomass decay</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1" style="text-align: center;">gCOD/m<sup>3</sup></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The default component compositions are summarized in the table below (they referred to the default stochiometric unit of each component). E.g. 1 gCOD of S<sub>meth</sub> contains 0.25 g of carbon, 0.083 g of hydrogen, and 0.333 g of oxygen. The Chemical Oxygen Demand is deduced assuming a full oxidisation of the considered component (see ASM1 / ASM3 model references for further details).</p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Component</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">iC</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1">iH</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">iO</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">iN</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1">iP</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column1-Header1">iThoD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>S<sub>O2</sub></p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">-1</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">S<sub>meth</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.25</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0.083</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">0.333</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" style="text-align: center;">1</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>S<sub>s</sub></p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.375</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0.063</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">0.5</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">1</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">S<sub>nd</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.359</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0.046</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">0.144</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.105</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" style="text-align: center;">1</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">S<sub>NOx</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">3.429</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">-4.571</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">S<sub>tiP</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0.065</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">2.065</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" style="text-align: center;">0</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">S<sub>tiN</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0.286</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">0</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">S<sub>N2</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" style="text-align: center;">-1.714</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">S<sub>tiC</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0.083</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">4</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">0</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">S<sub>i</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.324</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0.046</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">0.214</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.016</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0.010</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" style="text-align: center;">1</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">X<sub>s</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.370</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0.020</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">0.141</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.000</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">1</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">X<sub>nd</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.359</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0.046</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">0.144</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.105</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" style="text-align: center;">1</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">X<sub>h</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.371</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0.043</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">0.198</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.087</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0.010</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">1</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">X<sub>a</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.371</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0.043</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">0.198</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.087</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">0.010</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" style="text-align: center;">1</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">X<sub>meth</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.371</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0.043</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">0.198</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.087</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">0.010</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">1</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">X<sub>i</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">0.314</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">0.037</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">0.117</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">0.014</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">0.008</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column1-Body2" style="text-align: center;">1</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Reactions</h2>
+        <p>The ASM1 model takes into account several biological processes that describe bacteria growth and decay under various environmental conditions. The reactions associated with each of these processes are detailed in the tables below  (the whole stoichiometric matrix is the union of all the sub-matrices).</p>
+        <h3>Hydrolysis</h3>
+        <p>This process describes the particulate substrate hydrolysis into soluble substrate.</p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Reaction</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">S<sub>s</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">S<sub>nd</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">S<sub>i</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">X<sub>s</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">X<sub>nd</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column1-Header1" style="text-align: center;">X<sub>i</sub></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">
+                        <p><span style="font-size: 8pt;">gCOD/m</span><sup style="font-size: 8pt;">3</sup>
+                        </p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">Hydrolysis X<sub>s</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">fSs_Xs</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">fSi_Xs</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">-1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">fXpr_Xs</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" style="text-align: center;">fXi_Xs</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">Hydrolysis
+ X<sub>nd</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body1" style="text-align: center;">1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body1" style="text-align: center;">-1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column1-Body1" style="text-align: center;">&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Stoichiometric parameters (Hydrolysis)"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Stoichiometric parameters (default values and notation)</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');display: none;" class="TableStyle-SpecificationTabs" cellspacing="0" data-mc-target-name="Stoichiometric parameters (Hydrolysis)">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Parameter</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Value</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column1-Header1" style="text-align: center;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>fSs_Xs</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">1.00</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">Fraction of X<sub>s</sub> to S<sub>s</sub></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">fSi_Xs</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">0.00</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" style="text-align: center;">Fraction of X<sub>s</sub> to S<sub>i</sub></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">fXnd_Xs</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">0.00</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">Fraction of X<sub>s</sub> to X<sub>nd</sub></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">fXi_Xs</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2">0.00</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column1-Body2" style="text-align: center;">Fraction of X<sub>s</sub> to X<sub>i</sub></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Kinetic parameters (Hydrolysis)"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Kinetic parameters (default values and notation)</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');display: none;" class="TableStyle-SpecificationTabs" cellspacing="0" data-mc-target-name="Kinetic parameters (Hydrolysis)">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Parameter</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">Default value</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Reference temperature [K]</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">Temperature correction factor</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1" style="text-align: center;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>Kdis</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">3.0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.04</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">X<sub>s</sub> hydrolysis rate</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">Knd</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">3.0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">0.04</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body2" style="text-align: center;">X<sub>nd</sub> hydrolysis rate</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Aerobic substrate uptake</h3>
+        <p>This process describes how the heterotrophic and methylotrophic bacteria grow by consuming dissolved substrates under aerobic conditions.</p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">&#160;</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">S<sub>meth</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">S<sub>s</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">S<sub>nd</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">X<sub>h</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1" style="text-align: center;">X<sub>meth</sub></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">
+                        <p><span style="font-size: 8pt;">gCOD/m</span><sup>3</sup>
+                        </p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">Uptake of S<sub>meth</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">-1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">Ymeth_ae_meth</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">Uptake of
+ S<sub>s</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">-1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">Yh_ae_Ss</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">&#160;</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">Uptake of S<sub>nd</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">-1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">Yh_ae_Ss</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body2" style="text-align: center;">&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Stoichiometric parameters (Aerobic uptake)"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Stoichiometric parameters (default values and notation)</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');display: none;" class="TableStyle-SpecificationTabs" cellspacing="0" data-mc-target-name="Stoichiometric parameters (Aerobic uptake)">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Parameter</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Value</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column1-Header1" style="text-align: center;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>Ymeth_ae_meth</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">0.4</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">Aerobic yield for X<sub>meth</sub></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">Yh_ae_Ss</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2">0.67</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column1-Body2" style="text-align: center;">Aerobic yield for X<sub>h</sub></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Kinetic parameters (Aerobic uptake)"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Kinetic parameters (default values and notation)</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');display: none;" class="TableStyle-SpecificationTabs" cellspacing="0" data-mc-target-name="Kinetic parameters (Aerobic uptake)">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Parameter</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">Default value</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Reference temperature [K]</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">Temperature correction factor</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1" style="text-align: center;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>Kmeth</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">5.0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.07</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">X<sub>meth</sub> growth rate</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">Ks</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">9.0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.07</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">X<sub>h</sub> growth rate (S<sub>s</sub> uptake)</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">Knd</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1" style="text-align: center;">9.0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body1" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1" style="text-align: center;">0.07</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1" style="text-align: center;">X<sub>h</sub> growth rate (S<sub>nd</sub> uptake)</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Anoxic substrate uptake</h3>
+        <p>This process describes how the heterotrophic and methylotrophic bacteria grow by consuming dissolved substrates under anoxic conditions. Nitrogen gas is also generated as a product of this reactions (de-nitrification).</p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">&#160;</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">S<sub>meth</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">S<sub>s</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">S<sub>nd</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">S<sub>NOx</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">S<sub>N2</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">X<sub>h</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column2-Header1" style="text-align: center;">X<sub>meth</sub></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;font-size: 8pt;"><span style="font-size: 8pt;">gCOD/m</span><sup style="font-size: 8pt;">3</sup>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;font-size: 8pt;"><span style="font-size: 8pt;">gCOD/m</span><sup style="font-size: 8pt;">3</sup>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;font-size: 8pt;"><span style="font-size: 8pt;">gCOD/m</span><sup style="font-size: 8pt;">3</sup>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;font-size: 8pt;">gN/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;font-size: 8pt;">gN/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column2-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">Uptake of S<sub>meth</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">-1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">
+                        <img src="../../../../../GeneratedImages/Equations/Equation2957.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">
+                        <img src="../../../../../GeneratedImages/Equations/Equation2958.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column2-Body2" style="text-align: center;">Ymeth_an_Smeth</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">Uptake of
+ S<sub>s</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">-1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">
+                        <img src="../../../../../GeneratedImages/Equations/Equation2959.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">
+                        <img src="../../../../../GeneratedImages/Equations/Equation2960.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">Yh_an_Ss</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column2-Body1" style="text-align: center;">&#160;</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">Uptake of S<sub>nd</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">-1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">
+                        <img src="../../../../../GeneratedImages/Equations/Equation2961.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">
+                        <img src="../../../../../GeneratedImages/Equations/Equation2962.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">Yh_an_Ss</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column2-Body2" style="text-align: center;">&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Stoichiometric parameters (Anoxic substrate uptake)"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Stoichiometric parameters (default values and notation)</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');display: none;" class="TableStyle-SpecificationTabs" cellspacing="0" data-mc-target-name="Stoichiometric parameters (Anoxic substrate uptake)">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Parameter</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Value</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column1-Header1" style="text-align: center;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>Ymeth_an_Smeth</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">0.4</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">Anoxic yield for X<sub>meth</sub></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">Yh_an_Ss</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2">0.67</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column1-Body2" style="text-align: center;">Anoxic yield for X<sub>h</sub></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Kinetic parameters (Anoxic substrate uptake)"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Kinetic parameters (default values and notation)</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');display: none;" class="TableStyle-SpecificationTabs" cellspacing="0" data-mc-target-name="Kinetic parameters (Anoxic substrate uptake)">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Parameter</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">Default value</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Reference temperature [K]</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">Temperature correction factor</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1" style="text-align: center;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>Kmeth</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">5.0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.07</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">X<sub>meth</sub> growth rate</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">Ks</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">9.0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.07</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">X<sub>h</sub> growth rate (S<sub>s</sub> uptake)</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">Knd</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1" style="text-align: center;">9.0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body1" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1" style="text-align: center;">0.07</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1" style="text-align: center;">X<sub>h</sub> growth rate (S<sub>nd</sub> uptake)</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Inorganic nitrogen uptake</h3>
+        <p>This process describe how the autotroph bacteria grow by consuming dissolved inorganic nitrogen . Nitrate is assumed to be the only product of biological reactions (nitrite is not directly modelled in ASM1). This process is also called nitrification. </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" style="width: 71px;" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">&#160;</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">S<sub>NO</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1" style="text-align: center;">X<sub>a</sub></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;font-size: 8pt;">gN/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">Uptake S<sub>tiN</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body2" style="text-align: center;">Ya</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Stoichiometric parameters (Inorganic nitrogen uptake)"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Stoichiometric parameters (default values and notation)</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');display: none;" class="TableStyle-SpecificationTabs" cellspacing="0" data-mc-target-name="Stoichiometric parameters (Inorganic nitrogen uptake)">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Parameter</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Value</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column1-Header1" style="text-align: center;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">
+                        <p>Ya</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1">0.24</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body1" style="text-align: center;">gCOD/gN</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column1-Body1" style="text-align: center;">Yield for X<sub>a</sub></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Kinetic parameters (Inorganic nitrogen uptake)"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Kinetic parameters (default values and notation)</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');display: none;" class="TableStyle-SpecificationTabs" cellspacing="0" data-mc-target-name="Kinetic parameters (Inorganic nitrogen uptake)">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Parameter</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">Default value</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Reference temperature [K]</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">Temperature correction factor</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1" style="text-align: center;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">
+                        <p>Ka</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1" style="text-align: center;">3.33</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body1" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1" style="text-align: center;">0.104</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1" style="text-align: center;">X<sub>a</sub> growth rate</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Biomass decay</h3>
+        <p>This process describes decay of bacteria in the water. This complex phenomena is modelled using first order kinetics. A death-regeneration concept is considered in the ASM1 model structure so the decay produces slowly biodegradable substrates plus some inert matter that cannot be further degraded.</p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">&#160;</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;font-weight: bold;">S<sub>i</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">X<sub>s</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">X<sub>p</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">X<sub>h</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">X<sub>a</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">X<sub>meth</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column2-Header1" style="text-align: center;">X<sub>i</sub></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column2-Body1" style="text-align: center;font-size: 8pt;">gCOD/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">Decay of X<sub>h</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">fSi_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">fXs_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">fXp_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">-1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column2-Body2" style="text-align: center;">fXi_bio</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">Decay of
+ X<sub>a</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">fSi_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">fXs_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">fXp_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">-1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column2-Body1" style="text-align: center;">fXi_bio</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">Decay of
+ X<sub>meth</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">fSi_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">fXs_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">fXp_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">-1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column2-Body2" style="text-align: center;">fXi_bio</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Stoichiometric parameters (Biomass decay)"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Stoichiometric parameters (default values and notation)</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');display: none;" class="TableStyle-SpecificationTabs" cellspacing="0" data-mc-target-name="Stoichiometric parameters (Biomass decay)">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Parameter</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Value</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column1-Header1" style="text-align: center;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>fSi_bio</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">0.00</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">Fraction of biomass to S<sub>i</sub></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">fXs_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">0.92</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body2" style="text-align: center;">Fraction of biomass to X<sub>s</sub></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">fXp_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">0.08</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column1-Body1" style="text-align: center;">Fraction of biomass to X<sub>p</sub></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">fXi_bio</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2">0.00</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column1-Body2" style="text-align: center;">Fraction of biomass to X<sub>i</sub></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Kinetic parameters (Biomass decay)"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Kinetic parameters (default values and notation)</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');display: none;" class="TableStyle-SpecificationTabs" cellspacing="0" data-mc-target-name="Kinetic parameters (Biomass decay)">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Parameter</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">Default value</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">Reference temperature [K]</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;">Temperature correction factor</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1" style="text-align: center;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">
+                        <p>Kdec_Xh</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.62</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="text-align: center;">0.11</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1" style="text-align: center;">X<sub>h</sub> decay rate</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">Kdec_Xa</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0.1</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body2" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2" style="text-align: center;">0</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2" style="text-align: center;">X<sub>a</sub> decay rate</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">Kdec_Xmeth</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1" style="text-align: center;">0.62</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body1" style="text-align: center;">day<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body1" style="text-align: center;">293</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body1" style="text-align: center;">0.11</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body1" style="text-align: center;">X<sub>meth</sub> decay rate</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Atomic Balance equations</h2>
+        <p>Four balance equations for each reaction ensure that Chemical Oxygen Demand (COD) and atomic balances are closed (COD, N, C, P). Note that O will  normally be balanced using the water component. However, due to the nature of the water streams considered (composed of more than 99.9 % of water), it is not necessary to include this balance systematically in the models. The electro neutrality equation used to determine the pH will implicitly close the H balance (see <a href="../../Electrolyte system/Electrolyte system.htm" class="MCXref xref">'Electrolyte system equilibriums'</a>).</p>
+        <p>The components used for this purpose are the oxygen, the total inorganic nitrogen, the total inorganic carbon and total inorganic phosphorous.</p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">&#160;</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1" style="text-align: center;font-weight: bold;">S<sub>O2</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column3-Header1" style="text-align: center;">S<sub>tiN</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1" style="text-align: center;">S<sub>tiC</sub></th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column2-Header1" style="text-align: center;">S<sub>tiP</sub></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">&#160;</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1" style="vertical-align: baseline;text-align: center;">gO/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column3-Body1" style="text-align: center;">gN/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1" style="text-align: center;">gC/m<sup>3</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column2-Body1" style="text-align: center;">gP/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">Reaction<sub>j</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2" style="text-align: center;">
+                        <img src="../../../../../GeneratedImages/Equations/Equation2963.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column3-Body2" style="text-align: center;">
+                        <img src="../../../../../GeneratedImages/Equations/Equation2964.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2" style="text-align: center;">
+                        <img src="../../../../../GeneratedImages/Equations/Equation2965.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column2-Body2" style="text-align: center;">
+                        <img src="../../../../../GeneratedImages/Equations/Equation2966.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|AML:FBCR|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Heterogeneous reactions</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../../../FBCR/Content/Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/AML-FBCR/Kinetics/Kinetics for heterogeneous reactions.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Heterogeneous reactions</h1>
+        <p>All AML:FBCR reactor models use user specified kinetic models for heterogeneous reactions. Kinetic models must be used to provide reaction stoichiometry and rate equations. The provided templates can be copied and customised in a local project - the following tables show the parameters and variables which are required in the kinetic models.</p>
+        <p>The following parameters need to be supplied in all kinetics models:</p>
+        <table style="margin-left: auto;margin-right: auto;mc-table-style: url('../../../../../../FBCR/Content/Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-GeneralTable-Head-Header1">
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Parameter</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Dimension</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Units</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>Reactions</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>Ordered set</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>-</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                        <p>Set of heterogeneous reactions taking place in the catalyst pellets</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>nu</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>Components,</p>
+                        <p>Reactions</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>-</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">
+                        <p>Matrix of stoichiometric coefficients</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                        <p>RateFactor</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                        <p>Scalar</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                        <p>-</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">
+                        <p>Reaction rate multiplier used during Initialisation Procedures. This parameter needs to multiply the right hand sides of the reaction rate equations to force the reaction rate to be zero when RateFactor := 0.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <p>Equations for the following variables need to be supplied in all kinetics models:</p>
+        <table style="margin-left: auto;margin-right: auto;mc-table-style: url('../../../../../../FBCR/Content/Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-GeneralTable-Head-Header1">
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Variable</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Dimension</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Units</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>RRate</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>Reactions,</p>
+                        <p>Pellet-radial<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span> For catalyst bed models with 1D pellets.</span></a>,</p>
+                        <p>Tube-axial,</p>
+                        <p>Tube-radial<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span> For two-dimensional catalytic bed models only.</span></a></p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>mol/kg/s</p>
+                        <p>or</p>
+                        <p>mol/m<sup>2</sup>/s</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">
+                        <p>Reaction rate for each reaction</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                        <p>RRate_unit_Multiplier</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                        <p>Scalar</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">
+                        <p>Reaction rate units multiplier: must be 1 for RRate defined in mol/kg/s, or equal to catalyst specific surface for RRate defined in mol/m<sup>2</sup>/s </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <p>The user is free to define additional parameters and variables, as long as these are assigned and/or equations are provided to calculate them. Typical examples are variables for calculation of reaction rate constants, Arrhenius factors and reaction orders. </p>
+        <p>Choosing the correct kinetic template is important. Different reactor models will use different kinetic models. The correct model will depend on the level of detail of the fixed-bed model (1D or 2D) and on the option for the pellet model (lumped or 1D). The following table provides a guideline on which kinetic model to choose from:</p>
+        <table style="margin-left: auto;margin-right: auto;mc-table-style: url('../../../../../../FBCR/Content/Resources/TableStyles/GeneralTable.css');caption-side: top;" class="TableStyle-GeneralTable" cellspacing="0">
+            <caption>
+                <p>List of kinetic models vs. reactor model.</p>
+                <p>&#160;</p>
+            </caption>
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <col class="TableStyle-GeneralTable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-GeneralTable-Head-Header1">
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Reactor model</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">
+                        <p>Lumped kinetic model</p>
+                    </th>
+                    <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">1D kinetic model</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">
+                        <p>CSTR_with_pellets</p>
+                        <p>Catalyst_pellets_section_1D</p>
+                        <p>Gas_cooled_bed_pellets_section</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">kinetics_in_1D_bed</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">kinetics_in_1D_bed_in_1D_pellet</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body2">
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">
+                        <p>Catalyst_pellets_section</p>
+                        <p>Catalyst_pellets_section_annular_counter_current</p>
+                        <p>Catalyst_pellets_section_annular_co_current</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">kinetics_in_2D_bed</td>
+                    <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">kinetics_in_2D_bed_in_1D_pellet</td>
+                </tr>
+                <tr class="TableStyle-GeneralTable-Body-Body1">
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">
+                        <p>Catalyst_pellets_section_axial_radial_in_flow</p>
+                        <p>Catalyst_pellets_section_radial_in_flow</p>
+                        <p>Catalyst_pellets_section_radial_out_flow</p>
+                    </td>
+                    <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">kinetics_in_2D_radial_flow_bed</td>
+                    <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">kinetics_in_2D_radial_flow_bed_in_1D_pellet</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

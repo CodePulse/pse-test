@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Ordered Sets|Ordered Set Operations and Referencing Rules">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Ordered Set Intrinsic Functions</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x3488.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="md_SetIntrinsic"></a>Ordered Set Intrinsic Functions</h1>
+        <p>A number of intrinsic functions are defined for Ordered Set Parameters.</p>
+        <p>The first element of an Ordered Set is returned as a string by:</p><pre class="programlisting">OrderedSetParam.First </pre>
+        <p>The last element of an Ordered Set is returned as a string by:</p><pre class="programlisting">OrderedSetParam.Last </pre>
+        <p>The Cardinality (i.e. the size) of an Ordered Set is returned as an integer by:</p><pre class="programlisting">OrderedSetParam.Card </pre>
+        <p>The ith Element of an Ordered Set is returned as a string by:</p><pre class="programlisting">OrderedSetParam.Element(i) </pre>(where i = 1 is the first element) .<p>One area where this might be useful is in defining material balance equations for all but one of the species in the model. One possibility is
+ as follows.</p><pre class="programlisting">EQUATION
+ FOR i IN Species - Species.Last
+ $M(i) = Fin*Xin(i) - Fout*X(i) ;
+ END
+ SIGMA(X(Species)) = 1 ;</pre><p>The index of a specific element is returned as an integer by:</p><pre class="programlisting">OrderedSetParam.Index(ElementName) </pre><p>A boolean value indicating whether or not an Ordered Set contains a specific element is returned by:</p><pre class="programlisting">OrderedSetParam.Contains(ElementName)</pre><p>A subset over a certain range is returned by:</p><pre class="programlisting">OrderedSetParam.Subset(m,n) - a subset from index m to n inclusive
+OrderedSetParam.Subset(m) - a subset from index m to the last element inclusive
+</pre><p>The index can be given as a string argument as well as integers.</p><div><p class="Footer">&#160;</p><p class="Footer">&#160;</p><hr width="100%" size="0" align="center" /><p class="Footer">Commercial in confidence</p><p class="Footer">© 2017 Process Systems Enterprise Limited</p></div></body>
+</html>

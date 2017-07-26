@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties Guide|Using Physical Properties for Simple Materials">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The gSAFT physical properties interface</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/gSAFT introduction.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="c251.html">Physical Properties Guide</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c257.html">Using Physical Properties for Simple Materials</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The gSAFT physical properties interface</span>
+            </div>
+        </div>
+        <h1>The gSAFT physical properties interface</h1>
+        <p>PSE’s SAFT technology is a general and efficient implementation of the SAFT-VR SW and SAFT-γ Mie equation of states and is available as the <span class="productName">gSAFT Physical Properties Package</span>. For more background please refer to the <a href="http://www.psenterprise.com/gsaft">PSE gSAFT web site</a> and the publications below.</p>
+        <dl>
+            <dt>SAFT-γ Mie</dt>
+            <dd>Lafitte T, Apostolakou A, Avendaño C, Galindo A, Adjiman CS, Müller, EA, and Jackson G, “Accurate statistical associating fluid theory for chains formed from Mie segments, <i>Journal of Chemical Physics</i>, <b>139</b>, 154504 (2013).</dd>
+            <dd>Papaioannou V, Lafitte T, Avendaño C, Adjiman CS, Jackson G, Müller, EA, and Galindo A, “Group contribution methodology based on the statistical associating fluid theory for heteronuclear molecular models formed from Mie segments”. <i>Journal of Chemical Physics</i>, <b>140</b>, 054107 (2014).</dd>
+            <dt>SAFT-VT SW</dt>
+            <dd>Gil-Villegas, A. Galindo, P.J. Whitehead, S. J. Mills, G. Jackson, and A. N. Burgess, “Statistical association fluid theory for chain molecules with attractive potentials of variable range (SAFT-VR)”, <i>Journal of Chemical Physics</i>, <b>106</b>, 4168-4186 (1997).</dd>
+            <dd>       A. Galindo, L. A. Davies, A. Gil-Villegas, and G. Jackson, “The Thermodynamics of mixtures and the corresponding mixing rules in the SAFT-VR approach for potentials of variable range”, <i>Molecular Physics</i>, <b>93</b>, 241-252 (1998).</dd>
+        </dl>
+        <p>In order to use gSAFT in gPROMS&#160;models, there are three basic steps that need to be followed:</p>
+        <ol start="1">
+            <li value="1">
+                <p><a href="gSAFT configuration.htm">Choose the equation of state:</a>
+                </p>
+                <ul start="1">
+                    <li value="1">SAFT-VR SW or</li>
+                    <li value="2">SAFT-γ Mie.</li>
+                </ul>
+            </li>
+            <li value="2">
+                <p><a href="gSAFT configuration.htm">Configure the gSAFT interface</a> with the following information, the</p>
+                <ul start="1">
+                    <li value="1">name of the databank to use and the</li>
+                    <li value="2">list of components of interest – note that the available components are different for <a href="gSAFT components VR SW.htm">SAFT-VR SW</a> and <a href="gSAFT components gamma Mie.htm">SAFT-γ Mie</a>.</li>
+                </ul>
+            </li>
+            <li value="3">
+                <p>Call one or more of the <a href="gSAFT methods.htm">methods provided by the gSAFT interface</a>. At present the gSAFT interface supports a sub-set of the standard set and it is important to note that gSAFT can be used in parallel with another physical property package such as Multiflash. Multiflash could be used to provide transport properties for the same mixture.</p>
+            </li>
+        </ol>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

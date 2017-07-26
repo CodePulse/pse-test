@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gFP custom.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The Multiflash physical property interface</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gFP custom.htm#Topics/x866.html">Open topic with navigation</a>
+        </p>
+        <div>
+        </div>
+        <h1><a name="multiflashphysicalpropertyinterface"></a>The Multiflash<sup>TM</sup> physical property interface</h1>
+        <p>Multiflash is a physical property package developed and marketed by Infochem Computer Services Ltd.<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>See http://www.infochemuk.com.</span></a> A gPROMS interface for Multiflash providing the functionality described in the first section in this chapter on the <a href="x280.html">physical properties supported by gPROMS</a> is available and can be licensed together with
+ gPROMS.</p>
+        <p>To use Multiflash, you need to go through the following steps:</p>
+        <ol type="1">
+            <li value="1">
+                <p>In your gPROMS project, ensure that you state the class of your Foreign Objects to be Multiflash (see lines 2 and 3 of the listing in: <a href="x825.html">Explicit specification within a primitive Model</a>).</p>
+            </li>
+            <li value="2">
+                <p>Create a Multiflash input file (.mfl) defining all the components, physical property models, databanks etc. that are to be used by your
+ problem (see also: <a href="x1417.html">Constructing a Multiflash input file</a> for more details).</p>
+            </li>
+            <li value="3">
+                <p>In your gPROMS project, Set the value of your Foreign Object to the name of this command file. For example, if the name of the command file
+ is AlkaneMixture.mfl and the Foreign Object is called PhysProp, then the corresponding Set statement in the Model or Process will
+ be:</p><pre class="programlisting">SET
+ PhysProp := "AlkaneMixture.mfl" ;</pre>
+            </li>
+            <li value="4">
+                <p>Import the Multiflash command file (e.g. AlkaneMixture.mfl) into the gPROMS Project.</p>
+            </li>
+            <li value="5">
+                <p>Any of the methods listed in the two tables in: <a href="x280.html">Set of Physical Properties supported by
+ gPROMS</a> can now be used in your gPROMS project<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>with the exception of the LiquidExcessEnthalpy which is not currently supported.</span></a></p>
+            </li>
+        </ol>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

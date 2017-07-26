@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Process|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Isotherm </title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/SpecificationTabs.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Help.htm#Topics/Model Documentation/Separations Adsorption/Adsorption_bed/Tab Isotherm.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Isotherm <a name="Tab_main"></a></h1>
+        <p>The Isotherm tab is used to specify the isotherm that predicts the amount of material that can be adsorbed by the adsorbent material in the bed as a function of the fluid composition and conditions.</p>
+        <table style="mc-table-style: url('../../../../Resources/TableStyles/SpecificationTabs.css');" class="TableStyle-SpecificationTabs" cellspacing="0">
+            <col class="TableStyle-SpecificationTabs-Column-Column1" />
+            <col class="TableStyle-SpecificationTabs-Column-Column2" />
+            <col class="TableStyle-SpecificationTabs-Column-Column3" />
+            <thead>
+                <tr class="TableStyle-SpecificationTabs-Head-Header1">
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column1-Header1">Name</th>
+                    <th class="TableStyle-SpecificationTabs-HeadE-Column2-Header1">Default Unit</th>
+                    <th class="TableStyle-SpecificationTabs-HeadD-Column3-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Specifications</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">Selector</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Specify isotherm in this bed model</dt>
+                        <dd>Select and specify an isotherm for the bed model.</dd>
+                        <dt>Connect isotherm model to this bed model</dt>
+                        <dd> Connect an isotherm model to this bed model. This is useful if a large number of beds are loaded with the same adsorbents.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">
+                        <p>Isotherm model type</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">
+                        <p>Selector</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <dt>Langmuir</dt>
+                        <dd>Assume the equilibrium between the fluid phase and the adsorbed phase can be predicted by a Langmuir type isotherm.</dd>
+                        <dt>Langmuir-Freundlich</dt>
+                        <dd>Assume the equilibrium between the fluid phase and the adsorbed phase can be predicted by a Langmuir-Freundlich type isotherm.</dd>
+                        <dt>Ideal Adsorbed Solution (IAS)</dt>
+                        <dd>Assume the equilibrium between the fluid phase and the adsorbed phase can be predicted by an Ideal Adsorbed Solution (IAS) type isotherm. </dd>
+                        <dt>Custom</dt>
+                        <dd>Use a custom isotherm to predict the equilibrium between the fluid phase and the adsorbed phase. Use the custom model in gML Templates to code the custom isotherm using the <span class="ProductName">gPROMS ProcessBuilder</span> Custom Modelling feature.</dd>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">
+                        <p>Delta Cp between fluid and adsorbed component</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">J mol<sup>-1</sup>K<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">
+                        <dt>Difference in heat capacity between the fluid phase and the adsorbed phase.</dt>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">
+                        <p>Reference temperature for delta Cp</p>
+                    </td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">
+                        <p>Reference temperature at which the difference in heat capacity between the fluid phase and the adsorbed phase has been determined.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Maximum adsorbed amount (q0)</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">mol<sub>ad</sub>/kg<sub>ads</sub></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">The maximum adsorbed amount for a particular species.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body2">Adsorption coefficient pre-exponential constant (b1)</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body2">bar<sup>-1</sup></td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body2">Pre-exponent constant of the adsorption coefficient for a particular species.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body1">
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column1-Body1">Adsorption coefficient exponential term (b2)</td>
+                    <td class="TableStyle-SpecificationTabs-BodyE-Column2-Body1">K</td>
+                    <td class="TableStyle-SpecificationTabs-BodyD-Column3-Body1">Exponential terms of the adsorption coefficient for a particular species.</td>
+                </tr>
+                <tr class="TableStyle-SpecificationTabs-Body-Body2">
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column1-Body2">Freundlich exponent (n)</td>
+                    <td class="TableStyle-SpecificationTabs-BodyB-Column2-Body2">-</td>
+                    <td class="TableStyle-SpecificationTabs-BodyA-Column3-Body2">Exponent used in the Freundlich isotherm relation.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

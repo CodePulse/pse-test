@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Defining a Public Model Interface|Defining a Specification dialog and Model Reports|Advanced Report Configuration|Formatting options">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Format of the id, idX and idY attributes</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x5284.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c3572.html">Defining a Public Model Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3832.html">Defining a Specification dialog and Model Reports</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x4188.html">Advanced Report Configuration</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Format of the id, idX and idY attributes</span>
+            </div>
+        </div>
+        <h1><a name="MDG_ModelReports_Advanced_IdAttributeFormat"></a>Format of the <code class="varname">id</code>, <code class="varname">idX</code> and <code class="varname">idY</code> attributes</h1>
+        <p>The <code class="varname">id</code>, <code class="varname">idX</code> and <code class="varname">idY</code> attributes effectively define a set of data. A valid id
+ consists of a valid variable name followed by parameters (comma delimited within parenthases) with the first parameter beginning
+ "<code class="varname">TIME=</code>". For a 2D or x-y plot, "<code class="varname">#</code>" denotes the independent domain. For a 3D plot,
+ "<code class="varname">#x</code>" and "<code class="varname">#y</code>" denote the independent x and independent y domains respectively. For PMA tables,
+ "<code class="varname">#</code>" denotes the time specified by the user (using the slider bar at the top of the report window). If the
+            <code class="varname">TIME</code> parameter is omitted, it will be assumed to be "<code class="varname">TIME=#</code>", e.g. "<code class="varname">q(a,b)</code>" =
+ "<code class="varname">q(TIME=#,a,b)</code>". Wildcards (*) are permitted in PMA tables, 2D plots and x-y plots to avoid using multiple tags to
+ define a range of variables to plot. Some examples are given below.</p>
+        <ul>
+            <li value="1">
+                <p>Example Variable definitions</p>
+                <ul>
+                    <li value="1"><pre class="programlisting">VARIABLE
+ q AS DISTRIBUTION(NoComp, Axial) OF NoType
+ r AS DISTRIBUTION(NoComp, Axial) OF NoType</pre>
+                    </li>
+                </ul>
+            </li>
+            <li value="2">
+                <p>PMA tables</p>
+                <ul>
+                    <li value="1"><pre class="programlisting">&lt;Attribute id="q(TIME=#,a,b)"/&gt;</pre>The value of <code class="varname">q</code> at the specified
+ time with <code class="varname">NoComp</code>=a, <code class="varname">Axial</code>=b.</li>
+                    <li value="2"><pre class="programlisting">&lt;Attribute id="q(TIME=#,*,b)"/&gt;</pre>the value of <code class="varname">q</code> at the specified
+ time with <code class="varname">Axial</code>=b, for each element <code class="varname">NoComp</code>.</li>
+                </ul>
+            </li>
+            <li value="3">
+                <p>2D plots</p>
+                <ul>
+                    <li value="1"><pre class="programlisting">&lt;Line idY="q(TIME=#,a,b)"/&gt;</pre>A single line of <code class="varname">q</code> vs
+                    <code class="varname">TIME</code> with <code class="varname">NoComp</code>=a, <code class="varname">Axial</code>=b.</li>
+                    <li value="2"><pre class="programlisting">&lt;Line idY="q(TIME=a,#,b)"/&gt;</pre>A single line of <code class="varname">q</code> vs
+                    <code class="varname">NoComp</code> with <code class="varname">TIME</code>=a, <code class="varname">Axial</code>=b.</li>
+                    <li value="3"><pre class="programlisting">&lt;Line idY="q(TIME=a,*,#)"/&gt;</pre>A number of lines of <code class="varname">q</code> vs
+                    <code class="varname">Axial</code> with <code class="varname">TIME</code>=a: one for each element of <code class="varname">NoComp</code>.</li>
+                </ul>
+            </li>
+            <li value="4">
+                <p>x-y plots</p>
+                <ul>
+                    <li value="1"><pre class="programlisting">&lt;Line idX="q(TIME=#,a,b)" idY="r(TIME=#,c,d)"/&gt;</pre>A single line of how
+                    <code class="varname">q</code> (with <code class="varname">NoComp</code>=a and <code class="varname">Axial</code>=b) varies against <code class="varname">r</code> (with
+                    <code class="varname">NoComp</code>=c and <code class="varname">Axial</code>=d) over the whole <code class="varname">TIME</code> domain.</li>
+                </ul>
+            </li>
+            <li value="5">
+                <p>3D plots</p>
+                <ul>
+                    <li value="1"><pre class="programlisting">&lt;Surface id="q(TIME=#x,a,#y)"/&gt;</pre>A surface of <code class="varname">q</code> vs
+                    <code class="varname">TIME</code> (x axis) and <code class="varname">Axial</code> (y axis) with <code class="varname">NoComp</code>=a.</li>
+                </ul>
+            </li>
+        </ul>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

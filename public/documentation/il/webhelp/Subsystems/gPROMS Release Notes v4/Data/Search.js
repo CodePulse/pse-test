@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/DAEBDF.htm'],s:['0'],p:[['0',0],['sub',0]]});

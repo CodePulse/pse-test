@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Initialisation Procedures|Initialisation Procedures for Non-Composite Models|Specifying Initialisation Procedures in the Model">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Specifying how the reversions are performed</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x12942.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c12654.html">Initialisation Procedures</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x12659.html">Initialisation Procedures for Non-Composite Models</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x12670.html">Specifying Initialisation Procedures in the Model</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Specifying how the reversions are performed</span>
+            </div>
+        </div>
+        <h1><a name="MDG_IP_Jump_Move"></a>Specifying how reversions are performed</h1>
+        <p>Earlier sections have described how to make changes to Parameters, Variables and Equations during initialisation and in which order these
+ changes should be reverted back to the original specifications. How these reversions are performed has not yet been discussed fully.</p>
+        <p>There are two ways that changes specified in a NEXT section can take place: either by making discrete jumps or by changing the value smoothly
+ from one state to the next. Discrete changes are trivial to perform: simply change the value and reinitialise. To make a smooth change, gPROMS
+ employs a continuation algorithm. Clearly, if the difference between the values is large, then it will be harder to make a discrete jump and the
+ continuation method will be more robust; however, when it is safe to make discrete jumps, this method will usually result in faster initialisation.
+ In some cases, it requires evaluating both options to determine which method is more robust and faster.</p>
+        <p>The JUMP_TO and MOVE_TO sections are used to specify which transitions are to be discrete and smooth respectively. One MOVE_TO section and
+ one JUMP_TO section can be placed in each NEXT section. The example below illustrates the use of both discrete and continuous transitions.</p><pre class="programlisting" xml:space="preserve">INITIALISATION_PROCEDURE IP_Example3a
+  START
+    aParameter := 0 ;
+    aVariable := 0 ;
+    REPLACE
+      anotherVariable
+    WITH
+      aThirdVariable := 0 ;
+    END
+    aSelector := Simple ;
+  END
+			
+  NEXT
+    MOVE_TO
+      REVERT aVariable ;
+      REVERT anotherVariable ;
+    END
+  END
+			
+  NEXT
+    JUMP_TO
+      REVERT aParameter ;
+    END
+    MOVE_TO
+      REVERT aSelector ;
+    END
+  END
+END</pre>
+        <p>In this example, the problem is first initialised with <code>aParameter </code>and <code>aVariable</code> equal to 0, <code>aThirdVariable</code> is also equal to 0 (replacing the
+ specification of <code>anotherVariable</code>) and <code>aSelector </code>is set to Simple (specifying the use of simplified equations).</p>
+        <p>In the first NEXT section, the two variables simultaneously make smooth transitions to their final values.</p>
+        <p>Finally, <code>aParameter </code>is reverted in a discrete jump at the same time as the Selector Variable is reverted to its original value in a smooth
+ transition.</p>
+        <p>In this case, there are no implicit reversions to be made. Should there be an implicit final step, then all reversions are performed in a
+ smooth transition.</p>
+        <p>This example illustrates that even though changing a degree of freedom (REPLACE) or the equations that are being solved (SWITCHing from one
+ CASE to another) is a discrete change, gPROMS can still perform this change smoothly.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

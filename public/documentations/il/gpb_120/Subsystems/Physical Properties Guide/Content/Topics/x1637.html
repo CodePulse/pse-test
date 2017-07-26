@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Physical Properties Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Physical Properties Guide|Using Physical Properties for Simple Materials|The Multiflash physical property interface|Using Multiflash stream types">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Defining stream types in the Multiflash input file</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Physical Properties Guide.htm#Topics/x1637.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="AEN1637"></a>Defining stream types in the Multiflash input file</h1>
+        <p>A stream may be introduced to a Multiflash input file using the Streamtype command (often abbreviated to ST). An extended version of the
+        <a href="x1621.html">earlier input file</a> is shown below:</p><pre class="programlisting">PUREDATA DIPPR 
+COMPONENTS methylacetate methanol water toluene ;
+BIPDATA oilandgas ;
+MODEL model1 RKS ;
+MODEL model2 UNIFAC VLE model1 ;
+PD PDLiquid LIQUID model2 model1 model1 ;
+PD PDVapour VAPOUR model1 model1 model1 ;
+ST Liq1 COMPONENTS methylacetate methanol; PDS PDLiquid PDVapour ;; 
+ST Wat COMPONENTS water; PDS PDLiquid ;;</pre>
+        <p>The last two lines of the extended file define two separate stream types called Liq1 and Wat respectively. The first one involves two of the
+ four components declared in the input file while the second one contains only one of these components. Moreover, stream type Liq1 involves both
+ vapour and liquid phases while Wat is just liquid.</p>
+        <p>Note that a semi-colon (;) is used to terminate each field of the stream type, as well as the stream type command itself - hence the double
+ semi-colons at the end of each of the above commands. If the Components keyword is omitted, all the components defined in the input file are
+ included in the stream type. Similarly, omitting the PDS keyword will include all the defined phase descriptors.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Workflow guides|Process">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Simulating flowsheets</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Help.htm#Topics/Workflow Guides/Flowsheeting/Simulating flowsheets and viewing results.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Simulating flowsheets</h1>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Creating a process</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>To execute the simulation of a flowsheet model in <span class="ProductName">gPROMS ProcessBuilder</span>, a  <span class="gPROMSEntityName">Process</span> associated with the flowsheet model needs to be created. The process contains all information required for a particular simulation of a flowsheet.</p>
+                <p>The most convenient way to create a process, for an existing flowsheet model, is to right-click on the flowsheet model. A context menu will appear.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/process_context_menu.png" />
+                    </p>
+                    <p class="FigureCaption">Context menu obtained after right-clicking on the flowsheet model in the project tree.</p>
+                </div>
+                <p> Next, select “Edit process” from the context menu. A new process will be created. It will appear in the “Processes” tab of the project. </p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/dialog_source_mixing_example11.png" />
+                    </p>
+                    <p class="FigureCaption">A new process has been added to the project with the same name as the flowsheet model. </p>
+                </div>
+                <p>
+                    <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                        <p>Create a new project and within the project create a new flowsheet model entity. Create a flowsheet model (See <a href="Constructing flowsheets.htm" class="MCXref xref">'Constructing flowsheets'</a>).</p>
+                        <p>New create a new process for that model.</p>
+                    </div>
+                </p>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Executing a simulation</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>After a process has been created for a flowsheet model, this <span class="gPROMSEntityName">Process</span> can be executed. To execute the simulation a flowsheet model, select the associated <span class="gPROMSEntityName">Process</span> and then either click <span class="guibutton">Simulate</span> <span class="guibuttonImage"><img src="../../../Resources/Images/Global/IME Toolbar/Process.png" /></span> in the toolbar, select <span class="guimenu">Activities</span> -&gt; <span class="guimenuitem">Simulate selected model</span>&#160;from the  menu or press <span class="keyCap">F5</span>. A 'Simulation settings' dialog pops up, in which changes to simulation settings can be made. In most cases its sufficient to just press 'OK', after which the simulation is started. </p>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>Press <span class="keyCap">SHIFT+F5</span> instead of <span class="keyCap">F5</span> to run the 'Process' directly without the 'Simulation settings' dialog appearing. This is particularly useful when running a simulation for the same process multiple times.</p>
+                </div>
+                <p>When a simulation run is started, the 'Execution output' window is opened. If the simulation is successful the flowsheet topology will be shown on this window. This flowsheet topology is identical to that shown for the flowsheet model in project, where the flowsheet is constructed, although it cannot be modified. Instead, the execution output it can be used to view and obtain results for the simulation. On the topology, certain unit models may also appear with a red hue. This indicates that a warning has been flagged up for that unit during a simulation. See<a href="../Troubleshooting/Troubleshooting.htm" class="MCXref xref">'Troubleshooting'</a> for an overview on how to interpret warnings. </p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/dialog_source_mixing_example13.png" />
+                    </p>
+                    <p class="FigureCaption">Flowsheet topology shown in the execution output window</p>
+                </div>
+                <p>There is also an 'Output' tab on the execution output window. This tab may be shown by default if the simulation is not successful, but it can also be accessed by clicking on the 'Output' tab at the bottom of the execution output window. On this tab, messages are shown from the gPROMS&#160;simulation engine in text format. The information displayed in this window can be used to see how the simulation is progressing. Furthermore, when an error occurs during the simulation, the information in this window will indicate the cause of the error and the events leading up to it. </p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/execution_output_window_execution_output.png" />
+                    </p>
+                    <p class="FigureCaption">Example of the execution output for a successful simulation.</p>
+                </div>
+                <p>When a simulation has failed for a particular reason, a dialog will pop up. To troubleshoot failing simulations, see <a href="../Troubleshooting/Troubleshooting.htm" class="MCXref xref">'Troubleshooting'</a>.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Troubleshooting/error_dialog.png" />
+                    </p>
+                    <p class="FigureCaption">Simulation failure dialog</p>
+                </div>
+                <p>At the time when a simulation is started, a <span class="concept">case file</span> is also created in the project tree. A case file is a copy of the project at the time when the simulation was run, together with the results of the simulation. It can be saved to disk like a normal project file. The folders in the case file can also be used to access the simulation results.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/case_file_in_project_explorer.png" />
+                    </p>
+                    <p class="FigureCaption">Case file</p>
+                </div>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>Click on the 'Open an example project' <span class="guibuttonImage"><img src="../../../Resources/Images/Global/IME Toolbar/BrowseExamples.png" /></span> toolbar button and select from the "Flowsheeting" directory the "Flash separation.gPJ-PB" example project file. The project will open and appears in the project tree. Open the 'Processes' folder in the project, and select the process "Flash_separation_dynamic_initial_conditions". Now press F5. The 'Simulation settings' dialog appears. Press 'OK' to start the simulation.</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/execution_output_window_flash_separation.png" />
+                        </p>
+                        <p class="FigureCaption">Execution output window for 'Flash separation' example</p>
+                    </div>
+                </div>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>The 'Simulation settings' dialog that appears after pressing <span class="keyCap">F5</span> has a number of options for how the simulation is executed. The options used most often are:</p>
+                    <ul>
+                        <li value="1">
+                            <p>Delete previous Cases from the same Activity Entity</p>
+                            <p>Useful when a simulation of the same process is repeated a number of times (often to troubleshoot issues or investigate the effects of changes in inputs). It will prevent a series of case files being created. Instead a single case file be updated with the results of each subsequent simulation.</p>
+                        </li>
+                        <li value="2">
+                            <p>Reporting interval</p>
+                            <p>For dynamic simulations, this permits the adjustment of the reporting interval, prior to the simulation. A Reportinginterval that is too large will mean that important features, in the trajectories for the dynamic simulations, will be missed. A Reporting interval that is too small may result in the generation of an excessive amount of results data.</p>
+                        </li>
+                        <li value="3">
+                            <p>Release license after execution </p>
+                            <p>Can be unchecked to retain the license after execution. Can be useful for troubleshooting failing simulations (see <a href="../Troubleshooting/Troubleshooting.htm" class="MCXref xref">'Troubleshooting'</a>)</p>
+                        </li>
+                    </ul>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/dialog_source_mixing_example12.png" />
+                        </p>
+                        <p class="FigureCaption">Context menu displayed after right-clicking on the flowsheet model in the project tree</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Analysing the results</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>When a simulation has been successfully executed, the results of a simulation can be inspected in a number of ways. </p>
+                <h3>Flowsheet topology</h3>
+                <p>The <span class="guilabel">Topology</span> tab on the execution output window shows the flowsheet topology. This topology cannot be modified but it can be used to navigate to results of individual unit models.</p>
+                <h4>Unit model reports</h4>
+                <p>Double-clicking on individual unit operation models, sources, sinks and stream analysers brings up the results for these units in a separate window. </p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/model_report.png" />
+                    </p>
+                    <p class="FigureCaption">Results for the separator "Drum"  </p>
+                </div>
+                <p>Some units have multiple tabs for each report.</p>
+                <table style="mc-table-style: url('../../../Resources/TableStyles/GeneralTable.css');" class="TableStyle-GeneralTable" cellspacing="0">
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <col class="TableStyle-GeneralTable-Column-Column1" />
+                    <thead>
+                        <tr class="TableStyle-GeneralTable-Head-Header1">
+                            <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Tab on report</th>
+                            <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">Type of information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Main</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Key information for the unit operation.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Operation</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Information related to how the unit operation is operated.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Costing</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Information related to the capital and operating cost for the unit operation. For Sources and Sinks it shows the material cost.</td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body2">
+                            <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Dynamics</td>
+                            <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">When a dynamic simulation is performed, this tab will show dynamic </td>
+                        </tr>
+                        <tr class="TableStyle-GeneralTable-Body-Body1">
+                            <td class="TableStyle-GeneralTable-BodyB-Column1-Body1">Warnings</td>
+                            <td class="TableStyle-GeneralTable-BodyA-Column1-Body1">When a warning is generated the unit icon changes colour to red on the flowsheet topology. By inspecting information on this tab, the cause of the warning can be ascertained. </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Stream tables</h4>
+                <p>A stream table is a table containing information for on or more streams, such as composition, flowrate and temperature. Right-clicking on a stream connection, and selecting <span class="guimenuitem">Create stream table</span>, causes a table with results for that particular stream to be created at the bottom of the screen.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/results_create_stream_table.png" />
+                    </p>
+                    <p class="FigureCaption">Creating a 'stream table'</p>
+                </div>
+                <p>&#160;</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/stream_table1.png" />
+                    </p>
+                    <p class="FigureCaption">Stream table</p>
+                </div>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>Multiple streams can be selected at the same time by holding the <span class="keyCap">SHIFT</span> key while selecting them. By using the 'Create stream table' menu option, while having a series of streams selected, a stream table for all these streams will be created. </p>
+                </div>
+                <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+                    <p>A stream table, for all the streams in and out of a unit operation model, can be created by right-clicking the unit operation model and selecting 'Create stream table'. If the unit has multiple types of streams, care should be taken when selecting the type (e.g. 'gMLMaterial' for material streams) in the selector on the top left of the stream table view.</p>
+                </div>
+                <h4>Stream analysers</h4>
+                <p>Stream analysers are unit models that can be inserted into streams on the flowsheet to report additional results. These unit models have to be inserted into the streams prior to running the simulation to be able to obtain molar compositions and flowrates for that stream as well as additional desired properties such as phase fractions and compositions, densities and transport properties. There are stream analysers for the 'gMLMaterial', 'gMLMaterial_reversible' and 'gMLEnergy connection-types'. These unit are all contained in the 'gML&#160;Basics' library and can be included in a flowsheet model by dragging them from the library onto the flowsheet.</p>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>Open the "Flash separation.gPJ-PB" example project and navigate to the flowsheet. Click on the connection (line) between valve "v1"&#160;and the sink "gas_product" and press the <span class="keyName">DELETE</span>-key to delete it. From the "gML Basics" library drag a "Stream_analyser_gML" unit onto the flowsheet canvas, name it "sa1" and position it between valve "v1" and sink "gas_product". Connect its inlet to the outlet of valve "v1" and its outlet to the inlet of sink "gas_product".</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/stream_analyzer_flowsheet.png" />
+                        </p>
+                        <p class="FigureCaption">Inserting a stream analyser ("sa1" ) into the gas product stream</p>
+                    </div>
+                    <p>
+                        <p>Next, double-click on the stream analyser to open its dialog. From the dialog, select that vapour fraction is reported.</p>
+                        <div class="figure">
+                            <p>
+                                <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/stream_analyzer_dialog.png" />
+                            </p>
+                            <p class="FigureCaption">Specification dialog for stream analyser "sa1" . Vapour fraction is selected to be reported for this stream.</p>
+                        </div>
+                        <p>Now execute the simulation. After the simulation is completed, double-click on the stream analyser in the execution output window, and scroll down to note the vapour fraction for this stream.</p>
+                    </p>
+                </div>
+                <h3>Trajectory browser</h3>
+                <p>All the results for the simulation are contained in the case file. By clicking on the folder 'Trajectories' in the case file, the values of all the variables contained in the flowsheet model can accessed. When the trajectories folder is expanded a list of all the units in the flowsheet model appears. The key variables for each unit can be found by expanding the folder for the individual unit models and then expanding the 'REP' folder that is inside. A list of all key variables for the unit model appears. Double-clicking on a variable opens a window in the work area with the results for that variable. By toggling between the 'Table'&#160;and 'Graph' tabs at the bottom of this window, the data can be represented both as (a series) of value(s) or as a graph.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/trajectories.png" />
+                    </p>
+                    <p class="FigureCaption">Trajectories folder in the case file. For the unit model "NG_Feed" the variable "Average molecular weight"&#160;has been selected.</p>
+                </div>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>After having previously opened the "Flash separation.gPJ-PB" example project previously and executed the process "Flash_separation_dynamic_initial_conditions", the project tree now contains a case file with all the results from this process. To determine what the outlet pressure of valve "V1" is at the start of the simulation, expand the 'Trajectories' folder in the case file, find and expand the "V1" folder, select the 'REP'&#160;folder and find the variable "Outlet pressure". Double-clicking this variable shows a table of simulation results.</p>
+                </div>
+            </div>
+        </div>
+        <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Exporting results</a></span>
+            <div class="MCDropDownBody dropDownBody">
+                <p>Simulation results canbe exported from <span class="ProductName">gPROMS ProcessBuilder</span> for further processing. This may be of use for applying data analysis techniques or for presenting the data in a report.</p>
+                <h3>Exporting by copy and pasting</h3>
+                <p>The simplest way to export a limited amount of results is to simply copy and paste them from <span class="ProductName">gPROMS ProcessBuilder</span> into another application, such as, Microsoft Excel. Tables, for each variable in the trajectory browser, can be copy and pasted, by selecting a range of cells in them (or using <span class="keyCap">CTRL+A</span> to select all data for that variable) and using <span class="keyCap">CTRL+C</span>&#160;and <span class="keyCap">CTRL+V</span> in another application.</p>
+                <p>Data from stream tables can also be exported in the same way. Alternatively, an entire stream table can be copied by right-clicking in the stream table and selecting 'Copy stream table' from the context menu.</p>
+                <div class="figure">
+                    <p><a href="../../../Resources/Images/Workflow guides/Constructing flowsheets/copy_stream_table.png"><img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/copy_stream_table.png" /></a>
+                    </p>
+                    <p class="FigureCaption">Copying stream tables</p>
+                </div>
+                <h3>Exporting to CSV</h3>
+                <p>When the results for a larger number of variables needs to be exported or the same variables need to be exported multiple times for multiple simulation runs of the same flowsheet model, it is more convenient to define data to export to a Comma Separated Value (CSV) file format. This file can then be opened by another application, such as Microsoft Excel, for further processing. </p>
+                <p>To export to CSV, right-click on the 'Trajectories'&#160;folder (or any folder contained within the 'Trajectories' folder), and select 'Export'&#160;from the context menu. Select 'Comma separated value (.csv) result file' in the menu that pops up. </p>
+                <div class="figure">
+                    <p><a href="../../../Resources/Images/Workflow guides/Constructing flowsheets/copy_stream_table.png"><img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/export_to_csv_context.png" /></a>
+                    </p>
+                    <p class="FigureCaption">Exporting results from the 'Trajectories' folder to CSV</p>
+                </div>
+                <p>A window is displayed, containing variables that can be selected, in a tree that corresponds to the contexts of the 'Trajectories'&#160;folder. By default every variable is selected. To export only a small subset of variables or variables for a particular set of units, first unselect the checkmark on the 'Trajectories' folder to remove all selections. Then, for each unit, select the desired variables.</p>
+                <div class="figure">
+                    <p>
+                        <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/export_to_csv1.png" />
+                    </p>
+                    <p class="FigureCaption">Exporting the results for the vessel volume of separator "Drum".</p>
+                </div>
+                <p>When the desired variables have been selected, clicking the 'Export' button will cause these variables to be exported to a CSV file. The 'Save settings....' button can be used to save the current selection of variables. This is useful if more simulations, for the same flowsheet model, need to be run and for each run the same variables need to be exported. This selection can then be loaded and applied for a subsequent simulation by using the 'Load settings...' button. </p>
+                <p>The variables are exported to a CSV&#160;file in a stacked format. In MS&#160;Excel the PivotTable functionality can be used to construct 2 dimensional tables from the data.</p>
+                <div class="example" data-mc-autonum="&lt;b&gt;Example&lt;/b&gt;"><span class="autonumber"><span><b>Example</b></span></span>
+                    <p>To export the results for the flowrates at the source and sinks from a simulation of the "Flash separation.gPJ-PB" example project, right-click on the Trajectories tab of the case file. Then, for the source model and each of the sink models, select only the "Mass flowrate" variables. Optionally, click "Save settings" to save the chosen selection for use in future simulations. Click on 'Export' and specify a CSV file.</p>
+                    <p>Open Microsoft&#160;Excel and open the exported CSV file. Select all the data in the table with the 'VARIABLE', 'TIME' and 'VALUE' headers by clicking on the cell with 'VARIABLE', holding SHIFT+CTRL and pressing right and down arrow keys. Now from the ribbon menu select the 'Insert' and select the 'PivotTable' button to insert a pivot table.</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/export_to_csv2.png" />
+                        </p>
+                        <p class="FigureCaption">Constructing a pivot table for the imported data</p>
+                    </div>
+                    <p>On the new worksheet created by the Pivot Table feature, select 'Variable', 'TIME' and 'Value'. Drag 'Variable' to the 'Column labels' area, 'TIME' to the 'Row labels' area and 'Value' to the 'Values' area. A two dimensional table will appear with the time indexing the rows and each variable contained in a separate column.</p>
+                    <div class="figure">
+                        <p>
+                            <img src="../../../Resources/Images/Workflow guides/Constructing flowsheets/export_to_csv_pivottable.png" />
+                        </p>
+                        <p class="FigureCaption">Formatting the pivot table</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

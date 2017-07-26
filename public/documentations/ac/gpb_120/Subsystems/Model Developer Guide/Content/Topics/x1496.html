@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Arrays|Using arrays in equations">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Writing implicit array equations</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x1496.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="arrayeqns"></a>Writing implicit array equations</h1>
+        <p>We have seen how array expressions can be formed by combining arrays of Parameters or Variables, or elements or slices of these. By
+ analogy, gPROMS allows the definition of array equations of the form:</p><pre class="programlisting"><i class="emphasis">Expression E = Expression F;</i></pre>
+        <p>that are valid provided they conform to one of the following four cases:</p>
+        <div class="informaltable"><a name="AEN1502"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Case</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1"><i class="emphasis">E</i>
+                        </th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1"><i class="emphasis">F</i>
+                        </th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Dimensionality of <i class="emphasis">E = F</i></th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Interpretation of <i class="emphasis">E = F</i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">1</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scalar</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scalar</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scalar</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><i class="emphasis">E = F</i>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">2</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Array</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Scalar</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Same as <i class="emphasis">E</i></td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><i class="emphasis">E<sub>ijk...</sub> = F</i>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">3</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scalar</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Array</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Same as <i class="emphasis">F</i></td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><i class="emphasis">E = F<sub>ijk...</sub></i>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">4</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Array</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Array</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Same as <i class="emphasis">E</i><i class="emphasis">and</i><i class="emphasis">F</i></td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2"><i class="emphasis">E<sub>ijk...</sub> = F<sub>ijk...</sub></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Thus, in view of the following Variable definitions:</p><pre class="programlisting">PARAMETER
+ ... 
+
+ VARIABLE
+ # Liquid phase volume
+ V AS Volume
+ 
+ # Component molar holdups
+ HoldUp AS ARRAY(NoComp) OF Moles
+ 
+ # Component concentrations
+ C AS ARRAY(NoComp) OF Concentration
+ ... 
+</pre>
+        <p>the following is a valid equation:</p><pre class="programlisting">HoldUp = C * V ; </pre>
+        <p>gPROMS automatically expands such equations into an set of equations. For example, if <code class="methodname">NoComp = 5</code>, the above will
+ expand to:</p><pre class="programlisting">HoldUp(1) = C(1) * V ;
+ HoldUp(2) = C(2) * V ;
+ ...
+ HoldUp(5) = C(5) * V ;</pre>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

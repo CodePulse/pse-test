@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Initialisation Procedures|Reference">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The NEXT section</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x13291.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c12654.html">Initialisation Procedures</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x13175.html">Reference</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The NEXT section</span>
+            </div>
+        </div>
+        <h1><a name="MDG_IP_Next"></a>The NEXT section</h1>
+        <p>After the first initialisation problem is solved (that specified by the modifications in the START section to the gIP), a sequence of actions
+ may be performed in order to restore these modifications back to the initialisation problem specified in the SET, ASSIGN and INITIALSELECTOR sections
+ of the Process. Each step in this sequence is specified in a NEXT section. There may be as many NEXT sections in the IP as required, including none
+ (in which case, all modifications to the gIP are reverted in parallel). The syntax of the NEXT section is:</p><pre class="programlisting" xml:space="preserve">NEXT
+  [MOVE_TO section]*
+  [JUMP_TO section]*
+  [ADVANCE statement]*
+  [COMPLETE statement]*
+END</pre>
+        <p>Each NEXT section may comprise any combination of MOVE_TO, JUMP_TO, ADVANCE and COMPLETE statements (including multiple entries of each type).
+ However, a NEXT section cannot be empty.</p>
+        <p>The syntax for the MOVE_TO and JUMP_TO sections are:</p><pre class="programlisting" xml:space="preserve">MOVE_TO
+  &lt;Unit Initialisation Procedure action&gt;*
+END
+
+JUMP_TO
+  &lt;Unit Initialisation Procedure action&gt;*
+END</pre>At least one Elementary UIP action must be specified in each MOVE_TO or JUMP_TO section; they must not contain any ADVANCE or
+ COMPLETE actions.<p>All of the UIP actions specified in a NEXT section are executed in parallel. If COMPLETE actions are present along side MOVE_TO, JUMP_TO and/or
+ ADVANCE actions, then the first NEXT sections of the Units being COMPLETEd that need to be processed are executed in parallel with all of the other
+ actions; the second NEXT sections in the Units that are being COMPLETEd will then be executed in parallel, and so on until no more NEXT sections are
+ left to be processed.</p><div><p class="Footer">&#160;</p><p class="Footer">&#160;</p><hr width="100%" size="0" align="center" /><p class="Footer">Commercial in confidence</p><p class="Footer">© 2017 Process Systems Enterprise Limited</p></div></body>
+</html>

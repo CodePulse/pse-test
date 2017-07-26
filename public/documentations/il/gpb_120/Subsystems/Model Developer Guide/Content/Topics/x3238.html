@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Composite Models|Setting Parameter values in Composite Models|Setting Connection Type Parameters">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Example of Parameter Propagation with Port Sets</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x3238.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="MDG_PortSetsExample"></a>Example of Parameter Propagation with Port Sets</h1>
+        <p>As an example of the use of Port Sets, consider the PML Flowsheet shown below.</p>
+        <div class="figure"><a name="AEN3242"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_ReactorFlowsheet.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Reactor Flowsheet</p>
+        </div>Each of the connector Models in this Flowsheet (pumps, reactor and valves) have common Port Sets linking their inputs to their
+ outputs. This is shown for the reactor Model below.<div class="figure"><a name="AEN3250"></a><div class="mediaobject"><p><img src="../Resources/Images/MDG_ReactorPortSets_hilit.png" /></p></div><p class="FigureCaption"> Reactor Port Sets</p></div>This means that once the properties of the Source_gas Model instance are specified, they automatically propagate along the
+ direction of flow: i.e. to <code class="varname">Flow_gas</code>, <code class="varname">Reactor</code>, <code class="varname">Valve_gas</code>, <code class="varname">Simk_gas</code>,
+        <code class="varname">Valve_liquid</code> and <code class="varname">Sink_liquid</code>. More specifically, because the properties of <code class="varname">Source_gas</code>
+        define the inlet properties of <code class="varname">Flow_gas</code> and the inlet of <code class="varname">Flow_gas</code> shares the same Port Set as its outlet
+ (<code class="varname">"flow"</code>), the properties are propagated along. Similarly, the inlet of the Reactor is linked to both of its outlets by the
+ same Port Set.<p>Note, however, that the Parameters are not propagated backwards, so Source_liquid must be specified as well. Of course, some of its
+ properties cannot be specified independently and care must be taken to make sure that there are no conflicts. If, for example, one were to
+ specify a different set of components for Source_liquid, gPROMS would report a conflict between the two sets of specifications propagated to
+ the inlet of <code class="varname">Reactor</code>. Below are shown two examples of inconsistent component specifications.</p><div class="figure"><a name="AEN3269"></a><div class="mediaobject"><p><img src="../Resources/Images/MDG_ReactorPortSets_error1.png" /></p></div><p class="FigureCaption"> Inconsistent Parameters propagated through Port Sets: inconsistent components specified</p></div><div class="figure"><a name="AEN3276"></a><div class="mediaobject"><p><img src="../Resources/Images/MDG_ReactorPortSets_error2.png" /></p></div><p class="FigureCaption"> Inconsistent Parameters propagated through Port Sets: extra component specified</p></div><div><p class="Footer">&#160;</p><p class="Footer">&#160;</p><hr width="100%" size="0" align="center" /><p class="Footer">Commercial in confidence</p><p class="Footer">© 2017 Process Systems Enterprise Limited</p></div></body>
+</html>

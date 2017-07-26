@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Controlling the Execution of Model-based Activities|The SOLUTIONPARAMETERS section">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Controlling result generation and destination</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x7202.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c7114.html">Controlling the Execution of Model-based Activities</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x7176.html">The SOLUTIONPARAMETERS section</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Controlling result generation and destination</span>
+            </div>
+        </div>
+        <h1><a name="MDG_ControllingResultGenerationAndDestination"></a>Controlling result generation and destination</h1>
+        <p>The following Solution Parameters allow the user to control the generation of results by the execution of a model-based activity, as well as
+ the destination of these results.</p>
+        <ul>
+            <li value="1">
+                <p>gExcelOutput: Enables or disables the Microsoft Excel output
+ channel.</p>
+                <p>By default, this parameter is switched off. When set to on, output is sent to a file whose stem is the Process entity name plus an index in
+ square brackets to represent the number of times the process has been executed. For example, if the process name was
+          <i class="emphasis">MyProcess</i> the first output file generated would be called <code class="methodname">MYPROCESS.xls</code>; the second would be
+          <code class="methodname">MYPROCESS[2].xls</code>; and so on. A different file name can be specified directly in the SOLUTIONPARAMETERS section using the
+ syntax:</p><pre class="programlisting">gExcelOutput := "<i class="emphasis">FileName</i>" ;</pre>
+                <p>Note that this specification automatically switches on the output channel: i.e. <b class="command">gExcelOutput := ON ;</b>. See Microsoft Excel Output Channel for more details and for some additional
+ options.</p>
+            </li>
+            <li value="2">
+                <p>gPLOT: Enables or disables the generation of text results files.</p>
+                <p>By default, this parameter is switched off. When set to on, output is sent to a file whose name is the Process entity name followed by
+ gPLOT. A different file name can be specified directly in the SOLUTION PARAMETERS section using the syntax:</p><pre class="programlisting">gPLOT := <i class="emphasis">"FileName"</i> ; </pre>
+                <p>Note that this automatically implies that the gPLOT parameter is switched on.</p>
+            </li>
+            <li value="3">
+                <p>gRMS: Enables or disables the gRMS output channel.</p>
+                <p>By default this parameter is switched on. When set to on, output is sent to gRMS, the gPROMS Results Management Service.</p>
+                <p><i class="emphasis">Note:</i> This setting is overridden by the settings in the execution control dialog and only applies when an activity is executed outside the GUI, for instance in
+ gO:RUN.</p>
+            </li>
+            <li value="4">
+                <p>gUserOutput: Enables or disables a user-defined output channel.</p>
+                <p>The construction of such output channels is described in detail in the gPROMS System Programmer Guide. By default, this parameter is
+ switched off.</p>
+            </li>
+            <li value="5">
+                <p>Monitor: Sets the initial state for monitoring of variables.</p>
+                <p>By default, this parameter is switched on. If set to off, no results will be collected during the execution of the model-based activity.
+ However, for dynamic simulation activities, monitoring can be enabled at a later stage by inserting the Monitor elementary task in the <a href="x6400.html">simulation Schedule</a>.</p>
+            </li>
+            <li value="6">
+                <p>OutputLevel: An integer [-1,9] that specifies the diagnostics level reported in the output.</p>
+                <p>If specified, the OutputLevel defines the initial setting in the Execution
+ Control dialog; otherwise the dialog will be initialised with the default value of Normal diagnostics. Currently used values are -1
+ (Silent), 0 (Solver diagnostics only) and 1 (Normal diagnostics), with higher values reserved for future use (values greater than 1 behave
+ identically to 1). The effects of this parameter on execution diagnostics are summarised in the table below.</p>
+            </li>
+            <li value="7">
+                <p>ReportingInterval: Specifies the reporting interval for results.</p>
+                <p>This is the frequency at which variable values are transmitted to the output channel(s) during a dynamic simulation activity. This
+ parameter does not have a default value. When a simulation activity is initiated, the ReportingInterval can be entered in a dialog box that
+ appears before the simulation activity is performed. The text box will already contain a value for the ReportingInterval, which will be equal to
+ the value specified by the ReportingInterval Parameter in the Process. If this specification is omitted, then the value will be equal to the
+ default value specified in the user preferences. In either case, the value in the dialog box can be modified by the user before the
+ simulation activity is started.</p>
+            </li>
+            <li value="8">
+                <p>ScheduleAnnotations: Displays unique identifying annotations on each Task in the Schedule.</p>
+                <p>Allowed values are <code class="varname">ON</code> and <code class="varname">OFF</code> (default).</p>
+            </li>
+        </ul>
+        <div class="table"><a name="AEN7253"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Effects of the OutputLevel specification on the execution diagnostics</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">Output Level</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">-1 (Silent)</th>
+                        <th class="TableStyle-GeneralTable-HeadE-Column1-Header1">0 (Solver diagnostics only)</th>
+                        <th class="TableStyle-GeneralTable-HeadD-Column1-Header1">1 (Normal diagnostics, Extra – level n)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Diagnostics for system construction, index reduction and structural info, schedule execution, STN switching etc.</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Off</td>
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Off</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">On</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Diagnostics of individual solvers</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Off</td>
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">On – according to the individual solver settings</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">On – according to the individual solver settings</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

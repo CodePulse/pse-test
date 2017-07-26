@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="System Programmer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="System Programmer Guide|Developing New Foreign Objects|Implementation of Foreign Objects">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Writing Foreign Objects in C++</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../System Programmer Guide.htm#Topics/x1135.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="WritingForeignObjectsInCplusplus"></a>Writing Foreign Objects in C++</h1>
+        <p>As mentioned above, C++ offers a straightforward way to implement a Foreign Object and to manage multiple instances of the same class. How to
+ do this is demonstrated in detail by the provided example code<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>In order to understand these examples, at least a basic understanding of C++ and object oriented terminology is necessary.</span></a></p>
+        <p>The basic idea is to divide the responsibilities into:</p>
+        <ul>
+            <li value="1">
+                <p>the interface to gPROMS,</p>
+            </li>
+            <li value="2">
+                <p>managing the Foreign Objects, comprising the task of creating, destroying and accessing them, and finally</p>
+            </li>
+            <li value="3">
+                <p>the Foreign Objects.</p>
+            </li>
+        </ul>
+        <p>The provided classes and interfaces provided are designed so that the user can use them as a library without having to bother with the
+ low-level interface to gPROMS and the management of the Foreign Objects.</p>
+        <p>In the above list, the second group of responsibilities is dealt with by a single object, a so-called Factory. On request, this Factory will
+ create and destroy Foreign Objects. Internally it keeps track of all the Foreign Objects. Actually, the Factory is designed to be the only interface
+ through which Foreign Objects can be created and accessed; the key for retrieving them is the ForeignObjectHandle which was assigned to the Foreign
+ Object upon creation.</p>
+        <p>Since the Factory manages all the Foreign Objects, there should exist only one instance of the Factory class. This is ensured by a Singleton
+ function, get_FOFactory(). This function (and only this function) provides access to the Factory, which is ensured by keeping constructors and
+ destructors of the Factory class private.</p>
+        <p>The interface functions are necessary because gPROMS expects the service procedures to be provided as functions. From the interface functions,
+ then, member functions of the class implementation are called. For example, if you have implemented a class MyForeignObject, a gPROMS call to gFOM()
+ will actually be translated in a call to MyForeignObject::Evalmethod(). However, before this call actually takes place, the interface function first
+ asks the Factory to retrieve the Foreign Object identified by the handle passed to gFOM() by gPROMS.</p>
+        <p>The interface functions can be found in the file <tt class="filename">gFOInterface.cxx</tt> and need not be changed if it is not intended to change
+ the underlying structure of the C++ interface.</p>
+        <p>Two additional classes are provided: gFOClass and gFOFactory. Both of them are purely abstract classes, which means you cannot instantiate them
+ directly. Instead, their purpose is to provide the basic functionality (or interface) which has to be implemented in the Foreign Object. When
+ defining and implementing a Foreign Object, you should derive your own classes from these two classes and define the virtual functions of the
+ abstract base classes. In this context, gFOClass is the base class for the Foreign Object, whereas gFOFactory is the base class for a user-provided
+ factory which is responsible for generating and accessing a single or multiple Foreign Objects. This simple inheritance structure is shown in the
+ figure below for the tank example.</p>
+        <div class="figure"><a name="AEN1155"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/derive_tank.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> Inheritance for the tank example</p>
+        </div>
+        <p>When deriving from gFOClass, the only member functions which have to be provided by the user are the equivalents for the service procedures
+ shown in the table below:</p>
+        <div class="table"><a name="AEN1161"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <caption>Service procedure and their C++ equivalent</caption>
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Service procedure</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">C++ equivalent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">gFOCM()</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Checkmethod()</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">gFOCMI()</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2">Checkmethodinputs()</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">gFOM()</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1">Evalmethod()</td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">gFOMD()</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2">Evalmethodderiv()</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Note that the argument lists of the member functions in the above table are identical to their corresponding functions in
+      <tt class="filename">gFOInterface.h</tt><![CDATA[  ]]><i class="emphasis">except</i> that they are missing the first two arguments of the latter: the ForeignObjectID and
+ ForeignObjectHandle are unnecessary since these functions operate on the specific object with which they are associated.</p>
+        <p>Example implementations for these member functions can be found in <tt class="filename">foi_demo_cpp.h</tt> and
+      <tt class="filename">foi_demo_cpp.cxx</tt>. gFOI() and gFOT() do not have to be defined because they call member functions which are already implemented
+ in gFOFactory and which are responsible for creating and destroying Foreign Objects.</p>
+        <p>When deriving a Factory from the gFOFactory provided, the only member function which has to be provided by the user is CreateObject() plus a
+ global function which will provide access to the factory, theFOfactory(), <i class="emphasis">cf.</i> the file
+      <tt class="filename">foi_demo_cpp.cxx</tt>.</p>
+        <p>If the proposed structure is adopted, none of the interface files has to be changed, only classes with the member functions, as in the tank
+ example, have to be provided by the user.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

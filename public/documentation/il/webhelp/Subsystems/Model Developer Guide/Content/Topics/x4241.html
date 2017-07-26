@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Defining a Public Model Interface|Defining a Specification dialog and Model Reports|Advanced Report Configuration">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Tables</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/TableStyles/GeneralTable.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x4241.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c3572.html">Defining a Public Model Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x3832.html">Defining a Specification dialog and Model Reports</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="x4188.html">Advanced Report Configuration</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Tables</span>
+            </div>
+        </div>
+        <h1><a name="modelreports_advanced_tables"></a>Tables</h1>
+        <p>Tables can be included in a Model report using two xml tags. The first, <code class="varname">&lt;PMA_TABLE&gt;</code>, creates the table; the
+ second, <code class="varname">&lt;Attribute/&gt;</code>, specifies a variable for inclusion in the table. There may be multiple
+          <code class="varname">&lt;Attribute/&gt;</code> tags within a <code class="varname">&lt;PMA_TABLE&gt;</code> tag to form a table containing as many variables as
+ desired. An example is given below.</p><pre class="programlisting">&lt;PMA_TABLE&gt;
+ &lt;Attribute id="a_Variable"/&gt;
+&lt;/PMA_TABLE&gt;</pre>
+        <p>The xml above creates a table within the report that displays the values associated with the Variable called
+          <code class="varname">a_Variable</code>. If the Variable specified in the <code class="varname">id</code> attribute is distributed over any number of domains,
+ then all of the values will be tabulated automatically.</p>
+        <p>To include more than one variable, simply add further <code class="varname">&lt;Attribute/&gt;</code> tags within the
+          <code class="varname">&lt;PMA_TABLE&gt;</code> construct.</p>
+        <p>The number format for each variable can be set by specifying the
+          <code class="varname">numberFormat</code> attribute of the <code class="varname">&lt;Attribute/&gt;</code> tag:</p><pre class="programlisting">&lt;PMA_TABLE&gt;
+ &lt;Attribute id="a_Variable" numberFormat="%.pS"/&gt;
+&lt;/PMA_TABLE&gt;</pre>
+        <p>where p (the precision) is an integer from 0 to 9 and S (the specifier) is one of "G", "f" and "E", respectively representing the
+ General, Fixed and Scientific number formats. If the general format is
+ chosen, then p is restricted to integers from 1 to 6 and represents the number of significant figures; the fixed number format allows
+ integers from 0 to 9, which represent the number of decimal places; the scientific format allows beteen 0 and 5 decimal places. Some
+ examples are given below.</p><pre class="programlisting">&lt;PMA_TABLE&gt;
+ &lt;Attribute id="Variable1" numberFormat="%.4G"/&gt; &lt;!--General with 4 s.f.--&gt;
+ &lt;Attribute id="Variable2" numberFormat="%.6f"/&gt; &lt;!--Fixed with 6 d.p.--&gt;
+ &lt;Attribute id="Variable3" numberFormat="%.3G"/&gt; &lt;!--Scientific with 3 d.p.--&gt;
+&lt;/PMA_TABLE&gt;</pre>
+        <p>The <code class="varname">&lt;PMA_TABLE&gt;</code> tag may also contain a <code class="varname">numberFormat</code> Attribute. This specifies the number
+ format for any <code class="varname">&lt;Attribute&gt;</code> tags that do not contain a <code class="varname">numberFormat</code> Attribute. This is a more
+ compact and convenient method for setting the same number format for several Variables. If there is no <code class="varname">numberFormat</code>
+          Attribute specified for the <code class="varname">&lt;PMA_TABLE&gt;</code> tag and there are <code class="varname">&lt;Attribute&gt;</code> tags that do not
+ contain a <code class="varname">numberFormat</code> Attribute, then the number format for these <code class="varname">&lt;Attribute&gt;</code> tags is taken
+ from the specification in the user's preferences, in the <b class="guisubmenu">Results</b> section of the <b class="guimenu">Activity
+ execution</b> preferences.</p>
+        <p>Note that all of the tags and attributes described above are <i class="emphasis">case senstitive</i>: if they are not typed exactly as
+ shown above, then the report will not be generated and an error message will be displayed instead.</p>
+        <p>The full list of available number formats is given in the table below.</p>
+        <div class="informaltable"><a name="AEN4278"></a>
+            <table style="mc-table-style: url('../Resources/TableStyles/GeneralTable.css');margin-left: auto;margin-right: auto;" class="TableStyle-GeneralTable" cellspacing="0">
+                <thead>
+                    <tr class="TableStyle-GeneralTable-Head-Header1">
+                        <th align="center" class="TableStyle-GeneralTable-HeadE-Column1-Header1">Format name</th>
+                        <th align="center" class="TableStyle-GeneralTable-HeadD-Column1-Header1">Format string</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">General, 1 s.f.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="varname">"%.1G"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">General, 2 s.f.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><code class="varname">"%.2G"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">General, 3 s.f.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="varname">"%.3G"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">General, 4 s.f.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><code class="varname">"%.4G"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">General, 5 s.f.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="varname">"%.5G"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">General, 6 s.f.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><code class="varname">"%.6G"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Fixed, 0 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="varname">"%.0f"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Fixed, 1 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><code class="varname">"%.1f"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Fixed, 2 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="varname">"%.2f"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Fixed, 3 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><code class="varname">"%.3f"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Fixed, 4 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="varname">"%.4f"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Fixed, 5 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><code class="varname">"%.5f"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Fixed, 6 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="varname">"%.6f"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Fixed, 7 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><code class="varname">"%.7f"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Fixed, 8 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="varname">"%.8f"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Fixed, 9 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><code class="varname">"%.9f"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scientific, 0 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="varname">"%.0E"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Scientific, 1 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><code class="varname">"%.1E"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scientific, 2 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="varname">"%.2E"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body2">Scientific, 3 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body2"><code class="varname">"%.3E"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body1">
+                        <td class="TableStyle-GeneralTable-BodyE-Column1-Body1">Scientific, 4 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyD-Column1-Body1"><code class="varname">"%.4E"</code>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-GeneralTable-Body-Body2">
+                        <td class="TableStyle-GeneralTable-BodyB-Column1-Body2">Scientific, 5 d.p.</td>
+                        <td class="TableStyle-GeneralTable-BodyA-Column1-Body2"><code class="varname">"%.5E"</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

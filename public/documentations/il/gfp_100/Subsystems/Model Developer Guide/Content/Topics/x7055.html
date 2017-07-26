@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling|[%=System.LinkedTitle%]|Stochastic Simulation in gPROMS">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Stochastic Simulation Example</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x7055.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Modelling in the gPROMS Language.htm">Modelling in the gPROMS Language</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c6927.html">Stochastic Simulation in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Stochastic Simulation Example</span>
+            </div>
+        </div>
+        <div class="sect1">
+            <h1 class="sect1"><a name="AEN7055"></a>Stochastic Simulation Example</h1>
+            <p>In this section we illustrate the important techniques of stochastic simulation in gPROMS using a simple model of an isothermal batch
+ reaction. The following reactions occur in the reactor, D being the desired product.</p>
+            <p><span class="inlinemediaobject"><img src="../Resources/Images/eqn_ssigproms_1.png" data-mc-conditions="Default.ScreenOnly" /></span>
+            </p>
+            <p>The reactor initially contains 10m<sup>3</sup> of an equimolar mixture of A and B. The temperature is held constant at 353K
+ and the reaction is allowed to progress for 1 hour. The reaction rates are assumed to follow Arrhenius's law.</p>
+            <div class="sect2">
+                <h2 class="sect2"><a name="AEN7067"></a>Stochastic gPROMS process model</h2>
+                <p>A simple, generic model for an isothermal liquid-phase CSTR is used to model the process</p><pre class="programlisting"># MODEL LiquidPhaseCSTR
+
+ PARAMETER
+ # Number of components
+ NoComp AS INTEGER
+
+ # Number of reactions
+ NoReac AS INTEGER
+
+ Density AS ARRAY(NoComp) OF REAL
+
+ # Reaction data (Arrhenius law)
+ ArrhConstant AS ARRAY(NoReac) OF REAL
+ ActivationEnergy AS ARRAY(NoReac) OF REAL
+
+ # Reaction orders
+ Order AS ARRAY(NoComp,NoReac) OF INTEGER
+
+ # Component stoichiometric coefficients
+ Nu AS ARRAY(NoComp,NoReac) OF INTEGER
+
+ # Gas constant
+ R AS REAL
+
+ VARIABLE
+ Fin AS MolarFlowrate
+ Xin AS ARRAY(NoComp) OF MolarFraction
+ Fout AS MolarFlowrate
+ X AS ARRAY(NoComp) OF MolarFraction
+ HoldUp AS ARRAY(NoComp) OF Moles
+ C AS ARRAY(NoComp) OF MolarConcentration
+ T AS Temperature
+ TotalHoldup AS Moles
+ TotalVolume AS Volume
+ ReactionConstant AS ARRAY(NoReac) OF NoType
+ Rate AS ARRAY(NoReac) OF NoType
+
+ EQUATION
+
+ # Material balance
+ FOR i := 1 TO NoComp DO
+ $HoldUp(i) = Fin*Xin(i) - Fout*X(i) + TotalVolume*SIGMA(Nu(i,)*Rate) ;
+ END
+
+ # Reaction rates
+ FOR j := 1 TO NoReac DO
+ ReactionConstant(j) = ArrhConstant(j) * EXP(-ActivationEnergy(j)/R/T) ;
+ Rate(j) = ReactionConstant(j) * PRODUCT(C^Order(,j)) ;
+ END
+
+ # Total volume and total holdup
+ TotalVolume = SIGMA(Holdup/Density) ;
+
+ TotalHoldup = SIGMA(HoldUp) ;
+
+ # Molar fractions and concentrations
+ Holdup = X * TotalHoldup ;
+
+ Holdup = C * TotalVolume ;</pre>
+                <p>Now we assume the that temperature of the reaction may change from batch to batch. This can be modelled using a normal distribution with a
+ mean of 353K and a standard deviation of 2K. To see the effect of this, we need to introduce a new <a href="c2799.html">composite</a> Model to include a number of scenarios:</p><pre class="programlisting"># MODEL Stochastic_LiquidPhaseCSTR
+
+ PARAMETER
+
+# define common PARAMETERs here so their values can be propagated 
+# to each scenario
+# -----------------------------------------------------------------
+ NoComp AS INTEGER
+ NoReac AS INTEGER
+ Density AS ARRAY(NoComp) OF REAL
+ ArrhConstant AS ARRAY(NoReac) OF REAL
+ ActivationEnergy AS ARRAY(NoReac) OF REAL
+ Order AS ARRAY(NoComp,NoReac) OF INTEGER
+ Nu AS ARRAY(NoComp,NoReac) OF INTEGER
+ R AS REAL
+# -----------------------------------------------------------------
+
+ NoScenarios AS INTEGER
+
+ NoInt_PMF AS INTEGER DEFAULT 20
+ Upper_PMF AS REAL DEFAULT 1
+ Lower_PMF AS REAL DEFAULT 0.8
+
+ DISTRIBUTION_DOMAIN
+ Dist_PMF AS (Lower_PMF:Upper_PMF)
+
+ UNIT
+ Scenarios AS ARRAY(NoScenarios) OF LiquidPhaseCSTR
+
+ VARIABLE
+ T AS ARRAY(NoScenarios) OF Temperature
+ ProdMolFrac AS ARRAY(NoScenarios) OF MolarFraction
+
+ PMFmean AS NoType
+ PMFvariance AS NoType
+ PMFstddev AS NoType
+
+# temp variable to count occurrences of Output in a particular interval:
+ PMFacc AS DISTRIBUTION(Dist_PMF,NoScenarios) OF NoType
+
+# pdf function for Output:
+ PMF_pdf AS DISTRIBUTION(Dist_PMF) OF NoType
+
+ EQUATION
+ FOR i := 1 TO NoScenarios DO
+ T(i) = Scenarios(i).T ;
+ END
+
+ PMFmean = SIGMA(ProdMolFrac)/NoScenarios ;
+ PMFvariance = SIGMA( (ProdMolFrac - PMFmean)^2 )/NoScenarios ;
+
+ FOR i := Lower_PMF TO Upper_PMF DO
+ FOR j := 1 TO NoScenarios DO
+ IF i - (Upper_PMF-Lower_PMF)/NoInt_PMF/2 &lt;= ProdMolFrac(j) AND
+ ProdMolFrac(j) &lt; i + (Upper_PMF-Lower_PMF)/NoInt_PMF/2 THEN
+ PMFacc(i,j) = 1 ;
+ ELSE
+ PMFacc(i,j) = 0 ;
+ END
+ END
+ PMF_pdf(i) = SIGMA(PMFacc(i,))/NoScenarios ;
+ END</pre>
+                <p>We have defined new distributed Variables to contain the values of the Variables of interest in each scenario. These are
+ T for the temperature and ProdMolFrac for the mole fraction of the product D
+ (<i class="emphasis">i.e.</i> x_4). Again, Parameters are defined that describe the upper and lower limits of the distribution and its coarseness.
+ Finally, Variables are defined for the mean, variance and standard deviation of the product mole fraction. The equations are the same as were
+ described before, except that there is no equation for the standard deviation or to relate the variable ProdMolFrac to
+ the X(4) Variables in each scenario. While we could include the equation for the standard deviation in this model, by
+ using the equation:</p><pre class="programlisting">PMFstddev^2 = PMFvariance ;</pre>
+                <p>this tends to slow the simulation down. The alternative used here is to Assign PMFstddev to a temporary value in
+ the Process section and to Reset it at the end of the simulation using:</p><pre class="programlisting">SCHEDULE
+ SEQUENCE
+ ...
+ RESET
+ xxx.PMFstddev := SQRT(OLD(xxx.PMFvariance)) ;
+ END
+ END</pre>
+                <p>The final difference is the missing equation relating ProdMolFrac to Scenarios().X(4).
+ This is because we are plotting a pdf of a dynamic variable and want to avoid slowing the simulation but are demonstrating a different approach
+ to the one described before (where the additional 'End' variable was used). Here, we can avoid this additional variable simply by Assigning
+ ProdMolFrac itself and then Resetting at the end of the simulation. The disadvantage with this approach is that you
+ cannot plot the mean of the distribution over time; it only contains the correct value at the end of the simulation, when
+ ProdMolFrac gets assigned the correct values. In this example, we were not concerned with plotting the mean,
+      <i class="emphasis">etc.</i>, over time and so this approach is an appropriate alternative. The final extract of the gPROMS project, the Process
+ entity, is shown below.</p><pre class="programlisting"># PROCESS Stochastic
+
+ UNIT
+ R101 AS Stochastic_LiquidPhaseCSTR
+
+ SET
+ WITHIN R101 DO
+ NoScenarios := 1000 ;
+ Upper_PMF := 0.95 ;
+ Lower_PMF := 0.92 ;
+ NoInt_PMF := 20 ;
+ Dist_PMF := [ BFDM, 1, NoInt_PMF ] ;
+
+ NoComp := 4 ;
+ NoReac := 2 ;
+
+ Nu := [ -1, 0,
+ -1, 0, 
+ 1, -1, 
+ 0, 1 ] ;
+
+ Order := [ 1, 0,
+ 1, 0,
+ 0, 1,
+ 0, 0 ] ;
+
+ R := 8.31441 ; # kJ/kmol/K
+
+ ArrhConstant := [ 8E-3, 1E-2 ] ; # m3/kmol s
+ ActivationEnergy := [ 8000, 6000 ] ; # kJ/kmol
+
+ Density := [ 17.48, 17.15, 10.24, 55.56 ] ; # kmol/m3
+ END
+
+ ASSIGN
+ WITHIN R101 DO
+ PMFstddev := 0 ;
+ FOR i := 1 TO NoScenarios DO
+ ProdMolFrac(i) := 0 ;
+ WITHIN Scenarios(i) DO
+ Fin := 0 ;
+ Fout := 0 ;
+ Xin := [ 0.5, 0.5, 0, 0 ] ;
+ T := NORMAL(353, 2) ;
+ END
+ END
+ END
+
+ INITIAL
+ WITHIN R101 DO
+ FOR i := 1 TO NoScenarios DO
+ WITHIN Scenarios(i) DO
+ X(2) = X(1) ;
+ X(3) = 0 ;
+ X(4) = 0 ;
+ TotalVolume = 10 ;
+ END
+ END
+ END
+
+ SCHEDULE
+ SEQUENCE
+ CONTINUE FOR 3600
+ RESET
+ FOR i := 1 TO R101.NoScenarios DO
+ R101.ProdMolFrac(i) := OLD(R101.Scenarios(i).X(4)) ;
+ END
+ END
+ RESET
+ R101.PMFstddev := SQRT(OLD(R101.PMFvariance)) ;
+ END
+ CONTINUE FOR .01
+ END</pre>
+                <p>Below are some comments on the PROCESS.</p>
+                <ul>
+                    <li value="1">
+                        <p>SET: This section illustrates a couple of useful features in gPROMS. The first is that some of the
+ Parameters are having their default values overridden. The second is that all of the
+ Parameters in the lower-level model (LiquidPhaseCSTR) are being propagated.</p>
+                    </li>
+                    <li value="2">
+                        <p>ASSIGN: In this section we assign the dummy values to ProdMolFrac and
+ PMFstddev. Also, some of the degrees of freedom of the LiquidPhaseCSTR model are set, e.g.
+ the inlet and outlet flowrates, which are set to zero. Finally, the temperature for each scenario is set a random value from the normal
+ distribution, <i class="emphasis">N(353,2)</i>.</p>
+                    </li>
+                    <li value="3">
+                        <p>INITIAL: A typical set of initial conditions are used here.</p>
+                    </li>
+                    <li value="4">
+                        <p>SCHEDULE: This sections illustrates the Resetting of the
+ Variables ProdMolFrac and PMFstddev. Note that because
+ PMFstddev depends on ProdMolFrac, the latter <i class="emphasis">must</i> be
+ RESET before the former in a separate RESET task. If they are
+ RESET in the same task, then PMFstddev will be RESET based on the
+ values in ProdMolFrac from <i class="emphasis">before</i> the RESET task.</p>
+                        <p>Finally, on some systems gRMS may not be able to plot the pdf Variables correctly (sometimes the value after the Reset is ignored by
+ gRMS). A simple solution is to include a short Continue at the end of the Schedule. This is not an issue with the Excel output channel,
+ although sending the values of a large number of Variables to Excel takes a considerable length of time. It is therefore recommended that
+ you Monitor only the Variables that are necessary.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="sect2">
+                <h2 class="sect2"><a name="AEN7096"></a>Stochastic simulation results</h2>
+                <p>The results of the stochastic simulation are shown in the figures below. The last one also illustrates that in this model, the value of
+ the standard deviation is only correct at the end of the simulation.</p>
+                <div class="figure"><a name="AEN7099"></a>
+                    <div class="mediaobject">
+                        <p>
+                            <img src="../Resources/Images/MDG_T.png" />
+                        </p>
+                    </div>
+                    <p class="FigureCaption"> Values assigned to the temperature for each scenario.</p>
+                </div>
+                <div class="figure"><a name="AEN7104"></a>
+                    <div class="mediaobject">
+                        <p>
+                            <img src="../Resources/Images/MDG_PDF.png" />
+                        </p>
+                    </div>
+                    <p class="FigureCaption"> Probability density function for the product mole fraction X(4).</p>
+                </div>
+                <div class="figure"><a name="AEN7109"></a>
+                    <div class="mediaobject">
+                        <p>
+                            <img src="../Resources/Images/MDG_SD.png" />
+                        </p>
+                    </div>
+                    <p class="FigureCaption"> Standard deviation of the product mole fraction X(4).</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

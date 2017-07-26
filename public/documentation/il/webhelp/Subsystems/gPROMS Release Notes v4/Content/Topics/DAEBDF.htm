@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gPROMS Release Notes v4.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="What's new in [%=Product.Name%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>The new DAEBDF solver for DAE systems</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../gPROMS Release Notes v4.htm#Topics/DAEBDF.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Overview of the new version.htm">What's new in gPROMS ModelBuilder</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The new DAEBDF solver for DAE systems</span>
+            </div>
+        </div>
+        <h1>The new DAEBDF solver for DAE systems</h1>
+        <p>A new solver for DAE systems, DAEBDF, has been introduced with the aim to further increase performance and robustness of gPROMS numerical solvers. It constitutes a complete rewrite of the existing solver DASOLV. The rewrite is part of PSE's continual effort to renew its code base wherever it is deemed necessary and opens new avenues for future improvements. The intention is to entirely supersede DASOLV in one of the next gPROMS&#160;versions.</p>
+        <p>The current version can be applied to simulation activities where the goal is to be fully backward compatible. This means that all models that have successfully simulated with DASOLV will also solve in DAEBDF, and PSE&#160;has used a large test set of simulation problems to make sure DAEBDF&#160;behaves as intended. Since DAEBDF&#160;already contains improvements over DASOLV, a number of models that fail with DASOLV will now work with DAEBDF. On top of that, DAEBDF&#160;should be faster in most applications.</p>
+        <p>One larger algorithmic change is the exclusion of algebraic variables from the error tests. While this is appropriate for dynamic systems, purely algebraic systems that are solved over time may suffer from reduced performance. A new — compared to DASOLV — solution parameter has been introduced that enforces the algebraic variables to be included in the error test. </p>
+        <p>Other algorithmic changes with significant performance benefits for some models concern step size calculations and the handling of reductions.</p>
+        <p>The following solution parameters have been added to DAEBDF:</p>
+        <dl>
+            <dt>InitialStepSize - A real number in the range [10<sup>-20</sup>, 10<sup>20</sup>]; default 10<sup>-20</sup></dt>
+            <dd>
+                <p>If larger than the machine accuracy (~10<sup>-16</sup>), the value will be used to set the size of of the initial time step. Otherwise, it will be estimated by the solver.</p>
+            </dd>
+            <dt>IncludeAlgebraicSetInErrorNorm - A boolean value, TRUE&#160;or FALSE; default FALSE</dt>
+            <dd>
+                <p>Include all algebraic variables in the norm calculation that is used for both the error test and the step-size estimation.</p>
+            </dd>
+        </dl>
+        <p>MaximumListedVariablesForNormContributions replaces and extends VariablesWithLargestCorrectorSteps because the report now includes variables contributing to error test failures:</p>
+        <dl>
+            <dt>MaximumListedVariablesForNormContributions - An integer number in the range [0, 1000]; default 5</dt>
+            <dd>
+                <p>Maximum number of reported variables that contribute most to the corrector iteration or error test norm.</p>
+            </dd>
+        </dl>
+        <p>The solution parameter <span class="entityName">Diag</span> is not available in DAEBDF and the desired diagnostic outputs can be achieved by specifying the output levels of the solvers of interest. SenErr and FiniteDifferences are not required because sensitivities are not yet calculated in DAEBDF.</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+var xmlAliasData = "";
+xmlAliasData += '<?xml version=\"1.0\" encoding=\"utf-8\"?>';
+xmlAliasData += '<CatapultAliasFile>';
+xmlAliasData += '    <!-- saved from url=(0016)http://localhost -->';
+xmlAliasData += '    <Map Name=\"MODEL_VALIDATION_GUIDE\" Link=\"Topics/c251.html\" ResolvedId=\"4003\" />';
+xmlAliasData += '    <Map Name=\"MSVM\" Link=\"Topics/x304.html\" ResolvedId=\"4002\" />';
+xmlAliasData += '    <Map Name=\"PE_EXECUTION_DIALOG\" Link=\"Topics/x1235.html\" ResolvedId=\"4004\" />';
+xmlAliasData += '    <Map Name=\"MV_VARIABLE_CHOOSER\" Link=\"Topics/x463.html\" ResolvedId=\"4000\" />';
+xmlAliasData += '    <Map Name=\"PEIG\" Link=\"Topics/c570.html\" ResolvedId=\"4001\" />';
+xmlAliasData += '</CatapultAliasFile>';
+MadCap.Utilities.Xhr._FilePathToXmlStringMap.Add('Alias', xmlAliasData);

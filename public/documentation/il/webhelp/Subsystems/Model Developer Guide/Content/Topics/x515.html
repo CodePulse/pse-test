@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|gPROMS Fundamentals">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Saved Variable Sets</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x515.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="Custom Modelling.htm">Custom Modelling in gPROMS</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="c251.html">gPROMS Fundamentals</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Saved Variable Sets</span>
+            </div>
+        </div>
+        <h1><a name="AEN515"></a>Saved Variable Sets</h1>
+        <p>The values of all Model Variable and Selectors at a particular simulation time can be saved for later re-use; these values are stored in
+    <i class="emphasis">Saved Variable Sets</i>.</p>
+        <p><i class="emphasis">Saved Variable Sets</i> are used</p>
+        <ul>
+            <li value="1">
+                <p>to provide good initial guesses for initialisation calculations (over-riding the default values for the Variables taken from their
+ Variable Type). This is done in the <a href="x7141.html">PRESET</a> section.</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>during a simulation to change the values of the Variables and Selectors to those stored in the Saved Variable Set.</p>
+            </li>
+        </ul>
+        <p><i class="emphasis">Saved Variable Sets </i>are created from a simulation activity either</p>
+        <ul>
+            <li value="1">
+                <p>using the <a href="x6505.html">SAVE elementary task</a> in a Schedule</p>
+            </li>
+        </ul>
+        <ul>
+            <li value="1">
+                <p>right clicking on the Execution Window and selecting <b class="guibutton">Create Saved Variable Set </b>..... from the short-cut menu.
+ Note that this is only possible if a license was retained following the execution of the simulation activity:</p>
+            </li>
+        </ul>
+        <div class="mediaobject">
+            <p>
+                <img src="../Resources/Images/MDG_CreatingASavedVariableSet.png" />
+            </p>
+        </div>
+        <p>Any new <i class="emphasis">Saved </i><i class="emphasis">Variable Set</i> created during a simulation activity will be stored in the Results
+ folder of the Execution Case. In order to use it in any subsequent activity the <i class="emphasis">Saved Variable Set</i> must be copied into the
+ working project where it will appear in the <i class="emphasis">Saved Variable Sets</i> entity group.</p>
+        <div class="figure"><a name="AEN546"></a>
+            <div class="mediaobject">
+                <p>
+                    <img src="../Resources/Images/MDG_SavedVariableSets1b.png" />
+                </p>
+            </div>
+            <p class="FigureCaption"> An example of a Saved Variable Set</p>
+        </div>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2016 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Help.xml" data-mc-path-to-help-system="../../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="gPROMS&#160;Model Library|gML Water|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Key equations</title>
+        <link href="../../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <link href="../../../../../Resources/TableStyles/Nomenclature_dropdown.css" rel="stylesheet" />
+        <link href="../../../../../Resources/TableStyles/Equation.css" rel="stylesheet" />
+        <script src="../../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../../Help.htm#Topics/Model Documentation/Water/Activated Sludge Tanks/PFR AS/Key equations.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1>Key equations</h1>
+        <p>The Activated Sludge Models (ASMs) used to compute the biochemical reactions are described in the section <a href="../../Activated Sludge Models/Activated Sludge Models.htm" class="MCXref xref">'Activated Sludge Models (ASMs)'</a>  The documentation for the model used to compute the pH and the electrolytes system can be found at <a href="../../Electrolyte system/Electrolyte system.htm" class="MCXref xref">'Electrolyte system equilibriums'</a></p>
+        <p>The components involved in the mass balances are specific to the activated sludge and water chemistry model in use. </p>
+        <p>This model assume a constant water volume and a constant pressure, but takes into account the hydrostatic pressure to determine the gas-liquid mass transfer.</p>
+        <h2>Mass reaction rate</h2>
+        <p>The mass reaction rate for each component <span class="InlineEquation">j</span> is the difference between the net component production rate by biochemical reactions in the ASM submodel and the liquid-gas transfer rate.</p>
+        <p>All mass transfer rates are computed at each point of a longitudinal grid.</p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3098.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(1)"><span class="autonumber"><span>(1)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Mass reaction rate notation"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Mass reaction rate notation">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3099.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Mass reaction rate for component <span class="InlineEquation">j</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">g m<sup>-3</sup> day<sup>-1</sup></td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3100.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Biochemical reactions' net production rate for component <span class="InlineEquation">j</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">g m<sup>-3</sup> day<sup>-1</sup></td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3101.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">Liquid-gas transfer rate for component <span class="InlineEquation">j</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">g m<sup>-3</sup> day<sup>-1</sup></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Liquid - gas transfer</h2>
+        <p>The liquid-gas transfer is calculated with the following expression:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3102.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(2)"><span class="autonumber"><span>(2)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Liquid - gas transfer notation"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Liquid - gas transfer notation">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3103.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Gas transfer coefficient for gas component <span class="InlineEquation">i</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">day<sup>-1</sup></td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3104.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Concentration of model component <span class="InlineEquation">i</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">g/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3105.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Saturation concentration of model component <span class="InlineEquation">i</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">g/m<sup>3</sup> <![CDATA[ ]]></td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3106.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">Model gas components set</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Gas transfer coefficients</h3>
+        <p>The different gas transfer coefficients are computed using the following relationship with the oxygen gas transfer coefficient:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <p>
+                            <img src="../../../../../GeneratedImages/Equations/Equation3107.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(3)"><span class="autonumber"><span>(3)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The oxygen gas transfer coefficient is computed at a reference temperature and then corrected using this relationship:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <p>
+                            <img src="../../../../../GeneratedImages/Equations/Equation3108.svg" alt="" class="_MCEquation_0 mcReset" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(4)"><span class="autonumber"><span>(4)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The correction factor used by default is 1.024. (Gillot et al., 2005)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">1<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Gillot et al.,2005. Predicting oxygen transfer of fine bubble diffused aeration systems — model issued from dimensional analysis, Water Research 39, 1379-1387.</span></a></p>
+        <h3>Saturation concentrations</h3>
+        <p>The saturation concentrations are computed using the Henry law. The Henry constants are corrected for the working temperature.</p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3109.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(5)"><span class="autonumber"><span>(5)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Saturations concentrations notation"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Saturations concentrations notation">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3110.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Henry constant for gas component <span class="InlineEquation">i</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">g m<sup>-3</sup> Pa<sup>-1</sup></td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3111.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">Partial pressure of gas component <span class="InlineEquation">i</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">Pa</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Mass balance</h2>
+        <p>The mass balance for each model component<span class="InlineEquation">j</span> is given by the following local transport equation:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3112.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(6)"><span class="autonumber"><span>(6)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The mass balance for each gas considered<span class="InlineEquation">i</span> is given by the following local transport equation:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3113.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(7)"><span class="autonumber"><span>(7)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly">No volume change is considered in this model:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3114.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(8)"><span class="autonumber"><span>(8)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Mass balance water"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a>
+        </p>
+        <table style="mc-table-style: url('../../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Mass balance water">
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column1" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column2" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column3" />
+            <col class="TableStyle-Nomenclature_dropdown-Column-Column4" />
+            <tbody>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3115.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Concentration of component <span class="InlineEquation">j</span> at position <span class="InlineEquation">z</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">g/m<sup>3</sup></td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3116.svg" alt="" class="_Inline_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Longitudinal water velocity</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">m/s</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3117.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Axial dispersion coefficient</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1" style="vertical-align: baseline;">m<sup>2</sup>/day<sup></sup></td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3118.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Inlet mass flow-rate of gas component <span class="InlineEquation">i</span> at position <span class="InlineEquation">z</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1" style="vertical-align: baseline;">g/day</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3119.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Outlet mass flow-rate of gas component <span class="InlineEquation">i</span> at position <span class="InlineEquation">z</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1" style="vertical-align: baseline;">g/day</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3120.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Liquid - gas transfer rate for gas component <span class="InlineEquation">i</span> at position <span class="InlineEquation">z</span></td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1" style="vertical-align: baseline;">g m<sup>-3</sup> day<sup>-1</sup></td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3121.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Inlet volumetric flowrate</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">m<sup>3</sup>/day</td>
+                </tr>
+                <tr class="TableStyle-Nomenclature_dropdown-Body-Body1">
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3122.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">Outlet volumetric flowrate</td>
+                    <td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">m<sup>3</sup>/day</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Dispersion coefficient</h3>
+        <p data-mc-conditions="Default.ScreenOnly">The axial dispersion coefficient is assumed constant along the position z and is determined from the total air flowrate, as follows :</p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0">
+            <col class="TableStyle-Equation-Column-Column1" style="width: 80%;" />
+            <col class="TableStyle-Equation-Column-Column2" />
+            <tbody>
+                <tr class="TableStyle-Equation-Body-Body2">
+                    <td class="TableStyle-Equation-BodyB-Column1-Body2">
+                        <img src="../../../../../GeneratedImages/Equations/Equation3123.svg" alt="" class="_MCEquation_0 mcReset" />
+                    </td>
+                    <td class="TableStyle-Equation-BodyA-Column2-Body2">
+                        <p class="EquationNumber" data-mc-autonum="(9)"><span class="autonumber"><span>(9)</span></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>(Lemoullec et al, 2008)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">2<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Lemoullec Y, Potier O, Gentric C, Leclerc JP. (2008): A general correlation to predict axial dispersion coefficients in aerated channel reactors, Water Research 42(6-7), 1767-1777.</span></a><p data-mc-conditions="Default.ScreenOnly">It is related to the Peclet number:</p><table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0"><col class="TableStyle-Equation-Column-Column1" style="width: 80%;" /><col class="TableStyle-Equation-Column-Column2" /><tbody><tr class="TableStyle-Equation-Body-Body2"><td class="TableStyle-Equation-BodyB-Column1-Body2"><img src="../../../../../GeneratedImages/Equations/Equation3124.svg" alt="" class="_MCEquation_0 mcReset" /></td><td class="TableStyle-Equation-BodyA-Column2-Body2"><p class="EquationNumber" data-mc-autonum="(10)"><span class="autonumber"><span>(10)</span></span></p></td></tr></tbody></table><p data-mc-conditions="Default.ScreenOnly"><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Mass balance water"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a></p><table style="mc-table-style: url('../../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Mass balance water"><col class="TableStyle-Nomenclature_dropdown-Column-Column1" /><col class="TableStyle-Nomenclature_dropdown-Column-Column2" /><col class="TableStyle-Nomenclature_dropdown-Column-Column3" /><col class="TableStyle-Nomenclature_dropdown-Column-Column4" /><tbody><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3125.svg" alt="" class="_Inline_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Reactor depth</td><td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">m</td></tr><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3126.svg" alt="" class="_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Reactor length</td><td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">m</td></tr><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3127.svg" alt="" class="_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Reactor width</td><td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">m</td></tr><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3128.svg" alt="" class="_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Air diffuser width</td><td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">m</td></tr><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3129.svg" alt="" class="_Inline_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Volumetric air flow-rate</td><td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">m<sup>3</sup>/s</td></tr><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3130.svg" alt="" class="_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1">Peclet number</td><td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">-</td></tr></tbody></table><h2>Heat transfer</h2><p>If activated in the specifications, the energy source term is computed by considering the local environmental conditions and the biological processes energy production.</p><p>Please refer to <a href="../../Activated Sludge Models/ASM1/Key equations.htm" class="MCXref xref">'Key equations'</a> for biological processes reactions energy sources, and to (Talati and Stenstrom, 1990)<a href="javascript:void(0);" class="MCTextPopup popup popupHead" style="font-size: 0.9em; vertical-align: super">3<span class="MCTextPopupBody MCTextPopupBody_Closed needs-pie popupBody"><span class="MCTextPopupArrow"></span>Talati, S.N., Stenstrom, M.K. (1990).Aeration basin heat loss. Journal of Environmental Engineering,116, 70–86.</span></a> for more details about the weather contribution model.</p><table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0"><col class="TableStyle-Equation-Column-Column1" style="width: 80%;" /><col class="TableStyle-Equation-Column-Column2" /><tbody><tr class="TableStyle-Equation-Body-Body2"><td class="TableStyle-Equation-BodyB-Column1-Body2"><img src="../../../../../GeneratedImages/Equations/Equation3131.svg" alt="" class="_MCEquation_0 mcReset" /></td><td class="TableStyle-Equation-BodyA-Column2-Body2"><p class="EquationNumber" data-mc-autonum="(11)"><span class="autonumber"><span>(11)</span></span></p></td></tr></tbody></table><p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Mass balance water"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a></p><table style="mc-table-style: url('../../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Mass balance water"><col class="TableStyle-Nomenclature_dropdown-Column-Column1" /><col class="TableStyle-Nomenclature_dropdown-Column-Column2" /><col class="TableStyle-Nomenclature_dropdown-Column-Column3" /><col class="TableStyle-Nomenclature_dropdown-Column-Column4" /><tbody><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3132.svg" alt="" class="_Inline_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Energy source for the energy balance equation</td><td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">W/m<sup>3</sup></td></tr><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3133.svg" alt="" class="_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Weather contribution to the energy source</td><td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">W/m<sup>3</sup></td></tr><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3134.svg" alt="" class="_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1" style="vertical-align: baseline;">Biochemical reactions heat contribution to the energy source</td><td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">W/m<sup>3</sup></td></tr></tbody></table><h2>Energy balance</h2><p>The energy balance is given by the following equation, where the axial heat dispersion is assumed to be equal to the hydraulic axial dispersion:</p><table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Equation.css');" class="TableStyle-Equation" cellspacing="0"><col class="TableStyle-Equation-Column-Column1" style="width: 80%;" /><col class="TableStyle-Equation-Column-Column2" /><tbody><tr class="TableStyle-Equation-Body-Body2"><td class="TableStyle-Equation-BodyB-Column1-Body2"><img src="../../../../../GeneratedImages/Equations/Equation3135.svg" alt="" class="_MCEquation_0 mcReset" /></td><td class="TableStyle-Equation-BodyA-Column2-Body2"><p class="EquationNumber" data-mc-autonum="(12)"><span class="autonumber"><span>(12)</span></span></p></td></tr></tbody></table><p><a href="javascript:void(0);" class="MCToggler MCTogglerHead MCTogglerHotSpot MCToggler_Open toggler MCTogglerHotSpot_ MCHotSpotImage" data-mc-targets="Energy balance notation"><img class="MCToggler_Image_Icon" src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="13" width="16" alt="Closed" data-mc-alt2="Open" />Notation</a></p><table style="mc-table-style: url('../../../../../Resources/TableStyles/Nomenclature_dropdown.css');display: none;" class="TableStyle-Nomenclature_dropdown" cellspacing="0" data-mc-target-name="Energy balance notation"><col class="TableStyle-Nomenclature_dropdown-Column-Column1" /><col class="TableStyle-Nomenclature_dropdown-Column-Column2" /><col class="TableStyle-Nomenclature_dropdown-Column-Column3" /><col class="TableStyle-Nomenclature_dropdown-Column-Column4" /><tbody><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3136.svg" alt="" class="_Inline_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Water density</td><td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">kg/m<sup>3</sup></td></tr><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyE-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3137.svg" alt="" class="_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyE-Column3-Body1">Specific heat capacity</td><td class="TableStyle-Nomenclature_dropdown-BodyD-Column4-Body1">J kg<sup>-1</sup> K<sup>-1</sup></td></tr><tr class="TableStyle-Nomenclature_dropdown-Body-Body1"><td class="TableStyle-Nomenclature_dropdown-BodyB-Column1-Body1">&#160;</td><td class="TableStyle-Nomenclature_dropdown-BodyB-Column2-Body1"><img src="../../../../../GeneratedImages/Equations/Equation3138.svg" alt="" class="_MCEquation_0 mcReset" /></td><td class="TableStyle-Nomenclature_dropdown-BodyB-Column3-Body1" style="vertical-align: baseline;">Axial heat dispersion coefficient</td><td class="TableStyle-Nomenclature_dropdown-BodyA-Column4-Body1">m<sup>2</sup>/day</td></tr></tbody></table><div><p class="Footer">&#160;</p><p class="Footer">&#160;</p><hr width="100%" size="0" align="center" /><p class="Footer">Commercial in confidence</p><p class="Footer">© 2017 Process Systems Enterprise Limited</p></div></body>
+</html>

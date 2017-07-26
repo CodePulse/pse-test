@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Utilities.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Workflow Guides|Developing models with [%=Product.Name%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Configuring custom equations</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Utilities.htm#Topics/Workflow Guides/Utilities/Model development/How to add custom equations.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../Workflow guides.htm">Workflow Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Introduction.htm">Developing models with gPROMS ProcessBuilder</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Configuring custom equations</span>
+            </div>
+        </div>
+        <h2 class="Heading2">Configuring custom equations</h2>
+        <p class="p_1">Often a degree of customisation is required to fully represent site operation. It is often useful to view wider performance indicators. For example,  the total steam demand or production on-site. These may also act as operational limitations or constraints, for example, to maintain a minimum site spinning reserve.</p>
+        <p class="p_1">Some constraints can be introduced by using the Signal Manipulator library model. This is used to determine a flow or on/off status of one model based on the value of another. This is especially useful for optimisation, to impose conditions such as “the flow from one source must always be double the flow to this steam demand”, or "the hot standby must be on if the boiler is off, and vice versa.”</p>
+        <div class="figure">
+            <img src="../../../../Resources/Images/Workflow guide - Model Development/How to add custom equations.png" style="height: 290px;width: 460px;" class="img_2" />
+            <p class="FigureCaption">Using the Manipulate spec model to customise status and flow variables</p>
+        </div>
+        <p class="p_1">If a Manipulate spec model is used to define the status of a model (as in the example), it can either be equal to or the opposite of the incoming signal. The status specification in the connected model must be unchecked (as in the example), to avoid defining the same variable twice.</p>
+        <p class="p_1">gML Utilities also provides two in-built methods to introduce custom equations to the flowsheet. These are accessed through the Site custom constraints and Site KPIs library models, which can be added to the flowsheet in the same way as any other unit. There are no connections to these models, as they do not alter any material flows on site. <span class="span_1">Custom Modelling is required to use this feature.</span></p>
+        <p class="p_1">Add constraints or key performance indicators by opening the model specification dialog. Provide names for each equation or metric required as shown below.</p>
+        <div class="figure">
+            <p class="p_1">
+                <img src="../../../../Resources/Images/Workflow guide - Model Development/How to add custom equations_1.png" style="height: 283px;width: 602px;" class="img_1" />
+            </p>
+            <p class="programlistingCaption">Adding custom equations</p>
+        </div>
+        <p class="Caption_1">Once named, to define each custom constraint and KPI, go to the 'gPROMS language' tab as shown above. Define an Equation section by typing "EQUATION" at the end of the existing text and insert an appropriate equation for each constraint and KPI, as shown below.</p>
+        <div class="programlisting"><pre xml:space="preserve" class="programlisting">
+        <span style="color: #ff0000;">EQUATION</span>
+        <span style="color: #696969;">
+&lt;write the equations that define the custom constraint or KPI here&gt;</span>
+Site_custom_constraints_gML.cc(<span style="color: #ff0000;">'Name of your constraint'</span>) = Enter equation here ;</pre><pre xml:space="preserve" class="programlisting">
+Site_KPIs_gML.KPI(<span style="color: #ff0000;">'Name of your KPI'</span>) = Enter equation here ;</pre>
+            <p class="programlistingCaption">Defining custom constraints and key performance indicators</p>
+        </div>
+        <p class="p_1">Any variable, in any model, in the flowsheet is accessible when writing the equations. Start typing the name and use Control+Space to see the available options.</p>
+        <div class="tip" data-mc-autonum="&lt;b&gt;Hint&lt;/b&gt;"><span class="autonumber"><span><b>Hint</b></span></span>
+            <p class="p_1">It is also possible to create and package custom models which can then be dragged and dropped onto the same flowsheet to interact with the library models.</p>
+        </div>
+        <p class="p_1">&#160;</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="gFP.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Workflows|Data processing and parameter estimation|Parameter estimation">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Solution parameters</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../../../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../gFP.htm#Topics/Workflow Guides/Data processing and parameter estimation/4.3 Solution parameters.htm">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../Workflow Guides.htm">Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Data processing and parameter estimation.htm">Data processing and parameter estimation</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="4 Parameter estimation.htm">Parameter estimation</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Solution parameters</span>
+            </div>
+        </div>
+        <h2>Solution parameters</h2>
+        <p>Adjusting the output level in the SOLUTIONPARAMETERS section of the Process will enable you to change the amount of information sent to the execution window during the execution of an Estimation activity.&#160; In order to do this it is recommended to follow the points below:</p>
+        <ol style="list-style-type: decimal;margin-left: 36pt;" start="1">
+            <li value="1">Right click on the process entity associated with the parameter estimation entity</li>
+            <li value="2">Go to Open on tab&gt;Solution parameters</li>
+            <li value="3">Go to Numerical solvers&gt;PESolver.&#160; Change the OutputLevel to 4.</li>
+            <li value="4">Go to Numerical solvers&gt;PESolver &gt;MINLPSolver.&#160; Change the OutputLevel to 2.</li>
+        </ol>
+        <p>After adjusting the solution parameters, one is ready to execute the parameter estimation entity.&#160; In order to do this, right click on the parameter estimation entity you created and then click on “Estimate”. Alternatively, the estimate icon, <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Solution parameters.png" style="visibility: visible;mso-wrap-style: square;width: 28px;height: 20px;" /> , located on the toolbar can be used to run the parameter estimation entity. If there are any syntactical, cross-referencing mistakes or other mistakes in the setup, these will be reported.&#160; Otherwise, an execution options dialog will be displayed, similar to that shown below.&#160; </p>
+        <p>&#160;</p>
+        <p style="text-align: center;">
+            <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Solution parameters_1.png" style="visibility: visible;mso-wrap-style: square;width: 334px;height: 366px;" />
+        </p>
+        <p class="FigureCaption">Execution options dialog.</p>
+        <p class="example"><b>Concept &gt; Monitoring progress of parameter estimation</b>. The progress of the parameter estimation run can be monitored through the trajectories. As the parameter estimation optimiser steps through each iteration to obtain the best fit parameters, the user can view (graphically) the progress via a comparison of “current” prediction versus measurements. Due to the complexity of the problem, large parameter estimation runs may take several hours to finish.</p>
+        <p>&#160;</p>
+        <p class="example"><b>Best practice&gt;</b> Graphical monitoring through trajectory plots with measured data is a good way to check if the initial values of the parameters are adequate and also if the trends and variances in the measurements are as expected. Many times, it is necessary to abort the run, make a change and re-run.</p>
+        <p>&#160;</p>
+        <p>In that dialog, ensure that the dropdown field below the Reporting interval field is set to Major iterations.&#160; That option allows monitoring the progress of the parameter estimation in terms of the quality of fit via the Trajectories in the Case that will be created after clicking OK in the dialog above, an example is shown below.</p>
+        <p style="text-align: center;">
+            <img src="../../../Resources/Images/gSOLIDS Workflow for Data Processing and Parameter Estimation/Solution parameters_2.png" style="visibility: visible;mso-wrap-style: square;width: 485px;height: 370px;" />
+        </p>
+        <p class="FigureCaption">Monitoring trajectories during a parmeter estimation</p>
+        <p>Once the parameter estimation has been successfully performed:</p>
+        <ul style="list-style-type: disc;margin-left: 36pt;">
+            <li style="list-style-type: disc;" value="1">View the results in the case.</li>
+            <li style="list-style-type: disc;" value="2">Export the results to Excel by double clicking on the stat-mr entity in the Results folder of the Case.</li>
+            <li style="list-style-type: disc;" value="3">Copy the estimated values back to the relevant unit operation model in the original flowsheet model to perform a comprehensive simulation.</li>
+        </ul>
+        <p>&#160;</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-gb" xml:lang="en-gb" data-mc-search-type="Stem" data-mc-help-system-file-name="Model Developer Guide.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Custom Modelling in gPROMS|Model Analysis and Diagnosis|High-index DAE systems|Origin of index and the initialisation of DAEs">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Heater example</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/GeneralStyles.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../Model Developer Guide.htm#Topics/x8484.html">Open topic with navigation</a>
+        </p>
+        <div>
+            <div class="nocontent">
+                <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="5" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                </div>
+            </div>
+        </div>
+        <h1><a name="MDG_Diag_HeaterExample"></a>Heater example</h1>
+        <p>This example illustrates how a very simple model can still become high index, given the wrong input specification. This is a model of a
+ well-stirred tank used to heat a single-component stream.</p><pre class="programlisting">EQUATION
+ rho*V*$u = F*(h_in - h) + Q ;
+ u = PhysProp.InternalEnergy(T) ;
+ h = PhysProp.Enthalpy(T) ;</pre>
+        <p>here, <code class="varname">F</code> is the flowrate of material through the heater; <code class="varname">rho</code> is the density of the fluid;
+        <code class="varname">V</code> the volume of the tank; <code class="varname">u</code> and <code class="varname">h</code> are the internal energy and enthalpy, respectively,
+ of the material in the tank; <code class="varname">h_in</code> is the inlet enthalpy; <code class="varname">PhysProp.InternalEnergy(T)</code> and
+        <code class="varname">PhysProp.Enthalpy(T)</code> are physical-property foreign-object methods returning the internal energy and enthalpy of a single
+ component given its temperature, <code class="varname">T</code>; and finally <code class="varname">Q</code> is rate of heating. <code class="varname">rho</code>,
+        <code class="varname">V</code>, <code class="varname">F</code> and <code class="varname">h_in</code> are all given.</p>
+        <p>To complete the model, the variable <code class="varname">Q</code> must be specified. If the heating was being provided by a steam jacket, then
+        <code class="varname">Q</code> can be determined using a suitable heat-transfer law. Alternatively, electric heating can be modelled simply by
+ specifying the value of <code class="varname">Q</code> over time, e.g. Q = Q(t). In either of these cases, the model can be solved easily. Since there
+ is one differential variable, <code class="varname">u</code>, we can provide an initial condition for it, <code class="varname">u(0)</code>. We can now calculate
+        <code class="varname">T(0)</code> from the second equation and <code class="varname">h(0)</code> from the third. Now the first equation can be used, along with
+ the initial value of <code class="varname">Q</code>, to calculate <code class="varname">u(0)</code>, completing the initialisation problem.</p>
+        <p>However, what if we wanted to know what heating profile would provide a given temperature profile? We may, then, choose to release the
+ specification on <code class="varname">Q</code> and provide one for <code class="varname">T</code>. Given the same initial specification, <code class="varname">u(0)</code>,
+ we can still calculate <code class="varname">T(0)</code> from the second equation and <code class="varname">h(0)</code> from the third. Immediately, we can see
+ that there is a problem, because our calculated <code class="varname">T(0)</code> may not be the same as the <code class="varname">T(0)</code> specified. Another
+ problem is that there is only one equation left, in the two unknowns, <code class="varname">$u(0)</code> and <code class="varname">Q</code>. There is no way to
+ solve the problem!</p>
+        <div>
+            <p class="Footer">&#160;</p>
+            <p class="Footer">&#160;</p>
+            <hr width="100%" size="0" align="center" />
+            <p class="Footer">Commercial in confidence</p>
+            <p class="Footer">© 2017 Process Systems Enterprise Limited</p>
+        </div>
+    </body>
+</html>
