@@ -1,5 +1,6 @@
 variables:
-  DEPLOY_PATH: gitlabrunner@devcms:/var/www/virtual/website
+  DEPLOY_TEST_PATH: gitlabrunner@devcms:/var/www/virtual/website
+  DEPLOY_LIVE_PATH: gitlab-slave@devcms:/var/www/virtual/website
 
 deploy_test:
   stage: deploy
@@ -11,4 +12,18 @@ deploy_test:
   only:
     - develop
   script:
-    - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_PATH --delete
+    - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_TEST_PATH --delete
+
+deploy_live:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: fetch
+  environment:
+    name: live
+    url: https://www.psenterprise.com/
+  only:
+    - master
+    - tags
+  script:
+    - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -p 2202 -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_LIVE_PATH --delete
+
