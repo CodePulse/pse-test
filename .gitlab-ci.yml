@@ -22,7 +22,6 @@ deploy_live:
     name: live
     url: https://www.psenterprise.com/
   only:
-    - master
     - tags
   script:
     - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -p 2202 -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_LIVE_PATH --delete
