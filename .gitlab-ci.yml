@@ -1,6 +1,6 @@
 variables:
   DEPLOY_TEST_PATH: gitlabrunner@devcms:/var/www/virtual/website
-  DEPLOY_LIVE_PATH: gitlab-slave@devcms:/var/www/virtual/website
+  DEPLOY_LIVE_PATH: gitlab-slave@cms.psenterprise.com:/var/www/virtual/website
 
 deploy_test:
   stage: deploy
