@@ -617,11 +617,15 @@ function _webform_select_image_options($component, $html = TRUE) {
     $options = array();
     $rows = array_filter(explode("\n", trim($component['extra']['options'])));
     foreach ($rows as $row) {
-      $values = preg_split("/[\|,]+/", $row);
+      $values = preg_split("/[\|]+/", $row);
       $fid = !empty($values[0]) ? $values[0] : NULL;
       $filename = !empty($values[1]) ? $values[1] : NULL;
       $legend = !empty($values[2]) ? $values[2] : NULL;
       $option_description = !empty($values[3]) ? $values[3] : NULL;
+      if ($fid == 3116) {
+        $f='d';
+      }
+
       if($file = file_load($fid)) {
         if($html) {
           if(!empty($component['extra']['image_style'])) {

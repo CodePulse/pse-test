@@ -56,8 +56,11 @@ table .listing-flag {
 	margin-bottom:0 !important;
 }
 .webform-component-select-image .webform-select-image-legend {
-	color:#006c85;
-	font-size:16px;
+	font-size: 120%;
+	font-weight: bold;
+	color: #444;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
 }
 .webform-component-select-image .webform-select-image-legend:hover {
 	color:#2a6496;
@@ -78,7 +81,14 @@ table .listing-flag {
 	width:48%;
 	margin-bottom: 50px;
 	margin-right: 10px;
-	height: 210px;
+	height: 300px;
+}
+.format-item {
+	display:inline-block;
+}
+.format-item img {
+	width:20px;
+	height:auto;
 }
 /*.webform-component-select-image input[type=checkbox].form-checkbox {*/
 	/*position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;*/
@@ -1232,7 +1242,7 @@ form .checkout_review label {
 	border: 0 none;
 }
 
-
+.view-resource-centre th,
 .table-events th {
 	background: #999;
 	color: #fff;
@@ -2748,6 +2758,9 @@ body.node-type-news-articles aside#sidebarnobg {
 	border-top:solid 1px #ccc;
 	margin-right: 24px;
 	padding:0;
+}
+.view-pse-news.view-display-id-first_news_item .row .views-row.views-row-1 {
+	border-top:0;
 }
 
 @media (min-width: 992px) {

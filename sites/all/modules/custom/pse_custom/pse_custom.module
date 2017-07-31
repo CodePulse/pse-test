@@ -102,11 +102,27 @@ function pse_custom_form_alter(&$form, &$form_state, $form_id) {
 
   if (strpos($form_id, 'webform_client_form_') !== FALSE) {
     $form['actions']['next']['#value'] = t('Continue');
-//    $actions = $form['actions'];
-//    $form['duplicate_actions'] = $actions;
-//    $form['duplicate_actions']['next']['#attributes']['class'][] = 'second-submit';
-//    $form['duplicate_actions']['#weight'] = -9;
-//    $f='d';
+    $has_select = 0;
+    foreach ($form['submitted'] as $field) {
+      if(is_array($field)) {
+        $field_type = $field['#webform_component']['type'];
+        if ($field_type == 'select_image') {
+          $form['details']['page_count']['#attributes']['class'] = 'webform-select-type';
+          $form['#attributes']['class'][] = 'webform-client-form-select-image-form-ben';
+
+          $has_select = 1;
+//          unset($form['#attributes']['class'][0]);
+//          $form['#attributes']['select-form'] = 'webform-client-form-select-image-form';
+        }
+      }
+    }
+    if ($has_select) {
+      unset($form['#attributes']['class'][0]);
+      $form['details']['page_count']['#attributes']['class'] = 'webform-select-type-ben';
+      $form['#attributes']['class'][] = 'webform-client-form-select-image-form';
+    }
+
+    $f='d';
   }
 }
 
@@ -460,5 +476,38 @@ function pse_custom_user_logout($account) {
     // Set cookie in the past and then remove it.
     setcookie('org_type', '', REQUEST_TIME - 3600, '/');
     unset($_COOKIE['org_type']);
+  }
+}
+
+/**
+ * Implements hook_url_inbound_alter().
+ */
+function pse_custom_url_inbound_alter(&$path, $original_path, $path_language) {
+  global $user;
+  // industrial - 38
+  // academic - 39
+
+  // A user is trying to access documentations but is not logged in
+  // Redirect them to login page then back to original destination
+  if (strpos($original_path, 'sites/default/files/documentations') !== false && !user_is_logged_in()) {
+    drupal_goto('user/login', array('query' => array('destination' => $original_path)));
+  }
+
+  if (strpos($original_path, 'sites/default/files/documentations') !== false && user_is_logged_in()) {
+    if (user_has_role(38, $user) && strpos($original_path, '/il/') == false) {
+      $role = 'il';
+      $exploded_url = explode('/', $original_path);
+      $exploded_url[3] = 'documentations/' . $role;
+      $path = implode('/', $exploded_url);
+      drupal_goto($path);
+    }
+
+    if (user_has_role(39, $user) && strpos($original_path, '/ac/') == false) {
+      $role = 'ac';
+      $exploded_url = explode('/', $original_path);
+      $exploded_url[3] = 'documentations/' . $role;
+      $path = implode('/', $exploded_url);
+      drupal_goto($path);
+    }
   }
 }

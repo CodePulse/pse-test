@@ -1,5 +1,5 @@
 <?php
-
+// This is exceptionally poor by FDC!! This entire template should be re-done but there is not enough time in the world! - @BL from Codepulse!
 $field_collection_id = key($content['field_collection_newsarticle'][0]['entity']['field_collection_item']);
 $field_collection = &$content['field_collection_newsarticle'][0]['entity']['field_collection_item'][$field_collection_id];
 
@@ -11,10 +11,12 @@ hide($content['field_press_release_pdf']);
   
   
   <div class="content"<?php print $content_attributes; ?>>
-    <?php if (!empty($field_collection['field_news_image'][0]['#item']['uri'])) {
-      $src = image_style_url('news_sub_features', $field_collection['field_news_image'][0]['#item']['uri']);
-      $alt = $field_collection['field_news_image'][0]['#item']['alt'];
-      $img_title = $field_collection['field_news_image'][0]['#item']['title'];
+    <?php $featured_image = $content['field_collection_newsarticle'][0]['entity']['field_collection_item'][$field_collection_id]['#entity']->field_sub_feature_image['und'][0]; ?>
+    <?php if (!empty($featured_image)) {
+      $src = image_style_url('news_sub_features', $featured_image['uri']);
+
+      $alt = $featured_image['alt'];
+      $img_title = $featured_image['title'];
     ?>
     <a href="<?php print $node_url; ?>">
       <img class="img-responsive" src="<?php print $src; ?>" alt="<?php print $alt; ?>" title="<?php print $img_title; ?>" />

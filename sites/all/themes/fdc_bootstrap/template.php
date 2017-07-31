@@ -60,6 +60,11 @@ function fdc_bootstrap_breadcrumb($variables) {
       unset($breadcrumb[$delta]); // we had work "company" at news page
     }
   }
+// Remove breadcrumbs on webform submission page
+	if ($arg[2] == 'done') {
+		unset($breadcrumb[1]);
+		unset($breadcrumb[2]);
+	}
   
   if (!empty($breadcrumb)) {
     if ($breadcrumb[0] == '<a href="/">Home</a>') {
@@ -742,7 +747,7 @@ function fdc_bootstrap_preprocess_node(&$variables) {
             $news_teaser_no++;
             $variables['theme_hook_suggestions'][] = 'node__news_articles__teaser_medium';
 //            dsm($variables);
-          } elseif($news_teaser_no < 4) {
+          } elseif($news_teaser_no < 3) {
             $news_teaser_no++;
             $variables['theme_hook_suggestions'][] = 'node__news_articles__teaser_medium';
           } else {
