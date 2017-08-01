@@ -216,8 +216,8 @@ $databases = array (
     'default' =>
     array (
       'database' => 'cms',
-      'username' => 'cms',
-      'password' => 'eGR80nH0R-4d',
+      'username' => getenv('DRUPAL_DB_USER'),
+      'password' => getenv('DRUPAL_DB_PASSWORD'),
       'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',

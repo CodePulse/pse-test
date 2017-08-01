@@ -449,6 +449,8 @@ function pse_custom_views_default_views() {
   return $views;
 }
 
+
+
 /**
  * Implements hook_user_login().
  */
@@ -479,11 +481,6 @@ function pse_custom_user_logout($account) {
   }
 }
 
-
-function pse_custom_boot() {
-}
-
-
 /**
  * Implements hook_url_inbound_alter().
  */
@@ -500,6 +497,7 @@ function pse_custom_url_inbound_alter(&$path, $original_path, $path_language) {
 
   if (strpos($original_path, 'sites/default/files/documentations') !== false && user_is_logged_in()) {
     if (user_has_role(38, $user) && strpos($original_path, '/il/') == false) {
+      setcookie('org_type', 'industrial-user', 0, '/');
       $role = 'il';
       $exploded_url = explode('/', $original_path);
       $exploded_url[3] = 'documentations/' . $role;
