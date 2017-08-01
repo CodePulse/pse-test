@@ -3,9 +3,9 @@
 
 # Ignore paths that contain user-generated content.
 # sites/*/files
-# sites/*/private
+sites/*/private
 
 # PDC used these folders for user content
 # public
-# private
+private
 .idea

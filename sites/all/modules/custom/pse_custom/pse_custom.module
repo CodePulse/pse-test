@@ -479,6 +479,11 @@ function pse_custom_user_logout($account) {
   }
 }
 
+
+function pse_custom_boot() {
+}
+
+
 /**
  * Implements hook_url_inbound_alter().
  */
