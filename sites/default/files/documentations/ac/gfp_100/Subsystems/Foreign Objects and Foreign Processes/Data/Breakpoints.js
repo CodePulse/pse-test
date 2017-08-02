@@ -1,1 +1,0 @@
-define({prop:'max-device-width',mediums:{'Tablet':1279}});

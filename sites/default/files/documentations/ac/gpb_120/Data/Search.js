@@ -1,1 +1,0 @@
-define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/Examples/Overview.htm'],s:['+','ucar'],p:[['+',0],['gproms',2],['standard',1]]});

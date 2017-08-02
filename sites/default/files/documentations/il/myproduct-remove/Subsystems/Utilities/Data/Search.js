@@ -1,1 +1,0 @@
-define({r:0.5,st:'Stem',n:1,t:[0,92],u:['../Content/Topics/Model Documentation/Utilities/Air_preheater/Air preheater.htm'],s:['+','or'],p:[['+',21],['calorific',66],['export',10],['is',3],['or',157],['specifications',105],['transition',7]]});

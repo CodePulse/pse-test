@@ -1,1 +1,0 @@
-define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/c2136.html'],s:['$','increas','thereof'],p:[['$',36],['at',72],['describe',40],['foreign',30],['interval',74],['number',8],['quotes',50],['such',11],['together',50]]});

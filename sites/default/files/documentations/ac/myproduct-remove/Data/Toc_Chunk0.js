@@ -1,1 +1,0 @@
-define({'/Content/Topics/Getting started.htm':{i:[1],t:['Getting started with gPROMS Utilities Briefer'],b:['']},'/Content/Topics/Global/gPRODUCT Titlepage Nonprint.htm':{i:[0],t:['gPROMS Utilities Briefer Documentation'],b:['']}});

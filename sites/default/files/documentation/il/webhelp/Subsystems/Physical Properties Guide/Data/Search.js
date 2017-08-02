@@ -1,1 +1,0 @@
-define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/c251.html'],s:['$z','fulli','reactiontyp'],p:[['$z',36],['as',2],['contribution',35],['flash',15],['instance',10],['modelling',29],['or',29],['return',42],['the',10],['variable',3]]});

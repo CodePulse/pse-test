@@ -1,1 +1,0 @@
-define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/c1218.html'],s:['+','null'],p:[['+',3],['cfdm',37],['following',7],['integer',9],['one',14],['space',31],['unix',31]]});

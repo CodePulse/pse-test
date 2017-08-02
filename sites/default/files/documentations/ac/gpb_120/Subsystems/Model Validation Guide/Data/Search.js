@@ -1,1 +1,0 @@
-define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/Advanced search options.htm'],s:['$','eigenvalu','sensor'],p:[['$',7],['achieved',60],['can',3],['down',12],['from',5],['line',23],['optimisation',0],['running',32],['the',13],['value',42]]});
