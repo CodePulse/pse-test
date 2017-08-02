@@ -16,7 +16,6 @@ deploy_test:
     - ssh gitlabrunner@devcms "cd /var/www/virtual/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
     - ssh gitlabrunner@devcms "cd /var/www/virtual/website && ln -s /var/www/drupal/sites_default_files public"
 
-
 deploy_live:
   stage: deploy
   variables:
