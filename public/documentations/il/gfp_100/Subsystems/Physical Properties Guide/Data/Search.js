@@ -1,1 +1,0 @@
-define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/Using gSAFT with multiple databanks.htm'],s:['$z','enthalpyoffus','occurr','when'],p:[['$z',39],['all',58],['calculate',2],['dea',30],['failure',10],['hydroxyl',30],['liquidactivitycoefficientsasymmolal',2],['namely',2],['package',29],['s',37],['temperature',2],['trivial',1],['yes',61]]});

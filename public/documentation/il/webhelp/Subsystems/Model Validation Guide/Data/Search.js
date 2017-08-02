@@ -1,1 +1,0 @@
-define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/c251.html'],s:['+','ellipsoid','smallest'],p:[['+',8],['above',43],['calculation',4],['down',44],['from',25],['locate',16],['ordinary',55],['select',42],['the',39],['vector',33]]});

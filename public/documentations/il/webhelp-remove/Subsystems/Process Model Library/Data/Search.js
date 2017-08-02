@@ -1,1 +1,0 @@
-define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/Topics/c251.html'],s:['1'],p:[['1',4],['needed',14]]});
