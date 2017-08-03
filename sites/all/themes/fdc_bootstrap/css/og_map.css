@@ -133,6 +133,8 @@ dd {
 #og-map #dot-australia2 {left:568px; top:227px;}
 #og-map #dot-australia3 {left:561px; top:217px;}
 #og-map #dot-australia4 {left:550px; top:225px;}
+#og-map #dot-australia5 {left:588px; top:215px;}
+#og-map #dot-australia6 {left:610px; top:227px;}
 
 /* West Africa group  */
 /* #og-map #dot-west-africa1 {left:465px; top:288px;}
@@ -187,6 +189,8 @@ dd {
 #og-map a#australia2,
 #og-map a#australia3,
 #og-map a#australia4,
+#og-map a#australia5,
+#og-map a#australia6,
 #og-map a#west-africa1, 
 #og-map a#west-africa2, 
 #og-map a#west-africa3, 
@@ -235,6 +239,8 @@ background:transparent url(../img/og_mapplace.png) 0px 0px no-repeat; text-decor
 #og-map a#australia2:hover,
 #og-map a#australia3:hover,
 #og-map a#australia4:hover,
+#og-map a#australia5:hover,
+#og-map a#australia6:hover,
 #og-map a#west-africa1:hover, 
 #og-map a#west-africa2:hover, 
 #og-map a#west-africa3:hover, 
@@ -297,6 +303,8 @@ width:150px;}
 #og-map a#australia2:hover span,
 #og-map a#australia3:hover span,
 #og-map a#australia4:hover span,
+#og-map a#australia5:hover span,
+#og-map a#australia6:hover span,
 #og-map a#west-africa1:hover span, 
 #og-map a#west-africa2:hover span, 
 #og-map a#west-africa3:hover span, 
