@@ -14,8 +14,8 @@ deploy_test:
     - develop
   script:
     - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_TEST_PATH --delete
-    - ssh gitlabrunner@devcms "cd /var/www/virtual/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
-    - ssh gitlabrunner@devcms "cd /var/www/virtual/website && ln -s /var/www/drupal/sites_default_files public"
+    - ssh gitlabrunner@devcms -p 2202 "cd /var/www/virtual/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
+    - ssh gitlabrunner@devcms -p 2202 "cd /var/www/virtual/website && ln -s /var/www/drupal/sites_default_files public"
 
 deploy_live:
   stage: deploy
