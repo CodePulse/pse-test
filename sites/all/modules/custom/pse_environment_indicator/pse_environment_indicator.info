@@ -1,0 +1,6 @@
+name = PSE Environment Indicator
+description = Environment Indicator adds prefix to the browser tab per environment.
+core = 7.x
+engine = phptemplate
+
+scripts[] = tabTitle.js
