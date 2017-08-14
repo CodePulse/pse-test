@@ -44,7 +44,7 @@ if (function_exists('fdc_pse_get_cta')) {
 		<li><a href="/sectors/chemicals">Chemicals &amp;<br /> Petrochemicals</a></li>
 		<li><a href="/sectors/oil-and-gas">Oil &amp; Gas</a></li>
 		<li><a href="/sectors/life-sciences">Life Sciences</a></li>
-		<li><a href="/sectors/power">Power &amp; CSS</a></li>
+		<li><a href="/sectors/power">Power &amp; CCS</a></li>
 		<li><a href="/sectors/fuelcell">Fuel Cells &amp;<br /> Batteries</a></li>
 		<li><a href="/sectors/consumer">Food &amp;<br /> Consumer</a></li>
 		<li><a href="/sectors/specialty-chem">Specialty &amp;<br /> Agrochemicals</a></li>
