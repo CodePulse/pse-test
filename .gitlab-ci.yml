@@ -1,21 +1,20 @@
 variables:
-  DEPLOY_TEST_PATH: gitlabrunner@devcms:/var/www/virtual/website
-  DEPLOY_LIVE_PATH: gitlab-slave@cms.psenterprise.com:/var/www/website
+  TEST_USER: gitlabrunner@devcms
   LIVE_USER: gitlab-slave@cms.psenterprise.com
-  LIVE_PATH: /var/www/website
+  DEPLOY_PATH: /var/www/website
 deploy_test:
   stage: deploy
   variables:
     GIT_STRATEGY: fetch
   environment:
     name: test
-    url: https://www-local-2.psenterprise.com/
+    url: https://www-test-website.psenterprise.com/
   only:
     - develop
   script:
-    - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $DEPLOY_TEST_PATH --delete
-    - ssh gitlabrunner@devcms "cd /var/www/virtual/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
-    - ssh gitlabrunner@devcms "cd /var/www/virtual/website && ln -s /var/www/drupal/sites_default_files public"
+    - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $TEST_USER:$DEPLOY_PATH --delete
+    - ssh $TEST_USER "cd /var/www/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
+    - ssh $TEST_USER "cd /var/www/website && ln -s /var/www/drupal/sites_default_files public"
 
 deploy_live:
   stage: deploy
@@ -27,6 +26,6 @@ deploy_live:
   only:
     - tags
   script:
-    - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -p 2202 -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $LIVE_USER:$LIVE_PATH --delete
+    - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -p 2202 -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $LIVE_USER:$DEPLOY_PATH --delete
     - ssh $LIVE_USER -p 2202 "cd /var/www/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
     - ssh $LIVE_USER -p 2202 "cd /var/www/website && ln -s /var/www/drupal/sites_default_files public"
