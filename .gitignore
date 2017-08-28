@@ -9,3 +9,5 @@ sites/*/private
 # public
 # private
 .idea
+
+.DS_Store
