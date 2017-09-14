@@ -6,15 +6,14 @@ drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 
 $page = array(37, 38, 39, 40, 41);
 $user = array_keys($user->roles);
-
 $check = array_intersect($user, $page);
 
 if (!$check) {
-  header("Location: /node/2");
-  die();
+  header( 'Location: /user?destination=/how-to-videos ');
+  die;
 }
 
-
+require_once DRUPAL_ROOT . '/how-to-videos-lib.php';
 
 ?>
 

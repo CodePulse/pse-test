@@ -42,77 +42,36 @@
                           }
 
                           // data
-                          $response = json_decode(file_get_contents(
-                            'https://vimeo.psenterprise.com/api/videos'
-                            . '?albums[]=4377223'
-                            . ($topic ? '&topics[]=' . $topic : '')
-                            . ($level ? '&levels[]=' . $level : '')
-                          ));
+
+                          $response = htv_api_videos($topic, $level);
+
                           $videos = $response->videos;
                           $filters = $response->filters;
-
-                          // helpers
-                          function htvFilters($data, $skip) {
-                            $filters = '';
-                            unset($data[$skip]);
-                            $data = array_filter($data);
-                            foreach ($data as $k => $v) {
-                              $filters .= "/$k/$v";
-                            }
-                            return $filters;
-                          }
 
                           ?>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1>
-                                        How-to videos
+                                        All Videos
                                     </h1>
                                 </div>
 
-                              <?php foreach ($videos as $video) { ?>
-                                  <div class="col-md-6">
-                                    <?php require 'how-to-embeded-video.php'; ?>
+                                <?php echo htv_videos($videos); ?>
 
-                                      <a href="/how-to-video/<?php echo $video->ref; ?>">
-                                        <?php echo $video->name; ?>
-
-                                      </a>
-                                      <br/>
-                                      <br/>
-                                  </div>
-                              <?php } ?>
                             </div>
                         </section>
                     </div>
                     <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right" id="sidebarnobg">
-                      <?php foreach ($filters as $filter) { ?>
-                          <h2><?php echo $filter->label; ?></h2>
-                          <ul class="list">
-                              <li>
-                                <?php
-                                $uri = '/' . $page
-                                  . htvFilters(['topic' => $topic, 'level' => $level], $filter->name);
-                                ?>
-                                  <a href="<?php echo $uri; ?>">
-                                      All
-                                  </a>
-                              </li>
-                            <?php foreach ($filter->options as $key => $label) { ?>
-                                <li>
-                                  <?php
-                                  $uri = '/' . $page
-                                    . htvFilters(['topic' => $topic, 'level' => $level], $filter->name)
-                                    . '/' . $filter->name . '/' . $key;
-                                  ?>
-                                    <a href="<?php echo $uri; ?>">
-                                      <?php echo $label; ?>
-                                    </a>
-                                </li>
-                            <?php } ?>
-                          </ul>
-                      <?php } ?>
+
+                        <?php echo htv_menu($filters, $page, $topic, $level); ?>
+                        <script>
+                            $(function () {
+                                $('input[name=filter]').click( function () {
+                                    window.location.href = $(this).siblings('a').attr('href');
+                                });
+                            });
+                        </script>
 
                         <script>
                             $(function () {
