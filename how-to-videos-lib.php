@@ -128,29 +128,42 @@ function htv_related($videos, $skip)
 
   return $html;
 }
-function htv_menu($filters, $page, $topic, $level) {
-  $html = [];
-
+function htv_menu($filters, $page, $topic, $level)
+{
+  $html = '';
   $current = ['topic' => $topic, 'level' => $level];
 
   foreach ($filters as $filter) {
-    $html[] = '<h2>' . $filter->label .'</h2>';
-    $html[] = '<ul style="list-style: none;">';
-    $html[] = '<li>';
-    $html[] = '<a href="' . '/' . $page . htv_stateless_filters($current, $filter->name, 'skip') . '">Clear</a>';
-    $html[] = '</li>';
 
-    foreach ($filter->options as $key => $label) {
-      $checked = strpos($current[$filter->name],  $key);
-      $html[] = '<li>';
-      $html[] = '<input type="checkbox" name="filter"' . (false !== $checked ? ' checked' : '') . '>';
-      $html[] = '<a href="' . '/' . $page . htv_stateless_filters($current, $filter->name, $key) . '">';
-      $html[] = $label;
-      $html[] =  '</a>';
-      $html[] = '</li>';
-    }
-    $html[] = '</ul>';
+    $html .= '<h2>' . $filter->label . ' <sup>'
+      . '<a href="' . '/' . $page . htv_stateless_filters($current, $filter->name, 'skip') . '">Clear</a>'
+      . '</sup></h2>'
+      . htv_menu_ul($filter->options, $filter->name, $current, $page);
   }
-
-  return implode("\n", $html);
+  return $html;
 }
+
+function htv_menu_ul($filters, $name, $current, $page, $index = 0)
+{
+  $html = '<ul style="list-style: none ;padding-left: ' . ($index * 16) . 'px">';
+  foreach($filters as $filter) {
+    $checked = strpos($current[$name], $filter->name);
+
+    if ($filter->options) {
+      $html .= '<li>'
+        . '&#8594; ' . $filter->label
+        . htv_menu_ul($filter->options, $name, $current, $page, $index + 1)
+        . '</li>';
+    } else {
+      $html .= '<li>'
+        . (false !== $checked ? '&#9745;' : '&#9744;')
+        . ' <a href="' . '/' . $page . htv_stateless_filters($current, $name, $filter->name) . '">'
+        . $filter->label
+        . '</a>'
+        . '</li>';
+    }
+  }
+  $html .= '</ul>';
+  return $html;
+}
+
