@@ -53,40 +53,17 @@
 
                           ?>
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                  <?php require 'how-to-embeded-video.php'; ?>
-                                    <div style="white-space: nowrap;  overflow:hidden;">
-                                      <?php echo $video->name; ?>
-                                    </div>
-                                </div>
-
-                            </div>
+                          <?php echo htv_video($video); ?>
                         </section>
                     </div>
-                    <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right" id="sidebarnobg">
+                    <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right" id="sidebarnobg" >
                         <!-- content menu -->
                         <!-- block menu -->
 
                         <h3>Related videos</h3>
-
-                      <?php foreach ($videos as $video) { ?>
-
-                        <?php if ($ref === $video->ref) {
-                          continue;
-                        } ?>
-
-                        <?php require 'how-to-embeded-video.php'; ?>
-
-                        <ul class="list">
-                            <li>
-                                <a href="/how-to-video/<?php echo $video->ref; ?>"><?php echo $video->name; ?></a>
-                            </li>
-                        </ul>
-
-
-
-                      <?php } ?>
+                        <div style="overflow-x: hidden;">
+                            <?php echo htv_related($videos, $ref); ?>
+                        </div>
 
                         <!-- custom menu -->
                         <!-- News content -->
