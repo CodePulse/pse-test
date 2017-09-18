@@ -48,7 +48,8 @@ $content_menu = child_sibling_menu($node->nid);
 
 		<section class="content" >
 				<?php if (isset($content->body) && $content->body) : ?>
-					<?php echo $content->body; ?>
+<!--					--><?php //print render($content->body); ?>
+					<?php print render($node_content['field_col_content']); ?>
 				<?php endif; ?>
 
 				<?php if (function_exists('fdc_pse_publication_bool')): ?>
