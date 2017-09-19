@@ -73,9 +73,12 @@ function htv_api_videos($topic, $level)
   ));
 }
 
-function htv_videos($videos)
+function htv_videos($videos, $all = false)
 {
   $html = array();
+  $i = 1;
+  $total = count($videos);
+
   foreach ($videos as $video)
   {
     list($code, $title) = explode(' ', $video->name, 2);
@@ -86,9 +89,21 @@ function htv_videos($videos)
     $html[] = "<br/><a href='/how-to-video/{$video->ref}'>{$code}</a>";
     $html[] = '<br/><br/></div>';
 
-
+    $i++;
+    if (!$all && $i > 6) {
+      break;
+    }
 
   }
+
+  if(!$all  && $i < $total) {
+    $html[] = '<div class="col-md-12 views-align-center">';
+    $html[] = '<a href="">';
+    $html[] = 'Show more';
+    $html[] = '</a>';
+    $html[] = '</div>';
+  }
+
 
   return implode("\n", $html);
 }
@@ -184,7 +199,7 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
 
     // disabled leaf
     if (!$filter->name && !$filter->options) {
-      $html .= '&#9744; ' . $filter->label;
+      $html .= "<span style='color: silver;'>&#9744; {$filter->label}</span> ";
     }
 
     $html .= '</li>';
