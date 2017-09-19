@@ -149,19 +149,32 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
   foreach($filters as $filter) {
     $checked = strpos($current[$name], $filter->name);
 
-    if ($filter->options) {
-      $html .= '<li>'
-        . '&#8594; ' . $filter->label
-        . htv_menu_ul($filter->options, $name, $current, $page, $index + 1)
-        . '</li>';
-    } else {
-      $html .= '<li>'
-        . (false !== $checked ? '&#9745;' : '&#9744;')
-        . ' <a href="' . '/' . $page . htv_stateless_filters($current, $name, $filter->name) . '">'
-        . $filter->label
-        . '</a>'
-        . '</li>';
+    $html .= '<li>';
+
+    // branch
+    if (!$filter->name && $filter->options) {
+      $html .= '&#8594; ' . $filter->label;
     }
+
+    // branch leafs
+    if ($filter->options) {
+      $html .= htv_menu_ul($filter->options, $name, $current, $page, $index + 1);
+    }
+
+    // leaf
+    if ($filter->name && !$filter->options) {
+      $html .= (false !== $checked ? '&#9745;' : '&#9744;')
+      . ' <a href="' . '/' . $page . htv_stateless_filters($current, $name, $filter->name) . '">'
+      . $filter->label
+      . '</a>';
+    }
+
+    // disabled leaf
+    if (!$filter->name && !$filter->options) {
+      $html .= '&#9744; ' . $filter->label;
+    }
+
+    $html .= '</li>';
   }
   $html .= '</ul>';
   return $html;
