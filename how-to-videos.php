@@ -62,13 +62,18 @@
                             </div>
                         </section>
                     </div>
-                    <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right" id="sidebarnobg">
+                    <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right videoFilters" id="sidebarnobg">
 
                         <?php echo htv_menu($filters, $page, $topic, $level); ?>
                         <script>
                             $(function () {
-                                $('input[name=filter]').click( function () {
-                                    window.location.href = $(this).siblings('a').attr('href');
+                                $("aside.videoFilters a").click(function() {
+                                    console.log('sparta!');
+                                    /* grabs URL from HREF attribute then adds an  */
+                                    /* ID from the DIV I want to grab data from    */
+                                    var myUrl = $(this).attr("href");
+                                    $("div.main-container").load(myUrl + " div.main-container");
+                                    return false;
                                 });
                             });
                         </script>
@@ -92,5 +97,14 @@
             </section>
         </div><!-- /.row with content and sidebars -->
     </div>
+
+    <script>
+        $(function () {
+            $("div.main-container").on("click", "aside.videoFilters a", function(){
+                $("div.main-container").load($(this).attr("href") + " div.main-container");
+                return false;
+            });
+        });
+    </script>
 
 <?php require 'how-to-bottom.php'; ?>
