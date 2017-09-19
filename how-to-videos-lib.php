@@ -163,9 +163,9 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
 
     // leaf
     if ($filter->name && !$filter->options) {
-      $html .= (false !== $checked ? '&#9745;' : '&#9744;')
-      . ' <a href="' . '/' . $page . htv_stateless_filters($current, $name, $filter->name) . '">'
-      . $filter->label
+      $html .= ' <a href="' . '/' . $page . htv_stateless_filters($current, $name, $filter->name) . '">'
+      . (false !== $checked ? '&#9745;' : '&#9744;')
+      . ' ' . $filter->label
       . '</a>';
     }
 
