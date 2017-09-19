@@ -64,6 +64,9 @@
                     </div>
                     <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right videoFilters" id="sidebarnobg">
 
+                        <div class="content">
+                            <h2 class="heading-filter-by">Filter by</h2>
+                        </div>
                         <?php echo htv_menu($filters, $page, $topic, $level); ?>
                         <script>
                             $(function () {
@@ -104,6 +107,27 @@
                 $("div.main-container").load($(this).attr("href") + " div.main-container");
                 return false;
             });
+
+            $("div.main-container").on("click", ".menuHandle", function(){
+
+                var query = $(this).next();
+                var isVisible = query.is(':visible');
+
+                console.log(isVisible);
+
+                if (isVisible  === true) {
+                    $(this).prev().html('&#9654;');
+                    query.hide();
+                } else {
+                    $(this).prev().html('&#9660;');
+                    query.show();
+                }
+                return false;
+            });
+
+
+
+
         });
     </script>
 

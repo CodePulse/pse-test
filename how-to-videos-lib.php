@@ -135,9 +135,14 @@ function htv_menu($filters, $page, $topic, $level)
 
   foreach ($filters as $filter) {
 
-    $html .= '<h2>' . $filter->label . ' <sup>'
-      . '<a href="' . '/' . $page . htv_stateless_filters($current, $filter->name, 'skip') . '">Clear</a>'
-      . '</sup></h2>'
+    $html .= '<h2>';
+
+    if ($current[$filter->name]) {
+      $html .= '</br>'
+        . '<a class="reset-link processed" style="margin: 8px 10px 0px 10px;" href="' . '/' . $page . htv_stateless_filters($current, $filter->name, 'skip') . '">Clear all</a>';
+    }
+
+    $html .= '</h2>'
       . htv_menu_ul($filter->options, $filter->name, $current, $page);
   }
   return $html;
@@ -145,15 +150,22 @@ function htv_menu($filters, $page, $topic, $level)
 
 function htv_menu_ul($filters, $name, $current, $page, $index = 0)
 {
-  $html = '<ul style="list-style: none ;padding-left: ' . ($index * 16) . 'px">';
+  $anyChecked = false;
+  $html = '';
   foreach($filters as $filter) {
     $checked = strpos($current[$name], $filter->name);
+
+    if(false !== $checked) { $anyChecked = true; }
+
 
     $html .= '<li>';
 
     // branch
     if (!$filter->name && $filter->options) {
-      $html .= '&#8594; ' . $filter->label;
+      $html .= '<span>'
+        . (anyChecked($filter->options, $name, $current) ? '&#9660;' : '&#9654;')
+        . '</span> '
+        . '<span class="menuHandle" style="color: rgb(0, 108, 133); font-size: 18px;"> '. $filter->label . '</span>';
     }
 
     // branch leafs
@@ -163,7 +175,8 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
 
     // leaf
     if ($filter->name && !$filter->options) {
-      $html .= ' <a href="' . '/' . $page . htv_stateless_filters($current, $name, $filter->name) . '">'
+
+      $html .= ' <a style="color: rgb(88, 89, 91);" href="' . '/' . $page . htv_stateless_filters($current, $name, $filter->name) . '">'
       . (false !== $checked ? '&#9745;' : '&#9744;')
       . ' ' . $filter->label
       . '</a>';
@@ -176,7 +189,24 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
 
     $html .= '</li>';
   }
-  $html .= '</ul>';
+
+  $html = '<ul style="' . ($index > 0 && false === $anyChecked ? 'display: none;': '') . '  list-style: none ;padding-left: ' . ($index * 16) . 'px">'
+    . $html
+    . '</ul>';
+
   return $html;
 }
 
+function anyChecked($filters, $name, $current)
+{
+  $anyChecked = FALSE;
+  foreach($filters as $filter) {
+    $checked = strpos($current[$name], $filter->name);
+    if (FALSE !== $checked) {
+      $anyChecked = TRUE;
+      break;
+    }
+  }
+
+  return $anyChecked;
+}
