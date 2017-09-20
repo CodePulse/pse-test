@@ -130,7 +130,7 @@ function htv_menu($filters, $page, $current)
 
     if ($current[$filter->name]) {
       $html .= '</br>'
-        . '<a class="reset-link processed" style="margin: 8px 10px 0px 10px;" href="' . '/' . $page . htv_stateless_filters($current, $filter->name, 'skip') . '">Clear all</a>';
+        . '<a class="reset-link processed asyncBtn" style="margin: 8px 10px 0px 10px;" href="' . '/' . $page . htv_stateless_filters($current, $filter->name, 'skip') . '">Clear all</a>';
     }
 
     $html .= '</h2>'
@@ -167,7 +167,7 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
     // leaf
     if ($filter->name && !$filter->options) {
 
-      $html .= ' <a style="color: rgb(88, 89, 91);" href="' . '/' . $page . htv_stateless_filters($current, $name, $filter->name) . '">'
+      $html .= ' <a class="asyncBtn" style="color: rgb(88, 89, 91);" href="' . '/' . $page . htv_stateless_filters($current, $name, $filter->name) . '">'
       . (false !== $checked ? '&#9745;' : '&#9744;')
       . ' ' . $filter->label
       . '</a>';

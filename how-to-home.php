@@ -21,7 +21,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row equal_children_height">
+                <div class="row equal_children_height" id="reloadMe">
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 
                         <section class="content">
@@ -72,7 +72,7 @@
                             <?php if($show < $total) { ?>
                             <div class="row">
                                 <div class="col-md-12 views-align-center">
-                                    <a href="<?php echo '/' . $page . htv_stateless_filters($current, 'show') . '/show/' . ($show + 6) ; ?>">
+                                    <a class="asyncBtn" href="<?php echo '/' . $page . htv_stateless_filters($current, 'show') . '/show/' . ($show + 6) ; ?>">
                                         Show more
                                     </a>
                                 </div>
@@ -88,18 +88,6 @@
                             <h2 class="heading-filter-by">Filter by</h2>
                         </div>
                         <?php echo htv_menu($filters, $page, $current); ?>
-                        <script>
-                            $(function () {
-                                $("aside.videoFilters a").click(function() {
-                                    console.log('sparta!');
-                                    /* grabs URL from HREF attribute then adds an  */
-                                    /* ID from the DIV I want to grab data from    */
-                                    var myUrl = $(this).attr("href");
-                                    $("div.main-container").load(myUrl + " div.main-container");
-                                    return false;
-                                });
-                            });
-                        </script>
 
                         <script>
                             $(function () {
@@ -123,8 +111,8 @@
 
     <script>
         $(function () {
-            $("div.main-container").on("click", "aside.videoFilters a", function(){
-                $("div.main-container").load($(this).attr("href") + " div.main-container");
+            $("div.main-container").on("click", "a.asyncBtn", function(){
+                $("#reloadMe").load($(this).attr("href") + " #reloadMe");
                 return false;
             });
 
