@@ -1,22 +1,3 @@
-<?php
-
-define('DRUPAL_ROOT', getcwd());
-require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
-drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
-
-$page = array(37, 38, 39, 40, 41);
-$user = array_keys($user->roles);
-$check = array_intersect($user, $page);
-
-if (!$check) {
-  header( 'Location: /user?destination=/how-to-videos ');
-  die;
-}
-
-require_once DRUPAL_ROOT . '/how-to-videos-lib.php';
-
-?>
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head profile="http://www.w3.org/1999/xhtml/vocab">

@@ -73,7 +73,7 @@ function htv_api_videos($topic, $level)
   ));
 }
 
-function htv_videos($videos, $all = false)
+function htv_videos($videos, $show = 6)
 {
   $html = array();
   $i = 1;
@@ -83,46 +83,21 @@ function htv_videos($videos, $all = false)
   {
     list($code, $title) = explode(' ', $video->name, 2);
 
-    $html[] = '<div class="col-md-6" style="overflow-x: hidden;">';
+    $html[] = '<div class="col-md-6">';
     $html[] = htv_embed_video($video->ref);
-    $html[] = "<a style='white-space: nowrap;' href='/how-to-video/{$video->ref}' title='{$title}'>{$title}</a>";
-    $html[] = "<br/><a href='/how-to-video/{$video->ref}'>{$code}</a>";
-    $html[] = '<br/><br/></div>';
+    $html[] = '<div style="padding-top: 4px; min-height: 60px;">';
+    $html[] = "<a href='/how-to-videos/{$code}' title='{$title}'>{$title}</a>";
+    //$html[] = "<br/><a href='/how-to-video/{$video->ref}'>{$code}</a>";
+    $html[] = '</div>';
+    $html[] = '</div>';
 
     $i++;
-    if (!$all && $i > 6) {
+    if ($i > $show) {
       break;
     }
 
   }
-
-  if(!$all  && $i < $total) {
-    $html[] = '<div class="col-md-12 views-align-center">';
-    $html[] = '<a href="">';
-    $html[] = 'Show more';
-    $html[] = '</a>';
-    $html[] = '</div>';
-  }
-
-
   return implode("\n", $html);
-}
-
-function htv_video($video)
-{
-  list($code, $title) = explode(' ', $video->name, 2);
-  $body = htv_embed_video($video->ref);
-
-  return <<<HTML
-    <div class="row">
-        <div class="col-md-12">
-          {$body}
-              <h2>{$title}</h2>
-              <p>{$code}</p>
-              <p>{$video->description}</p>
-        </div>
-    </div>
-HTML;
 }
 
 function htv_related($videos, $skip)
@@ -135,18 +110,19 @@ function htv_related($videos, $skip)
     list($code, $title) = explode(' ', $video->name, 2);
 
     $html .= htv_embed_video($video->ref);
-    $html .= "<a title='{$title}' style='white-space: nowrap;' href='/how-to-video/{$video->ref}'>{$title}</a>";
-    $html .= "<br/><a href='/how-to-video/{$video->ref}'>{$code}</a><br/><br/>";
+    $html .= "<a title='{$title}' href='/how-to-videos/{$code}'>{$title}</a>";
+    //$html .= "<br/><a href='/how-to-videos/{$video->ref}'>{$code}</a><br/><br/>";
+    $html .= "<br/><br/>";
 
   }
 
 
   return $html;
 }
-function htv_menu($filters, $page, $topic, $level)
+
+function htv_menu($filters, $page, $current)
 {
   $html = '';
-  $current = ['topic' => $topic, 'level' => $level];
 
   foreach ($filters as $filter) {
 

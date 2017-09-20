@@ -1,4 +1,4 @@
-<?php require 'how-to-top.php'; ?>
+
 
     <div class="main-container">
         <header id="page-header" role="banner"></header><!-- /#page-header -->
@@ -14,20 +14,7 @@
                 <a id="main-content"></a> <!-- <h1 class="page-header">How-to Videos</h1> -->
                 <!-- CUSTOM TEMPLATES -->
                 <!-- file sites/all/themes/fdc_bootstrap/templates/custom/customer_area_page.php -->
-                <div class="row row_extra_negative">
-                    <div class="home_banners">
-                        <div>
-                            <div class="slick-slide-panel"
-                                 style="background-image: url(/sites/default/files/styles/home_page_banner_large/public/mediafiles/fields/background_image/1168_400_bgonly.png?itok=BMuOHY84)">
-                                <div class="pad">
-                                    <h1 style=" color:#fff">How-to Videos</h1>
-                                    <h3 style=" color:#fff">Short videos on specific topics to help you use gPROMS
-                                        family products efficiently</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="row equal_children_height">
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 
@@ -40,29 +27,91 @@
                           // data
                           $response = json_decode(file_get_contents(
                             'https://vimeo.psenterprise.com/api/videos'
-                            . '?refs[]=' . $ref
+                            . '?code=' . $ref . '%'
                           ));
                           $video = $response->videos[0];
 
+
+
+                          ?>
+
+                          <?php
+                          list($code, $title) = explode(' ', $video->name, 2);
+                          $body = htv_embed_video($video->ref);
+
+                          echo "
+                            <div class='row'>
+                                <div class='col-md-12'>
+                                    {$body}
+                                    <h2>{$title}</h2>
+                                    <p>{$video->description}</p>
+                                     <p>{$code}</p>
+                                </div>
+                            </div>
+                          ";
+
+                          ?>
+
+                        </section>
+                    </div>
+                    <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right" id="sidebarnobg" >
+                      <?php
                           $response = json_decode(file_get_contents(
                             'https://vimeo.psenterprise.com/api/videos'
                             . '?albums[]=4377223'
                             . ($video->topics ? '&topics[]=' . implode('&topics[]=', $video->topics) : '')
-                          ));
-                          $videos = $response->videos;
+                          ), true );
+                          $videos = $response['videos'];
+                      ?>
 
-                          ?>
+                      <?php
 
-                          <?php echo htv_video($video); ?>
-                        </section>
-                    </div>
-                    <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right" id="sidebarnobg" >
-                        <!-- content menu -->
-                        <!-- block menu -->
 
+                      ?>
+                        <?php
+
+
+
+                        function findDescription($data, $needle) {
+                            if(isset($data['name']) && $data['name'] === $needle && isset($data['description'])) {
+                                return ['description' => $data['description'], 'label' => $data['label']];
+                            }
+
+                            foreach($data['options'] as $option) {
+                                $found = findDescription($option, $needle);
+                                if($found) {
+                                    return $found;
+                                }
+
+                            }
+
+                           return false;
+                        }
+
+                        $category = findDescription($response['filters'][0], array_shift(explode('-', $code)));
+
+                        ?>
+
+                        <?php if ($category) { ?>
+                            <h3>Category description</h3>
+                            <p>
+                              <?php echo $category['label']; ?>
+                              <br/>
+                              <?php echo $category['description']; ?>
+                            </p>
+                        <?php } ?>
                         <h3>Related videos</h3>
                         <div style="overflow-x: hidden;">
-                            <?php echo htv_related($videos, $ref); ?>
+
+                            <?php
+                            foreach ($videos as $_video) {
+                              if ($video->ref === $_video['ref']) { continue; }
+                              list($code, $title) = explode(' ', $_video['name'], 2);
+                              echo htv_embed_video($_video['ref']);
+                              ?>
+                              <a href='/how-to-videos/<?php echo $code; ?>'><?php echo $title; ?></a>
+                              <br/><br/>
+                            <?php } ?>
                         </div>
 
                         <!-- custom menu -->
@@ -92,4 +141,3 @@
     </div>
 
 
-<?php require 'how-to-bottom.php'; ?>
