@@ -44,13 +44,40 @@ $video = $response->videos[0];
                                 <div class='col-md-12'>
                                     {$body}
                                     <h2>{$title}</h2>
-                                    <p>{$video->description}</p>
-                                     <p>{$code}</p>
+                                    <p>{$video->description}
+                                    <br/>
+                                    {$code}</p>
                                 </div>
                             </div>
                           ";
 
                           ?>
+
+                         <div class="row">
+                             <div class="col-md-12">
+                                 <h3>Feedback</h3>
+
+                                 <div id="vfForm">
+                                     <p>We love feedback feedback feedback!</p>
+                                     <textarea id="vfComments" style="width: 100%; height: 100px;"></textarea>
+                                     <a id="vfBtn" href="">Submit feedback</a>
+                                 </div>
+
+                                 <script>
+                                     $(function () {
+                                         $('#vfBtn').click( function() {
+                                             console.log('sparta!');
+
+                                             $.post( "https://vimeo.psenterprise.com/api/videos/feedback", { "source" : "vimeo", "ref" : "228967538", "feedback": { "body" : "DFSDFSDF", "user" : { "email": "email@sdf.sdf"}}}, function() {
+                                                 $( "#vfForm").html( 'Thank you for your feedback!');
+                                             });
+                                             return false;
+                                         });
+                                     });
+                                 </script>
+                             </div>
+                         </div>
+
 
                         </section>
                     </div>
@@ -64,13 +91,7 @@ $video = $response->videos[0];
                           $videos = $response['videos'];
                       ?>
 
-                      <?php
-
-
-                      ?>
                         <?php
-
-
 
                         function findDescription($data, $needle) {
                             if(isset($data['name']) && $data['name'] === $needle) {
