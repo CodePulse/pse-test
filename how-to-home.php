@@ -13,7 +13,7 @@
                             <div class="slick-slide-panel"
                                  style="background-image: url(/sites/default/files/styles/home_page_banner_large/public/mediafiles/fields/background_image/1168_400_bgonly.png?itok=BMuOHY84)">
                                 <div class="pad">
-                                    <h1 style=" color:#fff">How-to Videos</h1>
+                                    <h1 style=" color:#fff">How-to-videos</h1>
                                     <h3 style=" color:#fff">Short videos on specific topics to help you use gPROMS
                                         family products efficiently</h3>
                                 </div>
@@ -111,6 +111,7 @@
 
     <script>
         $(function () {
+
             $("div.main-container").on("click", "a.asyncBtn", function(){
                 $("#reloadMe").load($(this).attr("href") + " #reloadMe");
                 return false;

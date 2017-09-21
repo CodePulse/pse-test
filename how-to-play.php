@@ -1,4 +1,18 @@
+<?php
 
+// parameters
+list($page, $ref) = explode('/', $_GET['q']);
+
+// data
+$response = json_decode(file_get_contents(
+  'https://vimeo.psenterprise.com/api/videos'
+  . '?code=' . $ref . '%'
+));
+$video = $response->videos[0];
+
+
+
+?>
 
     <div class="main-container">
         <header id="page-header" role="banner"></header><!-- /#page-header -->
@@ -7,8 +21,8 @@
                 <div id="trail">
                     <ul id="breadcrumbs">
                         <li><a href="/">PSE</a></li>
-                        <li><a>&gt;&nbsp;customer area</a></li>
-                        <li class="active"><a>&gt;&nbsp;how-to videos</a></li>
+                        <li><a href="/customer-area">>&nbsp;customer area</a></li>
+                        <li><a href="/how-to-videos">&gt;&nbsp;how-to videos</a></li>
                     </ul>
                 </div>
                 <a id="main-content"></a> <!-- <h1 class="page-header">How-to Videos</h1> -->
@@ -19,25 +33,11 @@
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 
                         <section class="content">
-                          <?php
 
-                          // parameters
-                          list($page, $ref) = explode('/', $_GET['q']);
-
-                          // data
-                          $response = json_decode(file_get_contents(
-                            'https://vimeo.psenterprise.com/api/videos'
-                            . '?code=' . $ref . '%'
-                          ));
-                          $video = $response->videos[0];
-
-
-
-                          ?>
 
                           <?php
                           list($code, $title) = explode(' ', $video->name, 2);
-                          $body = htv_embed_video($video->ref);
+                          $body = htv_embed_video($video->ref, 1);
 
                           echo "
                             <div class='row'>
@@ -73,8 +73,11 @@
 
 
                         function findDescription($data, $needle) {
-                            if(isset($data['name']) && $data['name'] === $needle && isset($data['description'])) {
-                                return ['description' => $data['description'], 'label' => $data['label']];
+                            if(isset($data['name']) && $data['name'] === $needle) {
+                                return [
+                                    'description' => isset($data['description']) ?: false,
+                                    'label' => $data['label']
+                                ];
                             }
 
                             foreach($data['options'] as $option) {
@@ -93,12 +96,13 @@
                         ?>
 
                         <?php if ($category) { ?>
-                            <h3>Category description</h3>
-                            <p>
-                              <?php echo $category['label']; ?>
-                              <br/>
-                              <?php echo $category['description']; ?>
-                            </p>
+                            <h3><?php echo $category['label']; ?></h3>
+                            <?php if($category['description']) { ?>
+                                <p>
+                                  <?php echo $category['description']; ?>
+                                </p>
+                            <?php } ?>
+
                         <?php } ?>
                         <h3>Related videos</h3>
                         <div style="overflow-x: hidden;">

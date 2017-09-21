@@ -6,7 +6,7 @@ require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
 drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 
 // check user permissions
-$page = array(37, 38, 39, 40, 41);
+$page = array(5, 37, 38, 39, 40, 41);
 $user = array_keys($user->roles);
 $check = array_intersect($user, $page);
 if (!$check) {

@@ -1,12 +1,17 @@
 <?php
 
-function htv_embed_video($videoRef)
+function htv_embed_video($videoRef, $autoPlay = 0)
 {
   return <<<HTML
   <div class='embed-container'>
-  <iframe src='https://player.vimeo.com/video/{$videoRef}' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  <iframe src='https://player.vimeo.com/video/{$videoRef}?autoplay={$autoPlay}' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 </div>
 HTML;
+}
+
+function htv_video_thumbnail($ref)
+{
+  return "<img src='https://i.vimeocdn.com/video/{$ref}_640x360.jpg?r=pad'>";
 }
 
 function htv_filters($data, $skip)
@@ -84,11 +89,13 @@ function htv_videos($videos, $show = 6)
     list($code, $title) = explode(' ', $video->name, 2);
 
     $html[] = '<div class="col-md-6">';
-    $html[] = htv_embed_video($video->ref);
+    $html[] = "<a href='/how-to-videos/{$code}' title='{$title}'>";
+    $html[] = htv_video_thumbnail($video->pictures);
     $html[] = '<div style="padding-top: 4px; min-height: 60px;">';
-    $html[] = "<a href='/how-to-videos/{$code}' title='{$title}'>{$title}</a>";
-    //$html[] = "<br/><a href='/how-to-video/{$video->ref}'>{$code}</a>";
+    $html[] = $title;
     $html[] = '</div>';
+    $html[] = '</a>';
+
     $html[] = '</div>';
 
     $i++;
@@ -129,8 +136,7 @@ function htv_menu($filters, $page, $current)
     $html .= '<h2>';
 
     if ($current[$filter->name]) {
-      $html .= '</br>'
-        . '<a class="reset-link processed asyncBtn" style="margin: 8px 10px 0px 10px;" href="' . '/' . $page . htv_stateless_filters($current, $filter->name, 'skip') . '">Clear all</a>';
+      $html .=  '<a class="reset-link processed asyncBtn" style="margin: 8px 10px 0px 10px;" href="' . '/' . $page . htv_stateless_filters($current, $filter->name, 'skip') . '">Clear all</a>';
     }
 
     $html .= '</h2>'
@@ -175,13 +181,13 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
 
     // disabled leaf
     if (!$filter->name && !$filter->options) {
-      $html .= "<span style='color: silver;'>&#9744; {$filter->label}</span> ";
+      $html .= "<span style='color: silver;'>&#9744; {$filter->label} (coming soon)</span> ";
     }
 
     $html .= '</li>';
   }
 
-  $html = '<ul style="' . ($index > 0 && false === $anyChecked ? 'display: none;': '') . '  list-style: none ;padding-left: ' . ($index * 16) . 'px">'
+  $html = '<ul style="' . ($index > 0 && false === $anyChecked ? 'display: none;': '') . '  list-style: none ; padding-left: ' . ($index * 16) . 'px">'
     . $html
     . '</ul>';
 
