@@ -11,7 +11,7 @@
                     <div class="home_banners">
                         <div>
                             <div class="slick-slide-panel"
-                                 style="background-image: url(how_to_video_banner.png)">
+                                 style="background-image: url(how_to_video_banner-min.png)">
                                 <div class="pad">
                                     <h1 style=" color:#fff">How-to-videos</h1>
                                     <h3 style=" color:#fff">Short videos on specific topics to help you use gPROMS
