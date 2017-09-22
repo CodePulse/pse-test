@@ -61,7 +61,7 @@ $video = $response->videos[0];
 
                                  <div id="vfForm">
                                      <p>Please complete the form below to provide feedback on current videos or to request new video topics</p>
-                                     <textarea id="vfComments" style="width: 100%; height: 100px; border-size: 1px; border-color: #006583"></textarea>
+                                     <textarea id="vfComments" style="width: 100%; height: 100px; border:solid 1px#006583;"></textarea>
                                      <span class="linkbuttonprimary"><a id="vfBtn" href="">Submit</a></span>
 
                                  </div>
@@ -129,8 +129,9 @@ $video = $response->videos[0];
                         <?php } ?>
 
                         <?php if($videos) { ?>
-                        <h3>Related videos</h3>
-                            <div style="overflow-x: hidden;">
+
+                            <div class="content">
+                                <h3>Related videos</h3>
 
                                 <?php
                                 foreach ($videos as $_video) {

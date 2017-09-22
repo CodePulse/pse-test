@@ -3,7 +3,12 @@
         <header id="page-header" role="banner"></header><!-- /#page-header -->
         <div class="row">
             <section class="col-sm-12 node-view-mode-full node-type-customer_area_page">
-
+                <div id="trail">
+                    <ul id="breadcrumbs">
+                        <li><a href="/">PSE</a></li>
+                        <li><a href="/customer-area">>&nbsp;customer area</a></li>
+                    </ul>
+                </div>
                 <a id="main-content"></a> <!-- <h1 class="page-header">How-to Videos</h1> -->
                 <!-- CUSTOM TEMPLATES -->
                 <!-- file sites/all/themes/fdc_bootstrap/templates/custom/customer_area_page.php -->
@@ -20,6 +25,9 @@
                     </div>
                 </div>
                 <div class="row equal_children_height" id="reloadMe">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <br/>
+                    </div>
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 
                         <section class="content">
@@ -82,9 +90,6 @@
                     </div>
                     <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right videoFilters" id="sidebarnobg">
 
-
-
-
                         <div class="content" style="padding-top: 64px;">
 
                             <a href='/how-to-videos/HTVHT'>
@@ -93,10 +98,6 @@
                             </a>
                         </div>
 
-
-                        <div class="content">
-                            <h2 class="heading-filter-by">Filter by</h2>
-                        </div>
                         <?php echo htv_menu($filters, $page, $current); ?>
 
                         <script>

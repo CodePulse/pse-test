@@ -3,7 +3,7 @@
 function htv_embed_video($videoRef, $autoPlay = 0)
 {
   return <<<HTML
-  <div class='embed-container'>
+  <div class='embed-container' style='filter: drop-shadow(5px 5px 5px #222);'>
   <iframe src='https://player.vimeo.com/video/{$videoRef}?autoplay={$autoPlay}' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 </div>
 HTML;
@@ -11,7 +11,7 @@ HTML;
 
 function htv_video_thumbnail($ref)
 {
-  return "<img src='https://i.vimeocdn.com/video/{$ref}_640x360.jpg?r=pad'>";
+  return "<img src='https://i.vimeocdn.com/video/{$ref}_640x360.jpg?r=pad' style='filter: drop-shadow(5px 5px 5px #222);'>";
 }
 
 function htv_filters($data, $skip)
@@ -112,6 +112,11 @@ function htv_menu($filters, $page, $current)
   $html = '';
 
   foreach ($filters as $filter) {
+
+    $html .= '<div class="content">
+                            <h2 class="heading-filter-by">Filter by</h2>
+                        </div>';
+
 
     $html .= '<h2>';
 
