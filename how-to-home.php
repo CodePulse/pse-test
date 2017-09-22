@@ -71,11 +71,11 @@
 
                             <?php if($show < $total) { ?>
                             <div class="row">
-                                <div class="col-md-12 views-align-center">
-                                    <a class="asyncBtn" href="<?php echo '/' . $page . htv_stateless_filters($current, 'show') . '/show/' . ($show + 6) ; ?>">
+                                <a class="asyncBtn"  href="<?php echo '/' . $page . htv_stateless_filters($current, 'show') . '/show/' . ($show + 6) ; ?>">
+                                <div class="col-md-12 views-align-center" style="background-image: url(sites/all/themes/fdc_bootstrap/img/black10.png); padding: 4px;">
                                         Show more
-                                    </a>
                                 </div>
+                                </a>
                             </div>
                             <?php } ?>
 

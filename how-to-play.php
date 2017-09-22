@@ -33,7 +33,7 @@ $video = $response->videos[0];
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 
                         <section class="content">
-
+                            <br/>
 
                           <?php
                           list($code, $title) = explode(' ', $video->name, 2);
@@ -44,9 +44,8 @@ $video = $response->videos[0];
                                 <div class='col-md-12'>
                                     {$body}
                                     <h2>{$title}</h2>
-                                    <p>{$video->description}
-                                    <br/>
-                                    {$code}</p>
+                                    <p>{$video->description}</p>
+                                    <p style='font-size: 12px;'>{$code}</p>
                                 </div>
                             </div>
                           ";
@@ -60,7 +59,8 @@ $video = $response->videos[0];
                                  <div id="vfForm">
                                      <p>We love feedback feedback feedback!</p>
                                      <textarea id="vfComments" style="width: 100%; height: 100px;"></textarea>
-                                     <a id="vfBtn" href="">Submit feedback</a>
+                                     <span class="linkbuttonprimary"><a id="vfBtn" href="">Submit</a></span>
+
                                  </div>
 
                                  <script>
@@ -95,7 +95,7 @@ $video = $response->videos[0];
                         function findDescription($data, $needle) {
                             if(isset($data['name']) && $data['name'] === $needle) {
                                 return [
-                                    'description' => isset($data['description']) ?: false,
+                                    'description' => isset($data['description']) ? $data['description'] : false,
                                     'label' => $data['label']
                                 ];
                             }
@@ -124,26 +124,25 @@ $video = $response->videos[0];
                             <?php } ?>
 
                         <?php } ?>
-                        <h3>Related videos</h3>
+
+                        <h2 class="heading-filter-by">Related videos</h2>
                         <div style="overflow-x: hidden;">
 
                             <?php
                             foreach ($videos as $_video) {
                               if ($video->ref === $_video['ref']) { continue; }
                               list($code, $title) = explode(' ', $_video['name'], 2);
-                              echo htv_embed_video($_video['ref']);
                               ?>
-                              <a href='/how-to-videos/<?php echo $code; ?>'><?php echo $title; ?></a>
+
+                              <a href='/how-to-videos/<?php echo $code; ?>'>
+                                <?php echo htv_video_thumbnail($_video['pictures']); ?>
+                                <?php echo $title; ?>
+                              </a>
                               <br/><br/>
                             <?php } ?>
                         </div>
 
-                        <!-- custom menu -->
-                        <!-- News content -->
-                        <!-- related content -->
-                        <!-- testimonials -->
-                        <!-- side content -->
-                        <!-- publication -->
+
                         <script>
                             $(function () {
                                 $('#user_not_registered_modal').on('show.bs.modal', function (event) {
