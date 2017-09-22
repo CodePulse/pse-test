@@ -6,7 +6,7 @@ list($page, $ref) = explode('/', $_GET['q']);
 // data
 $response = json_decode(file_get_contents(
   'https://vimeo.psenterprise.com/api/videos'
-  . '?code=' . $ref . '%&ref[]=' . $ref
+  . '?code=' . $ref
 ));
 $video = $response->videos[0];
 
@@ -67,7 +67,7 @@ $video = $response->videos[0];
                                      $(function () {
                                          $('#vfBtn').click( function() {
 
-                                             $.post( "<?php echo getenv('DRUPAL_PSE_VIMEO_SERVICES'); ?>/api/videos/feedback", { "source" : "vimeo", "ref" : "228967538", "feedback": { "body" : $('#vfComments').val(), "user" : { "email": "<?php echo $user->mail; ?>"}}}, function() {
+                                             $.post( "<?php echo getenv('DRUPAL_PSE_VIMEO_SERVICES'); ?>/api/videos/feedback", { "source" : "vimeo", "ref" : "<?php echo $video->ref;?>", "feedback": { "body" : $('#vfComments').val(), "user" : { "email": "<?php echo $user->mail; ?>"}}}, function() {
                                                  $( "#vfForm").html( 'Thank you for your feedback!');
                                              });
                                              return false;
