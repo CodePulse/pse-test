@@ -7,8 +7,9 @@ drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 
 // check user permissions
 $page = array(5, 37, 38, 39, 40, 41);
-$user = array_keys($user->roles);
-$check = array_intersect($user, $page);
+$roles = array_keys($user->roles);
+
+$check = array_intersect($roles, $page);
 if (!$check) {
   header( 'Location: /user?destination=' . $_SERVER[REQUEST_URI]);
   die;

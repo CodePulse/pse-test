@@ -22,7 +22,7 @@ $video = $response->videos[0];
                     <ul id="breadcrumbs">
                         <li><a href="/">PSE</a></li>
                         <li><a href="/customer-area">>&nbsp;customer area</a></li>
-                        <li><a href="/how-to-videos">&gt;&nbsp;how-to videos</a></li>
+                        <li><a href="/how-to-videos">> how-to videos</a></li>
                     </ul>
                 </div>
                 <a id="main-content"></a> <!-- <h1 class="page-header">How-to Videos</h1> -->
@@ -66,9 +66,8 @@ $video = $response->videos[0];
                                  <script>
                                      $(function () {
                                          $('#vfBtn').click( function() {
-                                             console.log('sparta!');
 
-                                             $.post( "https://vimeo.psenterprise.com/api/videos/feedback", { "source" : "vimeo", "ref" : "228967538", "feedback": { "body" : "DFSDFSDF", "user" : { "email": "email@sdf.sdf"}}}, function() {
+                                             $.post( "<?php echo getenv('DRUPAL_PSE_VIMEO_SERVICES'); ?>/api/videos/feedback", { "source" : "vimeo", "ref" : "228967538", "feedback": { "body" : $('#vfComments').val(), "user" : { "email": "<?php echo $user->mail; ?>"}}}, function() {
                                                  $( "#vfForm").html( 'Thank you for your feedback!');
                                              });
                                              return false;
