@@ -11,7 +11,9 @@ HTML;
 
 function htv_video_thumbnail($ref)
 {
-  return "<img src='https://i.vimeocdn.com/video/{$ref}_640x360.jpg?r=pad' style='filter: drop-shadow(5px 5px 5px #222);'>";
+  return "<img src='/play_icon.png' style='filter: drop-shadow(5px 5px 5px #222); background: url(https://i.vimeocdn.com/video/{$ref}_640x360.jpg?r=pad); background-repeat: no-repeat;' />";
+
+  //return "<img src='https://i.vimeocdn.com/video/{$ref}_640x360.jpg?r=pad' style='filter: drop-shadow(5px 5px 5px #222);'>";
 }
 
 function htv_filters($data, $skip)
@@ -140,7 +142,7 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
 
     // branch
     if (!$filter->name && $filter->options) {
-      $html .= '<h2 class="menuHandle" style="margin: 10px 0px; color: rgb(0, 108, 133); font-size: 18px; background-image: ' . (anyChecked($filter->options, $name, $current) ? 'url(misc/menu-expanded.png)' : 'url(misc/menu-collapsed.png)') . '; background-position: left center; background-repeat: no-repeat; padding-left: 20px;"> '
+      $html .= '<h2 class="menuHandle" style="margin: 10px 0px; color: rgb(0, 108, 133); font-size: 18px; background-image: ' . (anyChecked($filter->options, $name, $current) ? 'url(misc/menu-expanded.png)' : 'url(misc/menu-collapsed.png)') . '; background-position: left center; background-repeat: no-repeat; padding-left: 20px; background-size: 10px 10px; "> '
     //    . '<span style="color: #0c0c0c; font-size: 84px; background: url(misc/menu-collapsed.png) no-repeat right;">'
         //. (anyChecked($filter->options, $name, $current) ? 'url(misc/menu-expanded.png)' : 'url(misc/menu-collapsed.png)')
 
