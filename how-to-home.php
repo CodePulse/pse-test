@@ -13,9 +13,7 @@
                             <div class="slick-slide-panel"
                                  style="background-image: url(how_to_video_banner-min.png)">
                                 <div class="pad">
-                                    <h1 style=" color:#fff">How-to-videos</h1>
-                                    <h3 style=" color:#fff">Short videos on specific topics to help you use gPROMS
-                                        family products efficiently</h3>
+
                                 </div>
                             </div>
                         </div>
@@ -57,7 +55,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1>
-                                        All Videos
+                                        All videos
                                     </h1>
                                 </div>
                             </div>
@@ -91,7 +89,7 @@
 
                             <a href='/how-to-videos/HTVHT'>
                               <?php echo htv_video_thumbnail(655524538); ?>
-                              <?php echo 'How to use How-to Videos'; ?>
+                              <?php echo 'How to use How-to-videos'; ?>
                             </a>
                         </div>
 

@@ -161,7 +161,7 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
 
     // disabled leaf
     if (!$filter->name && !$filter->options) {
-      $html .= "<span style='color: silver;'>&#9744; {$filter->label}</span> ";
+      $html .= "<span style='color: silver;'>&#9744; {$filter->label} [coming soon]</span> ";
     }
 
     $html .= '</li>';

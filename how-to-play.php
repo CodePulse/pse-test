@@ -44,8 +44,11 @@ $video = $response->videos[0];
                                 <div class='col-md-12'>
                                     {$body}
                                     <h2>{$title}</h2>
-                                    <p>{$video->description}</p>
-                                    <p style='font-size: 12px;'>{$code}</p>
+                                    <p>{$video->description}
+                                    <br/>
+                                    <span style='font-size: 12px;'>{$code}</span>
+                                    </p>
+                                    
                                 </div>
                             </div>
                           ";
@@ -57,8 +60,8 @@ $video = $response->videos[0];
                                  <h3>Feedback</h3>
 
                                  <div id="vfForm">
-                                     <p>We love feedback feedback feedback!</p>
-                                     <textarea id="vfComments" style="width: 100%; height: 100px;"></textarea>
+                                     <p>Please complete the form below to provide feedback on current videos or to request new video topics</p>
+                                     <textarea id="vfComments" style="width: 100%; height: 100px; border-size: 1px; border-color: #006583"></textarea>
                                      <span class="linkbuttonprimary"><a id="vfBtn" href="">Submit</a></span>
 
                                  </div>
@@ -68,7 +71,7 @@ $video = $response->videos[0];
                                          $('#vfBtn').click( function() {
 
                                              $.post( "<?php echo getenv('DRUPAL_PSE_VIMEO_SERVICES'); ?>/api/videos/feedback", { "source" : "vimeo", "ref" : "<?php echo $video->ref;?>", "feedback": { "body" : $('#vfComments').val(), "user" : { "email": "<?php echo $user->mail; ?>"}}}, function() {
-                                                 $( "#vfForm").html( 'Thank you for your feedback!');
+                                                 $( "#vfForm").html( 'Thank you for your feedback');
                                              });
                                              return false;
                                          });
@@ -126,7 +129,7 @@ $video = $response->videos[0];
                         <?php } ?>
 
                         <?php if($videos) { ?>
-                        <h2 class="heading-filter-by">Related videos</h2>
+                        <h3>Related videos</h3>
                             <div style="overflow-x: hidden;">
 
                                 <?php
