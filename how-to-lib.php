@@ -11,7 +11,7 @@ HTML;
 
 function htv_video_thumbnail($ref)
 {
-  return "<img src='/play_icon.png' style='filter: drop-shadow(5px 5px 5px #222); background: url(https://i.vimeocdn.com/video/{$ref}_640x360.jpg?r=pad); background-repeat: no-repeat;' />";
+  return "<img src='/play_icon.png' style='filter: drop-shadow(5px 5px 5px #222); background: url(https://i.vimeocdn.com/video/{$ref}_640x360.jpg?r=pad); background-repeat: no-repeat; background-size: cover; ' />";
 
   //return "<img src='https://i.vimeocdn.com/video/{$ref}_640x360.jpg?r=pad' style='filter: drop-shadow(5px 5px 5px #222);'>";
 }
