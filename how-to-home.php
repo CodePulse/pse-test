@@ -79,7 +79,7 @@
                             <div class="row">
                                 <a class="asyncBtn"  href="<?php echo '/' . $page . htv_stateless_filters($current, 'show') . '/show/' . ($show + 6) ; ?>">
                                 <div class="col-md-12 views-align-center" style="background-image: url(sites/all/themes/fdc_bootstrap/img/black10.png); padding: 4px;">
-                                        Show more
+                                        Show more &#9662;
                                 </div>
                                 </a>
                             </div>
@@ -96,10 +96,9 @@
                               <?php echo htv_video_thumbnail(655524538); ?>
                               <?php echo 'How to use How-to-videos'; ?>
                             </a>
-                        </div>
-
+                        <br/><br/>
                         <?php echo htv_menu($filters, $page, $current); ?>
-
+                        </div>
                         <script>
                             $(function () {
                                 $('#user_not_registered_modal').on('show.bs.modal', function (event) {
@@ -136,11 +135,13 @@
                 console.log(isVisible);
 
                 if (isVisible  === true) {
-                    $(this).prev().html('&#9654;');
-                    query.hide();
+                    $(this).find('span').html('&#9654;');
+                    $(this).css('background-image','url(misc/menu-collapsed.png)');
+                    query.hide('fast');
                 } else {
-                    $(this).prev().html('&#9660;');
-                    query.show();
+                    $(this).find('span').html('&#9660;');
+                    $(this).css('background-image','url(misc/menu-expanded.png)');
+                    query.show('fast');
                 }
                 return false;
             });

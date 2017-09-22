@@ -113,19 +113,15 @@ function htv_menu($filters, $page, $current)
 
   foreach ($filters as $filter) {
 
-    $html .= '<div class="content">
-                            <h2 class="heading-filter-by">Filter by</h2>
-                        </div>';
+    $html .= '<h2 class="heading-filter-by">Filter by</h2>';
 
-
-    $html .= '<h2>';
 
     if ($current[$filter->name]) {
       $html .=  '<a class="reset-link processed asyncBtn" style="margin: 8px 10px 0px 10px;" href="' . '/' . $page . htv_stateless_filters($current, $filter->name, 'skip') . '">Clear all</a>';
     }
 
-    $html .= '</h2>'
-      . htv_menu_ul($filter->options, $filter->name, $current, $page);
+
+    $html .= htv_menu_ul($filter->options, $filter->name, $current, $page);
   }
   return $html;
 }
@@ -144,10 +140,14 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
 
     // branch
     if (!$filter->name && $filter->options) {
-      $html .= '<span>'
-        . (anyChecked($filter->options, $name, $current) ? '&#9660;' : '&#9654;')
-        . '</span> '
-        . '<span class="menuHandle" style="color: rgb(0, 108, 133); font-size: 18px;"> '. $filter->label . '</span>';
+      $html .= '<h2 class="menuHandle" style="margin: 10px 0px; color: rgb(0, 108, 133); font-size: 18px; background-image: ' . (anyChecked($filter->options, $name, $current) ? 'url(misc/menu-expanded.png)' : 'url(misc/menu-collapsed.png)') . '; background-position: left center; background-repeat: no-repeat; padding-left: 20px;"> '
+    //    . '<span style="color: #0c0c0c; font-size: 84px; background: url(misc/menu-collapsed.png) no-repeat right;">'
+        //. (anyChecked($filter->options, $name, $current) ? 'url(misc/menu-expanded.png)' : 'url(misc/menu-collapsed.png)')
+
+      //  . '</span> '
+
+        . $filter->label
+        . '</h2>';
     }
 
     // branch leafs
