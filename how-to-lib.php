@@ -107,26 +107,6 @@ function htv_videos($videos, $show = 6)
   return implode("\n", $html);
 }
 
-function htv_related($videos, $skip)
-{
-  $html = '';
-  foreach ($videos as $video) {
-    if ($skip === $video->ref) {
-      continue;
-    }
-    list($code, $title) = explode(' ', $video->name, 2);
-
-    $html .= htv_embed_video($video->ref);
-    $html .= "<a title='{$title}' href='/how-to-videos/{$code}'>{$title}</a>";
-    //$html .= "<br/><a href='/how-to-videos/{$video->ref}'>{$code}</a><br/><br/>";
-    $html .= "<br/><br/>";
-
-  }
-
-
-  return $html;
-}
-
 function htv_menu($filters, $page, $current)
 {
   $html = '';
@@ -181,7 +161,7 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
 
     // disabled leaf
     if (!$filter->name && !$filter->options) {
-      $html .= "<span style='color: silver;'>&#9744; {$filter->label} (coming soon)</span> ";
+      $html .= "<span style='color: silver;'>&#9744; {$filter->label}</span> ";
     }
 
     $html .= '</li>';

@@ -6,7 +6,7 @@ list($page, $ref) = explode('/', $_GET['q']);
 // data
 $response = json_decode(file_get_contents(
   'https://vimeo.psenterprise.com/api/videos'
-  . '?code=' . $ref . '%'
+  . '?code=' . $ref . '%&ref[]=' . $ref
 ));
 $video = $response->videos[0];
 
@@ -85,7 +85,7 @@ $video = $response->videos[0];
                           $response = json_decode(file_get_contents(
                             'https://vimeo.psenterprise.com/api/videos'
                             . '?albums[]=4377223'
-                            . ($video->topics ? '&topics[]=' . implode('&topics[]=', $video->topics) : '')
+                            . ($video->topics ? '&topics[]=' . implode('&topics[]=', $video->topics) : '666')
                           ), true );
                           $videos = $response['videos'];
                       ?>
@@ -125,22 +125,24 @@ $video = $response->videos[0];
 
                         <?php } ?>
 
+                        <?php if($videos) { ?>
                         <h2 class="heading-filter-by">Related videos</h2>
-                        <div style="overflow-x: hidden;">
+                            <div style="overflow-x: hidden;">
 
-                            <?php
-                            foreach ($videos as $_video) {
-                              if ($video->ref === $_video['ref']) { continue; }
-                              list($code, $title) = explode(' ', $_video['name'], 2);
-                              ?>
+                                <?php
+                                foreach ($videos as $_video) {
+                                  if ($video->ref === $_video['ref']) { continue; }
+                                  list($code, $title) = explode(' ', $_video['name'], 2);
+                                  ?>
 
-                              <a href='/how-to-videos/<?php echo $code; ?>'>
-                                <?php echo htv_video_thumbnail($_video['pictures']); ?>
-                                <?php echo $title; ?>
-                              </a>
-                              <br/><br/>
-                            <?php } ?>
-                        </div>
+                                  <a href='/how-to-videos/<?php echo $code; ?>'>
+                                    <?php echo htv_video_thumbnail($_video['pictures']); ?>
+                                    <?php echo $title; ?>
+                                  </a>
+                                  <br/><br/>
+                                <?php } ?>
+                            </div>
+                        <?php } ?>
 
 
                         <script>

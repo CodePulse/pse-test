@@ -11,7 +11,7 @@
                     <div class="home_banners">
                         <div>
                             <div class="slick-slide-panel"
-                                 style="background-image: url(/sites/default/files/styles/home_page_banner_large/public/mediafiles/fields/background_image/1168_400_bgonly.png?itok=BMuOHY84)">
+                                 style="background-image: url(how_to_video_banner.png)">
                                 <div class="pad">
                                     <h1 style=" color:#fff">How-to-videos</h1>
                                     <h3 style=" color:#fff">Short videos on specific topics to help you use gPROMS
@@ -83,6 +83,18 @@
                         </section>
                     </div>
                     <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right videoFilters" id="sidebarnobg">
+
+
+
+
+                        <div class="content" style="padding-top: 64px;">
+
+                            <a href='/how-to-videos/HTVHT'>
+                              <?php echo htv_video_thumbnail(655524538); ?>
+                              <?php echo 'How to use How-to Videos'; ?>
+                            </a>
+                        </div>
+
 
                         <div class="content">
                             <h2 class="heading-filter-by">Filter by</h2>
