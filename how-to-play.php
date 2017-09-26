@@ -70,7 +70,7 @@ $video = $response->videos[0];
                                      $(function () {
                                          $('#vfBtn').click( function() {
 
-                                             $.post( "<?php echo getenv('DRUPAL_PSE_VIMEO_SERVICES'); ?>/api/videos/feedback", { "source" : "vimeo", "ref" : "<?php echo $video->ref;?>", "feedback": { "job title" : "<?php echo $field_profile_position; ?>", "name" : "<?php echo $field_profile_name; ?>", "company" : "<?php echo $field_profile_company; ?>", "body" : $('#vfComments').val(), "user" : { "email": "<?php echo $user->mail; ?>"}}}, function() {
+                                             $.post( "<?php echo getenv('DRUPAL_PSE_VIMEO_SERVICES'); ?>/api/videos/feedback", { "source" : "vimeo", "ref" : "<?php echo $video->ref;?>", "feedback": { "body" : $('#vfComments').val(), "user" : { "job title" : "<?php echo $field_profile_position; ?>", "name" : "<?php echo $field_profile_name; ?>", "company" : "<?php echo $field_profile_company; ?>", "email": "<?php echo $user->mail; ?>"}}}, function() {
                                                  $( "#vfForm").html( 'Thank you for your feedback');
                                              });
                                              return false;
