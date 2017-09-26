@@ -142,12 +142,7 @@ function htv_menu_ul($filters, $name, $current, $page, $index = 0)
 
     // branch
     if (!$filter->name && $filter->options) {
-      $html .= '<h2 class="menuHandle" style="margin: 10px 0px; color: rgb(0, 108, 133); font-size: 18px; background-image: ' . (anyChecked($filter->options, $name, $current) ? 'url(misc/menu-expanded.png)' : 'url(misc/menu-collapsed.png)') . '; background-position: left center; background-repeat: no-repeat; padding-left: 20px; background-size: 10px 10px; "> '
-    //    . '<span style="color: #0c0c0c; font-size: 84px; background: url(misc/menu-collapsed.png) no-repeat right;">'
-        //. (anyChecked($filter->options, $name, $current) ? 'url(misc/menu-expanded.png)' : 'url(misc/menu-collapsed.png)')
-
-      //  . '</span> '
-
+      $html .= '<h2 class="menuHandle" style="cursor:pointer; margin: 10px 0px; color: rgb(0, 108, 133); font-size: 18px; background-image: ' . (anyChecked($filter->options, $name, $current) ? 'url(misc/menu-expanded.png)' : 'url(misc/menu-collapsed.png)') . '; background-position: left center; background-repeat: no-repeat; padding-left: 20px; background-size: 10px 10px; "> '
         . $filter->label
         . '</h2>';
     }

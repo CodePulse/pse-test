@@ -16,7 +16,7 @@
                     <div class="home_banners">
                         <div>
                             <div class="slick-slide-panel"
-                                 style="background-image: url(how_to_video_banner-min.png)">
+                                 style="background-image: url(how_to_video_banner.png)">
                                 <div class="pad">
 
                                 </div>
@@ -94,7 +94,7 @@
 
                             <a href='/how-to-videos/HTVHT'>
                               <?php echo htv_video_thumbnail(655524538); ?>
-                              <?php echo 'How to use How-to-videos'; ?>
+                              <?php echo 'How to use How-to Videos'; ?>
                             </a>
                         <br/><br/>
                         <?php echo htv_menu($filters, $page, $current); ?>

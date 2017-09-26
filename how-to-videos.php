@@ -15,6 +15,11 @@ if (!$check) {
   die;
 }
 
+$full_user = user_load($user->uid);
+$field_profile_name = $full_user->field_profile_first_name['und'][0]['safe_value'] . ' ' . $full_user->field_profile_last_name['und'][0]['safe_value'];
+$field_profile_company = $full_user->field_profile_company['und'][0]['safe_value'];
+$field_profile_position = $full_user->field_profile_position['und'][0]['safe_value'];
+
 // check if video exists
 list($page, $code) = explode('/', $_GET['q']);
 $response = json_decode(file_get_contents(
