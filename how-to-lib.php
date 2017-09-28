@@ -72,12 +72,27 @@ function htv_api_videos($topic, $level)
     $levels = '&levels[]=' . implode('&levels[]=',$levels);
   }
 
+  return htv_api_get('?albums[]=4377223' . $topics . $levels);
+}
+
+function htv_api_get($params, $assoc = false)
+{
+  $opts = array(
+    'http'=>array(
+      'method'=>"GET",
+      'header'=>"Accept-language: en\r\n" .
+        "Cookie: foo=bar\r\n" .
+        "API-TOKEN: " . getenv('DRUPAL_PSE_VIMEO_TOKEN') . "\r\n"
+    )
+  );
+  $context = stream_context_create($opts);
+
   return json_decode(file_get_contents(
-    'https://vimeo.psenterprise.com/api/videos'
-    . '?albums[]=4377223'
-    . $topics
-    . $levels
-  ));
+    getenv('DRUPAL_PSE_VIMEO_SERVICES') . '/api/videos' . $params,
+    false,
+    $context
+  ), $assoc);
+
 }
 
 function htv_videos($videos, $show = 6)
@@ -188,4 +203,44 @@ function anyChecked($filters, $name, $current)
   }
 
   return $anyChecked;
+}
+
+class PSEVimeoClient
+{
+  private $service;
+
+  private $feedback = '/api/videos/feedback';
+
+  private function httpPost($url,$params, $headers = false)
+  {
+    $ch = curl_init();
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch,CURLOPT_HEADER, false);
+    if($headers) {
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    }
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
+    $output=curl_exec($ch);
+    curl_close($ch);
+    return $output;
+
+  }
+
+  public function __construct($service)
+  {
+    $this->service = $service;
+  }
+
+  public function addFeedback($payload)
+  {
+    $this->httpPost(
+      $this->service . $this->feedback,
+      $payload,
+      array(
+        'Api-Token: ' . getenv('DRUPAL_PSE_VIMEO_TOKEN')
+      )
+    );
+  }
 }

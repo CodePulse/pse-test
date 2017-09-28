@@ -22,14 +22,18 @@ $field_profile_position = $full_user->field_profile_position['und'][0]['safe_val
 
 // check if video exists
 list($page, $code) = explode('/', $_GET['q']);
-$response = json_decode(file_get_contents(
-  'https://vimeo.psenterprise.com/api/videos'
-  . '?code=' . $code
-));
+
+require_once DRUPAL_ROOT . '/how-to-lib.php';
+
+if($code === 'feedback') {
+  require_once DRUPAL_ROOT . '/how-to-feedback.php';
+  die;
+}
+
+$response = htv_api_get('?code=' . $code);
 $video = $response->videos[0];
 
 require DRUPAL_ROOT . '/how-to-top.php';
-require_once DRUPAL_ROOT . '/how-to-lib.php';
 
 if ($code && $video) {
   require_once DRUPAL_ROOT . '/how-to-play.php';

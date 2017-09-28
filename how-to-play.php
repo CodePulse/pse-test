@@ -1,17 +1,9 @@
 <?php
-
 // parameters
 list($page, $ref) = explode('/', $_GET['q']);
-
 // data
-$response = json_decode(file_get_contents(
-  'https://vimeo.psenterprise.com/api/videos'
-  . '?code=' . $ref
-));
+$response = htv_api_get('?code=' . $ref);
 $video = $response->videos[0];
-
-
-
 ?>
 
     <div class="main-container">
@@ -62,12 +54,19 @@ $video = $response->videos[0];
                                  <div id="vfForm">
                                      <p>Please complete the form below to provide feedback on current videos or to request new video topics</p>
                                      <textarea id="vfComments" style="width: 100%; height: 100px; border:solid 1px#006583;"></textarea>
-                                     <span class="linkbuttonprimary"><a id="vfBtn" href="">Submit</a></span>
+                                     <span class="linkbuttonprimary"><a id="vfBtn2" href="">Submit</a></span>
 
                                  </div>
 
                                  <script>
                                      $(function () {
+                                         $('#vfBtn2').click( function() {
+                                             $.post( "/how-to-videos/feedback", { "ref" : "<?php echo $video->ref;?>", "body" : $('#vfComments').val() }, function() {
+                                                 $( "#vfForm").html( 'Thank you for your feedback');
+                                             });
+                                             return false;
+                                         });
+
                                          $('#vfBtn').click( function() {
 
                                              $.post( "<?php echo getenv('DRUPAL_PSE_VIMEO_SERVICES'); ?>/api/videos/feedback", { "source" : "vimeo", "ref" : "<?php echo $video->ref;?>", "feedback": { "body" : $('#vfComments').val(), "user" : { "job title" : "<?php echo $field_profile_position; ?>", "name" : "<?php echo $field_profile_name; ?>", "company" : "<?php echo $field_profile_company; ?>", "email": "<?php echo $user->mail; ?>"}}}, function() {
@@ -85,11 +84,10 @@ $video = $response->videos[0];
                     </div>
                     <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right" id="sidebarnobg" >
                       <?php
-                          $response = json_decode(file_get_contents(
-                            'https://vimeo.psenterprise.com/api/videos'
-                            . '?albums[]=4377223'
-                            . ($video->topics ? '&topics[]=' . implode('&topics[]=', $video->topics) : '666')
-                          ), true );
+                          $response = htv_api_get(
+                            '?albums[]=4377223' . ($video->topics ? '&topics[]=' . implode('&topics[]=', $video->topics) : '666'),
+                            true
+                          );
                           $videos = $response['videos'];
                       ?>
 
