@@ -640,6 +640,10 @@ Redirect /customer-area/how-videos/global-system-analysis https://www.psenterpri
 Redirect /customer-area/how-to-videos/optimisation https://www.psenterprise.com/how-to-videos
 Redirect /customer-area/how-to-videos/request-form https://www.psenterprise.com/how-to-videos
 
+Redirect /customer-area/draft-how-videos  https://www.psenterprise.com/how-to-videos
+Redirect /customer-area/draft-how-videos/category1 https://www.psenterprise.com/how-to-videos
+Redirect /training/how-to-videos https://www.psenterprise.com/how-to-videos
+
 php_value upload_max_filesize 450M
 php_value post_max_size 460M
 
