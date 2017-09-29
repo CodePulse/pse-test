@@ -24,6 +24,8 @@ $field_profile_position = $full_user->field_profile_position['und'][0]['safe_val
 list($page, $code) = explode('/', $_GET['q']);
 
 require_once DRUPAL_ROOT . '/how-to-lib.php';
+$client = new PSEVimeoClient(getenv('DRUPAL_PSE_VIMEO_SERVICES'));
+$full_user = user_load($user->uid);
 
 if($code === 'feedback') {
   require_once DRUPAL_ROOT . '/how-to-feedback.php';

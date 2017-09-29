@@ -1,7 +1,5 @@
 <?php
 
-$client = new PSEVimeoClient(getenv('DRUPAL_PSE_VIMEO_SERVICES'));
-$full_user = user_load($user->uid);
 $feedback = array(
   'ref' => $_POST['ref'],
   'source' => 'vimeo',

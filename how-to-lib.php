@@ -210,6 +210,7 @@ class PSEVimeoClient
   private $service;
 
   private $feedback = '/api/videos/feedback';
+  private $openings = '/api/videos/openings';
 
   private function httpPost($url,$params, $headers = false)
   {
@@ -237,6 +238,17 @@ class PSEVimeoClient
   {
     $this->httpPost(
       $this->service . $this->feedback,
+      $payload,
+      array(
+        'Api-Token: ' . getenv('DRUPAL_PSE_VIMEO_TOKEN')
+      )
+    );
+  }
+
+  public function addOpening($payload)
+  {
+    $this->httpPost(
+      $this->service . $this->openings,
       $payload,
       array(
         'Api-Token: ' . getenv('DRUPAL_PSE_VIMEO_TOKEN')
