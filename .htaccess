@@ -630,6 +630,10 @@ Redirect /standardterms/i_svs_terms_201401.pdf https://www.psenterprise.com/site
 Redirect /standardterms/i_sw_terms_201401.pdf https://www.psenterprise.com/sites/default/files/mediafiles/standardterms/i_sw_terms_201401.pdf
 Redirect /pseintranet/index.html https://www.psenterprise.com/pseintranet
 
+Redirect /customer-area/draft-how-videos  https://www.psenterprise.com/how-to-videos
+Redirect /customer-area/draft-how-videos/category1 https://www.psenterprise.com/how-to-videos
+Redirect /training/how-to-videos https://www.psenterprise.com/how-to-videos
+Redirect /customer-area/how-to-videos https://www.psenterprise.com/how-to-videos
 Redirect /customer-area/how-to-videos/installation https://www.psenterprise.com/how-to-videos
 Redirect /customer-area/how-to-videos/platform-basics https://www.psenterprise.com/how-to-videos
 Redirect /customer-area/how-to-videos/gml-libraries https://www.psenterprise.com/how-to-videos
@@ -639,10 +643,6 @@ Redirect /customer-area/how-to-videos/parameter-estimation https://www.psenterpr
 Redirect /customer-area/how-videos/global-system-analysis https://www.psenterprise.com/how-to-videos
 Redirect /customer-area/how-to-videos/optimisation https://www.psenterprise.com/how-to-videos
 Redirect /customer-area/how-to-videos/request-form https://www.psenterprise.com/how-to-videos
-
-Redirect /customer-area/draft-how-videos  https://www.psenterprise.com/how-to-videos
-Redirect /customer-area/draft-how-videos/category1 https://www.psenterprise.com/how-to-videos
-Redirect /training/how-to-videos https://www.psenterprise.com/how-to-videos
 
 php_value upload_max_filesize 450M
 php_value post_max_size 460M
