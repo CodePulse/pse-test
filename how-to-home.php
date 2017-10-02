@@ -16,7 +16,7 @@
                     <div class="home_banners">
                         <div>
                             <div class="slick-slide-panel"
-                                 style="background-image: url(how_to_video_banner.png)">
+                                 style="background-image: url(/how_to_video_banner.png)">
                                 <div class="pad">
 
                                 </div>
