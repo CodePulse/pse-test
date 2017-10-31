@@ -337,6 +337,8 @@ ini_set('session.cookie_lifetime', 2000000);
  */
 # $cookie_domain = '.example.com';
 
+$cookie_domain = '.psenterprise.com';
+
 /**
  * Variable overrides:
  *
