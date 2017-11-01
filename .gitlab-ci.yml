@@ -13,7 +13,7 @@ deploy_test:
     - develop
   script:
     - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $TEST_USER:$DEPLOY_PATH --delete
-    - ssh £TEST_USER "cp $CI_PROJECT_DIR/.htaccess.test $DEPLOY_PATH/.htaccess
+    - ssh $TEST_USER "cp $CI_PROJECT_DIR/.htaccess.test $DEPLOY_PATH/.htaccess
     - ssh $TEST_USER "cd /var/www/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
     - ssh $TEST_USER "cd /var/www/website && ln -s /var/www/drupal/sites_default_files public"
 
@@ -28,6 +28,6 @@ deploy_live:
     - tags
   script:
     - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -p 2202 -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $LIVE_USER:$DEPLOY_PATH --delete
-    - ssh £TEST_USER "cp $CI_PROJECT_DIR/.htaccess.live $DEPLOY_PATH/.htaccess
+    - ssh $TEST_USER "cp $CI_PROJECT_DIR/.htaccess.live $DEPLOY_PATH/.htaccess
     - ssh $LIVE_USER -p 2202 "cd /var/www/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
     - ssh $LIVE_USER -p 2202 "cd /var/www/website && ln -s /var/www/drupal/sites_default_files public"
