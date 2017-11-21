@@ -162,8 +162,8 @@ DirectoryIndex index.php index.html index.htm
 
 
 # Redirects to laravel
-Redirect /resource-center https://www-test2-website2.psenterprise.com/resource-center
-Redirect /formulated-products-resource-center https://www-test2-website2.psenterprise.com/resource-center
+Redirect /resource-centre https://www-test2-website2.psenterprise.com/resource-centre
+Redirect /formulated-products-resource-centre https://www-test2-website2.psenterprise.com/resource-centre
 
 # Redirects
 Redirect /academic/form_academic.html https://www.psenterprise.com/sectors/academic
