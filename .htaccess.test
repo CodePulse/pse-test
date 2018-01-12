@@ -161,10 +161,6 @@ DirectoryIndex index.php index.html index.htm
 </IfModule>
 
 
-# Redirects to laravel
-Redirect /resource-centre https://www-test-website.psenterprise.com/resource-centre
-Redirect /formulated-products-resource-centre https://www-test-website.psenterprise.com/resource-centre
-
 # Redirects
 Redirect /academic/form_academic.html https://www.psenterprise.com/sectors/academic
 Redirect /academic/index.html https://www.psenterprise.com/sectors/academic
