@@ -1,7 +1,8 @@
 <?php
 
 $migrated = [
-  '/resource-centre'
+  '/resource-centre',
+  '/company',
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && in_array($_SERVER['REQUEST_URI'], $migrated, true)) {
