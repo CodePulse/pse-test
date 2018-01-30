@@ -28,8 +28,8 @@ deploy_ovh_test:
     - deploy-ovh-test
   script:
     - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -p 2202 -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $TEST_DRUPAL_USER:$DEPLOY_PATH --delete
-    - ssh $TEST_DRUPAL_USER "cd /var/www/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
-    - ssh $TEST_DRUPAL_USER "cd /var/www/website && ln -s /var/www/drupal/sites_default_files public"
+    - ssh $TEST_DRUPAL_USER -p 2202 "cd /var/www/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
+    - ssh $TEST_DRUPAL_USER -p 2202 "cd /var/www/website && ln -s /var/www/drupal/sites_default_files public"
 
 deploy_live:
   stage: deploy
