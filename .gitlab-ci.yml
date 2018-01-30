@@ -1,20 +1,21 @@
 variables:
-  TEST_USER: gitlabrunner@devcms
+  TEST_USER: gitlab-slave@test-drupal.psenterprise.com
   LIVE_USER: gitlab-slave@cms.psenterprise.com
   DEPLOY_PATH: /var/www/website
-deploy_test:
+
+deploy_ovh_test:
   stage: deploy
   variables:
     GIT_STRATEGY: fetch
   environment:
     name: test
-    url: https://www-test-website.psenterprise.com/
+    url: https://test-drupal-website.psenterprise.com/
   only:
     - develop
   script:
-    - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $TEST_USER:$DEPLOY_PATH --delete
-    - ssh $TEST_USER "cd /var/www/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
-    - ssh $TEST_USER "cd /var/www/website && ln -s /var/www/drupal/sites_default_files public"
+    - rsync -a --whole-file --no-group --no-times --no-perms -e "ssh -p 2202 -T -o Compression=no -x" --exclude '.git' $CI_PROJECT_DIR'/' $TEST_USER:$DEPLOY_PATH --delete
+    - ssh $TEST_USER -p 2202 "cd /var/www/website/sites/default && ln -s /var/www/drupal/sites_default_files files"
+    - ssh $TEST_USER -p 2202 "cd /var/www/website && ln -s /var/www/drupal/sites_default_files public"
 
 deploy_live:
   stage: deploy
