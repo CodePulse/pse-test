@@ -1,9 +1,9 @@
 variables:
   TEST_USER: gitlab-slave@test-drupal.psenterprise.com
-  LIVE_USER: gitlab-slave@cms.psenterprise.com
+  LIVE_USER: gitlab-slave@live-drupal.psenterprise.com
   DEPLOY_PATH: /var/www/website
 
-deploy_ovh_test:
+deploy_test:
   stage: deploy
   variables:
     GIT_STRATEGY: fetch
