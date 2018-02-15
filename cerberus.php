@@ -1,11 +1,16 @@
 <?php
 
-$migrated = [
-  '/resource-centre',
-  '/company',
+$patterns = [
+  '/\/resource-centre/',
+  '/\/company/',
+  '/^\/activate\/\d*\/[a-zA-Z0-9]*$/'
 ];
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && in_array($_SERVER['REQUEST_URI'], $migrated, true)) {
-  header('Location: ' . getenv('LARAVEL') . $_SERVER['REQUEST_URI']);
-  exit();
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  foreach($patterns as $pattern) {
+    if (preg_match($pattern, $_SERVER['REQUEST_URI'])) {
+      header('Location: ' . getenv('LARAVEL') . $_SERVER['REQUEST_URI']);
+      exit;
+    }
+  }
 }
