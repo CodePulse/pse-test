@@ -1,8 +1,7 @@
 <?php
 
 $patterns = [
-  '/\/resource-centre/',
-  '/\/company/',
+  '/^\/resource-centre$/',
   '/^\/activate\/\d*\/[a-zA-Z0-9]*$/'
 ];
 
