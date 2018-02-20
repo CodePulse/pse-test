@@ -67,6 +67,12 @@ $content_menu = child_sibling_menu($node->nid);
 				<?php print render($page['social_block']); ?>
 <!--			<div class="addthis_sharing_toolbox" ></div>-->
 			<?php include DRUPAL_ROOT . '/sites/all/themes/fdc_bootstrap/templates/custom/inc/right_menu.inc'; ?>
+			<?php
+				$path = request_uri();
+				$exploded_path = explode('/', $path);
+				if ($exploded_path[2] == 'training') : ?>
+					<img src="/sites/all/themes/fdc_bootstrap/img/pci-dds.jpg">
+				<?php endif; ?>
 		</aside>
 	<?php endif; ?>
 </div>
