@@ -160,6 +160,11 @@ DirectoryIndex index.php index.html index.htm
   Header always set X-Content-Type-Options nosniff
 </IfModule>
 
+
+# Redirects to laravel
+Redirect /resource-centre https://dev.company-website.psenterprise.com/resource-centre
+Redirect /formulated-products-resource-centre https://dev.company-website.psenterprise.com/resource-centre
+
 # Redirects
 Redirect /academic/form_academic.html https://www.psenterprise.com/sectors/academic
 Redirect /academic/index.html https://www.psenterprise.com/sectors/academic

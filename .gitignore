@@ -9,6 +9,5 @@ sites/*/private
 # public
 # private
 .idea
-
-local_settings.php
 .DS_Store
+local_settings.php

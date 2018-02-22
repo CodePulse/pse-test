@@ -1,96 +1,46 @@
-<?php require 'how-to-top.php'; ?>
+<?php
 
-    <div class="main-container">
-        <header id="page-header" role="banner"></header><!-- /#page-header -->
-        <div class="row">
-            <section class="col-sm-12 node-view-mode-full node-type-customer_area_page">
+// bootstrap drupal
+define('DRUPAL_ROOT', getcwd());
+require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
+drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 
-                <a id="main-content"></a> <!-- <h1 class="page-header">How-to Videos</h1> -->
-                <!-- CUSTOM TEMPLATES -->
-                <!-- file sites/all/themes/fdc_bootstrap/templates/custom/customer_area_page.php -->
-                <div class="row row_extra_negative">
-                    <div class="home_banners">
-                        <div>
-                            <div class="slick-slide-panel"
-                                 style="background-image: url(/sites/default/files/styles/home_page_banner_large/public/mediafiles/fields/background_image/1168_400_bgonly.png?itok=BMuOHY84)">
-                                <div class="pad">
-                                    <h1 style=" color:#fff">How-to Videos</h1>
-                                    <h3 style=" color:#fff">Short videos on specific topics to help you use gPROMS
-                                        family products efficiently</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row equal_children_height">
-                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+// check user permissions
+$page = array(5, 37, 38, 39, 40, 41);
+$roles = array_keys($user->roles);
 
-                        <section class="content">
-                          <?php
+$check = array_intersect($roles, $page);
+if (!$check) {
+  header( 'Location: /user?destination=' . $_SERVER[REQUEST_URI]);
+  die;
+}
 
-                          // parameters
-                          $topic = $level = FALSE;
-                          $q = explode('/', $_GET['q']);
-                          $page = $q[0];
-                          foreach ($q as $k => $i) {
-                            if ($i === 'topic') {
-                              $topic = $q[$k + 1];
-                            }
-                            if ($i === 'level') {
-                              $level = $q[$k + 1];
-                            }
-                          }
+$full_user = user_load($user->uid);
+$field_profile_name = $full_user->field_profile_first_name['und'][0]['safe_value'] . ' ' . $full_user->field_profile_last_name['und'][0]['safe_value'];
+$field_profile_company = $full_user->field_profile_company['und'][0]['safe_value'];
+$field_profile_position = $full_user->field_profile_position['und'][0]['safe_value'];
 
-                          // data
+// check if video exists
+list($page, $code) = explode('/', $_GET['q']);
 
-                          $response = htv_api_videos($topic, $level);
+require_once DRUPAL_ROOT . '/how-to-lib.php';
+$client = new PSEVimeoClient(getenv('DRUPAL_PSE_VIMEO_SERVICES'));
+$full_user = user_load($user->uid);
 
-                          $videos = $response->videos;
-                          $filters = $response->filters;
+if($code === 'feedback') {
+  require_once DRUPAL_ROOT . '/how-to-feedback.php';
+  die;
+}
 
-                          ?>
+$response = htv_api_get('?code=' . $code);
+$video = $response->videos[0];
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h1>
-                                        All Videos
-                                    </h1>
-                                </div>
+require DRUPAL_ROOT . '/how-to-top.php';
 
-                                <?php echo htv_videos($videos); ?>
+if ($code && $video) {
+  require_once DRUPAL_ROOT . '/how-to-play.php';
+} else {
+  require_once DRUPAL_ROOT . '/how-to-home.php';
+}
 
-                            </div>
-                        </section>
-                    </div>
-                    <aside class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-right" id="sidebarnobg">
-
-                        <?php echo htv_menu($filters, $page, $topic, $level); ?>
-                        <script>
-                            $(function () {
-                                $('input[name=filter]').click( function () {
-                                    window.location.href = $(this).siblings('a').attr('href');
-                                });
-                            });
-                        </script>
-
-                        <script>
-                            $(function () {
-                                $('#user_not_registered_modal').on('show.bs.modal', function (event) {
-                                    var button = $(event.relatedTarget); // Button that triggered the modal
-                                    var fname = button.data('file'); // Extract info from data-* attributes
-                                    var pub_file_name = fname.substring(fname.lastIndexOf("tdf/") + 4, fname.lastIndexOf("?file"));
-
-                                    $("input:hidden[name='submitted[file_id]']").val(fname);
-                                    $("input:hidden[name='submitted[current_page]']").val(window.location.href);
-                                    $("input:hidden[name='submitted[file_name]']").val(pub_file_name);
-                                })
-                            })
-                        </script>
-                    </aside>
-                </div><!-- end of file sites/all/themes/fdc_bootstrap/templates/custom/customer_area_page.php -->
-                <!-- END CUSTOM TEMPLATES -->
-            </section>
-        </div><!-- /.row with content and sidebars -->
-    </div>
-
-<?php require 'how-to-bottom.php'; ?>
+require DRUPAL_ROOT . '/how-to-bottom.php';
