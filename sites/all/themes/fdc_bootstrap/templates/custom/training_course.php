@@ -42,7 +42,7 @@ if (function_exists('fdc_pse_get_current_cart_set_currency')) {
 				<div id="training_products"></div>
 			</div>
 		</div>
-		<img src="/sites/all/themes/fdc_bootstrap/img/pci-dds.jpg">
+		<img src="/sites/all/themes/fdc_bootstrap/img/pci-dds.jpg" class="padding-top">
 	</aside>
 </div>
 
