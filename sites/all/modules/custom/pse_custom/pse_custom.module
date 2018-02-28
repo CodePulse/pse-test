@@ -124,6 +124,13 @@ function pse_custom_form_alter(&$form, &$form_state, $form_id) {
 
     $f='d';
   }
+  
+  if($form_id == 'commerce_checkout_form_review') {
+    $form['pci'] = array(
+      '#type' => 'markup',
+      '#markup' => '<img src="/sites/all/themes/fdc_bootstrap/img/pci-dds.jpg">'
+    );
+  }
 }
 
 function pse_custom_js_alter(&$js) {

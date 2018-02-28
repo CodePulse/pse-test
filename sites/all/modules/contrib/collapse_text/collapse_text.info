@@ -1,0 +1,16 @@
+name = Collapse Text
+description = "Input filter allowing text sections to become collapsible."
+package = "Input filters"
+dependencies[] = filter
+configure = admin/config/content/formats
+core = 7.x
+php = 5.2
+
+files[] = collapse_text.test
+
+; Information added by Drupal.org packaging script on 2016-03-16
+version = "7.x-2.4+9-dev"
+core = "7.x"
+project = "collapse_text"
+datestamp = "1458096844"
+
