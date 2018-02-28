@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the PSE: Contexts feature.
+ */
+
+include_once 'pse_contexts.features.inc';

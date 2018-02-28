@@ -1,0 +1,11 @@
+name = PSE: Contexts
+core = 7.x
+package = Features
+dependencies[] = block
+dependencies[] = context
+dependencies[] = ctools
+dependencies[] = facetapi
+features[context][] = events-listing-main
+features[context][] = news-listing
+features[ctools][] = context:context:3
+features[features_api][] = api:2
