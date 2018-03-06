@@ -49,7 +49,7 @@ function pse__node_page_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 18,
+      'weight' => 6,
     ),
   );
 
@@ -89,7 +89,7 @@ function pse__node_page_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 16,
+      'weight' => 5,
     ),
   );
 
@@ -132,7 +132,7 @@ function pse__node_page_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -175,7 +175,7 @@ function pse__node_page_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -187,16 +187,12 @@ function pse__node_page_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
+        'type' => 'field_collection_fields',
         'weight' => 12,
       ),
       'teaser' => array(
@@ -261,7 +257,7 @@ function pse__node_page_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 1,
+      'weight' => 8,
     ),
   );
 
@@ -304,7 +300,7 @@ function pse__node_page_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 14,
+      'weight' => 8,
     ),
   );
 
@@ -347,7 +343,7 @@ function pse__node_page_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 15,
+      'weight' => 6,
     ),
   );
 
@@ -390,7 +386,7 @@ function pse__node_page_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 10,
+      'weight' => 13,
     ),
   );
 
@@ -433,7 +429,7 @@ function pse__node_page_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 7,
+      'weight' => 10,
     ),
   );
 
@@ -476,7 +472,7 @@ function pse__node_page_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 5,
+      'weight' => 9,
     ),
   );
 
@@ -519,7 +515,7 @@ function pse__node_page_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 17,
+      'weight' => 6,
     ),
   );
 
@@ -562,7 +558,7 @@ function pse__node_page_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 12,
+      'weight' => 11,
     ),
   );
 
@@ -645,7 +641,7 @@ function pse__node_page_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 13,
+      'weight' => 7,
     ),
   );
 
@@ -682,7 +678,7 @@ function pse__node_page_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 6,
+      'weight' => 11,
     ),
   );
 
@@ -722,7 +718,7 @@ function pse__node_page_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 11,
+      'weight' => 14,
     ),
   );
 
@@ -762,7 +758,7 @@ function pse__node_page_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 4,
+      'weight' => 12,
     ),
   );
 

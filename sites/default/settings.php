@@ -337,6 +337,8 @@ ini_set('session.cookie_lifetime', 2000000);
  */
 # $cookie_domain = '.example.com';
 
+$cookie_domain = '.psenterprise.com';
+
 /**
  * Variable overrides:
  *
@@ -574,3 +576,8 @@ $conf['theme_debug'] = FALSE;
 
 ini_set('memory_limit','500M');
 ini_set('max_execution_time', 300);
+
+// local environment settings
+if (file_exists(DRUPAL_ROOT . '/' . conf_path() . '/local_settings.php')) {
+  include DRUPAL_ROOT . '/' . conf_path() . '/local_settings.php';
+}

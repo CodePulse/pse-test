@@ -160,6 +160,7 @@ DirectoryIndex index.php index.html index.htm
   Header always set X-Content-Type-Options nosniff
 </IfModule>
 
+
 # Redirects
 Redirect /academic/form_academic.html https://www.psenterprise.com/sectors/academic
 Redirect /academic/index.html https://www.psenterprise.com/sectors/academic

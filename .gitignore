@@ -2,12 +2,12 @@
 # sites/*/settings*.php
 
 # Ignore paths that contain user-generated content.
-# sites/*/files
+sites/*/files
 sites/*/private
 
 # PDC used these folders for user content
 # public
 # private
 .idea
-
 .DS_Store
+local_settings.php

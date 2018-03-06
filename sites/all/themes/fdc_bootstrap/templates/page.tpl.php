@@ -164,9 +164,17 @@
         <?php if (!empty($page['sidebar_second'])): ?>
           <aside class="col-sm-3" role="complementary">
             <?php print render($page['sidebar_second']); ?>
-          </aside>  <!-- /#sidebar-second -->
+						<?php
+						$path = request_uri();
+						$exploded_path = explode('/', $path);
+						if ($exploded_path[2] == 'training') : ?>
+							<br>
+							<img src="/sites/all/themes/fdc_bootstrap/img/pci-dds.jpg">
+						<?php endif; ?>
+					</aside>  <!-- /#sidebar-second -->
         <?php endif; ?>
-		</div><!-- /.row with content and sidebars -->
+
+			</div><!-- /.row with content and sidebars -->
         
     <?php if (!empty($page['after_sidebars'])) { ?>
       <div class="row region-after-sidebars">

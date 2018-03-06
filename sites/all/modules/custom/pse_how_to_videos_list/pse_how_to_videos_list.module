@@ -1,0 +1,51 @@
+<?php
+
+function pse_how_to_videos_list_block_info() {
+  $blocks = array();
+  $blocks['pse_how_to_videos_list'] = array(
+    'info' => t('PSE How-to Video List'),
+  );
+
+  return $blocks;
+}
+
+function pse_how_to_videos_list_block_view($delta='') {
+  $block = array();
+
+  switch($delta) {
+    case 'pse_how_to_videos_list' :
+      $block['content'] = pse_how_to_videos_list_html(pse_how_to_videos_list_fetch());
+      break;
+  }
+
+  return $block;
+}
+
+function pse_how_to_videos_list_fetch()
+{
+  $url = 'https://vimeo.psenterprise.com/api/videos?album=4377223';
+  $data = json_decode(file_get_contents($url), true);
+  return $data;
+}
+
+function pse_how_to_videos_list_html($data)
+{
+  $html[] = '<ul>';
+
+  foreach($data['videos'] as $video) {
+    $html[] = '<li>' ;
+    $html[] =  $video['name'];
+    $html[] =  '<br/>' . implode(' ', $video['albums']);
+    $html[] =  ' ' . implode(' ', $video['filters']) ;
+    $html[] =  '</li>';
+
+    $html[] = '<li>' ;
+
+    $html[] = '<iframe width="480" height="300" src="https://player.vimeo.com/video/' . $video['ref'] . '" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>';
+    $html[] =  '</li>';
+
+  }
+
+  $html[] = '</ul>';
+  return implode(' ', $html);
+}
