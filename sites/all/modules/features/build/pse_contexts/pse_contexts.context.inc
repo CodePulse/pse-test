@@ -30,37 +30,37 @@ function pse_contexts_context_default_contexts() {
           'module' => 'block',
           'delta' => '1',
           'region' => 'sidebar_second',
-          'weight' => '-20',
-        ),
-        'facetapi-Dl4x1g5xLq5hvAPaZSsqMuwJ40a1PpP6' => array(
-          'module' => 'facetapi',
-          'delta' => 'Dl4x1g5xLq5hvAPaZSsqMuwJ40a1PpP6',
-          'region' => 'sidebar_second',
           'weight' => '-9',
-        ),
-        'facetapi-vXW116fTZPZEZzuo7nKQFl3IVF3RoHB8' => array(
-          'module' => 'facetapi',
-          'delta' => 'vXW116fTZPZEZzuo7nKQFl3IVF3RoHB8',
-          'region' => 'sidebar_second',
-          'weight' => '-8',
-        ),
-        'facetapi-qCBENPr8wbZYDww1roJNQ4N1GnKrAFQ1' => array(
-          'module' => 'facetapi',
-          'delta' => 'qCBENPr8wbZYDww1roJNQ4N1GnKrAFQ1',
-          'region' => 'sidebar_second',
-          'weight' => '-7',
-        ),
-        'facetapi-psf3TPvLs9R1DaIbi9IIrkJz9AApNCEi' => array(
-          'module' => 'facetapi',
-          'delta' => 'psf3TPvLs9R1DaIbi9IIrkJz9AApNCEi',
-          'region' => 'sidebar_second',
-          'weight' => '-6',
         ),
         'block-4' => array(
           'module' => 'block',
           'delta' => '4',
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-8',
+        ),
+        'facetapi-Dl4x1g5xLq5hvAPaZSsqMuwJ40a1PpP6' => array(
+          'module' => 'facetapi',
+          'delta' => 'Dl4x1g5xLq5hvAPaZSsqMuwJ40a1PpP6',
+          'region' => 'sidebar_second',
+          'weight' => '-7',
+        ),
+        'facetapi-vXW116fTZPZEZzuo7nKQFl3IVF3RoHB8' => array(
+          'module' => 'facetapi',
+          'delta' => 'vXW116fTZPZEZzuo7nKQFl3IVF3RoHB8',
+          'region' => 'sidebar_second',
+          'weight' => '-6',
+        ),
+        'facetapi-qCBENPr8wbZYDww1roJNQ4N1GnKrAFQ1' => array(
+          'module' => 'facetapi',
+          'delta' => 'qCBENPr8wbZYDww1roJNQ4N1GnKrAFQ1',
+          'region' => 'sidebar_second',
+          'weight' => '-5',
+        ),
+        'facetapi-psf3TPvLs9R1DaIbi9IIrkJz9AApNCEi' => array(
+          'module' => 'facetapi',
+          'delta' => 'psf3TPvLs9R1DaIbi9IIrkJz9AApNCEi',
+          'region' => 'sidebar_second',
+          'weight' => '-4',
         ),
       ),
     ),
@@ -89,12 +89,6 @@ function pse_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-5' => array(
-          'module' => 'block',
-          'delta' => '5',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
-        ),
         'block-4' => array(
           'module' => 'block',
           'delta' => '4',
