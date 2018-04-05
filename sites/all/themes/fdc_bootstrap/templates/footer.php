@@ -56,14 +56,27 @@
       }
     ?>
 
-		<p class="copyright">
-			<span class="copyright">&copy; Process Systems Enterprise Limited</span>
-			<a class="footer_link first" href="/misc/copyright">Copyright</a>
-			<a class="footer_link" href="/misc/privacy">Privacy</a>
-			<a class="footer_link" href="/misc/cookies">Cookies</a>
-			<a class="footer_link" href="/misc/accessibility">Accessibility</a>
-			<a class="footer_link" href="/misc/registration">Legal</a>
-		</p>
+		<div class="row">
+			<div class="col-md-8">
+				<p class="copyright">
+					<span class="copyright">&copy; Process Systems Enterprise Limited</span>
+					<a class="footer_link first" href="/misc/copyright">Copyright</a>
+					<a class="footer_link" href="/misc/privacy">Privacy</a>
+					<a class="footer_link" href="/misc/cookies">Cookies</a>
+					<a class="footer_link" href="/misc/accessibility">Accessibility</a>
+					<a class="footer_link" href="/misc/registration">Legal</a>
+				</p>
+			</div>
+			<div class="col-md-4">
+				<p class="footer-social">
+					<a href="https://www.linkedin.com/company/process-systems-enterprise/" target="_blank"><img src="/sites/all/themes/fdc_bootstrap/img/icon_social_linkedin.png" ></a>
+					<a href="https://www.facebook.com/Process-Systems-Enterprise-Limited-PSE-194030330653358/" target="_blank"><img src="/sites/all/themes/fdc_bootstrap/img/icon_social_facebook.png" ></a>
+				</p>
+
+			</div>
+		</div>
+
+
 
 	<?php endif; ?>
 

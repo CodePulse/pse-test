@@ -2822,6 +2822,14 @@ body.node-type-news-articles aside#sidebarnobg {
 .page-news .events-news-side {
 	margin-top: 100px;
 }
-.events-news-side {
-	margin-top: 60px;
+
+.footer-social {
+	float:right;
+}
+.footer-social a {
+	display: inline-block;
+}
+
+.footer-social a img {
+	height: 20px;
 }
