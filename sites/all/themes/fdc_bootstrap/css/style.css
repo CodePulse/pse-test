@@ -2819,9 +2819,10 @@ body.node-type-news-articles aside#sidebarnobg {
 	padding-top: 30px;
 }
 
-.events-news-side {
+.page-news .events-news-side {
 	margin-top: 100px;
 }
+
 .footer-social {
 	float:right;
 }
