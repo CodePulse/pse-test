@@ -70,6 +70,7 @@
 			<div class="col-md-4">
 				<p class="footer-social">
 					<a href="https://www.linkedin.com/company/process-systems-enterprise/" target="_blank"><img src="/sites/all/themes/fdc_bootstrap/img/icon_social_linkedin.png" ></a>
+					<a href="https://twitter.com/psenterprise" target="_blank"><img src="/sites/all/themes/fdc_bootstrap/img/icon_social_twitter.png" ></a>
 					<a href="https://www.facebook.com/Process-Systems-Enterprise-Limited-PSE-194030330653358/" target="_blank"><img src="/sites/all/themes/fdc_bootstrap/img/icon_social_facebook.png" ></a>
 				</p>
 
