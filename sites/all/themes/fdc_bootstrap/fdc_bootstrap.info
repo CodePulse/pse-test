@@ -11,6 +11,7 @@ base theme = bootstrap
 ;;;;;;;;;;;;;;;;;;;;;
 
 regions[header]         = 'Top Bar'
+regions[main_menu_region]         = 'Main Menu Region'
 regions[highlighted]    = 'Highlighted'
 regions[before_sidebars] = 'Before sidebars'
 regions[content]        = 'Content'

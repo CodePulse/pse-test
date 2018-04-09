@@ -2822,3 +2822,23 @@ body.node-type-news-articles aside#sidebarnobg {
 .events-news-side {
 	margin-top: 100px;
 }
+
+.new-pse body {
+	background: #fff;
+}
+
+.pse-nav-bar {
+	position: relative;
+}
+.pse--menu {
+	margin-left: 90px;
+}
+
+.pse-main-nav__logo {
+	width: 80px;
+	float: left;
+}
+
+.pse-main-nav__main-menu {
+	margin-left: 10px;
+}

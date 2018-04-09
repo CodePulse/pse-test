@@ -1,0 +1,14 @@
+.sf-menu.sf-style-white li,
+.sf-menu.sf-style-white.sf-navbar {
+    background: none;
+}
+
+.sf-menu.sf-style-white a,
+.sf-menu.sf-style-white span.nolink {
+    border: 0;
+}
+
+.sf-menu.sf-style-white a,
+.sf-menu.sf-style-white span.nolink {
+    color: #006c85;
+}
