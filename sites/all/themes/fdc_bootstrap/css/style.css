@@ -2842,3 +2842,51 @@ body.node-type-news-articles aside#sidebarnobg {
 .pse-main-nav__main-menu {
 	margin-left: 10px;
 }
+
+.pse-user-menu ul.menu li a{
+	width: auto;
+}
+.pse-user-menu {
+	float: right;
+	display: block;
+	height: 20px;
+}
+
+.new-pse #block-system-main {
+	border: 0;
+}
+
+.pse-user-menu .sf-menu.sf-style-white a {
+	font-size: .8em;
+}
+
+.pse-user-menu .sf-menu.sf-style-white a,
+.pse-user-menu .sf-menu.sf-style-white span.nolink {
+	padding: 5px 15px;
+}
+
+.pse--menu .sf-menu.sf-style-white {
+	margin-bottom: 0;
+}
+
+.region-main-menu-region {
+	padding-top:30px;
+}
+
+html.new-pse {
+	padding-top:10px;
+}
+
+.pse .header_search #search_input {
+	border-radius: 5px;
+	border: 1px solid #000;
+}
+
+
+.pse-homepage--carousel--slide {
+	min-height: 455px;
+}
+
+.pse-main-content {
+	padding-top: 50px
+}

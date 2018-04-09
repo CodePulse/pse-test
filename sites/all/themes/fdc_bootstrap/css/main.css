@@ -1795,10 +1795,12 @@ text-align: right;
 .pse {
 
 }
+.pse-user-menu ul,
 .pse--menu ul {
 	width: auto;
 }
 
+.pse-user-menu ul.menu li,
 .pse--menu ul.menu li {
 	border: 0;
 }

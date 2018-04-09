@@ -52,7 +52,11 @@ jQuery(document).ready(function() {
     }, 1500);
   }
 });
-
+$(document).ready(function(){
+	$(".owl-carousel").owlCarousel({
+		items:1
+	});
+});
 //jQuery(document).ready(function() {
 // // check where the shoppingcart-div is  
 ////  var stickyElements = '.page-full-url-user-dashboard .region-sidebar-second';
