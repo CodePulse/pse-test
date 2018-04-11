@@ -82,8 +82,15 @@
                     <div class="section-item--image" style="background-image: url('https://picsum.photos/100/104');"></div>
                     <div class="section-item--content">
                       <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
-                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
-                      <i class="fas fa-long-arrow-alt-right"></i>
+                      <div class="row">
+                        <div class="col-sm-10">
+                          <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
+                        </div>
+                        <div class="col-sm-2">
+                          <i class="fas fa-long-arrow-alt-right"></i>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>

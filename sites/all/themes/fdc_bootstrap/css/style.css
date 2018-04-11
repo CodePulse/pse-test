@@ -2888,6 +2888,7 @@ html.new-pse {
 }
 .pse-island--image {
 	min-height: 265px;
+	background-size: 100% 100%;
 }
 .section-item--image {
 	width: 100px;
@@ -2987,4 +2988,19 @@ p.primary-read-more-cta {
 .primary-read-more-cta a {
 	text-transform: uppercase;
 	font-size:16px;
+}
+
+
+.pse-island {
+	width: calc(100% - 70px);
+	margin: 0 35px 30px;
+	position: relative;
+	z-index: 2;
+}
+
+@media (min-width: 768px) {
+	.pse-island {
+		width: auto;
+		margin: 0;
+	}
 }
