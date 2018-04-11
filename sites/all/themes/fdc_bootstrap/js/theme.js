@@ -54,7 +54,9 @@ jQuery(document).ready(function() {
 });
 $(document).ready(function(){
 	$(".owl-carousel").owlCarousel({
-		items:1
+		nav:true,
+		items:1,
+		navText:['prev', 'next']
 	});
 });
 //jQuery(document).ready(function() {

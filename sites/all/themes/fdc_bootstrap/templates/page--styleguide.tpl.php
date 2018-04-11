@@ -29,12 +29,125 @@
       </div>
       <div class="row">
         <div class="pse-main-content">
-            <div class="pse-homepage--carousel">
+          <div class="pse-homepage--carousel">
               <div class="owl-carousel owl-theme">
                 <a href="/"><div class="pse-homepage--carousel--slide" style="background-image: url('https://picsum.photos/1500/457');"></div></a>
                 <a href="/"><div class="pse-homepage--carousel--slide" style="background-image: url('https://picsum.photos/1500/458');"></div></a>
                 <a href="/"><div class="pse-homepage--carousel--slide" style="background-image: url('https://picsum.photos/1500/459');"></div></a></div>
             </div>
+          <div class="row padding-top">
+            <div class="col-xs-12 col-md-8">
+              <div class="pse-homepage-sub-text">
+                <p><?php print t('Our products and services help process organisations explore the decision space rapidly and effectively, and make better, faster and safer design and operation decisions.'); ?></p>
+                <p class="primary-read-more-cta"><?php print l(t('More about PSE'), '/more'); ?></p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <div class="pse-quote">
+                <p class="quote-body"><?php print t('We improved process economics by tens of millions of £/year'); ?></p>
+                <p class="quote-author"><?php print t('Integrated global energy company repsol'); ?></p>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <div class="pse-island">
+                <div class="pse-island--image" style="background-image: url('https://picsum.photos/370/273');"></div>
+                <p class="pse-island--title"><?php print t('gPROMS ProcessBuilder 1.2'); ?></p>
+                <p class="pse-island--description"><?php print t('Hear why leading companies sucha as Procter & Gamble and Nestle have turned to Advanced Process Modelling'); ?></p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="pse-island">
+                <div class="pse-island--image" style="background-image: url('https://picsum.photos/370/272');"></div>
+                <p class="pse-island--title"><?php print t('gPROMS pROCESS 1.2'); ?></p>
+                <p class="pse-island--description"><?php print t('Companies sucha as Procter & Gamble and Nestle have turned to Advanced Process Modelling'); ?></p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="pse-island">
+                <div class="pse-island--image" style="background-image: url('https://picsum.photos/370/271');"></div>
+                <p class="pse-island--title"><?php print t('Never ProcessBuilder 1.2'); ?></p>
+                <p class="pse-island--description"><?php print t('Procter & Gamble and Nestle have turned to Advanced Process Modelling'); ?></p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <p class="section-title"><?php print t('News'); ?></p>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="section-item">
+                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/104');"></div>
+                    <div class="section-item--content">
+                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
+                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
+                      <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="section-item">
+                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/105');"></div>
+                    <div class="section-item--content">
+                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
+                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
+                      <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="section-item">
+                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/106');"></div>
+                    <div class="section-item--content">
+                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
+                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
+                      <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="read-more-cta"><?php print l(t('More news'), '/news'); ?></p>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <p class="section-title"><?php print t('Events'); ?></p>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="section-item">
+                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/103');"></div>
+                    <div class="section-item--content">
+                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
+                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
+                      <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="section-item">
+                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/102');"></div>
+                    <div class="section-item--content">
+                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
+                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
+                      <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="section-item">
+                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/101');"></div>
+                    <div class="section-item--content">
+                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
+                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
+                      <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="read-more-cta"><?php print l(t('More events'), '/events'); ?></p>
+            </div>
+          </div>
+
           <?php print render($page['content']); ?>
         </div>
       </div>

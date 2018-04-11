@@ -4,7 +4,8 @@
     <?php print $scripts; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="sites/all/themes/fdc_bootstrap/libraries/owl_carousel/docs/assets/owlcarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="sites/all/themes/fdc_bootstrap//libraries/owl_carousel/docs/assets/owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="sites/all/themes/fdc_bootstrap/libraries/owl_carousel/docs/assets/owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="sites/all/themes/fdc_bootstrap/libraries/fontawesome/css/fontawesome-all.css">
   </head>
   <?php print $page; ?>
 <footer>

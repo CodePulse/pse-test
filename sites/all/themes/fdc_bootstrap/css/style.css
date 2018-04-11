@@ -2886,7 +2886,105 @@ html.new-pse {
 .pse-homepage--carousel--slide {
 	min-height: 455px;
 }
-
+.pse-island--image {
+	min-height: 265px;
+}
+.section-item--image {
+	width: 100px;
+	height: 100px;
+}
 .pse-main-content {
 	padding-top: 50px
+}
+
+.pse-quote:before {
+	content: open-quote;
+	font-size:8em;
+	position: absolute;
+	top: -80px;
+}
+.pse-quote:after {
+	content: close-quote;
+	font-size:8em;
+	position: absolute;
+	right: 0;
+	bottom: -90px;
+}
+
+.pse-quote {
+	color: #ef7e06;
+}
+
+.quote-author {
+	text-transform: uppercase;
+	padding-left: 30px;
+	font-size: 1.2em;
+}
+
+.quote-body {
+	font-size: 2.3em;
+	padding-left: 30px;
+	margin-bottom: 0;
+}
+
+.pse-homepage-sub-text {
+	font-size: 2.2em;
+	color: #000;
+}
+.pse hr {
+	border: 0;
+	height: 2px;
+	color: #000;
+	background-color: #000;
+}
+
+.pse-island--title {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #000;
+	margin-bottom: 5px;
+}
+.pse-island--description {
+	color: #000;
+}
+.section-item {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #000;
+	padding-top: 10px;
+}
+.section-item div {
+	display: inline-block;
+	vertical-align: top;
+}
+.section-title {
+	font-weight: bold;
+	display: block;
+	width: auto;
+	border-bottom: 1px solid #000;
+	color: #000;
+}
+p.section-item--date-location {
+	font-size: 20px;
+	color: #000;
+	margin-bottom:0;
+}
+.section-item--title {
+	color: #000;
+	font-size: 20px;
+	width: 75%;
+}
+.section-item--content {
+	margin-left: 20px;
+	max-height: 100px;
+}
+.read-more-cta {
+	float: right;
+}
+
+p.primary-read-more-cta {
+	margin-bottom:0;
+}
+.primary-read-more-cta a {
+	text-transform: uppercase;
+	font-size:16px;
 }
