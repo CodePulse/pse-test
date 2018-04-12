@@ -2819,6 +2819,17 @@ body.node-type-news-articles aside#sidebarnobg {
 	padding-top: 30px;
 }
 
-.events-news-side {
+.page-news .events-news-side {
 	margin-top: 100px;
+}
+
+.footer-social {
+	float:right;
+}
+.footer-social a {
+	display: inline-block;
+}
+
+.footer-social a img {
+	height: 20px;
 }
