@@ -2953,9 +2953,7 @@ html.new-pse {
 	color: #000;
 }
 .section-item {
-	padding-bottom: 10px;
 	border-bottom: 1px solid #000;
-	padding-top: 10px;
 	position: relative;
 	flex-flow: row;
 	-webkit-box-orient: horizontal;
@@ -2972,6 +2970,7 @@ html.new-pse {
 	-ms-flex-align: center;
 	align-items: center;
 	-ms-flex-flow: column;
+	min-height: 140px;
 }
 .section-title {
 	font-weight: bold;

@@ -161,11 +161,21 @@
             </div>
             </div>
           </div>
-
           <?php print render($page['content']); ?>
         </div>
       </div>
       </div>
     </div>
-  </div>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8">
+          <?php print render($page['footer_menu_region']); ?>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>

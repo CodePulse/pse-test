@@ -98,8 +98,8 @@ function menu_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
       'fdc_bootstrap' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'footer_menu_region',
+        'status' => 1,
         'theme' => 'fdc_bootstrap',
         'weight' => 0,
       ),
