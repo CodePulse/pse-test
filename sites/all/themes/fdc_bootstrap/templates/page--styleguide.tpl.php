@@ -33,7 +33,8 @@
               <div class="owl-carousel owl-theme">
                 <a href="/"><div class="pse-homepage--carousel--slide" style="background-image: url('https://picsum.photos/1500/457');"></div></a>
                 <a href="/"><div class="pse-homepage--carousel--slide" style="background-image: url('https://picsum.photos/1500/458');"></div></a>
-                <a href="/"><div class="pse-homepage--carousel--slide" style="background-image: url('https://picsum.photos/1500/459');"></div></a></div>
+                <a href="/"><div class="pse-homepage--carousel--slide" style="background-image: url('https://picsum.photos/1500/459');"></div></a>
+              </div>
             </div>
           <div class="row padding-top">
             <div class="col-xs-12 col-md-8">
@@ -74,84 +75,90 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-12 col-sm-6">
-              <p class="section-title"><?php print t('News'); ?></p>
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="section-item">
-                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/104');"></div>
-                    <div class="section-item--content">
-                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
-                      <div class="row">
-                        <div class="col-sm-10">
-                          <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
-                        </div>
-                        <div class="col-sm-2">
-                          <i class="fas fa-long-arrow-alt-right"></i>
-                        </div>
+            <div class="page-section">
+              <div class="col-xs-12 col-sm-6">
+                <p class="section-title"><?php print t('News'); ?></p>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="section-item">
+                      <div class="section-item--image--wrapper">
+                        <div class="section-item--image" style="background-image: url('https://picsum.photos/100/104');"></div>
                       </div>
-
+                      <div class="section-item--body">
+                        <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
+                        <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?> <i class="fas fa-long-arrow-alt-right section-item--cta"></i></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <div class="section-item">
+                      <div class="section-item--image--wrapper">
+                        <div class="section-item--image" style="background-image: url('https://picsum.photos/100/113');"></div>
+                      </div>
+                      <div class="section-item--body">
+                        <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
+                        <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?> <a href="#"><i class="fas fa-long-arrow-alt-right section-item--cta"></i></a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <div class="section-item">
+                      <div class="section-item--image--wrapper">
+                        <div class="section-item--image" style="background-image: url('https://picsum.photos/100/104');"></div>
+                      </div>
+                      <div class="section-item--body">
+                        <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
+                        <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?> <i class="fas fa-long-arrow-alt-right section-item--cta"></i></p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-xs-12">
-                  <div class="section-item">
-                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/105');"></div>
-                    <div class="section-item--content">
-                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
-                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
-                      <i class="fas fa-long-arrow-alt-right"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12">
-                  <div class="section-item">
-                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/106');"></div>
-                    <div class="section-item--content">
-                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
-                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
-                      <i class="fas fa-long-arrow-alt-right"></i>
-                    </div>
-                  </div>
-                </div>
+                <p class="read-more-cta"><?php print l(t('More news'), '/news'); ?></p>
               </div>
-              <p class="read-more-cta"><?php print l(t('More news'), '/news'); ?></p>
             </div>
-            <div class="col-xs-12 col-sm-6">
+            <div class="page-section">
+              <div class="col-xs-12 col-sm-6">
               <p class="section-title"><?php print t('Events'); ?></p>
               <div class="row">
                 <div class="col-xs-12">
                   <div class="section-item">
-                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/103');"></div>
-                    <div class="section-item--content">
-                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
-                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
-                      <i class="fas fa-long-arrow-alt-right"></i>
+                    <div class="section-item--image--wrapper">
+                      <div class="section-item--image" style="background-image: url('https://picsum.photos/100/109');"></div>
+                    </div>
+                    <div class="section-item--body">
+                      <p class="section-item--title section-item--events-type"><?php print t('PSE Webinar:'); ?></p>
+                      <p class="section-item--events-title"><?php print t('PSE and RCPE announce pharma centre of excellence:'); ?></p>
+                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?> <i class="fas fa-long-arrow-alt-right section-item--cta"></i></p>
                     </div>
                   </div>
                 </div>
                 <div class="col-xs-12">
                   <div class="section-item">
-                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/102');"></div>
-                    <div class="section-item--content">
-                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
-                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
-                      <i class="fas fa-long-arrow-alt-right"></i>
+                    <div class="section-item--image--wrapper">
+                      <div class="section-item--image" style="background-image: url('https://picsum.photos/100/109');"></div>
+                    </div>
+                    <div class="section-item--body">
+                      <p class="section-item--title section-item--events-type"><?php print t('PSE Webinar:'); ?></p>
+                      <p class="section-item--events-title"><?php print t('PSE Webinar:'); ?></p>
+                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?> <i class="fas fa-long-arrow-alt-right section-item--cta"></i></p>
                     </div>
                   </div>
                 </div>
                 <div class="col-xs-12">
                   <div class="section-item">
-                    <div class="section-item--image" style="background-image: url('https://picsum.photos/100/101');"></div>
-                    <div class="section-item--content">
-                      <p class="section-item--title"><?php print t('PSE and RCPE announce pharma centre of excellence'); ?></p>
-                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?></p>
-                      <i class="fas fa-long-arrow-alt-right"></i>
+                    <div class="section-item--image--wrapper">
+                      <div class="section-item--image" style="background-image: url('https://picsum.photos/100/109');"></div>
+                    </div>
+                    <div class="section-item--body">
+                      <p class="section-item--title section-item--events-type"><?php print t('PSE Webinar:'); ?></p>
+                      <p class="section-item--events-title"><?php print t('PSE Webinar:'); ?></p>
+                      <p class="section-item--date-location"><?php print t('14 May 2018, London'); ?> <i class="fas fa-long-arrow-alt-right section-item--cta"></i></p>
                     </div>
                   </div>
                 </div>
               </div>
               <p class="read-more-cta"><?php print l(t('More events'), '/events'); ?></p>
+            </div>
             </div>
           </div>
 

@@ -56,7 +56,7 @@ $(document).ready(function(){
 	$(".owl-carousel").owlCarousel({
 		nav:true,
 		items:1,
-		navText:['prev', 'next']
+		navText:[' <i class="fas fa-angle-left next"></i>', '<i class="fas fa-angle-right next"></i>']
 	});
 });
 //jQuery(document).ready(function() {
