@@ -3056,6 +3056,21 @@ p.primary-read-more-cta {
 .section-item--events-title {
 	color: #026C85;
 }
+.owl-carousel .owl-nav button.owl-next {
+	position: absolute;
+	top: 50%;
+	font-size: 4em !important;
+	right:0
+}
+.owl-carousel .owl-nav button.owl-prev {
+	position: absolute;
+	top: 50%;
+	font-size: 4em !important;
+	left:0
+}
+.owl-theme .owl-nav [class*=owl-]:hover {
+	background: none !important;
+}
 @media (min-width: 768px) {
 	.pse-island {
 		width: auto;
