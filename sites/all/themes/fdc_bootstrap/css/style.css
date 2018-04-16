@@ -2833,3 +2833,32 @@ body.node-type-news-articles aside#sidebarnobg {
 .footer-social a img {
 	height: 20px;
 }
+.news-sidebar-heading {
+	margin-top: 10px;
+}
+.events-sidebar-heading {
+	margin-top: 65px;
+	display: block;
+}
+.region-sidebar-second ul li a{
+	padding-left: 15px;
+}
+.region-sidebar-second ul li {
+	list-style: none;
+	position: relative;
+	padding-left: 30px;
+}
+.region-sidebar-second ul li:before {
+	transform: rotate(90deg);
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid black;
+	width: 10px;
+	height: 10px;
+	transition: transform 0.2s;
+	display: inline-block;
+	position: absolute;
+	top: 5px;
+	content: "";
+	box-sizing: border-box;
+}
