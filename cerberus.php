@@ -2,7 +2,8 @@
 
 $patterns = [
   '/^\/resource-centre$/',
-  '/^\/password\/reset\/\d*\/[a-zA-Z0-9]*$/'
+  '/^\/password\/reset\/\d*\/[a-zA-Z0-9]*$/',
+  '/^\/how-to-videos/'
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {

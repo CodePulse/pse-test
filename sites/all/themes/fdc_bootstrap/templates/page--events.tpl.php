@@ -163,7 +163,7 @@
 
         <?php if (!empty($page['sidebar_second'])): ?>
           <aside class="col-sm-3 events-news-side" role="complementary">
-            <span style="font-size: x-large;"><?php print t('More Information'); ?></span>
+            <span class="events-sidebar-heading" style="font-size: x-large;"><?php print t('More Information'); ?></span>
             <?php print render($page['sidebar_second']); ?>
           </aside>  <!-- /#sidebar-second -->
         <?php endif; ?>
