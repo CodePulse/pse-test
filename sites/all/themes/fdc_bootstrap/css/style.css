@@ -3071,6 +3071,9 @@ p.primary-read-more-cta {
 .owl-theme .owl-nav [class*=owl-]:hover {
 	background: none !important;
 }
+.region-user-menu-region {
+	float: right;
+}
 @media (min-width: 768px) {
 	.pse-island {
 		width: auto;
