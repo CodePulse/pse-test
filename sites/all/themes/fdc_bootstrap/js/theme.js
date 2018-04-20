@@ -52,7 +52,13 @@ jQuery(document).ready(function() {
     }, 1500);
   }
 });
-
+$(document).ready(function(){
+	$(".owl-carousel").owlCarousel({
+		nav:true,
+		items:1,
+		navText:[' <i class="fas fa-angle-left next"></i>', '<i class="fas fa-angle-right next"></i>']
+	});
+});
 //jQuery(document).ready(function() {
 // // check where the shoppingcart-div is  
 ////  var stickyElements = '.page-full-url-user-dashboard .region-sidebar-second';

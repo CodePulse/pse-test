@@ -1,0 +1,57 @@
+<?php
+
+function pse_styleguide_menu() {
+  $items = array();
+  $items['styleguide'] = array(
+    'title' => 'Styleguide',
+    'page callback' => 'pse_styleguide_page',
+    'access arguments' => array('access content'),
+  );
+
+  $items['styleguide-two'] = array(
+    'title' => 'Styleguide',
+    'page callback' => 'pse_styleguide_page_two',
+    'access arguments' => array('access content'),
+  );
+
+  return $items;
+}
+
+
+function pse_styleguide_page() {
+  $page = array();
+
+  $page['#theme'] = 'styleguide';
+
+  return $page;
+}
+
+function pse_styleguide_page_two() {
+
+  return array('#theme' => drupal_get_path('module', 'pse_styleguide') . '/templates/styleguide_two.tpl.php');
+
+}
+
+
+function pse_styleguide_theme() {
+  return array(
+    'styleguide' => array(
+      'template' => 'styleguide',
+      'variables' => array(
+        'page' => array(),
+      ),
+      'path' => drupal_get_path('module', 'pse_styleguide') . '/templates',
+    ),
+    'styleguide_two' => array(
+      'template' => 'styleguide_two',
+      'variables' => array(
+        'page' => array(),
+      ),
+      'path' => drupal_get_path('module', 'pse_styleguide') . '/templates',
+    ),
+  );
+}
+
+function pse_styleguide_custom_theme() {
+
+}
