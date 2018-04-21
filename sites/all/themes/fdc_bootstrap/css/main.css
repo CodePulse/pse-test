@@ -1075,7 +1075,6 @@ footer#ctaz {
 
 	color: #006c85;
 	left: 202px;
-	text-align: center;
 }
 .social-section a img {
 	height: 20px;
@@ -1083,7 +1082,7 @@ footer#ctaz {
 }
 
 footer#ctaz {
-	padding:0 0 5px 6px;
+	padding:0 0 7px 15px;
 }
 footer#ctaz p {
 	margin:0;
@@ -1094,6 +1093,9 @@ footer#ctaz p {
 }
 div.home footer#ctaz {
 	color:#fff;
+}
+.front footer#ctaz a {
+        color: #fff;
 }
 div.home footer#ctaz,
 div.home footer#cta {
