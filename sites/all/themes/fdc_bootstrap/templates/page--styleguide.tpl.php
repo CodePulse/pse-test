@@ -169,11 +169,16 @@
   <footer>
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-8">
+        <div class="pse-footer-menu">
           <?php print render($page['footer_menu_region']); ?>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-
+          <div class="pse-footer-social">
+            <a href="https://www.facebook.com/Process-Systems-Enterprise-Limited-PSE-194030330653358/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/psenterprise" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/process-systems-enterprise/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <div class="pse-copyright">
+            <?php print t('&copy; Copyright Process System Enterprise Limited ') . date('Y'); ?>
+          </div>
         </div>
       </div>
     </div>
