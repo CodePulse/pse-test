@@ -1120,7 +1120,7 @@ function menu_blocks_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'superfish_style_3';
-  $strongarm->value = 'simple';
+  $strongarm->value = 'white';
   $export['superfish_style_3'] = $strongarm;
 
   $strongarm = new stdClass();
