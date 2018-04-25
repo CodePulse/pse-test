@@ -3114,6 +3114,8 @@ p.primary-read-more-cta {
 	width: 100%;
 	background: #fff;
 	z-index: 5;
+	padding-bottom:10px;
+
 }
 .pse-sticky-nav .pse__logo {
 	height: 50px;
@@ -3128,6 +3130,7 @@ p.primary-read-more-cta {
 @media (min-width: 768px) {
 	.pse-sticky-nav {
 		height:70px;
+		padding-bottom: 0;
 	}
 	.pse-island {
 		width: auto;
