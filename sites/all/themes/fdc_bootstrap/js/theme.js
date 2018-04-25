@@ -58,6 +58,19 @@ $(document).ready(function(){
 		items:1,
 		navText:[' <i class="fas fa-angle-left next"></i>', '<i class="fas fa-angle-right next"></i>']
 	});
+	window.onscroll = function() {pseNavScroll()};
+
+	var navbar = document.getElementById("pse-main-menu");
+	var sticky = navbar.offsetTop;
+
+	function pseNavScroll() {
+		if (window.pageYOffset >= sticky) {
+			navbar.classList.add("pse-sticky-nav")
+		} else {
+			navbar.classList.remove("pse-sticky-nav");
+		}
+	}
+
 });
 //jQuery(document).ready(function() {
 // // check where the shoppingcart-div is  
