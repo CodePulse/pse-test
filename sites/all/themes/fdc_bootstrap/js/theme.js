@@ -58,6 +58,31 @@ $(document).ready(function(){
 		items:1,
 		navText:[' <i class="fas fa-angle-left next"></i>', '<i class="fas fa-angle-right next"></i>']
 	});
+
+	window.onscroll = function() {pseNavScroll()};
+	//window.onload = function() {mobileHeader()};
+
+	var navbar = document.getElementById("pse-main-menu");
+	var sticky = navbar.offsetTop;
+	var $window = $(window);
+
+	function pseNavScroll() {
+		if (window.pageYOffset >= sticky) {
+			navbar.classList.add("pse-sticky-nav")
+		} else {
+			navbar.classList.remove("pse-sticky-nav");
+		}
+	}
+	function mobileHeader() {
+		var windowsize = $window.width();
+		console.log(windowsize);
+		if (windowsize <= 767) {
+			navbar.classList.add("pse-sticky-nav")
+		} else {
+			navbar.classList.remove("pse-sticky-nav");
+		}
+	}
+
 });
 //jQuery(document).ready(function() {
 // // check where the shoppingcart-div is  

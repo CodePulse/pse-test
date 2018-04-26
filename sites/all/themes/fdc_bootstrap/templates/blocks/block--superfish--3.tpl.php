@@ -55,5 +55,10 @@
   <div class="content">
     <?php print $content ?>
   </div>
+  <div class="pse-footer-social">
+    <a href="https://www.facebook.com/Process-Systems-Enterprise-Limited-PSE-194030330653358/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://twitter.com/psenterprise" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/company/process-systems-enterprise/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+  </div>
 
 </section> <!-- /.block -->

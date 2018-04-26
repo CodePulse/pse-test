@@ -18,7 +18,7 @@
         </div>
         </div>
       <div class="row">
-        <div class="col-md-12 pse-nav-bar">
+        <div id="pse-main-menu" class="col-md-12 pse-nav-bar">
           <div class="pse-main-nav__logo">
             <a href=""><img src="<?php print '/' . drupal_get_path('theme', 'fdc_bootstrap') . '/logo.svg'?>" class="pse__logo"/></a>
           </div>
@@ -171,11 +171,6 @@
       <div class="row">
         <div class="pse-footer-menu">
           <?php print render($page['footer_menu_region']); ?>
-          <div class="pse-footer-social">
-            <a href="https://www.facebook.com/Process-Systems-Enterprise-Limited-PSE-194030330653358/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com/psenterprise" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/company/process-systems-enterprise/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          </div>
           <div class="pse-copyright">
             <?php print t('&copy; Copyright Process System Enterprise Limited ') . date('Y'); ?>
           </div>
