@@ -60,18 +60,16 @@ $(document).ready(function(){
 	});
 
 	window.onscroll = function() {pseNavScroll()};
-	window.onload = function() {mobileHeader()};
+	//window.onload = function() {mobileHeader()};
 
 	var navbar = document.getElementById("pse-main-menu");
 	var sticky = navbar.offsetTop;
 	var $window = $(window);
 
 	function pseNavScroll() {
-		var windowsize = $window.width();
-
 		if (window.pageYOffset >= sticky) {
 			navbar.classList.add("pse-sticky-nav")
-		} else if(windowsize >= 768) {
+		} else {
 			navbar.classList.remove("pse-sticky-nav");
 		}
 	}

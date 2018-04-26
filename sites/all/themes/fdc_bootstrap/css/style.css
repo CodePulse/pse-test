@@ -2832,6 +2832,7 @@ body.node-type-news-articles aside#sidebarnobg {
 }
 .pse--menu {
 	margin-left: 90px;
+	position: relative;
 }
 
 .pse-main-nav__logo {
@@ -3092,7 +3093,14 @@ p.primary-read-more-cta {
 .pse-footer-social a {
 	padding: 10px;
 }
-
+/* MOVE MENU POSITION IF POSSIBLE....TRY MAKE FULL WIDTH/SCREEN */
+.sf-accordion-toggle.sf-style-white a#superfish-1-toggle{
+	position: absolute;
+	right: 0;
+}
+.sf-accordion-toggle.sf-style-white {
+	padding-bottom: 50px;
+}
 .pse-footer-social a {
 	padding: 10px;
 	border: 1px solid;
